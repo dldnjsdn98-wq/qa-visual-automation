@@ -1,0 +1,30 @@
+project_name: Game Multilingual QA Visual Automation System
+project_status: IN_PROGRESS
+current_phase: 1
+bootstrap_status: COMPLETE
+active_roles: ["01", "02", "03", "04"]
+waiting_roles: ["05", "06", "07", "08", "09"]
+conditional_roles: ["08"]
+user_request_only_roles: ["10"]
+current_milestone: PHASE 1 Web MVP Implementation
+pm_readiness:
+  result: PROMOTED
+  evidence: .orchestration/handoffs/PHASE-1-IMPLEMENTATION-01.md
+  prior_readiness_evidence: .orchestration/reports/ARCH-001-01-readiness.md
+  reason: Approved revision 2 fingerprints verified; both web tasks READY with blockers cleared on 2026-09-06.
+reviewer_dispatch:
+  status: WAITING
+  reason: Architecture re-review completed by explicit user request; now waiting for both web tasks to be READY_FOR_REVIEW with evidence.
+  gate_conflict: null
+role_state_semantics: Eligibility only; active_roles does not mean a role task is running.
+architecture_dispatch:
+  task_id: ARCH-001
+  owner: "02"
+  status: ACCEPTED
+  review_evidence: .orchestration/reports/review.md
+  thread_id: null
+  handoff: .orchestration/handoffs/ARCH-001-02.md
+failed_tests: []
+critical_issues: []
+blocked_tasks: ["REVIEW-WEB-001"]
+last_updated: "2026-09-06"

@@ -1,0 +1,218 @@
+schema_version: 1
+rules:
+  criterion_statuses: [NOT_RUN, PASS, FAIL, BLOCKED]
+  phase_statuses: [NOT_STARTED, IN_PROGRESS, ACCEPTED]
+  gate: 'All required criteria PASS plus independent review ACCEPTED; never skip previous phase gates.'
+architecture:
+  - id: AC-ARCH-01
+    required: true
+    description: 'Reviewed domain cardinality, uniqueness, scoped API, error contract, storage and migration design.'
+    status: PASS
+    evidence:
+      - .orchestration/reports/review.md
+      - .orchestration/reports/ARCH-001-01-readiness.md
+    note: 'Reviewer 08 independently ACCEPTED revision 2 under explicit user authorization; R08-ARCH-001 RESOLVED. Prior FAIL review preserved in review.md. Architecture-only PASS; web functionality and phase acceptance remain unverified.'
+phases:
+  - phase: 1
+    status: IN_PROGRESS
+    review_result: null
+    criteria:
+      - id: AC-WEB-01
+        required: true
+        description: "Project CRUD"
+        status: NOT_RUN
+        evidence: []
+      - id: AC-WEB-02
+        required: true
+        description: "Build CRUD"
+        status: NOT_RUN
+        evidence: []
+      - id: AC-WEB-03
+        required: true
+        description: "Locale management"
+        status: NOT_RUN
+        evidence: []
+      - id: AC-WEB-04
+        required: true
+        description: "Category management"
+        status: NOT_RUN
+        evidence: []
+      - id: AC-WEB-05
+        required: true
+        description: "Situation management"
+        status: NOT_RUN
+        evidence: []
+      - id: AC-WEB-06
+        required: true
+        description: "String ID based multilingual string management"
+        status: NOT_RUN
+        evidence: []
+      - id: AC-WEB-07
+        required: true
+        description: "Manual screenshot upload"
+        status: NOT_RUN
+        evidence: []
+      - id: AC-WEB-08
+        required: true
+        description: "Screenshot metadata"
+        status: NOT_RUN
+        evidence: []
+      - id: AC-WEB-09
+        required: true
+        description: "Expected Strings display"
+        status: NOT_RUN
+        evidence: []
+      - id: AC-WEB-10
+        required: true
+        description: "Project / Build / Locale / Situation filters"
+        status: NOT_RUN
+        evidence: []
+      - id: AC-WEB-11
+        required: true
+        description: "Fresh database migrations reproduce domain schema"
+        status: NOT_RUN
+        evidence: []
+      - id: AC-WEB-12
+        required: true
+        description: "Backend tests PASS"
+        status: NOT_RUN
+        evidence: []
+      - id: AC-WEB-13
+        required: true
+        description: "Frontend build and behavior tests PASS"
+        status: NOT_RUN
+        evidence: []
+  - phase: 2
+    status: NOT_STARTED
+    review_result: null
+    criteria:
+      - id: AC-P2-01
+        required: true
+        description: "Durable offline queue preserves original screenshots"
+        status: NOT_RUN
+        evidence: []
+      - id: AC-P2-02
+        required: true
+        description: "Retry with backoff and logged terminal failures"
+        status: NOT_RUN
+        evidence: []
+      - id: AC-P2-03
+        required: true
+        description: "Idempotency and duplicate prevention survive process restart"
+        status: NOT_RUN
+        evidence: []
+      - id: AC-P2-04
+        required: true
+        description: "Uploaded screenshots and metadata appear in Web"
+        status: NOT_RUN
+        evidence: []
+  - phase: 3
+    status: NOT_STARTED
+    review_result: null
+    criteria:
+      - id: AC-P3-01
+        required: true
+        description: "Multilingual OCR preserves text, bounding boxes and confidence"
+        status: NOT_RUN
+        evidence: []
+      - id: AC-P3-02
+        required: true
+        description: "Exact, normalized and fuzzy matching tested on multilingual fixtures"
+        status: NOT_RUN
+        evidence: []
+      - id: AC-P3-03
+        required: true
+        description: "Config thresholds: >=95 PASS, >=85 and <95 REVIEW, <85 FAIL"
+        status: NOT_RUN
+        evidence: []
+      - id: AC-P3-04
+        required: true
+        description: "Verification results visible in Web with repeatable evidence"
+        status: NOT_RUN
+        evidence: []
+  - phase: 4
+    status: NOT_STARTED
+    review_result: null
+    criteria:
+      - id: AC-P4-01
+        required: true
+        description: "ADB screenshot and allowed inputs only; no game internals"
+        status: NOT_RUN
+        evidence: []
+      - id: AC-P4-02
+        required: true
+        description: "Required / optional / forbidden anchors and uncertain states handled"
+        status: NOT_RUN
+        evidence: []
+      - id: AC-P4-03
+        required: true
+        description: "Bounded polling validates next state; fixed sleep is not core control"
+        status: NOT_RUN
+        evidence: []
+      - id: AC-P4-04
+        required: true
+        description: "Checkpoint files enter captures/pending and existing uploader handles delivery"
+        status: NOT_RUN
+        evidence: []
+  - phase: 5
+    status: NOT_STARTED
+    review_result: null
+    criteria:
+      - id: AC-P5-01
+        required: true
+        description: "Persist tap/swipe/keyevent, timestamp, before/after and detected states"
+        status: NOT_RUN
+        evidence: []
+      - id: AC-P5-02
+        required: true
+        description: "Replay validates state and records failures"
+        status: NOT_RUN
+        evidence: []
+      - id: AC-P5-03
+        required: true
+        description: "Generate reviewable transition/template candidates and scenario drafts"
+        status: NOT_RUN
+        evidence: []
+  - phase: 6
+    status: NOT_STARTED
+    review_result: null
+    criteria:
+      - id: AC-P6-01
+        required: true
+        description: "Cost-aware path search and unreachable targets tested"
+        status: NOT_RUN
+        evidence: []
+      - id: AC-P6-02
+        required: true
+        description: "Navigation validates actual state after each transition"
+        status: NOT_RUN
+        evidence: []
+      - id: AC-P6-03
+        required: true
+        description: "Unexpected state and bounded recovery produce diagnostic artifacts"
+        status: NOT_RUN
+        evidence: []
+  - phase: 7
+    status: NOT_STARTED
+    review_result: null
+    criteria:
+      - id: AC-P7-01
+        required: true
+        description: "All required previous phases ACCEPTED"
+        status: NOT_RUN
+        evidence: []
+      - id: AC-P7-02
+        required: true
+        description: "Fresh deployment and schema migration reproducible"
+        status: NOT_RUN
+        evidence: []
+      - id: AC-P7-03
+        required: true
+        description: "Device-to-Web multilingual QA flow passes"
+        status: NOT_RUN
+        evidence: []
+      - id: AC-P7-04
+        required: true
+        description: "Network outage, duplicates, uncertain screens and worker failure recovery tested"
+        status: NOT_RUN
+        evidence: []

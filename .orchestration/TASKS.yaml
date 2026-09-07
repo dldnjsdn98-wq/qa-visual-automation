@@ -1,0 +1,176 @@
+schema_version: 1
+dependency_rules:
+  task: 'Satisfied only when referenced task is ACCEPTED, MERGED or DONE with acceptance evidence.'
+  review: 'Review tasks are an exception: activate when every referenced implementation task is READY_FOR_REVIEW with owner evidence; prior acceptance is not required to begin review.'
+  architecture: 'Promote BACKEND-WEB-001 and FRONTEND-WEB-001 together only after ARCH-001 is accepted with AC-ARCH-01 PASS and reviewed contract evidence.'
+  rework: 'CHANGES_REQUESTED returns work to the affected owner; dependent review waits for corrected evidence and resubmission.'
+  phase: 'PHASE N ACCEPTED requires every required criterion PASS and independent review ACCEPTED.'
+  integration: 'Required Previous Phases ACCEPTED means phases 1 through 6.'
+  git: 'Role 10 is user request only, never dependency triggered.'
+tasks:
+  - id: ARCH-001
+    phase: 1
+    title: PHASE 1 Architecture / Domain / API Contract
+    owner: "02"
+    status: DONE
+    completed_on: "2026-09-06"
+    completion_evidence: .orchestration/handoffs/PHASE-1-IMPLEMENTATION-01.md
+    priority: P0
+    depends_on: []
+    acceptance: ["AC-ARCH-01"]
+    branch: null
+    commit: null
+    tests:
+      - name: architecture_contract_static_validation
+        status: PASS
+        evidence: .orchestration/reports/ARCH-001-02-revision-2.md
+      - name: unicode_contract_reference_validation
+        status: PASS
+        evidence: .orchestration/reports/ARCH-001-02-revision-2.md
+    blockers: []
+    review_result: ACCEPTED
+    reviewed_revision: 2
+    review_findings:
+      - id: R08-ARCH-001
+        severity: MAJOR
+        status: RESOLVED
+        resolved_in_revision: 2
+        evidence: .orchestration/reports/review.md
+    review_history:
+      - submission: 1
+        result: CHANGES_REQUESTED
+        finding: R08-ARCH-001
+        evidence: .orchestration/reports/review.md
+      - submission: 2
+        result: ACCEPTED
+        finding: R08-ARCH-001
+        finding_status: RESOLVED
+        evidence: .orchestration/reports/review.md
+    submission_revision: 2
+    pm_readiness_evidence: .orchestration/reports/ARCH-001-01-readiness.md
+    review_evidence: .orchestration/reports/review.md
+    reviewer_handoff: .orchestration/handoffs/ARCH-001-08.md
+    handoff: .orchestration/handoffs/ARCH-001-02.md
+    review_requested: false
+    status_update_authority: explicit user instruction authorizes independent revision 2 acceptance and AC-ARCH-01 update; downstream promotion remains PM-owned
+  - id: BACKEND-WEB-001
+    phase: 1
+    title: Phase 1 backend review system
+    owner: "03"
+    status: IN_PROGRESS
+    started_on: "2026-09-06"
+    activation_handoff: .orchestration/handoffs/PHASE-1-IMPLEMENTATION-01.md
+    priority: P1
+    depends_on: ["ARCH-001"]
+    acceptance: ["AC-WEB-01","AC-WEB-02","AC-WEB-03","AC-WEB-04","AC-WEB-05","AC-WEB-06","AC-WEB-07","AC-WEB-08","AC-WEB-09","AC-WEB-10","AC-WEB-11","AC-WEB-12","AC-WEB-13"]
+    branch: null
+    commit: null
+    tests: []
+    blockers: []
+    review_result: null
+  - id: FRONTEND-WEB-001
+    phase: 1
+    title: Phase 1 frontend review system
+    owner: "04"
+    status: IN_PROGRESS
+    started_on: "2026-09-06"
+    activation_handoff: .orchestration/handoffs/PHASE-1-IMPLEMENTATION-01.md
+    priority: P1
+    depends_on: ["ARCH-001"]
+    acceptance: ["AC-WEB-01","AC-WEB-02","AC-WEB-03","AC-WEB-04","AC-WEB-05","AC-WEB-06","AC-WEB-07","AC-WEB-08","AC-WEB-09","AC-WEB-10","AC-WEB-11","AC-WEB-12","AC-WEB-13"]
+    branch: null
+    commit: null
+    tests: []
+    blockers: []
+    review_result: null
+  - id: REVIEW-WEB-001
+    phase: 1
+    title: Independent Phase 1 review
+    owner: "08"
+    status: BLOCKED
+    priority: P1
+    depends_on: ["BACKEND-WEB-001","FRONTEND-WEB-001"]
+    acceptance: ["AC-WEB-01","AC-WEB-02","AC-WEB-03","AC-WEB-04","AC-WEB-05","AC-WEB-06","AC-WEB-07","AC-WEB-08","AC-WEB-09","AC-WEB-10","AC-WEB-11","AC-WEB-12","AC-WEB-13"]
+    branch: null
+    commit: null
+    tests: []
+    blockers: ["BACKEND-WEB-001 and FRONTEND-WEB-001 must both be READY_FOR_REVIEW with evidence"]
+    review_result: null
+  - id: UPLOAD-001
+    phase: 2
+    title: Screenshot automatic upload
+    owner: "06"
+    status: TODO
+    priority: P1
+    depends_on: ["PHASE 1 ACCEPTED"]
+    acceptance: ["AC-P2-01","AC-P2-02","AC-P2-03","AC-P2-04"]
+    branch: null
+    commit: null
+    tests: []
+    blockers: []
+    review_result: null
+  - id: OCR-001
+    phase: 3
+    title: OCR and verification
+    owner: "05"
+    status: TODO
+    priority: P1
+    depends_on: ["PHASE 2 ACCEPTED"]
+    acceptance: ["AC-P3-01","AC-P3-02","AC-P3-03","AC-P3-04"]
+    branch: null
+    commit: null
+    tests: []
+    blockers: []
+    review_result: null
+  - id: AUTO-001
+    phase: 4
+    title: Black box visual automation
+    owner: "07"
+    status: TODO
+    priority: P1
+    depends_on: ["PHASE 3 ACCEPTED"]
+    acceptance: ["AC-P4-01","AC-P4-02","AC-P4-03","AC-P4-04"]
+    branch: null
+    commit: null
+    tests: []
+    blockers: []
+    review_result: null
+  - id: RECORD-001
+    phase: 5
+    title: Record and replay
+    owner: "07"
+    status: TODO
+    priority: P1
+    depends_on: ["PHASE 4 ACCEPTED"]
+    acceptance: ["AC-P5-01","AC-P5-02","AC-P5-03"]
+    branch: null
+    commit: null
+    tests: []
+    blockers: []
+    review_result: null
+  - id: GRAPH-001
+    phase: 6
+    title: State graph navigation
+    owner: "07"
+    status: TODO
+    priority: P1
+    depends_on: ["PHASE 5 ACCEPTED"]
+    acceptance: ["AC-P6-01","AC-P6-02","AC-P6-03"]
+    branch: null
+    commit: null
+    tests: []
+    blockers: []
+    review_result: null
+  - id: INTEGRATION-001
+    phase: 7
+    title: End-to-end integration
+    owner: "09"
+    status: TODO
+    priority: P1
+    depends_on: ["Required Previous Phases ACCEPTED"]
+    acceptance: ["AC-P7-01","AC-P7-02","AC-P7-03","AC-P7-04"]
+    branch: null
+    commit: null
+    tests: []
+    blockers: []
+    review_result: null

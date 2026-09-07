@@ -1,0 +1,20 @@
+[
+  {"id":"text_nul_create_patch","field":"body.text","json_text":"\"hello\\u0000world\"","accepted":false,"error_field":"body.text"},
+  {"id":"text_high_surrogate","field":"body.text","json_text":"\"\\ud800\"","accepted":false,"error_field":"body.text"},
+  {"id":"text_low_surrogate","field":"body.text","json_text":"\"\\udfff\"","accepted":false,"error_field":"body.text"},
+  {"id":"text_reversed_pair","field":"body.text","json_text":"\"\\ude00\\ud83d\"","accepted":false,"error_field":"body.text"},
+  {"id":"metadata_value_nul","field":"metadata.metadata","json_text":"{\"note\":\"hello\\u0000world\"}","accepted":false,"error_field":"metadata.metadata.note"},
+  {"id":"metadata_nested_array_nul","field":"metadata.metadata","json_text":"{\"steps\":[{\"note\":\"a\\u0000b\"}]}","accepted":false,"error_field":"metadata.metadata.steps[0].note"},
+  {"id":"metadata_key_nul","field":"metadata.metadata","json_text":"{\"bad\\u0000key\":\"ok\"}","accepted":false,"error_field":"metadata.metadata"},
+  {"id":"metadata_nested_key_surrogate","field":"metadata.metadata","json_text":"{\"steps\":[{\"\\ud800\":\"ok\"}]}","accepted":false,"error_field":"metadata.metadata.steps[0]"},
+  {"id":"metadata_value_surrogate","field":"metadata.metadata","json_text":"{\"note\":\"\\udfff\"}","accepted":false,"error_field":"metadata.metadata.note"},
+  {"id":"filename_nul_before_sanitization","field":"file.filename","json_text":"\"bad\\u0000/image.png\"","accepted":false,"error_field":"file.filename"},
+  {"id":"description_nul","field":"body.description","json_text":"\"a\\u0000b\"","accepted":false,"error_field":"body.description"},
+  {"id":"name_surrogate","field":"body.name","json_text":"\"\\ud800\"","accepted":false,"error_field":"body.name"},
+  {"id":"text_supplementary_escaped","field":"body.text","json_text":"\"\\ud83d\\ude00\"","accepted":true,"expected":"😀","scalar_length":1},
+  {"id":"text_supplementary_literal","field":"body.text","json_text":"\"😀\"","accepted":true,"expected":"😀","scalar_length":1},
+  {"id":"text_multilingual_combining_whitespace","field":"body.text","json_text":"\"ようこそ 한글 e\\u0301\\r\\n\\t\"","accepted":true,"expected":"ようこそ 한글 é\r\n\t"},
+  {"id":"text_empty_present","field":"body.text","json_text":"\"\"","accepted":true,"expected":"","scalar_length":0},
+  {"id":"metadata_supplementary_key_value","field":"metadata.metadata","json_text":"{\"\\ud83d\\ude00\":[\"한글\",\"\\ud83d\\ude00\"]}","accepted":true,"expected":{"😀":["한글","😀"]}},
+  {"id":"text_literal_escape_not_nul","field":"body.text","json_text":"\"literal \\\\u0000\"","accepted":true,"expected":"literal \\u0000"}
+]
