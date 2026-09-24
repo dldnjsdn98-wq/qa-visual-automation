@@ -8,7 +8,7 @@ from backend.app.errors import DomainError
 from backend.app.validation.images import inspect_image
 from .base import StagedObject, StoredObject, StorageError, ObjectNotFound, ObjectExists
 
-ROOT = Path(__file__).resolve().parents[4]
+ROOT = Path(__file__).resolve().parents[3]
 UUID_PATTERN = r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
 OBJECT_PATTERN = rf"objects/{UUID_PATTERN}/{UUID_PATTERN}\.(?:png|jpg)"
 

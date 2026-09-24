@@ -1,3 +1,23 @@
+# 2026-09-13 — designated remediation re-review ACCEPTED
+
+**REVIEW-WEB-001 REVIEW: ACCEPTED. R08-WEB-002 RESOLVED; ENV-P1-DB-001 full closure ACCEPTED; AC-WEB-07 PASS recommended.** The corrected actual adapter root, all configured DB references, old-source preservation, new publication at the corrected root, original/new ID/hash/metadata/Unicode readback and final two-cwd regression were independently verified. Owner browser/restart/full-suite evidence remains explicitly attributed. No required issue remains; R08-WEB-001 stays RESOLVED.
+
+[Final closure evidence and limits](R08-WEB-002-closure-08.md) · [PM handoff](../handoffs/R08-WEB-002-closure-08.md). PM owns final YAML/Phase reconciliation. The CHANGES_REQUESTED entries below are preserved history, superseded by this designated re-review; they do not describe the current disposition.
+
+---
+
+# Historical 2026-09-12 — REVIEW-WEB-001 independent review
+
+Latest working-tree note: `local.py:11` changed to `parents[3]` at 12:22 KST, correcting root arithmetic. Existing-object preservation and affected regression/configured-root readback submission remain pending; the original finding below describes the reviewed pre-correction submission. Current review remains CHANGES_REQUESTED pending that evidence.
+
+**REVIEW-WEB-001 REVIEW: CHANGES_REQUESTED**. MAJOR R08-WEB-002: default relative storage resolves outside the repository (`backend/app/storage/local.py:11,18`). Exact original synthetic fixture/hash is present under the parent directory's storage and absent from repository storage. Backend 03 must correct resolution while preserving existing objects and DB references, then verify configured-root persistence and affected regressions. MINOR R08-WEB-001 is RESOLVED following the README correction; one required product issue remains.
+
+Independent 54 Backend / 23 Frontend / 2 actual API integration tests and build/typecheck PASS. Configured DB/readiness/head, post-restart original readback and default browser filters/detail/Expected Strings also have successful dated evidence. They do not establish correct storage placement; the earlier ENV-only closure conclusion is superseded, with its successful observations preserved. AC-WEB-07 FAIL; other AC-WEB criteria PASS recommended in the detailed matrix. Phase 1 remains IN_PROGRESS, full acceptance withheld.
+
+Details, severity/files/reproduction/owners/retest conditions: [final review](REVIEW-WEB-001-08.md). Environment correction: [ENV review](ENV-P1-DB-001-08.md). PM actions: [Reviewer handoff](../handoffs/REVIEW-WEB-001-08.md). PM owns final YAML task/AC/Phase reconciliation; Reviewer made no product edits or Commit/Push. Historical architecture approval below remains valid and is not replaced by this Web result.
+
+---
+
 # 2026-09-06 — Revision 2 independent approval reconfirmed
 
 **ARCH-001 REVIEW: ACCEPTED**. Explicit user-requested reinspection completed by Reviewer 08. Actual repository state at entry was already ARCH-001 ACCEPTED / AC-ARCH-01 PASS / R08-ARCH-001 RESOLVED, not the pending state quoted in the request. Those correct states are retained; no duplicate submission or fabricated state transition was added.

@@ -47,11 +47,9 @@ Relational immutable core: project/build/locale/category/situation/source/origin
 
 metadata optionally accepts run_id (UUID string), device (string <=200), resolution ({width,height}, positive integers <=16384), scenario/checkpoint/screen_state (strings <=128). Present reserved fields cannot be null; omission means unknown. Supplied resolution must equal decoded image dimensions. Unknown keys accept JSON values subject to the shared Unicode policy on all keys and nested string values. Maximum serialized UTF-8 size 16 KiB, nesting depth 5, at most 100 object keys total, no NaN/Infinity. Validate Unicode before UTF-8 size calculation; use compact JSON with literal Unicode (Python equivalent ensure_ascii=False, separators=(',', ':'), allow_nan=False) for the decoded object's size. Root object has container depth 1; each nested object/array adds 1; scalar leaves add none. Future context identifiers are not Phase 1 FKs and cannot override relational fields. Arbitrary metadata filtering is out of scope.
 
-## Phase 2 additions — not implemented
+## Phase 2 additions - contract pending independent review
 
-Relax source constraint to manual|agent|automation and client_upload_id IS NULL check. Source describes producer: Web, standalone agent capture, or visual automation forwarded by uploader. Add partial unique(project_id,client_upload_id) WHERE client_upload_id IS NOT NULL. file_hash remains SHA-256 of original bytes.
-
-Add upload_receipts with PK(project_id,client_upload_id), request_fingerprint, state PROCESSING|COMPLETED|FAILED, screenshot_id?, lease_expires_at?, attempt_token, created_at, updated_at. Completed receipts reference committed screenshots and persist across restart. Fingerprint covers server-computed file_hash and all normalized client metadata including filename/source; excludes server timestamps/IDs. Same key/different fingerprint → 409. Completed same request returns the original screenshot. In-flight competing request receives retryable conflict. Lease/attempt fencing prevents stale workers publishing/deleting a winner's object. UPLOAD-001 finalizes this protocol; Phase 1 provides no idempotency guarantee.
+[P2-UPLOAD-v1 revision 2](phase-2-upload-contract.md) specifies additive upload_receipts, Screenshot source/client-ID constraints and partial uniqueness, canonical fingerprint version, state/lease/fence invariants, retention and restrictive identity FKs. It supersedes this former outline only; existing manual rows and accepted Phase 1 relationships remain unchanged.
 
 ## Phase 3 additions — not implemented
 

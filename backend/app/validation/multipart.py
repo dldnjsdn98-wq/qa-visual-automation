@@ -28,6 +28,10 @@ def parse_upload(content_type, body):
         current["field"].clear()
         current["value"].clear()
     def data_part(data, start, end):
+        _, fields = parse_options_header(current["headers"].get(b"content-disposition", b""))
+        maximum = 32768 if fields.get(b"name") == b"metadata" else 20_971_520
+        if len(current["data"]) + end - start > maximum:
+            raise DomainError(413, "UPLOAD_TOO_LARGE", "Multipart part exceeds its byte limit")
         current["data"].extend(data[start:end])
     def finish_part():
         parts.append(dict(headers=current["headers"], data=bytes(current["data"])))
@@ -38,7 +42,8 @@ def parse_upload(content_type, body):
         ended = True
     try:
         parser = MultipartParser(options[b"boundary"], callbacks={"on_part_begin": begin, "on_header_field": header_field, "on_header_value": header_value, "on_header_end": header_end, "on_part_data": data_part, "on_part_end": finish_part, "on_end": finish})
-        parser.write(body)
+        for offset in range(0, len(body), 65536):
+            parser.write(body[offset:offset + 65536])
         parser.finalize()
     except DomainError:
         raise

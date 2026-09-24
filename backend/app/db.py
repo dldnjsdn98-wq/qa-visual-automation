@@ -9,7 +9,7 @@ class Base(DeclarativeBase):
 
 engine = create_engine(
     get_settings().database_url, pool_pre_ping=True,
-    connect_args={"connect_timeout": 5, "client_encoding": "utf8"},
+    connect_args={"connect_timeout": 5, "client_encoding": "utf8", "options": "-c timezone=UTC"},
     isolation_level="REPEATABLE READ",
 )
 

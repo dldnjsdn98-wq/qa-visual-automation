@@ -54,7 +54,7 @@ async def upload(project_id: UUID, request: Request, response: Response, session
 @router.get("", response_model=Page[Screenshot], dependencies=[query_guard(*ScreenshotFilter.model_fields)])
 def list_screenshots(project_id: UUID, query: Annotated[ScreenshotFilter, Query()], session: DB):
     values = query.model_dump(exclude_none=True)
-    validate_references(session, project_id, values)
+    validate_references(session, project_id, values, field_prefix="query")
     predicates = [Model.project_id == project_id]
     for key, value in values.items():
         if key == "uploaded_from":

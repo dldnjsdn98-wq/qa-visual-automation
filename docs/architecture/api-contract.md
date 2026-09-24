@@ -166,6 +166,6 @@ Example 201 response (hash is an illustrative shape, not verification evidence):
 
 ## Future compatibility, not Phase 1 endpoints
 
-Phase 2 adds optional client_upload_id to upload JSON and agent/automation source values. Agent must supply a stable UUID per queue item. Server computes file_hash; optional client expected hash is validated, never trusted. Persist receipt uniqueness/fingerprint and return original resource on completed replay (200 with Idempotency-Replayed:true); first creation stays 201. Reused ID with changed payload → 409 IDEMPOTENCY_CONFLICT; active lease → 409 UPLOAD_IN_PROGRESS with Retry-After. Manual clients may continue without IDs. These semantics require Phase 2 review and failure tests before activation.
+Phase 2 is specified by [P2-UPLOAD-v1 revision 2](phase-2-upload-contract.md). That independently reviewed contract governs agent/automation identity, headers, JCS fingerprint, replay and receipt behavior. Manual Phase 1 requests remain unchanged; agent protocol fields are source-specific. Implementation remains gated by independent review and PM READY.
 
 Phase 3 adds separate scoped result resources rather than repurposing StringEntry or embedding changing arrays into Screenshot. Phase 4 reserved metadata works without a large Screenshot migration. Future enum members require Frontend fallback rendering; consumers should ignore new response fields. Breaking identity/semantics changes require a reviewed contract revision/API version.

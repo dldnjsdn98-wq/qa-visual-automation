@@ -1,0 +1,452 @@
+[
+  {
+    "path": "docs/architecture/unicode-cases.json",
+    "sha256": "b1366f3f2c0011a1ed477e564b2f4cef01ad5e4cd1f248bda51389182f60d1ce",
+    "last_write_utc": "2026-09-05T10:56:02.4150696Z"
+  },
+  {
+    "path": "docs/architecture/overview.md",
+    "sha256": "6bf8c23796417aa9c06c3984b8347c9a7e917b3010626387713c6bfa6394a075",
+    "last_write_utc": "2026-09-05T10:59:12.4366839Z"
+  },
+  {
+    "path": "docs/architecture/domain-model.md",
+    "sha256": "cb503fe4af4c2afccc33ba9f7d879a50ba69a0f145c21e754f125637e7e73341",
+    "last_write_utc": "2026-09-05T10:59:12.4386927Z"
+  },
+  {
+    "path": "docs/architecture/data-flow.md",
+    "sha256": "c31f8c1c9c4e878c439f12c05a44bc5cfdf199cc27806fe19b054b4b3e3818d8",
+    "last_write_utc": "2026-09-05T10:59:12.4396986Z"
+  },
+  {
+    "path": "docs/architecture/check_unicode_contract.py",
+    "sha256": "ef2d2f805206d277d4aaf4a6b687336a815aab1347c6272c7fb800c11ae6df55",
+    "last_write_utc": "2026-09-05T10:56:03.4308299Z"
+  },
+  {
+    "path": "docs/architecture/check_contract.py",
+    "sha256": "e3667370d5ce06b5f05c1a4fcf700e6deae56882afa4c071e1d644baf2119c7f",
+    "last_write_utc": "2026-09-05T10:56:56.1963916Z"
+  },
+  {
+    "path": "docs/architecture/api-contract.md",
+    "sha256": "b2fa671a17206f7484e8433e793bcf8489bfd101f68b3978e51bf255205d4ad6",
+    "last_write_utc": "2026-09-05T10:59:12.4396986Z"
+  },
+  {
+    "path": "backend/__init__.py",
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "last_write_utc": "2026-09-05T01:23:02.7805476Z"
+  },
+  {
+    "path": "frontend/vitest.config.mts",
+    "sha256": "bf3d742a3447fdb1cb11d3864801a52bb0bb1bb95f2257e020ec414d10f8e6b9",
+    "last_write_utc": "2026-09-07T14:05:49.1086603Z"
+  },
+  {
+    "path": "frontend/tsconfig.json",
+    "sha256": "3314e0e726cb680f36a137b20587a1ca2ad6f9b194f85126e6b4fa390be2265a",
+    "last_write_utc": "2026-09-05T01:28:23.7885222Z"
+  },
+  {
+    "path": "backend/tools/verify_default_persistence.py",
+    "sha256": "92233840ed4f201b1aa2881139293d4faed35a60436803359c9d394036b2d5ad",
+    "last_write_utc": "2026-09-09T14:30:53.1146929Z"
+  },
+  {
+    "path": "backend/tools/run_postgres_tests.py",
+    "sha256": "f9a277d5eb804a8ae7b01896c873664c479cf85135586e62e91b81ee75eeed0f",
+    "last_write_utc": "2026-09-07T14:04:02.6719433Z"
+  },
+  {
+    "path": "backend/tools/lock_dependencies.py",
+    "sha256": "160c7a9cda9422df0903399751f70af29fdc6672cd3286cf6ca1fa37b58e6d04",
+    "last_write_utc": "2026-09-07T09:49:16.7647019Z"
+  },
+  {
+    "path": "backend/tools/export_openapi.py",
+    "sha256": "f91ad336de5938036b4d83cc26b6c7952ed253b5bb784938eb2a47ac54156a05",
+    "last_write_utc": "2026-09-07T09:48:19.2333229Z"
+  },
+  {
+    "path": "backend/tools/check_default_environment.py",
+    "sha256": "230ec88f94ecf7555480397fb36110fb28ca8a1198954e624ebaa7b3d0c354b8",
+    "last_write_utc": "2026-09-08T12:22:05.3304351Z"
+  },
+  {
+    "path": "backend/tools/check_clean_install.py",
+    "sha256": "4094fa792255da5a549c10de8b3fbe86120b78ce95d21256fec4331f986807d5",
+    "last_write_utc": "2026-09-07T13:59:50.4113151Z"
+  },
+  {
+    "path": "backend/schema.sql",
+    "sha256": "1641ab849e4c1c526c7fd9dd171b6f91675256f5325a9125b5fec73182f2281c",
+    "last_write_utc": "2026-09-07T14:04:55.7908918Z"
+  },
+  {
+    "path": "backend/README.md",
+    "sha256": "57b356ffc40409fbbdb1fe1ded27d2069ea3f8f33fdacc57effca9867d2cf452",
+    "last_write_utc": "2026-09-07T14:04:02.6729441Z"
+  },
+  {
+    "path": "backend/openapi.json",
+    "sha256": "025321f8f9e5a0c44144cbdd666073fa41233ff02f52dfd34146b661a1620371",
+    "last_write_utc": "2026-09-07T14:04:17.2253102Z"
+  },
+  {
+    "path": "frontend/tests/setup.ts",
+    "sha256": "1cf89837ad34176d1b92154f69be7cdcbdc2b9cb12e5b1480f4fbf9c18fc5513",
+    "last_write_utc": "2026-09-07T09:45:08.4161152Z"
+  },
+  {
+    "path": "frontend/tests/integration/contract.test.ts",
+    "sha256": "a30e873a2ee7f6b3163a048efa5407cbb183ab695cfb1164c990fbb93ca2373c",
+    "last_write_utc": "2026-09-07T09:48:57.1644331Z"
+  },
+  {
+    "path": "frontend/tests/components.test.tsx",
+    "sha256": "2fd8c906d7e0c2c79fa56c33c90f70edec69385184f9778d6f98addcb8074ab3",
+    "last_write_utc": "2026-09-07T14:05:49.1096610Z"
+  },
+  {
+    "path": "frontend/tests/api.test.ts",
+    "sha256": "9f330e85037d67e5bfa8184170f93a12409d25a853032ec6e59481408cc256ea",
+    "last_write_utc": "2026-09-07T14:05:49.1106603Z"
+  },
+  {
+    "path": "frontend/README.md",
+    "sha256": "1e6bb9a3755e419fe5dade656dfc2436c6f6fffe76db43a453004323b122b429",
+    "last_write_utc": "2026-09-07T14:05:49.1116615Z"
+  },
+  {
+    "path": "frontend/package.json",
+    "sha256": "d0fc3711f372c21581a66757133f2171f34c05d5f6331f1b39db0a17956198bd",
+    "last_write_utc": "2026-09-07T09:48:57.1664325Z"
+  },
+  {
+    "path": "frontend/next.config.ts",
+    "sha256": "0ea67e34956658f5876fe97a6b92bafb2896a2a92105c87a019936545ba9e66d",
+    "last_write_utc": "2026-09-05T01:23:16.7605310Z"
+  },
+  {
+    "path": "frontend/next-env.d.ts",
+    "sha256": "1862ac4bbbc5192d4bf562161df66ea547ed3e67173100656ab606ae9797db2b",
+    "last_write_utc": "2026-09-05T01:28:23.7896011Z"
+  },
+  {
+    "path": "tests/frontend/run_integration.py",
+    "sha256": "94206a9abb8b2475ab3a8eec941bc79cc27f11a2cb65632bebe835e4f5f080b3",
+    "last_write_utc": "2026-09-07T09:49:40.4906209Z"
+  },
+  {
+    "path": "backend/Dockerfile.test",
+    "sha256": "212797701ae416df72e5cf4a11e7cfe2621ac715154b5becc009f15ead3cc335",
+    "last_write_utc": "2026-09-07T09:49:16.7657045Z"
+  },
+  {
+    "path": "backend/Dockerfile",
+    "sha256": "239178bc679d5106ccf4dead48d736a45d30c9c8ad09565a852d96e232768951",
+    "last_write_utc": "2026-09-07T14:02:05.3889423Z"
+  },
+  {
+    "path": "backend/contract-examples.json",
+    "sha256": "f3225deed941760193861f2b32bdcb585558ad23232d567b16200bb4c237f008",
+    "last_write_utc": "2026-09-07T14:04:17.2263103Z"
+  },
+  {
+    "path": "backend/migrations/versions/0002_phase1_domain_phase1_domain.py",
+    "sha256": "21ae007c2a1c7896bca9db70503476feb375e672ed3566689602c78f8b885e2c",
+    "last_write_utc": "2026-09-07T09:46:15.2367069Z"
+  },
+  {
+    "path": "backend/migrations/versions/0001_bootstrap.py",
+    "sha256": "02007c6570b0706dfe38f94c251861eb61d925c0b9d6c974e44ba3945f55d65a",
+    "last_write_utc": "2026-09-05T01:23:12.7111883Z"
+  },
+  {
+    "path": "backend/migrations/script.py.mako",
+    "sha256": "d099a293ad28f7ecf228d04109389c7e9e41aed5a8e0c7aa598558804db05e8b",
+    "last_write_utc": "2026-09-05T01:23:11.2457369Z"
+  },
+  {
+    "path": "backend/migrations/env.py",
+    "sha256": "0b0dbdefb916c726adf4ac3998dba66cb7ad1271576b58cc765f8a1baeea349a",
+    "last_write_utc": "2026-09-06T13:54:28.9911861Z"
+  },
+  {
+    "path": "frontend/lib/types.ts",
+    "sha256": "c41fdf380c81ae89fbc7192b4f8e82550e341829559de809304253801aab0192",
+    "last_write_utc": "2026-09-06T13:54:48.8487656Z"
+  },
+  {
+    "path": "frontend/lib/navigation.ts",
+    "sha256": "374dc65df409a50ea353c9d53ed4efc498703eff55b48864f16426e627e2c2c6",
+    "last_write_utc": "2026-09-06T13:32:10.8142885Z"
+  },
+  {
+    "path": "frontend/lib/api.ts",
+    "sha256": "f289a65431850d4b0b145aeea569d8c847bab7e016bad84da324bc094c794821",
+    "last_write_utc": "2026-09-07T14:05:49.1076614Z"
+  },
+  {
+    "path": "frontend/Dockerfile",
+    "sha256": "707d0d132a3fed39238ad468ecee6b974a30cadab50a5f92570befdd69a8bf7d",
+    "last_write_utc": "2026-09-07T14:05:49.1106603Z"
+  },
+  {
+    "path": "tests/backend/conftest.py",
+    "sha256": "5561e5cd0d490b9385075b9d8a34b725752223ffda695c8bf51c6c610e2da79b",
+    "last_write_utc": "2026-09-06T13:54:28.9927987Z"
+  },
+  {
+    "path": "tests/backend/test_screenshots.py",
+    "sha256": "31c39b27c2de0c7cf04308296ebf72151a5c278fe33b57d3a7816ec41a8aafd3",
+    "last_write_utc": "2026-09-06T13:58:33.3088841Z"
+  },
+  {
+    "path": "tests/backend/test_migrations_storage.py",
+    "sha256": "6dc75dee0e530568ac2fa0e6db40ebe288fc08bece6800cd754f0f9dde852d1c",
+    "last_write_utc": "2026-09-07T09:43:29.4925004Z"
+  },
+  {
+    "path": "tests/backend/test_health.py",
+    "sha256": "5a10fb2f05acd377bebff2b819f4f1d07f159c90049c15842d1f6740908dc395",
+    "last_write_utc": "2026-09-06T13:54:28.9938049Z"
+  },
+  {
+    "path": "tests/backend/test_concurrency_contract.py",
+    "sha256": "7d93ce5b5011bbb4faf8a118672967e62194276a09318ee5a366ee2cda30aeb4",
+    "last_write_utc": "2026-09-07T09:48:19.2343295Z"
+  },
+  {
+    "path": "tests/backend/test_api.py",
+    "sha256": "4818dfa483d85265195eddef56f2afb66146a2031e5e326f6a3d75fdba7ee93a",
+    "last_write_utc": "2026-09-06T13:55:03.1612495Z"
+  },
+  {
+    "path": "frontend/app/page.tsx",
+    "sha256": "15f0c0cc6de2329220d710ae455a4a6ce0e15262a2359fe6cf54489baddc9cfb",
+    "last_write_utc": "2026-09-06T13:54:28.7436897Z"
+  },
+  {
+    "path": "frontend/app/layout.tsx",
+    "sha256": "ca9d6259d656b39a6ce1048959ce7b2835df987f3f9e2d5e686d25370e16d9e3",
+    "last_write_utc": "2026-09-05T01:23:18.2822077Z"
+  },
+  {
+    "path": "frontend/app/globals.css",
+    "sha256": "54f7161a897332ce5b1bb0d800dd75693ca788045671fce6c1574d382d45d161",
+    "last_write_utc": "2026-09-06T13:56:22.3478350Z"
+  },
+  {
+    "path": "backend/app/db.py",
+    "sha256": "0939d944182a656d6274b44439976471a877f61cae8bd9bfdd5cf20a9251bcf4",
+    "last_write_utc": "2026-09-07T14:02:05.3879366Z"
+  },
+  {
+    "path": "backend/app/config.py",
+    "sha256": "a2cb11dbd6772352a96086860fb2bfba30d54ef6b44dfd737f44466fa992ba28",
+    "last_write_utc": "2026-09-07T14:02:05.3909414Z"
+  },
+  {
+    "path": "backend/app/__init__.py",
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "last_write_utc": "2026-09-05T01:23:04.3903599Z"
+  },
+  {
+    "path": "frontend/components/workspace.tsx",
+    "sha256": "509c36a532612ffe69105d4f4c4f272130762056d25813b4175a29988788cf93",
+    "last_write_utc": "2026-09-06T13:54:28.7426893Z"
+  },
+  {
+    "path": "frontend/components/strings.tsx",
+    "sha256": "7eb5e71719d4ed101f85c4ae47f458e5b73538e3d8feeb7cc18addccbebad12a",
+    "last_write_utc": "2026-09-06T13:33:33.0165919Z"
+  },
+  {
+    "path": "frontend/components/screenshots.tsx",
+    "sha256": "ed8790a291599cad4de06cce324b77989f35341bd34a91ca5e2531c216c0d6c3",
+    "last_write_utc": "2026-09-06T13:52:04.6962694Z"
+  },
+  {
+    "path": "frontend/components/common.tsx",
+    "sha256": "c92d73a68150297da8e74b10358f6887eb00bc839a44178d911d3aa1c4de4d16",
+    "last_write_utc": "2026-09-07T14:06:22.7565799Z"
+  },
+  {
+    "path": "frontend/components/catalog.tsx",
+    "sha256": "4244738643e78aa74a119770c8eeffcd31edf661d8cb2b2c929cddf8c14020bc",
+    "last_write_utc": "2026-09-06T13:32:11.8445572Z"
+  },
+  {
+    "path": "backend/app/api/dependencies.py",
+    "sha256": "aa68169b173982fa5db19245d5b2cd043f0e3d5688a6f0ed0d246f8bfb907c3a",
+    "last_write_utc": "2026-09-07T09:46:15.2367069Z"
+  },
+  {
+    "path": "backend/app/api/middleware.py",
+    "sha256": "253045ca2da55f6ea6def84ea3676474e7c5ede6057b5adf4f66fd79c5ed6661",
+    "last_write_utc": "2026-09-06T13:51:45.8309869Z"
+  },
+  {
+    "path": "backend/app/validation/unicode.py",
+    "sha256": "a90b96bc5744f8c5b54c7fa4bc71a46ee27a356195bf3d983628dc27db18e2dc",
+    "last_write_utc": "2026-09-06T13:31:13.9937328Z"
+  },
+  {
+    "path": "backend/app/validation/multipart.py",
+    "sha256": "0a8cd0502f15eab55c76102d76b485cb162a270e06d9126a933c79b282cb29d3",
+    "last_write_utc": "2026-09-07T09:46:15.2377046Z"
+  },
+  {
+    "path": "backend/app/validation/metadata.py",
+    "sha256": "80ec229115f257c4ebbea84cdfea0ecb055b40fdb510ba95ae70f751f0f5eb0c",
+    "last_write_utc": "2026-09-06T13:34:27.3332902Z"
+  },
+  {
+    "path": "backend/app/validation/images.py",
+    "sha256": "ea649613d087214e00e441c4ba40d5f15ef71a92fe65762fcc2d1a7150c5cba6",
+    "last_write_utc": "2026-09-06T13:34:29.2246495Z"
+  },
+  {
+    "path": "backend/app/storage/local.py",
+    "sha256": "e8ab863b195914321fb34b47500914ef993af3d15cf49083aaf7553e4bc92a69",
+    "last_write_utc": "2026-09-06T13:34:31.9255420Z"
+  },
+  {
+    "path": "backend/app/api/v1/string_keys.py",
+    "sha256": "c05a7ed431f282265f7b3679e47ac81bb727276d991bbb0b6d57d2013b372b94",
+    "last_write_utc": "2026-09-06T13:36:01.9778399Z"
+  },
+  {
+    "path": "backend/app/storage/base.py",
+    "sha256": "e28327f42ac435fb896569d9226eddf13c3b201deb32032a76f489cf668b04d0",
+    "last_write_utc": "2026-09-06T13:34:30.9347988Z"
+  },
+  {
+    "path": "backend/app/api/v1/strings.py",
+    "sha256": "8f2c1f5def8c1a16e7daa146f3a1fe27b7c632ee0bb0ddeb0302dca874f71c97",
+    "last_write_utc": "2026-09-06T13:36:02.9394506Z"
+  },
+  {
+    "path": "backend/app/api/v1/situations.py",
+    "sha256": "e852120b297b971aac9a4733c76a4fd315cfeba4d93061605f135859e624b950",
+    "last_write_utc": "2026-09-06T13:36:03.8991999Z"
+  },
+  {
+    "path": "backend/app/api/v1/screenshots.py",
+    "sha256": "8e0d9b3c35b555375cd04c1761fdc6db6c72e00855ef55636da538708dcbdf98",
+    "last_write_utc": "2026-09-07T14:02:05.3869364Z"
+  },
+  {
+    "path": "backend/app/api/v1/router.py",
+    "sha256": "02da97ef91c41c8ecfb65779df7918863c01d6556cac6931c83c1daffa28e6c4",
+    "last_write_utc": "2026-09-06T13:51:45.8324893Z"
+  },
+  {
+    "path": "backend/app/api/v1/projects.py",
+    "sha256": "966867c7da6a1721185c074e3bebf0c41fff3bf4dc430ffe0887a9f080a85ade",
+    "last_write_utc": "2026-09-06T13:35:57.9331760Z"
+  },
+  {
+    "path": "backend/app/api/v1/locales.py",
+    "sha256": "6f8a4afde8870f4a0abbeb2c9de36e35873da0d0bb1594dbb24346cfe29f82db",
+    "last_write_utc": "2026-09-06T13:36:00.0295155Z"
+  },
+  {
+    "path": "backend/app/api/v1/categories.py",
+    "sha256": "45734ffa3c49bfd58c53cf9ab5dfa1bfc606500a5b02046e9f0ea0c5b8daf29d",
+    "last_write_utc": "2026-09-06T13:36:01.0417025Z"
+  },
+  {
+    "path": "backend/app/api/v1/catalog_routes.py",
+    "sha256": "40f67d7a4b2c82318efd1272f047c9c2883ad182a0f125f604288ce6a71475f8",
+    "last_write_utc": "2026-09-07T14:02:05.3859303Z"
+  },
+  {
+    "path": "backend/app/api/v1/builds.py",
+    "sha256": "50b832da89a5cdf5dc5e0e478e362437399e872a3aa2647919a0fa2abb6de3b4",
+    "last_write_utc": "2026-09-06T13:35:58.9427512Z"
+  },
+  {
+    "path": "backend/app/schemas/strings.py",
+    "sha256": "570f6358b8bb1fb1275ecb8096d480af951372c1952b56ec5cbc5559f370c2af",
+    "last_write_utc": "2026-09-06T13:31:17.5800917Z"
+  },
+  {
+    "path": "backend/app/schemas/screenshots.py",
+    "sha256": "6d2d857fe6299be54b4f16ff3a45ab0350041789d68724560bd9ecd74ec972dd",
+    "last_write_utc": "2026-09-07T09:46:15.2347037Z"
+  },
+  {
+    "path": "backend/app/schemas/common.py",
+    "sha256": "a0cd2b474d7ec0aa057836135b8c6411eada0e1c5793595c69fbf0cbb615d404",
+    "last_write_utc": "2026-09-06T13:31:15.5439771Z"
+  },
+  {
+    "path": "backend/app/schemas/catalog.py",
+    "sha256": "70900bcfa008a8d011bc82371503f5e1aba1d309834a08f78324304bdea51cfb",
+    "last_write_utc": "2026-09-06T13:31:16.5464320Z"
+  },
+  {
+    "path": "backend/app/errors.py",
+    "sha256": "ca6da74050302a5ad97ba77e9ee688d074608876b5c4481b338276322bd94248",
+    "last_write_utc": "2026-09-06T13:31:12.5004709Z"
+  },
+  {
+    "path": "backend/app/main.py",
+    "sha256": "4cbbe651d093ceb1eb286eb3eba04c6072a709d4025561457ae93786f07612e7",
+    "last_write_utc": "2026-09-07T09:48:19.2343295Z"
+  },
+  {
+    "path": "backend/app/services/screenshots.py",
+    "sha256": "efe59125ef01d5cf0717c793b87eae9c2ef42c3e6fb1ba4969d526836ced9205",
+    "last_write_utc": "2026-09-07T14:02:05.3869364Z"
+  },
+  {
+    "path": "backend/app/services/expected_strings.py",
+    "sha256": "b7c911561004dcecc41c7141384d4f7e7ac9cdeb04139869d9212014a7de419a",
+    "last_write_utc": "2026-09-07T09:46:15.2337047Z"
+  },
+  {
+    "path": "backend/app/services/catalog.py",
+    "sha256": "ea155218a183ddc9effed34864e8521cde68c502333001838439ee43f30058eb",
+    "last_write_utc": "2026-09-07T14:02:05.3844265Z"
+  },
+  {
+    "path": "backend/app/maintenance/reconcile_storage.py",
+    "sha256": "519964c41b0ed5c98c5b8c1e4823eee56da0773f556b7ec0f4817f209660fb95",
+    "last_write_utc": "2026-09-06T13:54:28.9927987Z"
+  },
+  {
+    "path": "backend/app/repositories/catalog.py",
+    "sha256": "478f6dbc3d2cbb41ce4af00525b56cc74c5b8dae9f1d9bac6fba4ad30df16752",
+    "last_write_utc": "2026-09-06T13:32:34.4268911Z"
+  },
+  {
+    "path": "backend/app/repositories/strings.py",
+    "sha256": "162dbaf41b59e4f2e632fa4b7de481cb3a1a3d9942baeb254dc2434e080ce9d1",
+    "last_write_utc": "2026-09-06T13:32:35.3367399Z"
+  },
+  {
+    "path": "backend/app/models/__init__.py",
+    "sha256": "6debee269bc0b5f5ef39218fb5669ae0776f1d780f02d40e11e131ed6e60f789",
+    "last_write_utc": "2026-09-06T13:29:01.9262239Z"
+  },
+  {
+    "path": "backend/app/models/strings.py",
+    "sha256": "dd5fb6326a5f1ad49af5ecfb3f06621b2e270291dcdde467247c3c5e16636d45",
+    "last_write_utc": "2026-09-06T13:29:18.3278055Z"
+  },
+  {
+    "path": "backend/app/models/screenshots.py",
+    "sha256": "cac9086d03500d8d2c4d6aa8a112d066f1f7f54179942ae42ef1a61a037a17cb",
+    "last_write_utc": "2026-09-07T09:46:15.2357048Z"
+  },
+  {
+    "path": "backend/app/models/catalog.py",
+    "sha256": "de29c75978c9911e78a3a790fdb6e91191d017a4051e2f412ff4aed339bf9184",
+    "last_write_utc": "2026-09-06T13:28:59.1979653Z"
+  }
+]

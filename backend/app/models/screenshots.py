@@ -1,6 +1,6 @@
 from datetime import datetime
 from uuid import UUID
-from sqlalchemy import String, Text, Integer, BigInteger, CheckConstraint, UniqueConstraint, ForeignKeyConstraint, Index, func, text
+from sqlalchemy import String, CHAR, Text, Integer, BigInteger, CheckConstraint, UniqueConstraint, ForeignKeyConstraint, Index, func, text
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy.dialects.postgresql import UUID as PGUUID, JSONB, TIMESTAMP
 from backend.app.db import Base
@@ -28,7 +28,7 @@ class Screenshot(Identity, Scoped, Base):
     original_filename: Mapped[str] = mapped_column(String(255))
     uploaded_at: Mapped[datetime] = mapped_column(TIMESTAMP(timezone=True), server_default=func.now())
     storage_key: Mapped[str] = mapped_column(Text, unique=True)
-    file_hash: Mapped[str] = mapped_column(String(64))
+    file_hash: Mapped[str] = mapped_column(CHAR(64))
     media_type: Mapped[str] = mapped_column(String(32))
     size_bytes: Mapped[int] = mapped_column(BigInteger)
     width: Mapped[int] = mapped_column(Integer)

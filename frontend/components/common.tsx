@@ -12,7 +12,11 @@ export function useRequest<T>(key: string | null, loader: (signal: AbortSignal) 
     if (identity === null) return;
     const controller = new AbortController();
     setState({ identity, loading: true });
-    loaderRef.current(controller.signal).then(data => { if (!controller.signal.aborted) setState({ identity, data, loading: false }); }, error => { if (!controller.signal.aborted) setState({ identity, error, loading: false }); });
+    const currentLoader = loaderRef.current;
+    void (async () => {
+      try { const data = await currentLoader(controller.signal); if (!controller.signal.aborted) setState({ identity, data, loading: false }); }
+      catch (error) { if (!controller.signal.aborted) setState({ identity, error, loading: false }); }
+    })();
     return () => controller.abort();
   }, [identity]);
   return { ...(state.identity === identity ? state : { loading: identity !== null }), reload: () => refresh(value => value + 1) };

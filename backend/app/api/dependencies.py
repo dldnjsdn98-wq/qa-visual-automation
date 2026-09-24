@@ -17,7 +17,11 @@ def get_session():
 def get_storage():
     from backend.app.config import get_settings
     from backend.app.storage.local import LocalStorage
-    return LocalStorage(get_settings().storage_root)
+    from backend.app.errors import DomainError
+    try:
+        return LocalStorage(get_settings().storage_root)
+    except OSError:
+        raise DomainError(503, "STORAGE_UNAVAILABLE", "Storage unavailable") from None
 
 
 DB = Annotated[Session, Depends(get_session)]

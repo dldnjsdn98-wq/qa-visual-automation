@@ -15,6 +15,13 @@ class ScreenshotUpload(Closed):
     metadata_version: Literal[1] = 1
     metadata: dict[str, Any] = Field(default_factory=dict)
 
+    @field_validator("metadata_version", mode="before")
+    @classmethod
+    def integer_version(cls, value):
+        if type(value) is not int:
+            raise ValueError("metadata_version must be integer 1")
+        return value
+
     @field_validator("metadata")
     @classmethod
     def bounded_metadata(cls, value):

@@ -1,176 +1,1030 @@
 schema_version: 1
 dependency_rules:
-  task: 'Satisfied only when referenced task is ACCEPTED, MERGED or DONE with acceptance evidence.'
-  review: 'Review tasks are an exception: activate when every referenced implementation task is READY_FOR_REVIEW with owner evidence; prior acceptance is not required to begin review.'
-  architecture: 'Promote BACKEND-WEB-001 and FRONTEND-WEB-001 together only after ARCH-001 is accepted with AC-ARCH-01 PASS and reviewed contract evidence.'
-  rework: 'CHANGES_REQUESTED returns work to the affected owner; dependent review waits for corrected evidence and resubmission.'
-  phase: 'PHASE N ACCEPTED requires every required criterion PASS and independent review ACCEPTED.'
-  integration: 'Required Previous Phases ACCEPTED means phases 1 through 6.'
-  git: 'Role 10 is user request only, never dependency triggered.'
+  task: Satisfied only when referenced task is ACCEPTED, MERGED or DONE with acceptance evidence.
+  review: 'Review tasks are an exception: activate when every referenced implementation task is READY_FOR_REVIEW with owner evidence; prior acceptance
+    is not required to begin review.'
+  architecture: Promote BACKEND-WEB-001 and FRONTEND-WEB-001 together only after ARCH-001 is accepted with AC-ARCH-01 PASS and reviewed contract
+    evidence.
+  rework: CHANGES_REQUESTED returns work to the affected owner; dependent review waits for corrected evidence and resubmission.
+  phase: PHASE N ACCEPTED requires every required criterion PASS and independent review ACCEPTED.
+  integration: Required Previous Phases ACCEPTED means phases 1 through 6.
+  git: Role 10 is user request only, never dependency triggered.
+  phase2_contract: ARCH-UPLOAD-001 and REVIEW-ARCH-UPLOAD-001 ACCEPTED/DONE with exact revision, own preparation accepted and file ownership confirmed;
+    PM promotes Backend and uploader together.
+  phase2_submission_entry: Phase2 review and FRONTEND-UPLOAD-VERIFY-001 use explicit entry_condition with READY_FOR_REVIEW submissions (or accepted
+    evidence), not prior implementation acceptance; PM activation required.
 tasks:
-  - id: ARCH-001
-    phase: 1
-    title: PHASE 1 Architecture / Domain / API Contract
-    owner: "02"
-    status: DONE
-    completed_on: "2026-09-06"
-    completion_evidence: .orchestration/handoffs/PHASE-1-IMPLEMENTATION-01.md
-    priority: P0
-    depends_on: []
-    acceptance: ["AC-ARCH-01"]
-    branch: null
-    commit: null
-    tests:
-      - name: architecture_contract_static_validation
-        status: PASS
-        evidence: .orchestration/reports/ARCH-001-02-revision-2.md
-      - name: unicode_contract_reference_validation
-        status: PASS
-        evidence: .orchestration/reports/ARCH-001-02-revision-2.md
-    blockers: []
-    review_result: ACCEPTED
-    reviewed_revision: 2
-    review_findings:
-      - id: R08-ARCH-001
-        severity: MAJOR
-        status: RESOLVED
-        resolved_in_revision: 2
-        evidence: .orchestration/reports/review.md
-    review_history:
-      - submission: 1
-        result: CHANGES_REQUESTED
-        finding: R08-ARCH-001
-        evidence: .orchestration/reports/review.md
-      - submission: 2
-        result: ACCEPTED
-        finding: R08-ARCH-001
-        finding_status: RESOLVED
-        evidence: .orchestration/reports/review.md
-    submission_revision: 2
-    pm_readiness_evidence: .orchestration/reports/ARCH-001-01-readiness.md
-    review_evidence: .orchestration/reports/review.md
-    reviewer_handoff: .orchestration/handoffs/ARCH-001-08.md
-    handoff: .orchestration/handoffs/ARCH-001-02.md
-    review_requested: false
-    status_update_authority: explicit user instruction authorizes independent revision 2 acceptance and AC-ARCH-01 update; downstream promotion remains PM-owned
-  - id: BACKEND-WEB-001
-    phase: 1
-    title: Phase 1 backend review system
-    owner: "03"
-    status: IN_PROGRESS
-    started_on: "2026-09-06"
-    activation_handoff: .orchestration/handoffs/PHASE-1-IMPLEMENTATION-01.md
-    priority: P1
-    depends_on: ["ARCH-001"]
-    acceptance: ["AC-WEB-01","AC-WEB-02","AC-WEB-03","AC-WEB-04","AC-WEB-05","AC-WEB-06","AC-WEB-07","AC-WEB-08","AC-WEB-09","AC-WEB-10","AC-WEB-11","AC-WEB-12","AC-WEB-13"]
-    branch: null
-    commit: null
-    tests: []
-    blockers: []
-    review_result: null
-  - id: FRONTEND-WEB-001
-    phase: 1
-    title: Phase 1 frontend review system
-    owner: "04"
-    status: IN_PROGRESS
-    started_on: "2026-09-06"
-    activation_handoff: .orchestration/handoffs/PHASE-1-IMPLEMENTATION-01.md
-    priority: P1
-    depends_on: ["ARCH-001"]
-    acceptance: ["AC-WEB-01","AC-WEB-02","AC-WEB-03","AC-WEB-04","AC-WEB-05","AC-WEB-06","AC-WEB-07","AC-WEB-08","AC-WEB-09","AC-WEB-10","AC-WEB-11","AC-WEB-12","AC-WEB-13"]
-    branch: null
-    commit: null
-    tests: []
-    blockers: []
-    review_result: null
-  - id: REVIEW-WEB-001
-    phase: 1
-    title: Independent Phase 1 review
-    owner: "08"
-    status: BLOCKED
-    priority: P1
-    depends_on: ["BACKEND-WEB-001","FRONTEND-WEB-001"]
-    acceptance: ["AC-WEB-01","AC-WEB-02","AC-WEB-03","AC-WEB-04","AC-WEB-05","AC-WEB-06","AC-WEB-07","AC-WEB-08","AC-WEB-09","AC-WEB-10","AC-WEB-11","AC-WEB-12","AC-WEB-13"]
-    branch: null
-    commit: null
-    tests: []
-    blockers: ["BACKEND-WEB-001 and FRONTEND-WEB-001 must both be READY_FOR_REVIEW with evidence"]
-    review_result: null
-  - id: UPLOAD-001
-    phase: 2
-    title: Screenshot automatic upload
-    owner: "06"
+- id: ARCH-001
+  phase: 1
+  title: PHASE 1 Architecture / Domain / API Contract
+  owner: '02'
+  status: DONE
+  completed_on: '2026-09-06'
+  completion_evidence: .orchestration/handoffs/PHASE-1-IMPLEMENTATION-01.md
+  priority: P0
+  depends_on: []
+  acceptance:
+  - AC-ARCH-01
+  branch: null
+  commit: null
+  tests:
+  - name: architecture_contract_static_validation
+    status: PASS
+    evidence: .orchestration/reports/ARCH-001-02-revision-2.md
+  - name: unicode_contract_reference_validation
+    status: PASS
+    evidence: .orchestration/reports/ARCH-001-02-revision-2.md
+  blockers: []
+  review_result: ACCEPTED
+  reviewed_revision: 2
+  review_findings:
+  - id: R08-ARCH-001
+    severity: MAJOR
+    status: RESOLVED
+    resolved_in_revision: 2
+    evidence: .orchestration/reports/review.md
+  review_history:
+  - submission: 1
+    result: CHANGES_REQUESTED
+    finding: R08-ARCH-001
+    evidence: .orchestration/reports/review.md
+  - submission: 2
+    result: ACCEPTED
+    finding: R08-ARCH-001
+    finding_status: RESOLVED
+    evidence: .orchestration/reports/review.md
+  submission_revision: 2
+  pm_readiness_evidence: .orchestration/reports/ARCH-001-01-readiness.md
+  review_evidence: .orchestration/reports/review.md
+  reviewer_handoff: .orchestration/handoffs/ARCH-001-08.md
+  handoff: .orchestration/handoffs/ARCH-001-02.md
+  review_requested: false
+  status_update_authority: explicit user instruction authorizes independent revision 2 acceptance and AC-ARCH-01 update; downstream promotion
+    remains PM-owned
+- id: BACKEND-WEB-001
+  phase: 1
+  title: Phase 1 backend review system
+  owner: '03'
+  status: DONE
+  submitted_on: '2026-09-07'
+  started_on: '2026-09-06'
+  activation_handoff: .orchestration/handoffs/PHASE-1-IMPLEMENTATION-01.md
+  priority: P1
+  depends_on:
+  - ARCH-001
+  acceptance:
+  - AC-WEB-01
+  - AC-WEB-02
+  - AC-WEB-03
+  - AC-WEB-04
+  - AC-WEB-05
+  - AC-WEB-06
+  - AC-WEB-07
+  - AC-WEB-08
+  - AC-WEB-09
+  - AC-WEB-10
+  - AC-WEB-11
+  - AC-WEB-12
+  - AC-WEB-13
+  branch: null
+  commit: null
+  tests:
+  - name: backend_windows_postgresql_suite
+    status: PASS
+    evidence: .orchestration/reports/backend-windows.xml
+  - name: backend_linux_postgresql_suite
+    status: PASS
+    evidence: .orchestration/reports/backend-linux.txt
+  - name: clean_dependency_install_and_frontend_api_integration
+    status: PASS
+    evidence: .orchestration/reports/BACKEND-WEB-001-03.md
+  - name: storage_root_remediation_backend
+    status: PASS
+    result: 55 tests before final two-cwd expansion
+    source: OWNER_REPORTED
+    evidence: .orchestration/reports/R08-WEB-002-backend.xml
+  - name: storage_root_final_cwd_absolute
+    status: PASS
+    result: 2 tests
+    source: OWNER_REPORTED
+    evidence: .orchestration/reports/R08-WEB-002-cwd.xml
+  - name: post_fix_actual_api_integration
+    status: PASS
+    result: 2 tests
+    source: OWNER_REPORTED
+    evidence: .orchestration/reports/R08-WEB-002-remediation-03.md
+  blockers: []
+  review_result: ACCEPTED
+  handoff: .orchestration/handoffs/BACKEND-WEB-001-03.md
+  review_requested: false
+  limitations:
+  - Historical and post-fix suites retain original execution attribution; designated closure ACCEPTED on 2026-09-13.
+  - Compose mapping source-inspected; live application container transition NOT_RUN.
+  review_evidence: .orchestration/reports/R08-WEB-002-closure-08.md
+  rework_handoff: .orchestration/handoffs/REVIEW-WEB-001-rework-01.md
+  review_history:
+  - date: '2026-09-12'
+    result: CHANGES_REQUESTED
+    evidence: .orchestration/reports/REVIEW-WEB-001-08.md
+    note: Prior disposition retained on remediation resubmission; closure remains pending.
+  - date: '2026-09-13'
+    result: ACCEPTED
+    evidence: .orchestration/reports/R08-WEB-002-closure-08.md
+  resubmission_handoff: .orchestration/handoffs/R08-WEB-002-remediation-03.md
+  resubmission_evidence: .orchestration/reports/R08-WEB-002-remediation-03.md
+  pm_rereview_handoff: .orchestration/handoffs/R08-WEB-002-rereview-01.md
+  resubmitted_on: '2026-09-12'
+  completed_on: '2026-09-13'
+  completion_evidence: .orchestration/handoffs/PHASE-1-acceptance-01.md
+  reviewer_handoff: .orchestration/handoffs/R08-WEB-002-closure-08.md
+- id: FRONTEND-WEB-001
+  phase: 1
+  title: Phase 1 frontend review system
+  owner: '04'
+  status: DONE
+  submitted_on: '2026-09-07'
+  handoff: .orchestration/handoffs/frontend.md
+  review_requested: false
+  evidence: .orchestration/reports/FRONTEND-WEB-001-04.md
+  environment_issue: ENV-P1-DB-001 independently RESOLVED on 2026-09-13; historical evidence retained.
+  environment_issue_id: ENV-P1-DB-001
+  started_on: '2026-09-06'
+  activation_handoff: .orchestration/handoffs/PHASE-1-IMPLEMENTATION-01.md
+  priority: P1
+  depends_on:
+  - ARCH-001
+  acceptance:
+  - AC-WEB-01
+  - AC-WEB-02
+  - AC-WEB-03
+  - AC-WEB-04
+  - AC-WEB-05
+  - AC-WEB-06
+  - AC-WEB-07
+  - AC-WEB-08
+  - AC-WEB-09
+  - AC-WEB-10
+  - AC-WEB-11
+  - AC-WEB-12
+  - AC-WEB-13
+  branch: null
+  commit: null
+  tests:
+  - name: frontend_behavior
+    status: PASS
+    result: 23 tests
+  - name: frontend_real_api_integration
+    status: PASS
+    result: 2 tests against isolated PostgreSQL and actual Backend
+  - name: frontend_typecheck_and_build
+    status: PASS
+  - name: frontend_desktop_browser_critical_flow
+    status: PASS
+  blockers: []
+  review_result: ACCEPTED
+  completed_on: '2026-09-13'
+  completion_evidence: .orchestration/handoffs/PHASE-1-acceptance-01.md
+  review_evidence: .orchestration/reports/R08-WEB-002-closure-08.md
+  reviewer_handoff: .orchestration/handoffs/R08-WEB-002-closure-08.md
+  review_history:
+  - date: '2026-09-13'
+    result: ACCEPTED
+    evidence: .orchestration/reports/R08-WEB-002-closure-08.md
+- id: REVIEW-WEB-001
+  phase: 1
+  title: Independent Phase 1 review
+  owner: 08
+  status: DONE
+  activated_on: '2026-09-08'
+  activation_handoff: .orchestration/handoffs/R08-WEB-002-rereview-01.md
+  completion_blockers: []
+  priority: P1
+  depends_on:
+  - BACKEND-WEB-001
+  - FRONTEND-WEB-001
+  acceptance:
+  - AC-WEB-01
+  - AC-WEB-02
+  - AC-WEB-03
+  - AC-WEB-04
+  - AC-WEB-05
+  - AC-WEB-06
+  - AC-WEB-07
+  - AC-WEB-08
+  - AC-WEB-09
+  - AC-WEB-10
+  - AC-WEB-11
+  - AC-WEB-12
+  - AC-WEB-13
+  branch: null
+  commit: null
+  tests: []
+  blockers: []
+  review_result: ACCEPTED
+  review_requested: false
+  review_evidence: .orchestration/reports/R08-WEB-002-closure-08.md
+  rework_handoff: .orchestration/handoffs/REVIEW-WEB-001-rework-01.md
+  reviewed_on: '2026-09-13'
+  reviewer_handoff: .orchestration/handoffs/R08-WEB-002-closure-08.md
+  review_findings:
+  - id: R08-WEB-002
+    severity: MAJOR
+    status: RESOLVED
+    owner: '03'
+    resolved_on: '2026-09-13'
+    evidence: .orchestration/reports/R08-WEB-002-closure-08.md
+  - id: R08-WEB-001
+    severity: MINOR
+    status: RESOLVED
+  review_history:
+  - date: '2026-09-12'
+    result: CHANGES_REQUESTED
+    evidence: .orchestration/reports/REVIEW-WEB-001-08.md
+    note: Prior disposition retained on remediation resubmission; closure remains pending.
+  - date: '2026-09-13'
+    result: ACCEPTED
+    evidence: .orchestration/reports/R08-WEB-002-closure-08.md
+  resubmission_handoff: .orchestration/handoffs/R08-WEB-002-remediation-03.md
+  resubmission_evidence: .orchestration/reports/R08-WEB-002-remediation-03.md
+  pm_rereview_handoff: .orchestration/handoffs/R08-WEB-002-rereview-01.md
+  completed_on: '2026-09-13'
+  completion_evidence: .orchestration/handoffs/PHASE-1-acceptance-01.md
+- id: ENV-P1-DB-001
+  phase: 1
+  title: Align default persistent PostgreSQL authentication and revalidate deployment
+  owner: '03'
+  status: DONE
+  review_requested: false
+  review_evidence: .orchestration/reports/R08-WEB-002-closure-08.md
+  submitted_on: '2026-09-09'
+  priority: P1
+  required: true
+  task_type: ENVIRONMENT_REMEDIATION
+  depends_on: []
+  acceptance:
+  - AC-WEB-11
+  - AC-WEB-12
+  - AC-WEB-13
+  branch: null
+  commit: null
+  tests: []
+  blockers: []
+  review_result: ACCEPTED
+  handoff: .orchestration/handoffs/ENV-P1-DB-001-03.md
+  completion_condition: Authenticated configured DB query, additive migration/current head, configured API readiness and persistent browser/API
+    flow including restart readback; independent Reviewer closure. Correct configured repository storage root, preservation of existing DB-referenced
+    objects with same IDs/hash/metadata/Unicode after ordinary restart, and local/Compose storage alignment must be independently verified.
+  environment_issue_status: RESOLVED
+  evidence:
+  - .orchestration/reports/ENV-P1-DB-001-08.md
+  - .orchestration/reports/ENV-P1-DB-001-03.md
+  - .orchestration/handoffs/ENV-P1-DB-001-03.md
+  - .orchestration/handoffs/backend.md
+  - .orchestration/reports/BACKEND-WEB-001-03.md
+  - .orchestration/reports/FRONTEND-WEB-001-04.md
+  - .orchestration/reports/R08-WEB-002-closure-08.md
+  rework_handoff: .orchestration/handoffs/REVIEW-WEB-001-rework-01.md
+  review_history:
+  - date: '2026-09-11'
+    result: ACCEPTED
+    scope: Preliminary full closure superseded on 2026-09-12; authentication/readiness/head and same-path restart PASS retained.
+    evidence: .orchestration/reports/ENV-P1-DB-001-08.md
+  - date: '2026-09-12'
+    result: CHANGES_REQUESTED
+    evidence: .orchestration/reports/REVIEW-WEB-001-08.md
+    note: Prior disposition retained on remediation resubmission; closure remains pending.
+  - date: '2026-09-13'
+    result: ACCEPTED
+    evidence: .orchestration/reports/R08-WEB-002-closure-08.md
+  resubmission_handoff: .orchestration/handoffs/R08-WEB-002-remediation-03.md
+  resubmission_evidence: .orchestration/reports/R08-WEB-002-remediation-03.md
+  pm_rereview_handoff: .orchestration/handoffs/R08-WEB-002-rereview-01.md
+  resubmitted_on: '2026-09-12'
+  completed_on: '2026-09-13'
+  completion_evidence: .orchestration/handoffs/PHASE-1-acceptance-01.md
+  reviewer_handoff: .orchestration/handoffs/R08-WEB-002-closure-08.md
+- id: ARCH-UPLOAD-001
+  phase: 2
+  title: Phase 2 durable upload contract
+  owner: '02'
+  status: DONE
+  priority: P1
+  required: true
+  depends_on:
+  - PHASE 1 ACCEPTED
+  acceptance:
+  - AC-P2-01
+  - AC-P2-02
+  - AC-P2-03
+  - AC-P2-04
+  branch: null
+  commit: null
+  tests: []
+  blockers: []
+  review_result: ACCEPTED
+  review_requested: false
+  goal: Specify versioned request/response and producer/queue protocol, server receipt schema/state machine and recovery boundaries; preserve
+    manual upload semantics.
+  scope: docs/architecture/phase-2-upload-contract.md; scoped Phase 2 cross-references in api-contract.md/data-flow.md/domain-model.md; own report/handoff.
+  completion_condition: Explicit ID scope, fingerprint fields/canonicalization/version, validation ordering, 201/200/replay/409/Retry-After and
+    header policy; receipt retention, transaction/lease clock/renewal/fencing, object ownership and crash matrix; consult 03/06/04 preparation
+    and resolve open decisions before submission.
+  verification: Static cross-document/examples consistency and trace every required failure scenario; record contract revision and hashes; READY_FOR_REVIEW
+    requires concrete reviewable contract, not architecture-only product PASS.
+  difficulty: 최상
+  difficulty_reason: Cross-process receipt, fingerprint, lease/fencing and crash boundaries affect core persistent identity contracts.
+  requested_model: gpt-6-astra
+  requested_reasoning_effort: medium
+  actual_model: null
+  model_application_status: Requested; actual application unverified
+  activation_handoff: .orchestration/handoffs/PHASE-2-activation-01.md
+  entry_condition: Phase 1 acceptance verified; execute only assigned contract/preparation scope.
+  dispatch:
+    thread_id: 01a06f38-6916-7d00-998d-649ed5482d43
+    title: 2.Software
+    status: DELIVERED
+    execution_status: COMPLETED_CONTRACT_SUBMISSION
+  consultation_evidence:
+  - .orchestration/reports/FRONTEND-UPLOAD-CHECK-001-04.md
+  - .orchestration/reports/PREP-BACKEND-UPLOAD-001-03.md
+  - .orchestration/reports/PREP-UPLOAD-001-06.md
+  consultation_requirements: Resolve Frontend seven and Backend twelve contract questions; distinguish proposals from decisions, including deterministic
+    receipt-owned versus per-attempt object keys and fence-safe reconciliation. Explicit Web metadata minimum must satisfy user AC-P2-04 requirement.
+  consultation_delivery: All three reports and cross-owner contract questions delivered to existing Architect task on 2026-09-13; contract acceptance
+    not claimed.
+  resumed_on: '2026-09-16'
+  submission_blockers: []
+  submitted_on: '2026-09-16'
+  submission_revision: 2
+  contract_id: P2-UPLOAD-v1
+  submission_hashes:
+    phase-2-upload-contract.md: ab53b327517e6fd24bbff4b08c56a4d64f6dbda1a25f34a436e575858854ea4d
+    api-contract.md: f494bfbfec6de2742312e1bc22e5aec7f93a714e37171965580e14ea81aa7443
+    data-flow.md: d11a9ae800c9b8f5edd6ecb88c3e71638b918993abbd47798ac4fe7a6db02b18
+    domain-model.md: 6365a75c80b3ed8fc7b812d1b79100dca7239552dfeea6eaf563ffc23c7d1065
+  handoff: .orchestration/handoffs/ARCH-UPLOAD-001-02.md
+  evidence: .orchestration/reports/ARCH-UPLOAD-001-02.md
+  latest_role_instruction:
+    date: '2026-09-20'
+    handoff: .orchestration/handoffs/PHASE-2-role-resume-20260920-01.md
+    delivery_status: DELIVERED
+    execution_confirmed: false
+  rework_authorization:
+    date: '2026-09-25'
+    source: .orchestration/reports/REVIEW-ARCH-UPLOAD-001-08.md
+    scope: Origin binding only; preserve revision1 history, produce revision2 after Reviewer report appears
+    handoff: .orchestration/handoffs/PHASE-2-rework-20260925-01.md
+  review_evidence: .orchestration/reports/REVIEW-ARCH-UPLOAD-001-revision-2-08.md
+  reviewed_revision: 2
+  review_findings:
+  - id: R08-P2-ARCH-001
+    severity: MAJOR
+    status: RESOLVED
+    resolved_in_revision: 2
+    evidence: .orchestration/reports/REVIEW-ARCH-UPLOAD-001-revision-2-08.md
+  artifact_status: Revision2 independent acceptance verified by PM
+  revision2_report: .orchestration/reports/ARCH-UPLOAD-001-revision-2-02.md
+  revision2_hashes: &id001
+    phase-2-upload-contract.md: e47d3dca18fef169600bf6bebe78a31432105e5a1ae5b80a9934e1bf4ee8f843
+    api-contract.md: abcab2109becbe6938628aa3810bc547a33a8b2cc23348c71d8688bf6e7a0e70
+    data-flow.md: 08cb9119712d4731830d6b5513b6c38a1857f04360c9595f9c6eddb8be4f6f86
+    domain-model.md: 4147fde8c52e084b974f2fbc0f9cde14d493bd1442d234f01be9bdfb51680c1a
+  review_history:
+  - revision: 1
+    result: CHANGES_REQUESTED
+    evidence: .orchestration/reports/REVIEW-ARCH-UPLOAD-001-08.md
+  - revision: 2
+    result: ACCEPTED
+    evidence: .orchestration/reports/REVIEW-ARCH-UPLOAD-001-revision-2-08.md
+  completion_evidence: .orchestration/reports/REVIEW-ARCH-UPLOAD-001-revision-2-08.md
+  completed_on: '2026-09-25'
+- id: PREP-BACKEND-UPLOAD-001
+  phase: 2
+  title: Backend upload impact and migration preparation
+  owner: '03'
+  status: DONE
+  priority: P1
+  required: true
+  depends_on:
+  - PHASE 1 ACCEPTED
+  acceptance:
+  - AC-P2-01
+  - AC-P2-02
+  - AC-P2-03
+  - AC-P2-04
+  branch: null
+  commit: null
+  tests: []
+  blockers: []
+  review_result: null
+  review_requested: false
+  goal: Map current router/schema/storage/transaction/reconciliation and propose safe receipt migration and fault-test seams for Architect.
+  scope: Read-only backend/, tests/backend/, migration/config inspection; write only own Phase 2 report/handoff.
+  completion_condition: Current versus proposed behavior, exact file ownership, preservation/migration risks and contract questions supplied to
+    PM/02.
+  verification: Source references and safe runtime availability/version checks only as needed; no migrations, product edits, storage mutation
+    or suite reruns.
+  difficulty: 중
+  difficulty_reason: Read-only mapping of existing implementation and additive migration/test seams; no data changes.
+  requested_model: gpt-5.6-sol
+  requested_reasoning_effort: medium
+  actual_model: null
+  model_application_status: Requested; actual application unverified
+  activation_handoff: .orchestration/handoffs/PHASE-2-activation-01.md
+  entry_condition: Phase 1 acceptance verified; execute only assigned contract/preparation scope.
+  dispatch:
+    thread_id: 01a06f50-21ad-7d41-9c55-676bf7d3d4fd
+    title: 3 BACKEND ENGINEER
+    status: DELIVERED
+    execution_status: COMPLETED_WITH_PREPARATION_EVIDENCE
+  completed_on: '2026-09-13'
+  completion_evidence: .orchestration/handoffs/PHASE-2-frontend-backend-prep-01.md
+  preparation_result: ACCEPTED
+  acceptance_scope: PM acceptance of preparation deliverables only; not independent product review or AC PASS
+  evidence: .orchestration/reports/PREP-BACKEND-UPLOAD-001-03.md
+  handoff: .orchestration/handoffs/PREP-BACKEND-UPLOAD-001-03.md
+- id: PREP-UPLOAD-001
+  phase: 2
+  title: Uploader queue and failure-test preparation
+  owner: '06'
+  status: DONE
+  priority: P1
+  required: true
+  depends_on:
+  - PHASE 1 ACCEPTED
+  acceptance:
+  - AC-P2-01
+  - AC-P2-02
+  - AC-P2-03
+  - AC-P2-04
+  branch: null
+  commit: null
+  tests: []
+  blockers: []
+  review_result: null
+  review_requested: false
+  goal: Inventory agent/CLI/dependencies and design reproducible queue crash/failure cases and module boundaries for contract consultation.
+  scope: Read-only agent/, tests/upload/, capture conventions; own report/handoff only.
+  completion_condition: Producer readiness marker/partial file/restart/retry/ack questions, dependency request and owned modules supplied to PM/02.
+  verification: Source inventory and proposed deterministic failure matrix; no contract-dependent queue/network implementation or real captures
+    modifications.
+  difficulty: 중
+  difficulty_reason: Bounded inventory and test design before protocol decisions; no persistence implementation yet.
+  requested_model: gpt-5.6-sol
+  requested_reasoning_effort: medium
+  actual_model: null
+  model_application_status: Requested; actual application unverified
+  activation_handoff: .orchestration/handoffs/PHASE-2-activation-01.md
+  entry_condition: Phase 1 acceptance verified; execute only assigned contract/preparation scope.
+  dispatch:
+    thread_id: 01a07128-2c2d-71a1-a66e-ab654305170b
+    title: 6 Screenshot
+    status: DELIVERED
+    execution_status: COMPLETED_WITH_PREPARATION_EVIDENCE
+  completed_on: '2026-09-13'
+  preparation_result: ACCEPTED
+  acceptance_scope: PM consultation deliverables only; no independent product review or AC PASS
+  completion_evidence: .orchestration/handoffs/PHASE-2-frontend-backend-prep-01.md
+  evidence: .orchestration/reports/PREP-UPLOAD-001-06.md
+  handoff: .orchestration/handoffs/PREP-UPLOAD-001-06.md
+  runtime_observation: Owner restricted venv launch failed; PM current base interpreter Test-Path True and approved same-venv execution succeeded.
+    Deleted-interpreter claim unconfirmed; Owner evidence correction requested. No runtime repair performed.
+- id: FRONTEND-UPLOAD-CHECK-001
+  phase: 2
+  title: Agent upload UI compatibility assessment
+  owner: '04'
+  status: DONE
+  priority: P1
+  required: true
+  depends_on:
+  - PHASE 1 ACCEPTED
+  acceptance:
+  - AC-P2-04
+  branch: null
+  commit: null
+  tests: []
+  blockers: []
+  review_result: null
+  review_requested: false
+  goal: Assess agent source, non-null client_upload_id, metadata and manual upload compatibility; recommend exact necessary changes or no-change
+    conclusion.
+  scope: Read-only frontend/ and tests/frontend/; own report/handoff only.
+  completion_condition: Identify current types restricted to manual/null and source rendering; give minimal change list, regression plan and contract
+    questions to PM/02.
+  verification: Inspect response consumption and display paths; no speculative UI work, product writes or old test results relabeled as current.
+  difficulty: 중
+  difficulty_reason: Typed client/UI compatibility requires source tracing; implementation need is evidence-gated.
+  requested_model: gpt-5.6-sol
+  requested_reasoning_effort: medium
+  actual_model: null
+  model_application_status: Requested; actual application unverified
+  activation_handoff: .orchestration/handoffs/PHASE-2-activation-01.md
+  entry_condition: Phase 1 acceptance verified; execute only assigned contract/preparation scope.
+  dispatch:
+    thread_id: 01a070d8-d6fd-7773-bb3b-64813e89e1d8
+    title: 4 fronte
+    status: DELIVERED
+    execution_status: COMPLETED_WITH_PREPARATION_EVIDENCE
+  completed_on: '2026-09-13'
+  completion_evidence: .orchestration/handoffs/PHASE-2-frontend-backend-prep-01.md
+  preparation_result: ACCEPTED
+  acceptance_scope: PM acceptance of preparation deliverables only; not independent product review or AC PASS
+  evidence: .orchestration/reports/FRONTEND-UPLOAD-CHECK-001-04.md
+  handoff: .orchestration/handoffs/FRONTEND-UPLOAD-CHECK-001-04.md
+- id: REVIEW-UPLOAD-PREP-001
+  phase: 2
+  title: Reviewer root alignment and independent review preparation
+  owner: 08
+  status: DONE
+  priority: P1
+  required: true
+  depends_on:
+  - PHASE 1 ACCEPTED
+  acceptance:
+  - AC-P2-01
+  - AC-P2-02
+  - AC-P2-03
+  - AC-P2-04
+  branch: null
+  commit: null
+  tests: []
+  blockers: []
+  review_result: null
+  review_requested: false
+  goal: Verify safe read/write workflow for current root and role, read current gates, prepare independent contract/implementation acceptance
+    matrix.
+  scope: Read-only current repository; own new Phase 2 report/handoff only after safe-root confirmation. Never edit old repository.
+  completion_condition: Report actual cwd/current root access, current role, requested versus actual model and review readiness; verify current
+    Phase 1 records supersede old prototype history.
+  verification: Read current files through absolute root or explicit workdir; report permission/tool blockers without bypass. No product tests
+    or acceptance before submission.
+  difficulty: 중
+  difficulty_reason: Existing reviewer task has old cwd; bounded root verification and evidence-map preparation, not final review.
+  requested_model: gpt-5.6-sol
+  requested_reasoning_effort: medium
+  actual_model: null
+  model_application_status: Requested; actual application unverified
+  activation_handoff: .orchestration/handoffs/PHASE-2-activation-01.md
+  entry_condition: Phase 1 acceptance verified; execute only assigned contract/preparation scope.
+  dispatch:
+    thread_id: 01a06d9e-1f60-74e0-b8f2-c5af626c0f32
+    title: 리뷰
+    status: DELIVERED
+    execution_status: COMPLETED_WITH_PREPARATION_EVIDENCE
+  completed_on: '2026-09-13'
+  reconciled_on: '2026-09-16'
+  preparation_result: ACCEPTED
+  acceptance_scope: PM preparation only; current-root scoped read/write demonstrated, not contract/product acceptance
+  evidence: .orchestration/reports/REVIEW-UPLOAD-PREP-001-08.md
+  handoff: .orchestration/handoffs/REVIEW-UPLOAD-PREP-001-08.md
+  completion_evidence: .orchestration/handoffs/PHASE-2-resume-01.md
+- id: REVIEW-ARCH-UPLOAD-001
+  phase: 2
+  title: Independent Phase 2 contract review
+  owner: 08
+  status: DONE
+  priority: P1
+  required: true
+  depends_on:
+  - ARCH-UPLOAD-001
+  acceptance:
+  - AC-P2-01
+  - AC-P2-02
+  - AC-P2-03
+  - AC-P2-04
+  branch: null
+  commit: null
+  tests: []
+  blockers: []
+  review_result: ACCEPTED
+  review_requested: false
+  goal: Review submitted contract independently; require actionable resolution of ambiguity before implementation activation.
+  scope: Own Phase 2 contract-review report/handoff only; no owner contract or product fixes.
+  completion_condition: Return ACCEPTED or CHANGES_REQUESTED with exact revision/hash, issues and scenario matrix; no required unresolved issue.
+  verification: Reproduce/static-check request examples, fingerprint distinctions including same hash/different metadata, lease takeover/stale
+    fencing, ambiguous commit, receipt retention and partial queue/ack crash cases.
+  difficulty: 상
+  difficulty_reason: Independent analysis of persistent concurrency, crash recovery and protocol compatibility.
+  requested_model: gpt-5.6-sol
+  requested_reasoning_effort: high
+  actual_model: null
+  model_application_status: Requested; actual application unverified
+  activation_handoff: .orchestration/handoffs/REVIEW-ARCH-UPLOAD-001-01.md
+  entry_condition: ARCH-UPLOAD-001 READY_FOR_REVIEW with exact revised contract/handoff; REVIEW-UPLOAD-PREP-001 root confirmed; PM activates independent
+    review.
+  activated_on: '2026-09-16'
+  submitted_contract_revision: 2
+  submitted_contract_hashes: *id001
+  latest_role_instruction:
+    date: '2026-09-20'
+    handoff: .orchestration/handoffs/PHASE-2-role-resume-20260920-01.md
+    delivery_status: DELIVERED
+    execution_confirmed: false
+  artifact_status: Revision2 independent acceptance verified by PM
+  review_evidence: .orchestration/reports/REVIEW-ARCH-UPLOAD-001-revision-2-08.md
+  reviewed_revision: 2
+  review_findings:
+  - id: R08-P2-ARCH-001
+    severity: MAJOR
+    status: RESOLVED
+    resolved_in_revision: 2
+    evidence: .orchestration/reports/REVIEW-ARCH-UPLOAD-001-revision-2-08.md
+  entry_note: PM matched revision2 hashes; focused R08-P2-ARCH-001 closure, prior revision1 CHANGES_REQUESTED retained as history
+  review_history:
+  - revision: 1
+    result: CHANGES_REQUESTED
+    evidence: .orchestration/reports/REVIEW-ARCH-UPLOAD-001-08.md
+  - revision: 2
+    result: ACCEPTED
+    evidence: .orchestration/reports/REVIEW-ARCH-UPLOAD-001-revision-2-08.md
+  completion_evidence: .orchestration/reports/REVIEW-ARCH-UPLOAD-001-revision-2-08.md
+  completed_on: '2026-09-25'
+- id: BACKEND-UPLOAD-001
+  phase: 2
+  title: Persistent upload receipts and recovery implementation
+  owner: '03'
+  status: READY
+  priority: P1
+  required: true
+  depends_on:
+  - PHASE 1 ACCEPTED
+  - ARCH-UPLOAD-001
+  - REVIEW-ARCH-UPLOAD-001
+  - PREP-BACKEND-UPLOAD-001
+  acceptance:
+  - AC-P2-01
+  - AC-P2-02
+  - AC-P2-03
+  - AC-P2-04
+  branch: null
+  commit: null
+  tests: []
+  blockers: []
+  review_result: null
+  review_requested: false
+  goal: Implement approved agent API, durable receipt/fingerprint/lease fencing and transaction-safe Screenshot completion while preserving manual
+    uploads.
+  scope: backend/, tests/backend/; backend migrations sole owner 03; dependencies/shared config require PM file claim first.
+  completion_condition: Real PostgreSQL first/replay/conflict/concurrent/restart/response-loss cases pass; additive migration preserves existing
+    IDs/originals/Unicode; receipt lifetime and reconciliation cannot delete a winner object.
+  verification: Fresh plus additive migration in disposable/backup-safe environments; fault injection at reserve/publish/commit/response/takeover,
+    multi-connection concurrency, affected manual/storage/Unicode regressions and actual agent integration.
+  difficulty: 상
+  difficulty_reason: Persistent data, additive migration, concurrent reservations and fenced recovery require high-risk implementation checks.
+  requested_model: gpt-5.6-sol
+  requested_reasoning_effort: high
+  actual_model: null
+  model_application_status: Requested; actual application unverified
+  activation_handoff: .orchestration/handoffs/PHASE-2-implementation-20260925-01.md
+  entry_condition: Contract task and independent contract review ACCEPTED/DONE with evidence, own preparation accepted, file ownership confirmed;
+    PM promotes Backend and uploader together without making either wait for the other implementation.
+  latest_role_instruction:
+    date: '2026-09-20'
+    handoff: .orchestration/handoffs/PHASE-2-role-resume-20260920-01.md
+    delivery_status: DELIVERED
+    execution_confirmed: false
+  permitted_pre_gate_work: Final submitted-contract execution planning only; own report allowed. Product implementation remains BLOCKED.
+  execution_plan:
+    path: .orchestration/reports/BACKEND-UPLOAD-001-execution-plan-03.md
+    sha256: 4e029cc9cfce84e27a8155b807cc562f5fccbf7a01f41b3f516e2335d9437d16
+    status: SUBMITTED_PLANNING_ONLY
+  authorized_pre_gate_work:
+    scope: Disposable JCS candidate/license/artifact/conformance spike; own report only
+    requested_model: gpt-5.6-sol
+    requested_reasoning_effort: medium
+    actual_model: null
+    product_implementation: Superseded by 2026-09-25 READY activation
+  jcs_dependency_decision: &id002
+    package: rfc8785
+    version: 0.1.4
+    wheel_sha256: 520d690b448ecf0703691c76e1a34a24ddcd4fc5bc41d589cb7c58ec651bcd48
+    evidence: .orchestration/reports/BACKEND-UPLOAD-001-jcs-spike-03.md
+    evidence_attribution: Owner03 Windows/Linux disposable spike; PM read/hash check only
+    status: SELECTED_FOR_POST_CONTRACT_IMPLEMENTATION
+    strict_parser: Separate duplicate-key/raw-number/Unicode validation required
+    remaining: Persist reproducible production fixtures and exact commands; unified clean install, JSONB roundtrip and Backend/uploader parity
+      not run
+    edit_gate: Satisfied; scoped PM claims apply
+  activated_on: '2026-09-25'
+  accepted_contract_revision: 2
+  file_claim:
+    paths:
+    - backend/
+    - tests/backend/
+    - pyproject.toml
+    scope: Backend receipt/migration/service/storage/reconcile tests and Backend lock; sole pyproject editor preserving base/dev deps, adding
+      rfc8785>=0.1.4,<0.2, agent extra httpx>=0.28,<1, package discovery agent*. No global pytest scope change.
+  activation_reason: Phase1 and preparation accepted, exact revision2 independently accepted, file ownership assigned
+  implementation_delivery:
+    date: '2026-09-25'
+    status: DELIVERED
+    execution_completion: Not inferred
+    actual_model: null
+- id: UPLOAD-001
+  phase: 2
+  title: Screenshot automatic upload
+  owner: '06'
+  status: READY
+  priority: P1
+  required: true
+  depends_on:
+  - PHASE 1 ACCEPTED
+  - ARCH-UPLOAD-001
+  - REVIEW-ARCH-UPLOAD-001
+  - PREP-UPLOAD-001
+  acceptance:
+  - AC-P2-01
+  - AC-P2-02
+  - AC-P2-03
+  - AC-P2-04
+  branch: null
+  commit: null
+  tests: []
+  blockers: []
+  review_result: null
+  review_requested: false
+  goal: Implement approved versioned durable producer queue, persisted retry/backoff/failure states and matching-receipt acknowledgment.
+  scope: agent/screenshot_upload/, tests/upload/ (including actual Backend-agent integration harness owned by 06); common CLI/dependency edits
+    only after PM file claim.
+  completion_condition: Originals survive offline/crash/terminal failure; incomplete image/manifest never ready; stable request identity/payload
+    across retries; uploaded transition only after matching server response; restart-safe local transitions and real API/Web flow evidence.
+  verification: Deterministic clock/network/crash injection, separate-process restart, partial writes, retry exhaustion, mismatched/malformed
+    success rejection, lost success/replay against actual PostgreSQL Backend and original hash/Unicode readback.
+  difficulty: 상
+  difficulty_reason: Durable queue, crash recovery, ambiguous server responses and acknowledgment transitions risk original loss.
+  requested_model: gpt-5.6-sol
+  requested_reasoning_effort: high
+  actual_model: null
+  model_application_status: Requested; actual application unverified
+  activation_handoff: .orchestration/handoffs/PHASE-2-implementation-20260925-01.md
+  entry_condition: Contract task and independent contract review ACCEPTED/DONE with evidence, own preparation accepted, file ownership confirmed;
+    PM promotes Backend and uploader together without making either wait for the other implementation.
+  planning_history:
+  - date: '2026-09-13'
     status: TODO
-    priority: P1
-    depends_on: ["PHASE 1 ACCEPTED"]
-    acceptance: ["AC-P2-01","AC-P2-02","AC-P2-03","AC-P2-04"]
-    branch: null
-    commit: null
-    tests: []
-    blockers: []
-    review_result: null
-  - id: OCR-001
-    phase: 3
-    title: OCR and verification
-    owner: "05"
-    status: TODO
-    priority: P1
-    depends_on: ["PHASE 2 ACCEPTED"]
-    acceptance: ["AC-P3-01","AC-P3-02","AC-P3-03","AC-P3-04"]
-    branch: null
-    commit: null
-    tests: []
-    blockers: []
-    review_result: null
-  - id: AUTO-001
-    phase: 4
-    title: Black box visual automation
-    owner: "07"
-    status: TODO
-    priority: P1
-    depends_on: ["PHASE 3 ACCEPTED"]
-    acceptance: ["AC-P4-01","AC-P4-02","AC-P4-03","AC-P4-04"]
-    branch: null
-    commit: null
-    tests: []
-    blockers: []
-    review_result: null
-  - id: RECORD-001
-    phase: 5
-    title: Record and replay
-    owner: "07"
-    status: TODO
-    priority: P1
-    depends_on: ["PHASE 4 ACCEPTED"]
-    acceptance: ["AC-P5-01","AC-P5-02","AC-P5-03"]
-    branch: null
-    commit: null
-    tests: []
-    blockers: []
-    review_result: null
-  - id: GRAPH-001
-    phase: 6
-    title: State graph navigation
-    owner: "07"
-    status: TODO
-    priority: P1
-    depends_on: ["PHASE 5 ACCEPTED"]
-    acceptance: ["AC-P6-01","AC-P6-02","AC-P6-03"]
-    branch: null
-    commit: null
-    tests: []
-    blockers: []
-    review_result: null
-  - id: INTEGRATION-001
-    phase: 7
-    title: End-to-end integration
-    owner: "09"
-    status: TODO
-    priority: P1
-    depends_on: ["Required Previous Phases ACCEPTED"]
-    acceptance: ["AC-P7-01","AC-P7-02","AC-P7-03","AC-P7-04"]
-    branch: null
-    commit: null
-    tests: []
-    blockers: []
-    review_result: null
+    depends_on:
+    - PHASE 1 ACCEPTED
+    reason: Add independently approved Phase2 contract gate before implementation.
+  latest_role_instruction:
+    date: '2026-09-20'
+    handoff: .orchestration/handoffs/PHASE-2-role-resume-20260920-01.md
+    delivery_status: DELIVERED
+    execution_confirmed: false
+  permitted_pre_gate_work: Final submitted-contract execution planning only; own report allowed. Product implementation remains BLOCKED.
+  execution_plan:
+    path: .orchestration/reports/UPLOAD-001-execution-plan-06.md
+    sha256: 8c79f8363bd12cdbb10f5cdb36b1a270d99f7acb31354bfca6346ff0c537ba96
+    status: SUBMITTED_PLANNING_ONLY
+  jcs_dependency_decision: *id002
+  activated_on: '2026-09-25'
+  accepted_contract_revision: 2
+  file_claim:
+    paths:
+    - agent/screenshot_upload/
+    - tests/upload/
+    - agent/__init__.py
+    scope: Uploader production/tests including requirements.lock and requirements.in; agent/__init__.py only if needed for packaging, preserve
+      existing content. No common agent/__main__.py. Full base+agent/test lock. Own Backend-response-loss integration tests under tests/upload/integration.
+  activation_reason: Phase1 and preparation accepted, exact revision2 independently accepted, file ownership assigned
+  implementation_delivery:
+    date: '2026-09-25'
+    status: DELIVERED
+    execution_completion: Not inferred
+    actual_model: null
+- id: FRONTEND-UPLOAD-001
+  phase: 2
+  title: Separate manual upload request and Phase 2 screenshot response compatibility
+  owner: '04'
+  status: READY
+  priority: P1
+  required: true
+  depends_on:
+  - ARCH-UPLOAD-001
+  - REVIEW-ARCH-UPLOAD-001
+  - FRONTEND-UPLOAD-CHECK-001
+  acceptance:
+  - AC-P2-04
+  branch: null
+  commit: null
+  tests: []
+  blockers: []
+  review_result: null
+  review_requested: false
+  goal: Separate browser manual request type from Screenshot response; implement only accepted response source/UUID-null semantics and required
+    bounded detail metadata display.
+  scope: frontend/lib/types.ts, frontend/lib/api.ts, necessary frontend/components/screenshots.tsx changes and targeted frontend/tests; no Backend,
+    agent, shared config or new source filter/replay UI.
+  completion_condition: Accepted response shape represented without widening manual producer payload; unchanged manual two-part multipart/201
+    behavior; contract-required metadata/client ID display preserves Unicode/nested values with safe bounded text rendering; submit READY_FOR_REVIEW
+    with evidence.
+  verification: Targeted type/API/component regressions including source fallback, null/non-null ID, nested Unicode/empty metadata and unchanged
+    manual multipart; typecheck/build after changes. Actual Web validation remains FRONTEND-UPLOAD-VERIFY-001.
+  difficulty: 중
+  difficulty_reason: Bounded typed client and detail compatibility within independently approved contract; no persistence changes.
+  requested_model: gpt-5.6-sol
+  requested_reasoning_effort: medium
+  actual_model: null
+  model_application_status: Requested for later activation; not dispatched or actually applied
+  entry_condition: Contract and independent contract review ACCEPTED/DONE with exact revision, preparation accepted and PM explicit READY; no
+    product work before then.
+  activation_handoff: .orchestration/handoffs/PHASE-2-implementation-20260925-01.md
+  scope_evidence: .orchestration/reports/FRONTEND-UPLOAD-CHECK-001-04.md
+  latest_role_instruction:
+    date: '2026-09-20'
+    handoff: .orchestration/handoffs/PHASE-2-role-resume-20260920-01.md
+    delivery_status: DELIVERED
+    execution_confirmed: false
+  permitted_pre_gate_work: Final submitted-contract execution planning only; own report allowed. Product implementation remains BLOCKED.
+  activated_on: '2026-09-25'
+  accepted_contract_revision: 2
+  file_claim:
+    paths:
+    - frontend/lib/types.ts
+    - frontend/lib/api.ts
+    - frontend/components/screenshots.tsx
+    - frontend/app/globals.css
+    - frontend/tests/api.test.ts
+    - frontend/tests/components.test.tsx
+    scope: Manual request/read response separation and safe full CaptureMetadata/version/non-null ID detail display; preserve user changes. No
+      source filter/retry/receipt UI.
+  activation_reason: Phase1 and preparation accepted, exact revision2 independently accepted, file ownership assigned
+  implementation_delivery:
+    date: '2026-09-25'
+    status: DELIVERED
+    execution_completion: Not inferred
+    actual_model: null
+- id: FRONTEND-UPLOAD-VERIFY-001
+  phase: 2
+  title: Actual Web display and manual compatibility verification
+  owner: '04'
+  status: BLOCKED
+  priority: P1
+  required: true
+  depends_on:
+  - BACKEND-UPLOAD-001
+  - UPLOAD-001
+  - FRONTEND-UPLOAD-CHECK-001
+  - FRONTEND-UPLOAD-001
+  acceptance:
+  - AC-P2-04
+  branch: null
+  commit: null
+  tests: []
+  blockers:
+  - Entry gate pending; see entry_condition and dependencies.
+  review_result: null
+  review_requested: false
+  goal: Verify actual agent upload list/detail/image/source/metadata and existing manual flow after submissions.
+  scope: frontend/tests/, tests/frontend/ verification only after file coordination; own evidence; product edits require separate PM allocation.
+  completion_condition: Actual agent upload and multilingual metadata visible in Web; manual upload and originals preserved; any required UI/types
+    fix separately submitted and independently reviewed.
+  verification: Actual Backend-agent-Web synthetic flow, detail/image hash/source/metadata and manual smoke; targeted behavior/typecheck/build
+    only when changes justify; do not substitute fixtures for real integration.
+  difficulty: 중
+  difficulty_reason: Focused actual Web/API compatibility checks within existing UI; implementation allocated only for an evidenced gap.
+  requested_model: gpt-5.6-sol
+  requested_reasoning_effort: medium
+  actual_model: null
+  model_application_status: Requested; actual application unverified
+  activation_handoff: .orchestration/handoffs/PHASE-2-activation-01.md
+  entry_condition: Backend and uploader READY_FOR_REVIEW with actual integration evidence and compatibility assessment accepted; PM activates
+    verification. Include FRONTEND-UPLOAD-001 matching READY_FOR_REVIEW submission (or accepted evidence); no prior acceptance cycle is required
+    to enter review.
+- id: REVIEW-UPLOAD-001
+  phase: 2
+  title: Independent Phase 2 implementation review
+  owner: 08
+  status: BLOCKED
+  priority: P1
+  required: true
+  depends_on:
+  - BACKEND-UPLOAD-001
+  - UPLOAD-001
+  - FRONTEND-UPLOAD-VERIFY-001
+  - FRONTEND-UPLOAD-001
+  acceptance:
+  - AC-P2-01
+  - AC-P2-02
+  - AC-P2-03
+  - AC-P2-04
+  branch: null
+  commit: null
+  tests: []
+  blockers:
+  - Entry gate pending; see entry_condition and dependencies.
+  review_result: null
+  review_requested: false
+  goal: Independently judge AC-P2-01 through 04 and manual/storage/Unicode regression from final matching submissions.
+  scope: Own reports/handoffs and isolated validation artifacts; no owner code changes; PM owns state/acceptance.
+  completion_condition: AC matrix with executions versus Owner evidence, required issues resolved and ACCEPTED or CHANGES_REQUESTED; Phase acceptance
+    remains PM-only.
+  verification: Risk-selected independent replay/conflict/concurrency/recovery/queue restart and actual Web evidence; inspect migration/data preservation
+    and source fingerprints; no mandatory failure or unknown blocker marked complete.
+  difficulty: 상
+  difficulty_reason: Cross-service persistence and recovery assertions need independent fault/concurrency and end-to-end evidence.
+  requested_model: gpt-5.6-sol
+  requested_reasoning_effort: high
+  actual_model: null
+  model_application_status: Requested; actual application unverified
+  activation_handoff: .orchestration/handoffs/PHASE-2-activation-01.md
+  entry_condition: All referenced implementations/verification and any added required Frontend fix READY_FOR_REVIEW with final evidence (or already
+    accepted); Reviewer root confirmed; PM activates. Include FRONTEND-UPLOAD-001 matching READY_FOR_REVIEW submission (or accepted evidence);
+    no prior acceptance cycle is required to enter review.
+- id: OCR-001
+  phase: 3
+  title: OCR and verification
+  owner: '05'
+  status: TODO
+  priority: P1
+  depends_on:
+  - PHASE 2 ACCEPTED
+  acceptance:
+  - AC-P3-01
+  - AC-P3-02
+  - AC-P3-03
+  - AC-P3-04
+  branch: null
+  commit: null
+  tests: []
+  blockers: []
+  review_result: null
+- id: AUTO-001
+  phase: 4
+  title: Black box visual automation
+  owner: '07'
+  status: TODO
+  priority: P1
+  depends_on:
+  - PHASE 3 ACCEPTED
+  acceptance:
+  - AC-P4-01
+  - AC-P4-02
+  - AC-P4-03
+  - AC-P4-04
+  branch: null
+  commit: null
+  tests: []
+  blockers: []
+  review_result: null
+- id: RECORD-001
+  phase: 5
+  title: Record and replay
+  owner: '07'
+  status: TODO
+  priority: P1
+  depends_on:
+  - PHASE 4 ACCEPTED
+  acceptance:
+  - AC-P5-01
+  - AC-P5-02
+  - AC-P5-03
+  branch: null
+  commit: null
+  tests: []
+  blockers: []
+  review_result: null
+- id: GRAPH-001
+  phase: 6
+  title: State graph navigation
+  owner: '07'
+  status: TODO
+  priority: P1
+  depends_on:
+  - PHASE 5 ACCEPTED
+  acceptance:
+  - AC-P6-01
+  - AC-P6-02
+  - AC-P6-03
+  branch: null
+  commit: null
+  tests: []
+  blockers: []
+  review_result: null
+- id: INTEGRATION-001
+  phase: 7
+  title: End-to-end integration
+  owner: 09
+  status: TODO
+  priority: P1
+  depends_on:
+  - Required Previous Phases ACCEPTED
+  acceptance:
+  - AC-P7-01
+  - AC-P7-02
+  - AC-P7-03
+  - AC-P7-04
+  branch: null
+  commit: null
+  tests: []
+  blockers: []
+  review_result: null
+pm_resume_20260922:
+  date: '2026-09-22'
+  handoff: .orchestration/handoffs/PHASE-2-role-resume-20260922-01.md
+  delivery_status: DELIVERED_TO_FIVE_EXISTING_ROLES
+  execution: Fresh inProgress observed for 02/03/06/08; 04 delivery only; no completion inferred
+  actual_model: null
+  contract_hash: ab53b327517e6fd24bbff4b08c56a4d64f6dbda1a25f34a436e575858854ea4d
+  implementation_gate: BLOCKED_PENDING_INDEPENDENT_CONTRACT_REVIEW_AND_PM_FILE_CLAIMS
+  mobile_proposal_owner_thread: 01a0c924-3005-7061-8e1d-de18985586f4
+  mobile_exclusive_path: docs/architecture/mobile-platform-support-proposal.md

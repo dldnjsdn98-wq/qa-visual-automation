@@ -1,6 +1,6 @@
 // @vitest-environment node
 import { describe, expect, it, vi } from "vitest";
-import { ApiClient, ApiError, changedPatch, scalarLength, validateUnicode } from "../lib/api";
+import { ApiClient, ApiError, changedPatch, queryString, scalarLength, validateUnicode } from "../lib/api";
 import { changeSelection, initialNavigation, navigationUrl, parseNavigation } from "../lib/navigation";
 describe("approved contract client", () => {
   it("preserves multilingual scalars, combining marks and exact whitespace", async () => {
@@ -57,5 +57,8 @@ describe("approved contract client", () => {
     const state = { ...initialNavigation, view: "screenshots" as const, project: "p", build: "b", locale: "l", category: "c", situation: "s" };
     expect(changeSelection(state, "project", "p2")).toEqual({ ...initialNavigation, view: "screenshots", project: "p2" });
     expect(changeSelection(state, "category", "c2").situation).toBe(""); expect(parseNavigation(navigationUrl(state))).toEqual(state);
+  });
+  it("rejects invalid query Unicode without silently replacing it", () => {
+    expect(() => queryString({ string_id: "bad\ud800" })).toThrow(ApiError);
   });
 });

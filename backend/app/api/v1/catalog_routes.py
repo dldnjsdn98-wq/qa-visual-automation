@@ -42,7 +42,7 @@ def scoped_router(collection, identity_name, model, create_schema, patch_schema,
 
     def list_items(project_id: UUID, query: Annotated[filters, Query()], session: DB):
         values = query.model_dump(exclude_none=True)
-        service.validate_references(session, project_id, values)
+        service.validate_references(session, project_id, values, field_prefix="query")
         predicates = [model.project_id == project_id]
         for key, value in values.items():
             if key in ("limit", "offset"):

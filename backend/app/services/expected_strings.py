@@ -22,6 +22,9 @@ def mapping(session, project_id, build_id, situation_id):
 
 def replace(session, project_id, build_id, situation_id, string_ids):
     try:
+        # Each waiter must see its predecessor's committed mapping after the
+        # Build lock is acquired; a pre-lock repeatable snapshot would be stale.
+        session.connection(execution_options={"isolation_level": "READ COMMITTED"})
         validate(session, project_id, build_id, situation_id, lock=True)
         keys = [key_by_string_id(session, project_id, value) for value in string_ids]
         session.execute(delete(Mapping).where(Mapping.project_id == project_id, Mapping.build_id == build_id, Mapping.situation_id == situation_id))

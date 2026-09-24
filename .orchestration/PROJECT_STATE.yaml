@@ -1,30 +1,357 @@
 project_name: Game Multilingual QA Visual Automation System
 project_status: IN_PROGRESS
-current_phase: 1
+current_phase: 2
 bootstrap_status: COMPLETE
-active_roles: ["01", "02", "03", "04"]
-waiting_roles: ["05", "06", "07", "08", "09"]
-conditional_roles: ["08"]
-user_request_only_roles: ["10"]
-current_milestone: PHASE 1 Web MVP Implementation
+active_roles:
+- '01'
+- '02'
+- '03'
+- '04'
+- '06'
+- 08
+waiting_roles:
+- '05'
+- '07'
+- 09
+conditional_roles:
+- 08
+user_request_only_roles:
+- '10'
+current_milestone: 'Phase2 implementation READY: Backend/uploader/Frontend in parallel'
 pm_readiness:
-  result: PROMOTED
-  evidence: .orchestration/handoffs/PHASE-1-IMPLEMENTATION-01.md
-  prior_readiness_evidence: .orchestration/reports/ARCH-001-01-readiness.md
-  reason: Approved revision 2 fingerprints verified; both web tasks READY with blockers cleared on 2026-09-06.
+  result: IMPLEMENTATION_READY
+  evidence: .orchestration/handoffs/PHASE-2-implementation-20260925-01.md
+  reason: Exact revision2 accepted and implementation file claims assigned
 reviewer_dispatch:
-  status: WAITING
-  reason: Architecture re-review completed by explicit user request; now waiting for both web tasks to be READY_FOR_REVIEW with evidence.
+  status: DONE
+  task_id: REVIEW-ARCH-UPLOAD-001
+  contract_review_task: REVIEW-ARCH-UPLOAD-001
+  implementation_review_task: REVIEW-UPLOAD-001
+  thread_id: 01a06d9e-1f60-74e0-b8f2-c5af626c0f32
+  handoff: .orchestration/handoffs/REVIEW-ARCH-UPLOAD-001-01.md
+  reason: Exact revision1 submitted and Reviewer current-root preparation complete; independent contract review activated.
   gate_conflict: null
+  delivery_status: DELIVERED
+  requested_model: gpt-5.6-sol
+  requested_reasoning_effort: high
+  actual_model: null
+  execution_status: Contract revision2 ACCEPTED; implementation review waits for submissions
 role_state_semantics: Eligibility only; active_roles does not mean a role task is running.
 architecture_dispatch:
-  task_id: ARCH-001
-  owner: "02"
-  status: ACCEPTED
-  review_evidence: .orchestration/reports/review.md
-  thread_id: null
-  handoff: .orchestration/handoffs/ARCH-001-02.md
+  task_id: ARCH-UPLOAD-001
+  owner: '02'
+  status: DONE
+  thread_id: 01a06f38-6916-7d00-998d-649ed5482d43
+  handoff: .orchestration/handoffs/ARCH-UPLOAD-001-02.md
+  reason: Revision2 independently ACCEPTED
 failed_tests: []
+historical_failed_tests:
+- id: default_postgresql_authenticated_select
+  category: ENVIRONMENT
+  status: FAIL
+  source: OWNER_REPORTED
+  issue_id: ENV-P1-DB-001
+  evidence: .orchestration/reports/FRONTEND-WEB-001-04.md
+  note: Default configured SELECT 1 failed authentication; not a failure of the isolated Backend or Frontend suites. PM did not rerun the DB probe.
+  resolution: Independent configured authentication and persistence revalidation PASS on 2026-09-09.
+  resolution_evidence: .orchestration/reports/ENV-P1-DB-001-08.md
 critical_issues: []
-blocked_tasks: ["REVIEW-WEB-001"]
-last_updated: "2026-09-06"
+blocked_tasks:
+- FRONTEND-UPLOAD-VERIFY-001
+- REVIEW-UPLOAD-001
+required_completion_blockers:
+- Backend/uploader/Frontend submissions and real Web evidence pending
+- All four Phase2 AC PASS and independent implementation review pending
+environment_issues:
+- id: ENV-P1-DB-001
+  status: RESOLVED
+  owner: '03'
+  blocks_review_entry: false
+  blocks_phase_acceptance: false
+  evidence: .orchestration/reports/R08-WEB-002-closure-08.md
+  note: Full independent closure accepted; historical authentication failures and subsequent successes retained.
+  resolved_on: '2026-09-13'
+last_updated: '2026-09-25'
+phase1_completion_evidence: .orchestration/handoffs/PHASE-1-acceptance-01.md
+phase2_dispatch:
+- task_id: ARCH-UPLOAD-001
+  owner: '02'
+  status: DELIVERED
+  requested_model: gpt-6-astra
+  requested_reasoning_effort: medium
+  actual_model: null
+  thread_id: 01a06f38-6916-7d00-998d-649ed5482d43
+  title: 2.Software
+  delivery_status: DELIVERED
+  execution_status: COMPLETED_CONTRACT_SUBMISSION
+  model_status: Requested through model/thinking tool settings; actual execution model unverified
+  resumed_on: '2026-09-16'
+- task_id: PREP-BACKEND-UPLOAD-001
+  owner: '03'
+  status: DELIVERED
+  requested_model: gpt-5.6-sol
+  requested_reasoning_effort: medium
+  actual_model: null
+  thread_id: 01a06f50-21ad-7d41-9c55-676bf7d3d4fd
+  title: 3 BACKEND ENGINEER
+  delivery_status: DELIVERED
+  execution_status: COMPLETED_WITH_PREPARATION_EVIDENCE
+  model_status: Requested through model/thinking tool settings; actual execution model unverified
+  completion_evidence: .orchestration/reports/PREP-BACKEND-UPLOAD-001-03.md
+- task_id: PREP-UPLOAD-001
+  owner: '06'
+  status: DELIVERED
+  requested_model: gpt-5.6-sol
+  requested_reasoning_effort: medium
+  actual_model: null
+  thread_id: 01a07128-2c2d-71a1-a66e-ab654305170b
+  title: 6 Screenshot
+  delivery_status: DELIVERED
+  execution_status: COMPLETED_WITH_PREPARATION_EVIDENCE
+  model_status: Requested through model/thinking tool settings; actual execution model unverified
+  completion_evidence: .orchestration/reports/PREP-UPLOAD-001-06.md
+- task_id: FRONTEND-UPLOAD-CHECK-001
+  owner: '04'
+  status: DELIVERED
+  requested_model: gpt-5.6-sol
+  requested_reasoning_effort: medium
+  actual_model: null
+  thread_id: 01a070d8-d6fd-7773-bb3b-64813e89e1d8
+  title: 4 fronte
+  delivery_status: DELIVERED
+  execution_status: COMPLETED_WITH_PREPARATION_EVIDENCE
+  model_status: Requested through model/thinking tool settings; actual execution model unverified
+  completion_evidence: .orchestration/reports/FRONTEND-UPLOAD-CHECK-001-04.md
+- task_id: REVIEW-UPLOAD-PREP-001
+  owner: 08
+  status: DELIVERED
+  requested_model: gpt-5.6-sol
+  requested_reasoning_effort: medium
+  actual_model: null
+  thread_id: 01a06d9e-1f60-74e0-b8f2-c5af626c0f32
+  title: 리뷰
+  delivery_status: DELIVERED
+  execution_status: COMPLETED_WITH_PREPARATION_EVIDENCE
+  model_status: Requested through model/thinking tool settings; actual execution model unverified
+  completion_evidence: .orchestration/reports/REVIEW-UPLOAD-PREP-001-08.md
+phase2_shared_file_requests:
+- owner: '03'
+  path: pyproject.toml
+  status: APPROVED_EXCLUSIVE_EDITOR
+  scope: Backend receipt/migration/service/storage/reconcile tests and Backend lock; sole pyproject editor preserving base/dev deps, adding rfc8785>=0.1.4,<0.2,
+    agent extra httpx>=0.28,<1, package discovery agent*. No global pytest scope change.
+- owner: '06'
+  path: agent/screenshot_upload/requirements.lock
+  status: APPROVED
+  scope: Base+agent/test exact hashes, same selected rfc8785 version
+- owner: '06'
+  path: agent/screenshot_upload/requirements.in
+  status: APPROVED
+  scope: Input for agent lock only
+- owner: '06'
+  path: README.md
+  status: CONDITIONAL_AFTER_IMPLEMENTED_VERIFIED_BEHAVIOR
+  scope: Uploader CLI/runbook section only, preserve all existing unrelated content
+- owner: null
+  path: agent/__main__.py
+  status: NO_EDIT
+  scope: Uploader-local CLI only
+phase2_support_agents:
+- key: server
+  agent_id: 01a0aa7c-86f3-7732-93ac-102bd34d0b42
+  nickname: Averroes
+  status: NOT_FOUND_ON_RESUME
+  scope: Read-only bounded support; designated Reviewer owns disposition
+  requested_model: gpt-5.6-sol
+  requested_reasoning_effort: high
+  actual_model: null
+  result: No recovered final result; not counted as complete
+- key: queue
+  agent_id: 01a0aa7c-879f-7882-bd83-489b61fb9c04
+  nickname: McClintock
+  status: NOT_FOUND_ON_RESUME
+  scope: Read-only bounded support; designated Reviewer owns disposition
+  requested_model: gpt-5.6-sol
+  requested_reasoning_effort: high
+  actual_model: null
+  result: No recovered final result; not counted as complete
+- key: wire
+  agent_id: 01a0aa7c-8855-7fe0-97a1-831c853cfe5a
+  nickname: Huygens
+  status: NOT_FOUND_ON_RESUME
+  scope: Read-only bounded support; designated Reviewer owns disposition
+  requested_model: gpt-5.6-sol
+  requested_reasoning_effort: high
+  actual_model: null
+  result: No recovered final result; not counted as complete
+- key: claims
+  agent_id: 01a0aa7c-8902-78a2-a563-4c1e8daef6dd
+  nickname: Helmholtz
+  status: COMPLETED_PREVIOUSLY_CLOSED
+  scope: Read-only bounded support; designated Reviewer owns disposition
+  requested_model: gpt-5.6-terra
+  requested_reasoning_effort: high
+  actual_model: null
+  result: Prior ownership/dependency recommendations retained as planning, not independent acceptance
+- scope: server
+  agent_id: 01a0bec7-4abf-74b1-9ff1-4356cee9e63a
+  nickname: Kierkegaard
+  status: SPAWNED_20260920
+  requested_model: gpt-5.6-sol
+  requested_reasoning_effort: high
+  actual_model: null
+  scope_note: Bounded read-only audit; final decision belongs to designated Reviewer08
+- scope: wire
+  agent_id: 01a0bec7-4b6c-7590-ba7a-252e522c81ae
+  nickname: Nietzsche
+  status: SPAWNED_20260920
+  requested_model: gpt-5.6-sol
+  requested_reasoning_effort: high
+  actual_model: null
+  scope_note: Bounded read-only audit; final decision belongs to designated Reviewer08
+phase2_role_resumption_20260920:
+- task_id: REVIEW-ARCH-UPLOAD-001
+  title: 리뷰
+  thread_id: 01a06d9e-1f60-74e0-b8f2-c5af626c0f32
+  delivery_status: DELIVERED
+  requested_model: gpt-5.6-sol
+  requested_reasoning_effort: high
+  actual_model: null
+  scope: 독립 계약 리뷰를 지금 이어서 마무리하세요. 마지막 실행은 429로 중단, origin-binding 결함 후보를 발견했지만 최종 보고서 없음. 확정한 반례부터 기록하세요. PM 새 지원 서브에이전트가 sections4-6 receipt/fencing와
+    sections1-3 JCS/wire를 각각 감사 중이며 결과를 전달합니다. 귀하는 sections7-8 queue/ack/origin, 전체 정합성과 최종 판정에 집중. 추가 서브에이전트는 아직 맡기지 않은 정확한 증거검산만. 기존 cwd가 old
+    New project2이므로 현재 절대루트/explicit workdir 사용. 결과 .orchestration/reports/REVIEW-ARCH-UPLOAD-001-08.md와 handoffs 동명에 exact hash·ACCEPTED/CHANGES_REQUESTED·required
+    findings·실행/미실행 구분 후 PM 통지. 승인 대기는 UI 유지, 우회 금지.
+- task_id: ARCH-UPLOAD-001
+  title: 2.Software
+  thread_id: 01a06f38-6916-7d00-998d-649ed5482d43
+  delivery_status: DELIVERED
+  requested_model: gpt-6-astra
+  requested_reasoning_effort: medium
+  actual_model: null
+  scope: 리뷰 대응 담당 유지. 제출4파일 hash는 final 검토가 끝날 때까지 바꾸지 말고, Reviewer origin-binding 후보 및 완료 후 findings에 대한 수정안/영향을 준비하세요. 서브에이전트는 확정된 반례와 수정영향을
+    별도로 분담하고 이미 감사 중인 전체 계약을 반복하지 마세요. 수정 요구 도착 시 새 revision으로 범위/증거 갖춰 재제출. 현재 조치가 없으면 불필요한 보고서 생산 대신 정확한 대기조건 보고.
+- task_id: BACKEND-UPLOAD-001
+  title: 3 BACKEND ENGINEER
+  thread_id: 01a06f50-21ad-7d41-9c55-676bf7d3d4fd
+  delivery_status: DELIVERED
+  requested_model: gpt-5.6-sol
+  requested_reasoning_effort: high
+  actual_model: null
+  scope: '구현 BLOCKED 유지하되 429로 중단된 final rev1 실행계획 작업을 완료하세요. 지금 산출물 .orchestration/reports/BACKEND-UPLOAD-001-execution-plan-03.md. 서브에이전트 분할:
+    additive migration/receipt 제약과 보존 tests, service/reconcile/fault barrier별 파일분할, JCS Python3.12 의존성/Backend lock 후보 검증계획. source inventory를
+    다시 만들지 말고 final per-generation key/fencing 계약에 맞춘 정확한 파일·함수·test case·공유 pyproject 변경 제안만. 제품/tests/DB/service 수정은 승인 후 PM READY부터.'
+- task_id: UPLOAD-001
+  title: 6 Screenshot
+  thread_id: 01a07128-2c2d-71a1-a66e-ab654305170b
+  delivery_status: DELIVERED
+  requested_model: gpt-5.6-sol
+  requested_reasoning_effort: high
+  actual_model: null
+  scope: '구현 BLOCKED 유지하되 429로 중단된 final rev1 실행계획 완료. SQLite 제안은 최종 계약에서 atomic state.json/initialized.json+OS lock으로 바뀌었으니 반영. 서브에이전트: producer/spool/lock
+    및 crash barrier 파일분할, client/retry/strict ack/move/requeue 테스트 배치, 설치/CLI/httpx/JCS/agent requirements.lock 공유파일 claim. 결과 .orchestration/reports/UPLOAD-001-execution-plan-06.md.
+    실제 code/tests/캡처/환경 수정 금지. 정확한 dependency 후보는03와 PM 조율, pyproject 단일 편집자 필요.'
+- task_id: FRONTEND-UPLOAD-001
+  title: 4 fronte
+  thread_id: 01a070d8-d6fd-7773-bb3b-64813e89e1d8
+  delivery_status: DELIVERED
+  requested_model: gpt-5.6-sol
+  requested_reasoning_effort: medium
+  actual_model: null
+  scope: 최종 계약은 full bounded CaptureMetadata/version/non-null client ID 표시를 확정한 제출안입니다. 승인 전 구현 BLOCKED, 지금은 .orchestration/reports/FRONTEND-UPLOAD-001-execution-plan-04.md
+    작성. 서브에이전트 2개로 manual request/expanded response 타입·API 회귀와 안전한 상세 nested Unicode JSON 표시·component회귀를 분리. 정확한 파일과 테스트 명세, 수동 multipart2-part/201
+    유지. 기존 compatibility prep 재실행·불필요한 source필터/queue/replayUI 추가·제품파일 수정 금지.
+execution_interruptions:
+- date_observed: '2026-09-20'
+  tasks:
+  - BACKEND-UPLOAD-001
+  - UPLOAD-001
+  - REVIEW-ARCH-UPLOAD-001
+  source: App latest turn metadata
+  result: 'Previous execution failed: exceeded retry limit, last status 429 Too Many Requests'
+  classification: Execution rate limit; not product failure or model capability finding
+  current_action: One bounded resume per existing role sent; no completion inferred.
+pm_resume_20260922:
+  date: '2026-09-22'
+  handoff: .orchestration/handoffs/PHASE-2-role-resume-20260922-01.md
+  delivery_status: DELIVERED_TO_FIVE_EXISTING_ROLES
+  execution: Fresh inProgress observed for 02/03/06/08; 04 delivery only; no completion inferred
+  actual_model: null
+  contract_hash: ab53b327517e6fd24bbff4b08c56a4d64f6dbda1a25f34a436e575858854ea4d
+  implementation_gate: BLOCKED_PENDING_INDEPENDENT_CONTRACT_REVIEW_AND_PM_FILE_CLAIMS
+  mobile_proposal_owner_thread: 01a0c924-3005-7061-8e1d-de18985586f4
+  mobile_exclusive_path: docs/architecture/mobile-platform-support-proposal.md
+pm_resume_20260925:
+  verdict: CHANGES_REQUESTED
+  source: Recovered Reviewer08 actual turn; file publication requested once
+  required_fix: Durable origin binding and matching ACK recovery
+  architecture_rework: Delivered; edits start after Reviewer report preservation
+  backend_uploader: Execution-plan integration resumed; implementation BLOCKED
+  ip_connectivity_checks: Excluded by user
+  actual_models: null
+  execution_plans:
+    '03':
+      path: .orchestration/reports/BACKEND-UPLOAD-001-execution-plan-03.md
+      sha256: 4e029cc9cfce84e27a8155b807cc562f5fccbf7a01f41b3f516e2335d9437d16
+      status: SUBMITTED_PLANNING_ONLY
+    '06':
+      path: .orchestration/reports/UPLOAD-001-execution-plan-06.md
+      sha256: 8c79f8363bd12cdbb10f5cdb36b1a270d99f7acb31354bfca6346ff0c537ba96
+      status: SUBMITTED_PLANNING_ONLY
+  reviewer_execution: Final report saved; exact hash verified
+  review_evidence: .orchestration/reports/REVIEW-ARCH-UPLOAD-001-08.md
+  revision2_hashes:
+    phase-2-upload-contract.md: e47d3dca18fef169600bf6bebe78a31432105e5a1ae5b80a9934e1bf4ee8f843
+    api-contract.md: abcab2109becbe6938628aa3810bc547a33a8b2cc23348c71d8688bf6e7a0e70
+    data-flow.md: 08cb9119712d4731830d6b5513b6c38a1857f04360c9595f9c6eddb8be4f6f86
+    domain-model.md: 4147fde8c52e084b974f2fbc0f9cde14d493bd1442d234f01be9bdfb51680c1a
+phase2_packaging_decision:
+  mode: Unified distribution preserving root Backend dependencies
+  pyproject_editor: '03'
+  agent_lock_editor: '06'
+  agent_lock_scope: Root base plus agent/test dependencies; clean pip check required
+  product_edits: After independent contract approval and PM READY
+  jcs_spike: 03 authorized now in disposable environment; no product/shared-file edits
+phase2_jcs_decision:
+  package: rfc8785
+  version: 0.1.4
+  wheel_sha256: 520d690b448ecf0703691c76e1a34a24ddcd4fc5bc41d589cb7c58ec651bcd48
+  evidence: .orchestration/reports/BACKEND-UPLOAD-001-jcs-spike-03.md
+  evidence_attribution: Owner03 Windows/Linux disposable spike; PM read/hash check only
+  status: SELECTED_FOR_POST_CONTRACT_IMPLEMENTATION
+  strict_parser: Separate duplicate-key/raw-number/Unicode validation required
+  remaining: Persist reproducible production fixtures and exact commands; unified clean install, JSONB roundtrip and Backend/uploader parity not
+    run
+  edit_gate: 'Satisfied: revision2 accepted and PM READY; scoped claims apply'
+phase2_implementation_activation:
+  date: '2026-09-25'
+  handoff: .orchestration/handoffs/PHASE-2-implementation-20260925-01.md
+  contract_review: .orchestration/reports/REVIEW-ARCH-UPLOAD-001-revision-2-08.md
+  status: READY
+  file_claims:
+    '03':
+      paths:
+      - backend/
+      - tests/backend/
+      - pyproject.toml
+      scope: Backend receipt/migration/service/storage/reconcile tests and Backend lock; sole pyproject editor preserving base/dev deps, adding
+        rfc8785>=0.1.4,<0.2, agent extra httpx>=0.28,<1, package discovery agent*. No global pytest scope change.
+    '06':
+      paths:
+      - agent/screenshot_upload/
+      - tests/upload/
+      - agent/__init__.py
+      scope: Uploader production/tests including requirements.lock and requirements.in; agent/__init__.py only if needed for packaging, preserve
+        existing content. No common agent/__main__.py. Full base+agent/test lock. Own Backend-response-loss integration tests under tests/upload/integration.
+    '04':
+      paths:
+      - frontend/lib/types.ts
+      - frontend/lib/api.ts
+      - frontend/components/screenshots.tsx
+      - frontend/app/globals.css
+      - frontend/tests/api.test.ts
+      - frontend/tests/components.test.tsx
+      scope: Manual request/read response separation and safe full CaptureMetadata/version/non-null ID detail display; preserve user changes.
+        No source filter/retry/receipt UI.
+  delivery_status: DELIVERED_TO_03_06_04
+  actual_models: null
+  execution_status: Delivery confirmed; completion not inferred

@@ -118,7 +118,7 @@ def upgrade():
     sa.Column('original_filename', sa.String(length=255), nullable=False),
     sa.Column('uploaded_at', postgresql.TIMESTAMP(timezone=True), server_default=sa.text('now()'), nullable=False),
     sa.Column('storage_key', sa.Text(), nullable=False),
-    sa.Column('file_hash', sa.String(length=64), nullable=False),
+    sa.Column('file_hash', sa.CHAR(length=64), nullable=False),
     sa.Column('media_type', sa.String(length=32), nullable=False),
     sa.Column('size_bytes', sa.BigInteger(), nullable=False),
     sa.Column('width', sa.Integer(), nullable=False),
@@ -195,4 +195,3 @@ def downgrade():
     op.drop_table('builds')
     op.drop_table('projects')
     # ### end Alembic commands ###
-

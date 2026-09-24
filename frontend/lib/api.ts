@@ -23,6 +23,7 @@ export function validateUnicode(value: unknown, field = "body"): void {
 }
 export function scalarLength(value: string): number { validateUnicode(value); return Array.from(value).length; }
 export function queryString(query: Query = {}): string {
+  validateUnicode(query, "query");
   const params = new URLSearchParams();
   Object.entries(query).forEach(([key, value]) => { if (value !== undefined && value !== "") params.set(key, String(value)); });
   return params.size ? `?${params}` : "";

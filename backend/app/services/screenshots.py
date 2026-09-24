@@ -26,7 +26,7 @@ def cleanup(storage, key):
 
 def upload(session, storage, project_id, metadata, stream, filename, media_type):
     values = metadata.model_dump()
-    validate_references(session, project_id, values)
+    validate_references(session, project_id, values, field_prefix="metadata")
     session.rollback()  # End read snapshot before decoding/storage I/O.
     staged = None
     try:
@@ -39,7 +39,8 @@ def upload(session, storage, project_id, metadata, stream, filename, media_type)
         storage.publish(staged, key)
         # From here, only a known rollback authorizes compensation.
         try:
-            validate_references(session, project_id, values)
+            session.connection(execution_options={"isolation_level": "READ COMMITTED"})
+            validate_references(session, project_id, values, field_prefix="metadata")
             values["capture_metadata"] = values.pop("metadata")
             row = repo.insert(session, Screenshot, dict(values, id=identity, project_id=project_id, original_filename=filename, storage_key=key, file_hash=staged.sha256, media_type=facts.media_type, size_bytes=staged.byte_count, width=facts.width, height=facts.height))
             result = serialize(row)
