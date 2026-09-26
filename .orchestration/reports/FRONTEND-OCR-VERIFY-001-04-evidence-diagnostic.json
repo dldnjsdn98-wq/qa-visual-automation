@@ -1,0 +1,978 @@
+{
+  "run": {
+    "id": "178c78b8-d0a4-44e6-8d86-9dfe7964a0f7",
+    "project_id": "c923ee62-24e8-4080-911b-7ac77cb7a3fc",
+    "screenshot_id": "2177db59-12a2-4c5f-b325-d0f073578289",
+    "client_run_id": "b67a1a56-5e4a-48c0-b41f-696721d0cc62",
+    "protocol_version": 1,
+    "profile_id": "paddleocr-korean-medium-windows-amd64-cpython312-v1",
+    "profile_digest": "00300d2aebd8097cba3879f8f35cae888c3e7a6b0abd3f426b654e5d7201c679",
+    "status": "SUCCEEDED",
+    "stage": "COMPLETE",
+    "created_at": "2026-09-25T11:11:56.935707Z",
+    "updated_at": "2026-09-25T11:12:03.783148Z",
+    "started_at": "2026-09-25T11:11:57.062976Z",
+    "completed_at": "2026-09-25T11:12:03.783148Z",
+    "attempt_count": 1,
+    "next_attempt_at": null,
+    "verification_status": "UNVERIFIED",
+    "error": null,
+    "snapshot": {
+      "version": 1,
+      "sha256": "234411ef8f13a82da5ac3e003462e026c14cd35b868fcd2d4d3f518f0430caed",
+      "captured_at": "2026-09-25T11:11:56.901648Z",
+      "item_count": 3,
+      "missing_count": 1,
+      "locale_code": "ko-KR",
+      "ocr_language": "ko",
+      "screenshot_file_hash": "d34992612ae1b01629475fdc7ed1bcc3359cfcb798c7bb22959f6cd709aa2702",
+      "width": 1280,
+      "height": 320
+    },
+    "configuration": {
+      "profile_id": "paddleocr-korean-medium-windows-amd64-cpython312-v1",
+      "profile_digest": "00300d2aebd8097cba3879f8f35cae888c3e7a6b0abd3f426b654e5d7201c679",
+      "normalization_version": "norm-v1",
+      "matching_version": "one-to-one-levenshtein-v1",
+      "pass_threshold": 95.0,
+      "review_threshold": 85.0
+    },
+    "ocr_result_id": "8b8e3b49-0980-4ba5-a5ca-7eddd18bc05c",
+    "verification_result_id": "27d20b0c-5629-457a-bbe5-77942d8e76f3",
+    "links": {
+      "self": "/api/v1/projects/c923ee62-24e8-4080-911b-7ac77cb7a3fc/screenshots/2177db59-12a2-4c5f-b325-d0f073578289/verification-runs/178c78b8-d0a4-44e6-8d86-9dfe7964a0f7",
+      "expected": "/api/v1/projects/c923ee62-24e8-4080-911b-7ac77cb7a3fc/screenshots/2177db59-12a2-4c5f-b325-d0f073578289/verification-runs/178c78b8-d0a4-44e6-8d86-9dfe7964a0f7/expected",
+      "ocr": "/api/v1/projects/c923ee62-24e8-4080-911b-7ac77cb7a3fc/screenshots/2177db59-12a2-4c5f-b325-d0f073578289/verification-runs/178c78b8-d0a4-44e6-8d86-9dfe7964a0f7/ocr",
+      "regions": "/api/v1/projects/c923ee62-24e8-4080-911b-7ac77cb7a3fc/screenshots/2177db59-12a2-4c5f-b325-d0f073578289/verification-runs/178c78b8-d0a4-44e6-8d86-9dfe7964a0f7/ocr/regions",
+      "verification": "/api/v1/projects/c923ee62-24e8-4080-911b-7ac77cb7a3fc/screenshots/2177db59-12a2-4c5f-b325-d0f073578289/verification-runs/178c78b8-d0a4-44e6-8d86-9dfe7964a0f7/verification",
+      "items": "/api/v1/projects/c923ee62-24e8-4080-911b-7ac77cb7a3fc/screenshots/2177db59-12a2-4c5f-b325-d0f073578289/verification-runs/178c78b8-d0a4-44e6-8d86-9dfe7964a0f7/verification/items"
+    }
+  },
+  "observations": [
+    {
+      "status": "PENDING",
+      "stage": "QUEUED",
+      "attempt_count": 0,
+      "verification_status": null,
+      "retry_after": "2",
+      "error": null
+    },
+    {
+      "status": "RUNNING",
+      "stage": "OCR",
+      "attempt_count": 1,
+      "verification_status": null,
+      "retry_after": "2",
+      "error": null
+    },
+    {
+      "status": "RUNNING",
+      "stage": "VERIFY",
+      "attempt_count": 1,
+      "verification_status": null,
+      "retry_after": "2",
+      "error": null
+    },
+    {
+      "status": "SUCCEEDED",
+      "stage": "COMPLETE",
+      "attempt_count": 1,
+      "verification_status": "UNVERIFIED",
+      "retry_after": null,
+      "error": null
+    }
+  ],
+  "expected": {
+    "items": [
+      {
+        "position": 0,
+        "string_key_id": "15d688f0-6b8e-40f1-95a5-f1ceca1bf04b",
+        "string_id": "recognized",
+        "entry_id": "4e320e5c-af8e-4ae0-ba52-66a9f32dff60",
+        "expected_text": "안녕하세요 설정 123",
+        "translation_status": "present"
+      },
+      {
+        "position": 1,
+        "string_key_id": "0665fe6e-f9fc-4191-9b7d-3b75bde3fd7e",
+        "string_id": "empty",
+        "entry_id": "a544abe0-acd5-4f44-861a-c39f7bccfa65",
+        "expected_text": "",
+        "translation_status": "present"
+      },
+      {
+        "position": 2,
+        "string_key_id": "44d1624b-c81e-4b2f-8c2a-762907298092",
+        "string_id": "missing",
+        "entry_id": null,
+        "expected_text": null,
+        "translation_status": "missing"
+      }
+    ],
+    "total": 3,
+    "limit": 50,
+    "offset": 0
+  },
+  "ocr": {
+    "id": "8b8e3b49-0980-4ba5-a5ca-7eddd18bc05c",
+    "run_id": "178c78b8-d0a4-44e6-8d86-9dfe7964a0f7",
+    "project_id": "c923ee62-24e8-4080-911b-7ac77cb7a3fc",
+    "screenshot_id": "2177db59-12a2-4c5f-b325-d0f073578289",
+    "coordinate_space": "original-raster-v1",
+    "width": 1280,
+    "height": 320,
+    "region_count": 1,
+    "no_text": false,
+    "profile_id": "paddleocr-korean-medium-windows-amd64-cpython312-v1",
+    "profile_digest": "00300d2aebd8097cba3879f8f35cae888c3e7a6b0abd3f426b654e5d7201c679",
+    "engine_name": "paddleocr",
+    "engine_version": "3.7.0",
+    "ocr_language": "ko",
+    "runtime_manifest": {
+      "os": "Windows-11-10.0.26200-SP0",
+      "device": "cpu",
+      "packages": [
+        {
+          "name": "aiohappyeyeballs",
+          "sha256": "9243213661e29250eb41368e5daa826fc017156c3b8a11440826b2e3ed376472",
+          "version": "2.7.1",
+          "filename": "aiohappyeyeballs-2.7.1-py3-none-any.whl",
+          "byte_size": 15038
+        },
+        {
+          "name": "aiohttp",
+          "sha256": "33a2d7c28d33797a2e99923dffa63f83d908a19b6bf26cfe80fa790aa5e1a75a",
+          "version": "3.14.3",
+          "filename": "aiohttp-3.14.3-cp312-cp312-win_amd64.whl",
+          "byte_size": 476845
+        },
+        {
+          "name": "aiosignal",
+          "sha256": "053243f8b92b990551949e63930a839ff0cf0b0ebbe0597b0f3fb19e1a0fe82e",
+          "version": "1.4.0",
+          "filename": "aiosignal-1.4.0-py3-none-any.whl",
+          "byte_size": 7490
+        },
+        {
+          "name": "aistudio_sdk",
+          "sha256": "41621d052ddb7a58643438a7ca541f58ef0ab94a2acdfff0a71db81bf68dc027",
+          "version": "0.3.9",
+          "filename": "aistudio_sdk-0.3.9-py3-none-any.whl",
+          "byte_size": 67186
+        },
+        {
+          "name": "annotated-types",
+          "sha256": "f072f4d804ea359e4eaf198b1af7a8b0943881a87f31bb764f8bf219bb9419e0",
+          "version": "0.8.0",
+          "filename": "annotated_types-0.8.0-py3-none-any.whl",
+          "byte_size": 13427
+        },
+        {
+          "name": "anyio",
+          "sha256": "6152fdbbf9a77fdec97731721bebf7c4c44f7c29b424b0065826173efc7ed101",
+          "version": "4.15.1",
+          "filename": "anyio-4.15.1-py3-none-any.whl",
+          "byte_size": 132079
+        },
+        {
+          "name": "attrs",
+          "sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309",
+          "version": "26.1.0",
+          "filename": "attrs-26.1.0-py3-none-any.whl",
+          "byte_size": 67548
+        },
+        {
+          "name": "bce-python-sdk",
+          "sha256": "71799ac8740505e0759d30873f6f1a478fa8f83aedf425d511f1419a5f30082e",
+          "version": "0.9.79",
+          "filename": "bce_python_sdk-0.9.79-py3-none-any.whl",
+          "byte_size": 440268
+        },
+        {
+          "name": "certifi",
+          "sha256": "62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775",
+          "version": "2026.7.22",
+          "filename": "certifi-2026.7.22-py3-none-any.whl",
+          "byte_size": 136983
+        },
+        {
+          "name": "cffi",
+          "sha256": "f53e442b08449d42821fa4a4fba000095af9f62742a500f978a9f557ec44339a",
+          "version": "2.1.1",
+          "filename": "cffi-2.1.1-cp312-cp312-win_amd64.whl",
+          "byte_size": 185919
+        },
+        {
+          "name": "chardet",
+          "sha256": "406936df1328a3284fef366eaa2bfd1cccd0ef1b10cb99781dd5b022ea644b84",
+          "version": "7.6.0",
+          "filename": "chardet-7.6.0-cp312-cp312-win_amd64.whl",
+          "byte_size": 1160778
+        },
+        {
+          "name": "charset-normalizer",
+          "sha256": "3617ac3cfd8b9888f145ad89dd6e692285834b0201c6074a5eeaad3fd4d668c2",
+          "version": "3.5.1",
+          "filename": "charset_normalizer-3.5.1-cp312-cp312-win_amd64.whl",
+          "byte_size": 200551
+        },
+        {
+          "name": "click",
+          "sha256": "255bc9599cf7748b4b1a446ccc735421bd08a2ae529a8b88597d3de5664ee360",
+          "version": "8.5.0",
+          "filename": "click-8.5.0-py3-none-any.whl",
+          "byte_size": 125251
+        },
+        {
+          "name": "colorama",
+          "sha256": "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6",
+          "version": "0.4.6",
+          "filename": "colorama-0.4.6-py2.py3-none-any.whl",
+          "byte_size": 25335
+        },
+        {
+          "name": "colorlog",
+          "sha256": "30d392604e9110045a2c2aeefc27d7a017abbab63f3a8aee594eac0801df784e",
+          "version": "6.12.0",
+          "filename": "colorlog-6.12.0-py3-none-any.whl",
+          "byte_size": 12239
+        },
+        {
+          "name": "crc32c",
+          "sha256": "0284bc548f361d9c66f6e844f2ec6e7a92b86f39ff0fd292a45878c160391230",
+          "version": "2.9.post0",
+          "filename": "crc32c-2.9.post0-cp312-cp312-win_amd64.whl",
+          "byte_size": 65911
+        },
+        {
+          "name": "cryptography",
+          "sha256": "aed8db4f6d71c51efb89530e12d9464e7bf2923d46c3205dc794a2a93f8c0648",
+          "version": "50.0.1",
+          "filename": "cryptography-50.0.1-cp311-abi3-win_amd64.whl",
+          "byte_size": 3842826
+        },
+        {
+          "name": "filelock",
+          "sha256": "30cd166e2aee2c7534ce2c33c6367c4cd051b8368e20e2c4eb0c34f699bacfab",
+          "version": "4.0.3",
+          "filename": "filelock-4.0.3-py3-none-any.whl",
+          "byte_size": 108444
+        },
+        {
+          "name": "frozenlist",
+          "sha256": "34187385b08f866104f0c0617404c8eb08165ab1272e884abc89c112e9c00746",
+          "version": "1.8.0",
+          "filename": "frozenlist-1.8.0-cp312-cp312-win_amd64.whl",
+          "byte_size": 44591
+        },
+        {
+          "name": "fsspec",
+          "sha256": "8dd6e646e99ea382bd85f97a45e6b526a442d79423a7dc673f1e2756d05fcb5f",
+          "version": "2026.9.0",
+          "filename": "fsspec-2026.9.0-py3-none-any.whl",
+          "byte_size": 221738
+        },
+        {
+          "name": "future",
+          "sha256": "929292d34f5872e70396626ef385ec22355a1fae8ad29e1a734c3e43f9fbc216",
+          "version": "1.0.0",
+          "filename": "future-1.0.0-py3-none-any.whl",
+          "byte_size": 491326
+        },
+        {
+          "name": "h11",
+          "sha256": "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86",
+          "version": "0.16.0",
+          "filename": "h11-0.16.0-py3-none-any.whl",
+          "byte_size": 37515
+        },
+        {
+          "name": "hf-xet",
+          "sha256": "fb4fadde1b2b70bf4c0c14a6dccbe7194b1c28947fefd5bbe3fed9d940676c3b",
+          "version": "1.6.0",
+          "filename": "hf_xet-1.6.0-cp38-abi3-win_amd64.whl",
+          "byte_size": 4033128
+        },
+        {
+          "name": "httpcore",
+          "sha256": "2d400746a40668fc9dec9810239072b40b4484b640a8c38fd654a024c7a1bf55",
+          "version": "1.0.9",
+          "filename": "httpcore-1.0.9-py3-none-any.whl",
+          "byte_size": 78784
+        },
+        {
+          "name": "httpcore2",
+          "sha256": "e1e05d4f25f7d7d496bfb96748f6f4b67657b03da069b3a68c36069f3db73d0a",
+          "version": "2.13.1",
+          "filename": "httpcore2-2.13.1-py3-none-any.whl",
+          "byte_size": 83423
+        },
+        {
+          "name": "httpx",
+          "sha256": "d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad",
+          "version": "0.28.1",
+          "filename": "httpx-0.28.1-py3-none-any.whl",
+          "byte_size": 73517
+        },
+        {
+          "name": "httpx2",
+          "sha256": "6dff50fabc270ee5fd25d845d0b078ed20564579744d6d962850975996d2f9a4",
+          "version": "2.13.1",
+          "filename": "httpx2-2.13.1-py3-none-any.whl",
+          "byte_size": 95597
+        },
+        {
+          "name": "huggingface_hub",
+          "sha256": "b3eecb60540c17e8ef94c187104f4a5c0c451afcb9510ba8e17739bedcc2d6dd",
+          "version": "2.0.0",
+          "filename": "huggingface_hub-2.0.0-py3-none-any.whl",
+          "byte_size": 828498
+        },
+        {
+          "name": "idna",
+          "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c",
+          "version": "3.20",
+          "filename": "idna-3.20-py3-none-any.whl",
+          "byte_size": 69583
+        },
+        {
+          "name": "imagesize",
+          "sha256": "ea0c9a0384df69ed86a943a15cde37d0360b82491b3910dc2215e202e62b5b02",
+          "version": "2.0.1",
+          "filename": "imagesize-2.0.1-py3-none-any.whl",
+          "byte_size": 14794
+        },
+        {
+          "name": "modelscope",
+          "sha256": "6f135fe80903e7bfcd6ccc707f4f6f85c8e445cf497b624bd07299582486e2c1",
+          "version": "1.40.1",
+          "filename": "modelscope-1.40.1-py3-none-any.whl",
+          "byte_size": 6061167
+        },
+        {
+          "name": "modelscope-hub",
+          "sha256": "9157bbc34d93a70d099c8ab87a113fc9a4149e31ab79e8eb8f7563884043f082",
+          "version": "0.4.5",
+          "filename": "modelscope_hub-0.4.5-py3-none-any.whl",
+          "byte_size": 236385
+        },
+        {
+          "name": "multidict",
+          "sha256": "a16a1dc8529f9e734a41c3b856f3eae7ebacdc061dde3f8a844e0c7889c97203",
+          "version": "6.9.1",
+          "filename": "multidict-6.9.1-cp312-cp312-win_amd64.whl",
+          "byte_size": 59622
+        },
+        {
+          "name": "networkx",
+          "sha256": "e3fd2c13a7814cee3746340d8d7f8598a67f16a58bf47fb7f8793fab6efca1b0",
+          "version": "3.7",
+          "filename": "networkx-3.7-py3-none-any.whl",
+          "byte_size": 2142205
+        },
+        {
+          "name": "numpy",
+          "sha256": "86945f2ee6d10cdfd67bcb4069c1662dd711f7e2a4343db5cecec06b87cf31aa",
+          "version": "2.3.5",
+          "filename": "numpy-2.3.5-cp312-cp312-win_amd64.whl",
+          "byte_size": 12782922
+        },
+        {
+          "name": "opencv-contrib-python",
+          "sha256": "47ec3160dae75f70e099b286d1a2e086d20dac8b06e759f60eaf867e6bdecba7",
+          "version": "4.10.0.84",
+          "filename": "opencv_contrib_python-4.10.0.84-cp37-abi3-win_amd64.whl",
+          "byte_size": 45541421
+        },
+        {
+          "name": "opt-einsum",
+          "sha256": "2455e59e3947d3c275477df7f5205b30635e266fe6dc300e3d9f9646bfcea147",
+          "version": "3.3.0",
+          "filename": "opt_einsum-3.3.0-py3-none-any.whl",
+          "byte_size": 65486
+        },
+        {
+          "name": "packaging",
+          "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+          "version": "26.3",
+          "filename": "packaging-26.3-py3-none-any.whl",
+          "byte_size": 129956
+        },
+        {
+          "name": "paddleocr",
+          "sha256": "c0f0a81ad4112727f30c6fcf986ac0ef6a120d31ee0991a01fae0357ee32d338",
+          "version": "3.7.0",
+          "filename": "paddleocr-3.7.0-py3-none-any.whl",
+          "byte_size": 146750
+        },
+        {
+          "name": "paddlepaddle",
+          "sha256": "324b5122cf3887dfbd15db17f36e2421ef923fd4569d26111bf1a21fe84d442b",
+          "version": "3.3.1",
+          "filename": "paddlepaddle-3.3.1-cp312-cp312-win_amd64.whl",
+          "byte_size": 104794793
+        },
+        {
+          "name": "paddlex",
+          "sha256": "f1678bf650bbaccfd8f0d4e49d0ae631b4685c829fdae6e802ccd90d4fcb9a7f",
+          "version": "3.7.2",
+          "filename": "paddlex-3.7.2-py3-none-any.whl",
+          "byte_size": 2239708
+        },
+        {
+          "name": "pandas",
+          "sha256": "3ef908d28590b3f42d7070e7ad8f9b34b442b260b7f3c1afb57e0040c58cdb1b",
+          "version": "3.0.6",
+          "filename": "pandas-3.0.6-cp312-cp312-win_amd64.whl",
+          "byte_size": 9661439
+        },
+        {
+          "name": "pillow",
+          "sha256": "a2b55dd6b2a4c4b7d87ffa56bdb33fdc5fdb9a462173861a7bc097f17d91cb09",
+          "version": "12.3.0",
+          "filename": "pillow-12.3.0-cp312-cp312-win_amd64.whl",
+          "byte_size": 7227137
+        },
+        {
+          "name": "prettytable",
+          "sha256": "b3346e0e6f79180833aebaac088ae926340586cf6d7d991b9eb125b65f72313a",
+          "version": "3.18.0",
+          "filename": "prettytable-3.18.0-py3-none-any.whl",
+          "byte_size": 37357
+        },
+        {
+          "name": "propcache",
+          "sha256": "98914de2c4d7f0f9f4a8c6ea4bf05841f4175796941e3ef7d47eb718f22311fb",
+          "version": "0.5.4",
+          "filename": "propcache-0.5.4-cp312-cp312-win_amd64.whl",
+          "byte_size": 46190
+        },
+        {
+          "name": "protobuf",
+          "sha256": "a300819d441e078a5608c0d3c709796bb548136058fda017ae51d425b44fd353",
+          "version": "7.36.2",
+          "filename": "protobuf-7.36.2-cp310-abi3-win_amd64.whl",
+          "byte_size": 456514
+        },
+        {
+          "name": "psutil",
+          "sha256": "eb7e81434c8d223ec4a219b5fc1c47d0417b12be7ea866e24fb5ad6e84b3d988",
+          "version": "7.2.2",
+          "filename": "psutil-7.2.2-cp37-abi3-win_amd64.whl",
+          "byte_size": 137737
+        },
+        {
+          "name": "py-cpuinfo",
+          "sha256": "859625bc251f64e21f077d099d4162689c762b5d6a4c3c97553d56241c9674d5",
+          "version": "9.0.0",
+          "filename": "py_cpuinfo-9.0.0-py3-none-any.whl",
+          "byte_size": 22335
+        },
+        {
+          "name": "pyclipper",
+          "sha256": "d1e5498d883b706a4ce636247f0d830c6eb34a25b843a1b78e2c969754ca9037",
+          "version": "1.4.0",
+          "filename": "pyclipper-1.4.0-cp312-cp312-win_amd64.whl",
+          "byte_size": 104619
+        },
+        {
+          "name": "pycparser",
+          "sha256": "b727414169a36b7d524c1c3e31839a521725078d7b2ff038656844266160a992",
+          "version": "3.0",
+          "filename": "pycparser-3.0-py3-none-any.whl",
+          "byte_size": 48172
+        },
+        {
+          "name": "pycryptodome",
+          "sha256": "c75b52aacc6c0c260f204cbdd834f76edc9fb0d8e0da9fbf8352ef58202564e2",
+          "version": "3.23.0",
+          "filename": "pycryptodome-3.23.0-cp37-abi3-win_amd64.whl",
+          "byte_size": 1799636
+        },
+        {
+          "name": "pydantic",
+          "sha256": "346a034f080da3755d8e9cb5e00e8b07de1d39e4f6e2c87d8ab7cafa0b269a73",
+          "version": "2.13.5",
+          "filename": "pydantic-2.13.5-py3-none-any.whl",
+          "byte_size": 472589
+        },
+        {
+          "name": "pydantic_core",
+          "sha256": "5e81740c09e310f5aa5cbd3e434a01c154d4bef93241c7877b39f211d2b78ba8",
+          "version": "2.46.5",
+          "filename": "pydantic_core-2.46.5-cp312-cp312-win_amd64.whl",
+          "byte_size": 2043140
+        },
+        {
+          "name": "pypdfium2",
+          "sha256": "47dcca2a8d507b5fd24f94c3c9d48fb379430f097bc20f01beff6c963ffbcedb",
+          "version": "5.13.0",
+          "filename": "pypdfium2-5.13.0-py3-none-win_amd64.whl",
+          "byte_size": 3885553
+        },
+        {
+          "name": "python-bidi",
+          "sha256": "0608bddcc1c53dfa5293499de13ca9935b31aa46d1c722c404a88c703d1a4e47",
+          "version": "0.6.11",
+          "filename": "python_bidi-0.6.11-cp312-cp312-win_amd64.whl",
+          "byte_size": 161243
+        },
+        {
+          "name": "python-dateutil",
+          "sha256": "a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427",
+          "version": "2.9.0.post0",
+          "filename": "python_dateutil-2.9.0.post0-py2.py3-none-any.whl",
+          "byte_size": 229892
+        },
+        {
+          "name": "PyYAML",
+          "sha256": "7e7401d0de89a9a855c839bc697c079a4af81cf878373abd7dc625847d25cbd8",
+          "version": "6.0.2",
+          "filename": "PyYAML-6.0.2-cp312-cp312-win_amd64.whl",
+          "byte_size": 156338
+        },
+        {
+          "name": "RapidFuzz",
+          "sha256": "cfca36e4612208875e08611a779164b6cb8900ab8bbd3d82d4cfdfae9efbfac9",
+          "version": "3.14.6",
+          "filename": "rapidfuzz-3.14.6-cp312-cp312-win_amd64.whl",
+          "byte_size": 1731992
+        },
+        {
+          "name": "requests",
+          "sha256": "2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0",
+          "version": "2.34.2",
+          "filename": "requests-2.34.2-py3-none-any.whl",
+          "byte_size": 73075
+        },
+        {
+          "name": "rfc8785",
+          "sha256": "520d690b448ecf0703691c76e1a34a24ddcd4fc5bc41d589cb7c58ec651bcd48",
+          "version": "0.1.4",
+          "filename": "rfc8785-0.1.4-py3-none-any.whl",
+          "byte_size": 9240
+        },
+        {
+          "name": "ruamel.yaml",
+          "sha256": "27592957fedf6e0b62f281e96effd28043345e0e66001f97683aa9a40c667c93",
+          "version": "0.19.1",
+          "filename": "ruamel_yaml-0.19.1-py3-none-any.whl",
+          "byte_size": 118102
+        },
+        {
+          "name": "safetensors",
+          "sha256": "096ec1a98435df7beb08853bb5aa9081a84f23d0adc67ed1a0a10550f608373f",
+          "version": "0.8.0",
+          "filename": "safetensors-0.8.0-cp310-abi3-win_amd64.whl",
+          "byte_size": 355540
+        },
+        {
+          "name": "setuptools",
+          "sha256": "51a52592b3b99e102b609654876bd65f19f999935166d1352678931132b0c670",
+          "version": "84.0.0",
+          "filename": "setuptools-84.0.0-py3-none-any.whl",
+          "byte_size": 818216
+        },
+        {
+          "name": "shapely",
+          "sha256": "743044b4cfb34f9a67205cee9279feaf60ba7d02e69febc2afc609047cb49179",
+          "version": "2.1.2",
+          "filename": "shapely-2.1.2-cp312-cp312-win_amd64.whl",
+          "byte_size": 1722861
+        },
+        {
+          "name": "six",
+          "sha256": "4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274",
+          "version": "1.17.0",
+          "filename": "six-1.17.0-py2.py3-none-any.whl",
+          "byte_size": 11050
+        },
+        {
+          "name": "tqdm",
+          "sha256": "c293e525e6fef9c20e8728fd4612df02a0aa31bb5fe91ecd93e123b1b7bffa73",
+          "version": "4.70.1",
+          "filename": "tqdm-4.70.1-py3-none-any.whl",
+          "byte_size": 80199
+        },
+        {
+          "name": "truststore",
+          "sha256": "adaeaecf1cbb5f4de3b1959b42d41f6fab57b2b1666adb59e89cb0b53361d981",
+          "version": "0.10.4",
+          "filename": "truststore-0.10.4-py3-none-any.whl",
+          "byte_size": 18660
+        },
+        {
+          "name": "typing_extensions",
+          "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+          "version": "4.16.0",
+          "filename": "typing_extensions-4.16.0-py3-none-any.whl",
+          "byte_size": 45571
+        },
+        {
+          "name": "typing-inspection",
+          "sha256": "65b8397ba37ccbce054456aaccddfc91e6e3083c92824df348d96ca832f3f147",
+          "version": "0.4.4",
+          "filename": "typing_inspection-0.4.4-py3-none-any.whl",
+          "byte_size": 14750
+        },
+        {
+          "name": "tzdata",
+          "sha256": "c2169a8b0a7a5e9674da5a135ccdfb2b3e671b333ed9fed17b41f73c34476e81",
+          "version": "2026.4",
+          "filename": "tzdata-2026.4-py2.py3-none-any.whl",
+          "byte_size": 347494
+        },
+        {
+          "name": "ujson",
+          "sha256": "8cd9f7203c0b2aaed66809edf7e66aa3ab0fe3402e87b69a43b9dfd8d33125ab",
+          "version": "6.0.0",
+          "filename": "ujson-6.0.0-cp312-cp312-win_amd64.whl",
+          "byte_size": 227516
+        },
+        {
+          "name": "urllib3",
+          "sha256": "0cf3cae568d36aa9576b28dfb35f11328f1cb974ca7647d9475ebb86c75ac6e3",
+          "version": "2.8.0",
+          "filename": "urllib3-2.8.0-py3-none-any.whl",
+          "byte_size": 135717
+        },
+        {
+          "name": "wcwidth",
+          "sha256": "991d1c8834f548e9c1f16432075ee84638e122312556bbf1ed595ea8fffc4673",
+          "version": "0.9.1",
+          "filename": "wcwidth-0.9.1-cp310-abi3-win_amd64.whl",
+          "byte_size": 596738
+        },
+        {
+          "name": "yarl",
+          "sha256": "7d575b54cb3863ef9bc290ea4b009999d55dc237326131e4853cf33e888fee03",
+          "version": "1.25.1",
+          "filename": "yarl-1.25.1-cp312-cp312-win_amd64.whl",
+          "byte_size": 102593
+        }
+      ],
+      "artifacts": [
+        {
+          "kind": "detector",
+          "name": "PP-OCRv6_medium_det/inference.json",
+          "sha256": "0f1a7ec35da36173529c7a60238b7f7919e3831929c3f700ad90ad4896adecd5",
+          "revision": "paddle3.0.0",
+          "byte_size": 312150,
+          "license_identifier": "Apache-2.0"
+        },
+        {
+          "kind": "detector",
+          "name": "PP-OCRv6_medium_det/inference.pdiparams",
+          "sha256": "85218d2e3d98f5a21c58b4220627be923a97aee5db3cc71f39536ab31ac53960",
+          "revision": "paddle3.0.0",
+          "byte_size": 61960476,
+          "license_identifier": "Apache-2.0"
+        },
+        {
+          "kind": "detector",
+          "name": "PP-OCRv6_medium_det/inference.yml",
+          "sha256": "7298d5ead546584af2504d03355f881ac7a7bc0eb1e282d3e159277c1d0af871",
+          "revision": "paddle3.0.0",
+          "byte_size": 886,
+          "license_identifier": "Apache-2.0"
+        },
+        {
+          "kind": "recognizer",
+          "name": "korean_PP-OCRv5_mobile_rec/inference.json",
+          "sha256": "562404e3c590c50c93778d5f0a94df21b47b5ab8f3ea6d47c7f8a7930c3bc844",
+          "revision": "paddle3.0.0",
+          "byte_size": 217724,
+          "license_identifier": "Apache-2.0"
+        },
+        {
+          "kind": "recognizer",
+          "name": "korean_PP-OCRv5_mobile_rec/inference.pdiparams",
+          "sha256": "cac3e5f12cf04aaa77f6a5bc704e4e736ef2908476551891d84b41b4e9090462",
+          "revision": "paddle3.0.0",
+          "byte_size": 13342671,
+          "license_identifier": "Apache-2.0"
+        },
+        {
+          "kind": "recognizer",
+          "name": "korean_PP-OCRv5_mobile_rec/inference.yml",
+          "sha256": "f757fa1c40e99edcf27e9cce879b93eb2a51fa46f5ef39095689b8c37dd75998",
+          "revision": "paddle3.0.0",
+          "byte_size": 96039,
+          "license_identifier": "Apache-2.0"
+        }
+      ],
+      "profile_id": "paddleocr-korean-medium-windows-amd64-cpython312-v1",
+      "engine_name": "paddleocr",
+      "locale_code": "ko-KR",
+      "architecture": "AMD64",
+      "numeric_mode": "fp32",
+      "ocr_language": "ko",
+      "thread_count": 1,
+      "engine_options": [
+        {
+          "name": "platform_system",
+          "value": "Windows"
+        },
+        {
+          "name": "text_detection_model_name",
+          "value": "PP-OCRv6_medium_det"
+        },
+        {
+          "name": "text_recognition_model_name",
+          "value": "korean_PP-OCRv5_mobile_rec"
+        },
+        {
+          "name": "text_det_limit_side_len",
+          "value": 1280
+        },
+        {
+          "name": "text_det_limit_type",
+          "value": "max"
+        },
+        {
+          "name": "text_det_thresh",
+          "value": 0.3
+        },
+        {
+          "name": "text_det_box_thresh",
+          "value": 0.6
+        },
+        {
+          "name": "text_det_unclip_ratio",
+          "value": 1.5
+        },
+        {
+          "name": "text_rec_score_thresh",
+          "value": 0
+        },
+        {
+          "name": "text_recognition_batch_size",
+          "value": 1
+        },
+        {
+          "name": "return_word_box",
+          "value": false
+        },
+        {
+          "name": "use_doc_orientation_classify",
+          "value": false
+        },
+        {
+          "name": "use_doc_unwarping",
+          "value": false
+        },
+        {
+          "name": "use_textline_orientation",
+          "value": false
+        },
+        {
+          "name": "engine",
+          "value": "paddle_static"
+        },
+        {
+          "name": "enable_mkldnn",
+          "value": false
+        },
+        {
+          "name": "enable_cinn",
+          "value": false
+        },
+        {
+          "name": "pixel_format",
+          "value": "RGB8"
+        },
+        {
+          "name": "pixel_hash",
+          "value": "sha256-rgb8-row-major-v1"
+        }
+      ],
+      "engine_version": "3.7.0",
+      "python_version": "3.12.14",
+      "native_packages": [],
+      "unicode_version": "15.0.0",
+      "detected_language": null,
+      "rapidfuzz_version": "3.14.6",
+      "determinism_limitations": [
+        "CPU kernels may differ across instruction sets; packages, models, options, and decision thresholds are pinned."
+      ],
+      "runtime_manifest_sha256": "3c5af4f43c7baf91ad10d7e66a9ebbcad1b41dda95ed3106fe663e9393385e38",
+      "detected_language_reason": "NOT_PROVIDED"
+    },
+    "preprocessing": {
+      "exif_policy": "ignored-v1",
+      "exif_orientation": null,
+      "pixel_sha256": "13836a73f2c42b015f907dcd2d7ac2cd34d560cef12cafcd7355eccf6841e7d5",
+      "steps": [
+        {
+          "kind": "decode-rgb8-identity",
+          "input_width": 1280,
+          "input_height": 320,
+          "output_width": 1280,
+          "output_height": 320,
+          "matrix3x3": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "original_to_inference_matrix3x3": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "output_sha256": "0fc7e513bea8020a4f1dbf328d0ebd90d774a02371b6ec58f1f0e04c425824b6",
+    "created_at": "2026-09-25T11:12:03.766224Z"
+  },
+  "regions": {
+    "items": [
+      {
+        "region_index": 0,
+        "text": "안녕하세요 설정 123",
+        "confidence": 0.9957900643348694,
+        "confidence_semantics": "recognition",
+        "detection_confidence": null,
+        "detection_confidence_unavailable_reason": "NOT_EXPOSED_BY_PROFILE",
+        "polygon": [
+          [
+            77.0,
+            115.0
+          ],
+          [
+            696.0,
+            115.0
+          ],
+          [
+            696.0,
+            197.0
+          ],
+          [
+            77.0,
+            197.0
+          ]
+        ],
+        "bbox": {
+          "x": 77.0,
+          "y": 115.0,
+          "width": 619.0,
+          "height": 82.0
+        },
+        "clipped": false,
+        "engine_region_index": 0
+      }
+    ],
+    "total": 1,
+    "limit": 50,
+    "offset": 0
+  },
+  "verification": {
+    "id": "27d20b0c-5629-457a-bbe5-77942d8e76f3",
+    "run_id": "178c78b8-d0a4-44e6-8d86-9dfe7964a0f7",
+    "project_id": "c923ee62-24e8-4080-911b-7ac77cb7a3fc",
+    "screenshot_id": "2177db59-12a2-4c5f-b325-d0f073578289",
+    "ocr_result_id": "8b8e3b49-0980-4ba5-a5ca-7eddd18bc05c",
+    "snapshot_sha256": "234411ef8f13a82da5ac3e003462e026c14cd35b868fcd2d4d3f518f0430caed",
+    "configuration_sha256": "66ecee71fab4cd1ae88c8bbde6f0dbff6ea4b9ace0b102c27f9db5d6bfa3562f",
+    "matching_version": "one-to-one-levenshtein-v1",
+    "normalization_version": "norm-v1",
+    "verification_status": "UNVERIFIED",
+    "evaluation_reason": "PARTIAL_UNVERIFIED",
+    "incomplete": true,
+    "total_count": 3,
+    "evaluated_count": 1,
+    "unverified_count": 2,
+    "pass_count": 1,
+    "review_count": 0,
+    "fail_count": 0,
+    "unmatched_region_count": 0,
+    "pass_threshold": 95.0,
+    "review_threshold": 85.0,
+    "created_at": "2026-09-25T11:12:03.774669Z"
+  },
+  "items": {
+    "items": [
+      {
+        "expected_position": 0,
+        "string_key_id": "15d688f0-6b8e-40f1-95a5-f1ceca1bf04b",
+        "string_id": "recognized",
+        "entry_id": "4e320e5c-af8e-4ae0-ba52-66a9f32dff60",
+        "expected_text": "안녕하세요 설정 123",
+        "normalized_expected": "안녕하세요 설정 123",
+        "translation_status": "present",
+        "region_index": 0,
+        "observed_text": "안녕하세요 설정 123",
+        "normalized_observed": "안녕하세요 설정 123",
+        "match_method": "EXACT",
+        "match_score": 100.0,
+        "score_numerator": 100,
+        "score_denominator": 1,
+        "verification_status": "PASS",
+        "reason": "MATCHED"
+      },
+      {
+        "expected_position": 1,
+        "string_key_id": "0665fe6e-f9fc-4191-9b7d-3b75bde3fd7e",
+        "string_id": "empty",
+        "entry_id": "a544abe0-acd5-4f44-861a-c39f7bccfa65",
+        "expected_text": "",
+        "normalized_expected": "",
+        "translation_status": "present",
+        "region_index": null,
+        "observed_text": null,
+        "normalized_observed": null,
+        "match_method": null,
+        "match_score": null,
+        "score_numerator": null,
+        "score_denominator": null,
+        "verification_status": "UNVERIFIED",
+        "reason": "EMPTY_EXPECTED"
+      },
+      {
+        "expected_position": 2,
+        "string_key_id": "44d1624b-c81e-4b2f-8c2a-762907298092",
+        "string_id": "missing",
+        "entry_id": null,
+        "expected_text": null,
+        "normalized_expected": null,
+        "translation_status": "missing",
+        "region_index": null,
+        "observed_text": null,
+        "normalized_observed": null,
+        "match_method": null,
+        "match_score": null,
+        "score_numerator": null,
+        "score_denominator": null,
+        "verification_status": "UNVERIFIED",
+        "reason": "MISSING_TRANSLATION"
+      }
+    ],
+    "total": 3,
+    "limit": 50,
+    "offset": 0
+  }
+}

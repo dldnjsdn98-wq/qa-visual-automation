@@ -1,8 +1,8 @@
 # PHASE 2 - Screenshot Automatic Upload
 
-Status: IN_PROGRESS; revision2 contract independently ACCEPTED, Backend/uploader/Frontend implementation READY and delivered. Phase1 ACCEPTED remains valid.
+Status: ACCEPTED (2026-09-25); independent rereview ACCEPTED and all required Phase2 tasks DONE. Phase1 acceptance unchanged. Next phase not activated.
 
-All AC-P2-01..04 remain NOT_RUN. Required outcomes: durable offline originals/queue; persisted backoff and terminal diagnostics; persistent server idempotency across concurrency/restart; actual Web image and metadata display.
+AC-P2-01, AC-P2-02, AC-P2-03 and AC-P2-04: PASS. Evidence: .orchestration/handoffs/PHASE-2-acceptance-01.md. Real PostgreSQL standby branch remains explicitly NOT_RUN/nonblocking.
 
 | Task | Owner | Current status | Dependencies | Requested model / effort |
 | --- | --- | --- | --- | --- |
@@ -12,11 +12,11 @@ All AC-P2-01..04 remain NOT_RUN. Required outcomes: durable offline originals/qu
 | FRONTEND-UPLOAD-CHECK-001 | 04 | DONE | PHASE 1 ACCEPTED | gpt-5.6-sol / medium |
 | REVIEW-UPLOAD-PREP-001 | 08 | DONE | PHASE 1 ACCEPTED | gpt-5.6-sol / medium |
 | REVIEW-ARCH-UPLOAD-001 | 08 | DONE | ARCH-UPLOAD-001 | gpt-5.6-sol / high |
-| BACKEND-UPLOAD-001 | 03 | READY | PHASE 1 ACCEPTED, ARCH-UPLOAD-001, REVIEW-ARCH-UPLOAD-001, PREP-BACKEND-UPLOAD-001 | gpt-5.6-sol / high |
-| UPLOAD-001 | 06 | READY | PHASE 1 ACCEPTED, ARCH-UPLOAD-001, REVIEW-ARCH-UPLOAD-001, PREP-UPLOAD-001 | gpt-5.6-sol / high |
-| FRONTEND-UPLOAD-001 | 04 | READY | ARCH-UPLOAD-001, REVIEW-ARCH-UPLOAD-001, FRONTEND-UPLOAD-CHECK-001 | gpt-5.6-sol / medium |
-| FRONTEND-UPLOAD-VERIFY-001 | 04 | BLOCKED | BACKEND-UPLOAD-001, UPLOAD-001, FRONTEND-UPLOAD-CHECK-001, FRONTEND-UPLOAD-001 | gpt-5.6-sol / medium |
-| REVIEW-UPLOAD-001 | 08 | BLOCKED | BACKEND-UPLOAD-001, UPLOAD-001, FRONTEND-UPLOAD-VERIFY-001, FRONTEND-UPLOAD-001 | gpt-5.6-sol / high |
+| BACKEND-UPLOAD-001 | 03 | DONE | PHASE 1 ACCEPTED, ARCH-UPLOAD-001, REVIEW-ARCH-UPLOAD-001, PREP-BACKEND-UPLOAD-001 | gpt-5.6-sol / high |
+| UPLOAD-001 | 06 | DONE | PHASE 1 ACCEPTED, ARCH-UPLOAD-001, REVIEW-ARCH-UPLOAD-001, PREP-UPLOAD-001 | gpt-5.6-sol / high |
+| FRONTEND-UPLOAD-001 | 04 | DONE | ARCH-UPLOAD-001, REVIEW-ARCH-UPLOAD-001, FRONTEND-UPLOAD-CHECK-001 | gpt-5.6-sol / medium |
+| FRONTEND-UPLOAD-VERIFY-001 | 04 | DONE | BACKEND-UPLOAD-001, UPLOAD-001, FRONTEND-UPLOAD-CHECK-001, FRONTEND-UPLOAD-001 | gpt-5.6-sol / medium |
+| REVIEW-UPLOAD-001 | 08 | DONE | BACKEND-UPLOAD-001, UPLOAD-001, FRONTEND-UPLOAD-VERIFY-001, FRONTEND-UPLOAD-001 | gpt-5.6-sol / high |
 
 Current contract: P2-UPLOAD-v1 revision2 independently ACCEPTED; R08-P2-ARCH-001 RESOLVED. PM verified all four hashes and activated Backend/uploader/Frontend with exclusive file claims. Existing owner execution plans and JCS spike are preparation evidence, not product acceptance. Actual models remain unverified.
 
@@ -52,3 +52,20 @@ JCS spike report hash verified; select rfc8785==0.1.4 and reviewed universal whe
 ## 2026-09-25 revision2 accepted / implementation activated
 
 Independent review ACCEPTED, R08-P2-ARCH-001 RESOLVED. Backend03/uploader06/Frontend04 READY with exact exclusive claims in .orchestration/handoffs/PHASE-2-implementation-20260925-01.md. Review history preserved; four product AC NOT_RUN. Web verification/implementation review wait for matching submissions.
+
+
+2026-09-25 Frontend owner submission recorded READY_FOR_REVIEW; actual Web verification still waits for Backend/uploader. See .orchestration/handoffs/PHASE-2-frontend-submission-20260925-01.md.
+
+
+Backend submission READY_FOR_REVIEW; owner Linux94 PASS, response-loss/restart/Web pending. See .orchestration/handoffs/PHASE-2-backend-submission-20260925-01.md.
+
+
+Current override: Backend preflight found one integrity defect and two evidence gaps; rework assigned03, actualWeb04 and finalLinux06 continue in isolated environments. Full review blocked. See .orchestration/handoffs/PHASE-2-preflight-rework-20260925-01.md.
+
+
+Current disposition CHANGES_REQUESTED:AC01/03 FAIL,02/04 NOT_RUN. See .orchestration/handoffs/PHASE-2-review-recovery-rework-01.md.
+
+
+Reviewer08 subsequent changed-permission checkpoint: independent runtime prerequisites AVAILABLE (Docker29.7.2/API1.55 Linux; Python3.12.10 and validation dependencies). This supersedes prior environment blocker, not test evidence. Full rereview still awaits04 final current-harness report/handoff and PM hash match. AC01/03 FAIL,02/04 NOT_RUN unchanged. PM Terra/high sidecar completed consistency audit; requested model only, actual unverified.
+
+Current acceptance supersedes the historical checkpoints; see PHASE-2-acceptance-01.md.

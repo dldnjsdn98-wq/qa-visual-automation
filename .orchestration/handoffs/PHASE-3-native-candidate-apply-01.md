@@ -1,0 +1,16 @@
+# Exact W1/L1 source application / PM01
+
+PM verified candidate manifest60895d0c70c1a8cc89691ca3f4c13ae1a08740bebd2edcfe7d515616b3548c89, all11 artifact size/hash entries and3 unchanged baselines. Integration report and independent reviews read. W1 exact patch84a8fb80f36b7718ac580c31f3fec8fc44cb8c6be28dc50539a30e1126ea1f9f; L1 exact patchd15ebab5fc1a5c3b4bb6fdd8c5d06907216decbff087f9f7722b34f9669a6639 approved for application by03 only.
+
+Apply only to backend/app/workers/ocr_containment.py and tests/backend/test_ocr_containment.py after rechecking frozen baselines; stop on drift rather than overwrite. Keep exact minimal flags, fixed512MiB/320+224MiB/headroom64..160MiB/250ms semantics. Actual applied bytes and canonical LF hashes must be recorded separately if line endings differ. No other product/test edits authorized by this decision. Counts Windows3/cleanup2 and old failure/skip records unchanged.
+
+Verification authorized now: syntax/AST/patch-diff checks and only12 pure test_l1_shortpeak_oracle cases. Explicit pytest node selection, no native opt-in flags; inspect collection/fixtures first to avoid unintended DB/container/model/process operations. If imported harness/fixtures would start such work, keep test execution held and report exact dependency. Capture raw log/JUnit/exact command/source. Do not execute full279 suite.
+
+In parallel prepare concrete execution harnesses as own evidence files only: Windows startup-only owned observer/pre-resume hook design and supervisor, Linux retained named-container outside observer/capture with nonce ownership/terminal inspection/cleanup. These harnesses may be authored and statically reviewed but not executed yet. Additional production instrumentation beyond the exact W1 patch requires a precise proposed diff and separate PM claim; no silent helper extension. W1 startup-only must stop before native imports; stop deadline min(stop_request+2s,total30s), no guessed synchronous cancellation. L1 preserves fixed oracle, survivor timing and unproven observer-death disposition; no new pressure retries/tuning.
+
+Reuse disjoint prior agents: Windows highest Astra/medium, Linux high Sol/high, independent exact harness review matching risk, evidence low Terra/high.03 parent sole application/integration owner. Native calls/probes, builds/containers/model access/DB actions remain HOLD pending exact harness review and separate PM execution authorization. No new approval of host/security/dependencies/profiles/API/schema/commit/push. No production admission/04/08/allAC promotion. Report source application, pure oracle results, exact harness reviews and outstanding prerequisites separately.
+
+
+## Final static-preparation intake and sequencing
+
+PM13artifacts/2unchangedbaselines matched. Source write remains blocked, no additional automatic task activation. Preserve Linux capture W1-only6129... plus L1test52349... snapshot first if legitimate application later succeeds. Additional Windows hook0496d7... is an identified separate proposal, application deferred until a distinct reviewed source snapshot; do not silently repin the Linux harness. Static hook/harness review does not prove prepublication native ownership or unblock filesystem access. No pure12/native/build/model execution occurred. Backend task BLOCKED after authorized preparation completed.

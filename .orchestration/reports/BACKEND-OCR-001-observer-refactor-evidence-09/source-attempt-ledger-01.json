@@ -1,0 +1,54 @@
+{
+  "status": "SOURCE_APPLY_HOLD_PROPOSALS_UNAPPLIED",
+  "lanes": [
+    {
+      "agent": "Fermat",
+      "requested_model": "Sol/high",
+      "claims": [
+        "backend/app/workers/ocr.py",
+        "backend/app/workers/ocr_child_environment.py"
+      ],
+      "new_helper_attempts": 1,
+      "new_helper_result": "filesystem AccessDenied",
+      "runner_attempts": 0,
+      "actual_source_changes": []
+    },
+    {
+      "agent": "Galileo",
+      "requested_model": "Astra/medium",
+      "claims": [
+        "tests/backend/test_ocr_containment.py",
+        ".orchestration/reports/BACKEND-OCR-001-linux-headroom-candidate-03.py"
+      ],
+      "product_attempts": 0,
+      "product_changes": [],
+      "own_candidate": "created with prospective pins only"
+    },
+    {
+      "agent": "Descartes",
+      "requested_model": "Sol/high",
+      "claims": [
+        "tests/backend/test_ocr_child_environment.py"
+      ],
+      "product_attempts": 1,
+      "product_result": "SUCCESS before hold received",
+      "actual_draft_sha256": "66ee202f0843064138f87456d54002062ad6fa752d4e9e755c1d603a00dcc85b",
+      "posthold_writes": 0,
+      "rollback": false
+    }
+  ],
+  "actual_models": "unverified",
+  "pm_acl_update": {
+    "source": "PM delegation reports explicit user request authorizing project-wide write grant",
+    "reported_command": "icacls grant wonwoo\\codexsandboxonline:(OI)(CI)W",
+    "reported_exit": 0,
+    "reported_access": "Write,Synchronize + inheritance; no FullControl/delete/ACLchange grant",
+    "parent_actions": "no ACL/security action, no permission probe, no failed-command retry",
+    "remaining_gate": "PM instructed reviewed proposal packet before separate implementation dispatch"
+  },
+  "historical_readbacks": [
+    "write-block-readback-01.json prior to asynchronous newtest creation",
+    "write-block-readback-02.json captures later actual draft creation"
+  ],
+  "tests": "NOT_RUN actual newhelper missing"
+}

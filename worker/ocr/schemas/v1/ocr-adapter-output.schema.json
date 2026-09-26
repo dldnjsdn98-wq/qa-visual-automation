@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:qa-visual-automation:ocr:ocr-adapter-output:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["adapter_version", "source_sha256", "profile_sha256", "pixel_sha256", "runtime_manifest", "preprocessing", "regions", "raw_audit", "timings_ms"],
+  "properties": {
+    "adapter_version": {"const": 1},
+    "source_sha256": {"$ref": "#/$defs/sha256"},
+    "profile_sha256": {"$ref": "#/$defs/sha256"},
+    "pixel_sha256": {"$ref": "#/$defs/sha256"},
+    "runtime_manifest": {"$ref": "#/$defs/runtimeManifest"},
+    "preprocessing": {"$ref": "#/$defs/preprocessing"},
+    "regions": {"type": "array", "maxItems": 1000, "items": {"$ref": "#/$defs/region"}},
+    "raw_audit": {"$ref": "#/$defs/rawAudit"},
+    "timings_ms": {"$ref": "#/$defs/timings"}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "point": {"type": "array", "prefixItems": [{"type": "number"}, {"type": "number"}], "items": false},
+    "matrix": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "number"}}},
+    "artifact": {"type": "object", "additionalProperties": false, "required": ["name", "revision", "kind", "byte_size", "sha256", "license_identifier"], "properties": {"name": {"type": "string"}, "revision": {"type": "string"}, "kind": {"type": "string"}, "byte_size": {"type": "integer", "minimum": 1}, "sha256": {"$ref": "#/$defs/sha256"}, "license_identifier": {"type": "string"}}},
+    "package": {"type": "object", "additionalProperties": false, "required": ["name", "version", "filename", "byte_size", "sha256"], "properties": {"name": {"type": "string"}, "version": {"type": "string"}, "filename": {"type": "string"}, "byte_size": {"type": "integer", "minimum": 1}, "sha256": {"$ref": "#/$defs/sha256"}}},
+    "nativePackage": {"type": "object", "additionalProperties": false, "required": ["name", "version", "architecture", "copyright_sha256"], "properties": {"name": {"type": "string"}, "version": {"type": "string"}, "architecture": {"type": "string"}, "copyright_sha256": {"$ref": "#/$defs/sha256"}}},
+    "runtimeManifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["profile_id", "engine_name", "engine_version", "packages", "native_packages", "artifacts", "locale_code", "ocr_language", "detected_language", "detected_language_reason", "os", "architecture", "python_version", "unicode_version", "rapidfuzz_version", "device", "thread_count", "numeric_mode", "engine_options", "determinism_limitations", "runtime_manifest_sha256"],
+      "properties": {
+        "profile_id": {"type": "string"},
+        "engine_name": {"type": "string"},
+        "engine_version": {"type": "string"},
+        "packages": {"type": "array", "items": {"$ref": "#/$defs/package"}},
+        "native_packages": {"type": "array", "items": {"$ref": "#/$defs/nativePackage"}},
+        "artifacts": {"type": "array", "items": {"$ref": "#/$defs/artifact"}},
+        "locale_code": {"type": "string"},
+        "ocr_language": {"type": "string"},
+        "detected_language": {"type": "null"},
+        "detected_language_reason": {"const": "NOT_PROVIDED"},
+        "os": {"type": "string"},
+        "architecture": {"type": "string"},
+        "python_version": {"type": "string"},
+        "unicode_version": {"const": "15.0.0"},
+        "rapidfuzz_version": {"const": "3.14.6"},
+        "device": {"const": "cpu"},
+        "thread_count": {"type": "integer", "minimum": 1},
+        "numeric_mode": {"const": "fp32"},
+        "engine_options": {"type": "array", "items": {"$ref": "#/$defs/nameValue"}},
+        "determinism_limitations": {"type": "array", "items": {"type": "string"}},
+        "runtime_manifest_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "nameValue": {"type": "object", "additionalProperties": false, "required": ["name", "value"], "properties": {"name": {"type": "string"}, "value": {"type": ["string", "number", "integer", "boolean", "null"]}}},
+    "step": {"type": "object", "additionalProperties": false, "required": ["kind", "input_width", "input_height", "output_width", "output_height", "matrix3x3"], "properties": {"kind": {"type": "string"}, "input_width": {"type": "integer", "minimum": 1}, "input_height": {"type": "integer", "minimum": 1}, "output_width": {"type": "integer", "minimum": 1}, "output_height": {"type": "integer", "minimum": 1}, "matrix3x3": {"$ref": "#/$defs/matrix"}}},
+    "preprocessing": {"type": "object", "additionalProperties": false, "required": ["exif_policy", "exif_orientation", "pixel_sha256", "steps", "original_to_inference_matrix3x3"], "properties": {"exif_policy": {"const": "ignored-v1"}, "exif_orientation": {"type": ["integer", "null"], "minimum": 1, "maximum": 8}, "pixel_sha256": {"$ref": "#/$defs/sha256"}, "steps": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/step"}}, "original_to_inference_matrix3x3": {"$ref": "#/$defs/matrix"}}},
+    "bbox": {"type": "object", "additionalProperties": false, "required": ["x", "y", "width", "height"], "properties": {"x": {"type": "number", "minimum": 0}, "y": {"type": "number", "minimum": 0}, "width": {"type": "number", "exclusiveMinimum": 0}, "height": {"type": "number", "exclusiveMinimum": 0}}},
+    "region": {"type": "object", "additionalProperties": false, "required": ["region_index", "text", "confidence", "confidence_semantics", "detection_confidence", "detection_confidence_unavailable_reason", "polygon", "bbox", "clipped", "engine_region_index"], "properties": {"region_index": {"type": "integer", "minimum": 0}, "text": {"type": "string", "maxLength": 10000}, "confidence": {"type": "number", "minimum": 0, "maximum": 1}, "confidence_semantics": {"const": "recognition"}, "detection_confidence": {"type": ["number", "null"], "minimum": 0, "maximum": 1}, "detection_confidence_unavailable_reason": {"type": ["string", "null"], "enum": ["NOT_EXPOSED_BY_PROFILE", null]}, "polygon": {"type": "array", "minItems": 3, "maxItems": 8, "items": {"$ref": "#/$defs/point"}}, "bbox": {"$ref": "#/$defs/bbox"}, "clipped": {"type": "boolean"}, "engine_region_index": {"type": "integer", "minimum": 0}}},
+    "auditRegion": {"type": "object", "additionalProperties": false, "required": ["engine_region_index", "raw_text", "engine_polygon", "transformed_preclip_polygon", "recognition_confidence", "detection_confidence"], "properties": {"engine_region_index": {"type": "integer", "minimum": 0}, "raw_text": {"type": "string", "maxLength": 10000}, "engine_polygon": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"$ref": "#/$defs/point"}}, "transformed_preclip_polygon": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"$ref": "#/$defs/point"}}, "recognition_confidence": {"type": "number", "minimum": 0, "maximum": 1}, "detection_confidence": {"type": ["number", "null"], "minimum": 0, "maximum": 1}}},
+    "rawAudit": {"type": "object", "additionalProperties": false, "required": ["schema_version", "regions", "raw_output_sha256"], "properties": {"schema_version": {"const": 1}, "regions": {"type": "array", "maxItems": 1000, "items": {"$ref": "#/$defs/auditRegion"}}, "raw_output_sha256": {"$ref": "#/$defs/sha256"}}},
+    "timings": {"type": "object", "additionalProperties": false, "required": ["decode", "inference", "projection", "total"], "properties": {"decode": {"type": "number", "minimum": 0}, "inference": {"type": "number", "minimum": 0}, "projection": {"type": "number", "minimum": 0}, "total": {"type": "number", "minimum": 0}}}
+  }
+}

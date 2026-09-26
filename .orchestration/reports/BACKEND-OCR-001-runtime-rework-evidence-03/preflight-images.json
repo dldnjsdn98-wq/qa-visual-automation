@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "docker",
+    "image",
+    "inspect",
+    "qa-backend-ocr-runtime:local",
+    "qa-backend-ocr-production:local",
+    "postgres:17-alpine",
+    "--format",
+    "{{.Id}}|{{.Os}}|{{.Architecture}}|{{.Created}}"
+  ],
+  "cwd": "C:\\Dev\\qa-visual-automation",
+  "started_utc": "2026-09-25T11:32:53.592785+00:00",
+  "ended_utc": "2026-09-25T11:32:53.844386+00:00",
+  "exit_code": 0,
+  "log_path": ".orchestration\\reports\\BACKEND-OCR-001-runtime-rework-evidence-03\\preflight-images.log",
+  "log_sha256": "d7e025f4e7340e8db22eb95c17db7ba0e68d4a7656e769121f734f7465367c80"
+}

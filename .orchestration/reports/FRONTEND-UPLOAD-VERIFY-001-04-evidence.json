@@ -1,0 +1,171 @@
+{
+  "generated_at": "2026-09-24T16:50:40Z",
+  "api_origin": "http://127.0.0.1:60020",
+  "project": {
+    "id": "aefa1ff7-1071-40ba-8c41-bc79991bd8c3",
+    "created_at": "2026-09-24T16:50:40.069079Z",
+    "updated_at": "2026-09-24T16:50:40.069079Z",
+    "slug": "web-upload-c81c1a39291f489db75be7e271f0cdef",
+    "name": "실제 Web 업로드 검증 😀",
+    "description": null
+  },
+  "build": {
+    "id": "5be5ef70-8518-40f0-95cd-20795598e211",
+    "created_at": "2026-09-24T16:50:40.09094Z",
+    "updated_at": "2026-09-24T16:50:40.09094Z",
+    "label": "verify-2026.09",
+    "description": null,
+    "project_id": "aefa1ff7-1071-40ba-8c41-bc79991bd8c3"
+  },
+  "locale": {
+    "id": "305e654b-5830-4c7c-b751-d468c21f55d6",
+    "created_at": "2026-09-24T16:50:40.109923Z",
+    "updated_at": "2026-09-24T16:50:40.109923Z",
+    "code": "ko-KR",
+    "name": "한국어 / 日本語",
+    "project_id": "aefa1ff7-1071-40ba-8c41-bc79991bd8c3"
+  },
+  "category": {
+    "id": "030ba415-2a6c-4186-9f39-1ba64e884f0b",
+    "created_at": "2026-09-24T16:50:40.128174Z",
+    "updated_at": "2026-09-24T16:50:40.128174Z",
+    "slug": "onboarding",
+    "name": "가입 흐름",
+    "project_id": "aefa1ff7-1071-40ba-8c41-bc79991bd8c3"
+  },
+  "situation": {
+    "id": "2b1cb9cc-d0e4-4c83-8261-14fdf8e135f4",
+    "created_at": "2026-09-24T16:50:40.150124Z",
+    "updated_at": "2026-09-24T16:50:40.150124Z",
+    "slug": "welcome",
+    "name": "환영 / ようこそ",
+    "category_id": "030ba415-2a6c-4186-9f39-1ba64e884f0b",
+    "description": null,
+    "project_id": "aefa1ff7-1071-40ba-8c41-bc79991bd8c3"
+  },
+  "agent": {
+    "producer_client_upload_id": "eb310276-9579-4b87-9542-fce75c003717",
+    "producer_file_hash": "c0ba7e61c9eb8033da72341ae2306c7838bb48a938eb60827d9ccdee6b9ebabe",
+    "producer_manifest_sha256": "8f7638d96fe15be3541aa2064cccdaa57c17ab89b0969e65705e1750414b3ac9",
+    "uploader_cli_returncode": 0,
+    "list_total_after_agent": 1,
+    "detail": {
+      "id": "61925d18-dca0-47e2-a880-89d94502e83f",
+      "project_id": "aefa1ff7-1071-40ba-8c41-bc79991bd8c3",
+      "build_id": "5be5ef70-8518-40f0-95cd-20795598e211",
+      "locale_id": "305e654b-5830-4c7c-b751-d468c21f55d6",
+      "category_id": "030ba415-2a6c-4186-9f39-1ba64e884f0b",
+      "situation_id": "2b1cb9cc-d0e4-4c83-8261-14fdf8e135f4",
+      "source": "agent",
+      "original_filename": "합성-agent-ようこそ-😀.png",
+      "uploaded_at": "2026-09-24T16:50:40.547243Z",
+      "file_hash": "c0ba7e61c9eb8033da72341ae2306c7838bb48a938eb60827d9ccdee6b9ebabe",
+      "media_type": "image/png",
+      "size_bytes": 2032,
+      "width": 320,
+      "height": 180,
+      "metadata_version": 1,
+      "metadata": {
+        "device": "Windows 합성 장치 😀",
+        "nested": {
+          "emoji": [
+            "😀",
+            "🧪",
+            {
+              "보존": "완료"
+            }
+          ],
+          "日本語": {
+            "文言": "ようこそ",
+            "段階": 2
+          },
+          "한국어": {
+            "문구": "안녕하세요",
+            "상태": [
+              "표시",
+              true,
+              null
+            ]
+          },
+          "العربية": {
+            "النص": "مرحبا",
+            "اتجاه": "rtl"
+          }
+        },
+        "run_id": "940d4bfb-b254-4267-b89e-835582a94c70",
+        "scenario": "가입 / 初回起動 / démarrage",
+        "checkpoint": "환영 화면 · ようこそ · bienvenue",
+        "resolution": {
+          "width": 320,
+          "height": 180
+        },
+        "screen_state": "준비됨 é"
+      },
+      "client_upload_id": "eb310276-9579-4b87-9542-fce75c003717",
+      "content_url": "/api/v1/projects/aefa1ff7-1071-40ba-8c41-bc79991bd8c3/screenshots/61925d18-dca0-47e2-a880-89d94502e83f/content"
+    },
+    "content_sha256": "c0ba7e61c9eb8033da72341ae2306c7838bb48a938eb60827d9ccdee6b9ebabe",
+    "content_exact": true
+  },
+  "manual": {
+    "status": 201,
+    "location": "/api/v1/projects/aefa1ff7-1071-40ba-8c41-bc79991bd8c3/screenshots/d34fd920-5730-465e-adc4-4d93b2b02d4f",
+    "detail": {
+      "id": "d34fd920-5730-465e-adc4-4d93b2b02d4f",
+      "project_id": "aefa1ff7-1071-40ba-8c41-bc79991bd8c3",
+      "build_id": "5be5ef70-8518-40f0-95cd-20795598e211",
+      "locale_id": "305e654b-5830-4c7c-b751-d468c21f55d6",
+      "category_id": "030ba415-2a6c-4186-9f39-1ba64e884f0b",
+      "situation_id": "2b1cb9cc-d0e4-4c83-8261-14fdf8e135f4",
+      "source": "manual",
+      "original_filename": "수동-원본-保持-😀.png",
+      "uploaded_at": "2026-09-24T16:50:40.69149Z",
+      "file_hash": "b6e1c2593df26b8098d4bc20ea903c14f8626c481557217f69b9d08be16e1748",
+      "media_type": "image/png",
+      "size_bytes": 2073,
+      "width": 320,
+      "height": 180,
+      "metadata_version": 1,
+      "metadata": {
+        "note": "수동 원본 보존 · 手動 · é",
+        "nested": {
+          "kept": [
+            true,
+            null,
+            "😀"
+          ]
+        }
+      },
+      "client_upload_id": null,
+      "content_url": "/api/v1/projects/aefa1ff7-1071-40ba-8c41-bc79991bd8c3/screenshots/d34fd920-5730-465e-adc4-4d93b2b02d4f/content"
+    },
+    "content_sha256": "b6e1c2593df26b8098d4bc20ea903c14f8626c481557217f69b9d08be16e1748",
+    "content_exact": true
+  },
+  "storage_file_count": 2,
+  "storage_hashes": [
+    "b6e1c2593df26b8098d4bc20ea903c14f8626c481557217f69b9d08be16e1748",
+    "c0ba7e61c9eb8033da72341ae2306c7838bb48a938eb60827d9ccdee6b9ebabe"
+  ],
+  "database": {
+    "screenshot_count": 2,
+    "receipt_state": "COMPLETED",
+    "receipt_upload_protocol_version": 1,
+    "receipt_screenshot_id": "61925d18-dca0-47e2-a880-89d94502e83f",
+    "receipt_lease_expires_at": null,
+    "receipt_last_error_code": null
+  },
+  "cleanup": {
+    "web": "stopped",
+    "api": "stopped",
+    "database": "removed_with_container",
+    "postgres_container": "removed"
+  },
+  "web": {
+    "origin": "http://127.0.0.1:3001",
+    "list_url": "http://127.0.0.1:3001/#/screenshots?project=aefa1ff7-1071-40ba-8c41-bc79991bd8c3",
+    "detail_url": "http://127.0.0.1:3001/#/detail?project=aefa1ff7-1071-40ba-8c41-bc79991bd8c3&id=61925d18-dca0-47e2-a880-89d94502e83f",
+    "production_build_returncode": 0,
+    "log": ".orchestration\\reports\\FRONTEND-UPLOAD-VERIFY-001-04-web.log"
+  }
+}

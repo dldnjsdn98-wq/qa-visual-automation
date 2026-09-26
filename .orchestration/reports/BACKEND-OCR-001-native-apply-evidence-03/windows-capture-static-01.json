@@ -1,0 +1,20 @@
+{
+  "scope": "static source strings only; no import/exec of candidate",
+  "artifacts_sha256": {
+    "windows-harness-03.py": "be6b865e6ca8be5cea2bedf04bc6ed79dcdb17ed3510c165a393ee882f0d0a11",
+    "windows-plan-03.md": "cc8fcd7ce40fe2ade92e5dcdc11208b47123fe022880589d68083e6a33227865",
+    "windows-hook-03.patch": "0496d7a5cc18881d7c8fda045969a8314911b1913673dd6372ef7418600c56f3"
+  },
+  "exact_context_composition": "PASS in memory only",
+  "w1_lf_sha256": "6129ff42c0789df51c105068cbda48d0b299885f53c491e7d3a777315661467c",
+  "prospective_hook_helper_lf_sha256": "f9f41dc9d09f003a857d6e98c3053279b9616a346f0b34aa97309666c14c6302",
+  "ast": {
+    "helper": "PASS",
+    "harness": "PASS",
+    "embedded_child": "PASS"
+  },
+  "actual_source_baselines_unchanged": true,
+  "pure12": "NOT_RUN",
+  "native": "NOT_RUN",
+  "source_write": "HOLD"
+}

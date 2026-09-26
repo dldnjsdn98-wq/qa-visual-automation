@@ -1,0 +1,31 @@
+{
+  "status": "UNPROVED_OWNERSHIP_OR_CLEANUP",
+  "recorded_capture_exit": 2,
+  "exec_tool_shell_exit": 1,
+  "tool_chunk": "b85e9b",
+  "one_capture_invocation": true,
+  "command_count": 5,
+  "create_count": 1,
+  "start_wait_stop_remove_counts": 0,
+  "failed_inspect_count": 2,
+  "inspect_error": "template parsing error: template: :1:398: executing \"\" at <json>: wrong number of args for json: want 1 got 3\n",
+  "container_id": "affc94c2fe2468fd867c1e80be5878836a9b70868e68f2bff4f54d9c84988e8a",
+  "container_name": "qa-l1-3e363b492d1347efbbae6d4de1541353",
+  "nonce": "3e363b492d1347efbbae6d4de1541353",
+  "cleanup_confirmed": false,
+  "launch_uncertain": true,
+  "source113_before_after_matches": true,
+  "missing": [
+    "inner-inputs.json",
+    "result.xml",
+    "terminal.json",
+    "container.log"
+  ],
+  "image_internal_raw_lf": "NOT_RUN",
+  "pressure_pytest": "NOT_RUN",
+  "windows_counts": {
+    "same_cause": 3,
+    "historical_cleanup": 2
+  },
+  "no_followup_docker": true
+}

@@ -3,7 +3,8 @@ import unicodedata
 from python_multipart import MultipartParser
 from python_multipart.multipart import parse_options_header
 from backend.app.errors import DomainError
-from .unicode import decode_json, validate_unicode
+from .jcs import decode_upload_json
+from .unicode import validate_unicode
 
 
 def parse_upload(content_type, body):
@@ -84,4 +85,4 @@ def parse_upload(content_type, body):
         raise DomainError(413, "UPLOAD_TOO_LARGE", "Metadata part exceeds 32 KiB")
     if len(file["data"]) > 20_971_520:
         raise DomainError(413, "UPLOAD_TOO_LARGE", "File exceeds 20 MiB")
-    return decode_json(raw_metadata, "metadata"), BytesIO(file["data"]), filename, file["headers"].get(b"content-type", b"").decode("ascii", errors="replace")
+    return decode_upload_json(raw_metadata), BytesIO(file["data"]), filename, file["headers"].get(b"content-type", b"").decode("ascii", errors="replace")

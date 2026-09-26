@@ -1,0 +1,16 @@
+{
+  "wrapper_exit_code": 0,
+  "build_exit_code": 0,
+  "build_attempts": 1,
+  "all139_before_after_and_final_host_match": true,
+  "previous15_unchanged": true,
+  "image_id": "sha256:a1337c5556ab00f01dac45075f6bbf71ba9198c1b179a83d0210e5879a426d0a",
+  "os": "linux",
+  "architecture": "amd64",
+  "base_from_actual_build_log": "sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94cd8ebbe06a9",
+  "base_preinspect": "NOT_PRESENT (No such image), not successful metadata",
+  "build_log_sha256": "209762ed893e1be9627c02334f4903b8f46bbebf939b7a85e93f44f020cc540f",
+  "image_internal_source_verification": "NOT_RUN",
+  "native_container_execution": "NOT_RUN",
+  "pure12_full279": "NOT_RERUN"
+}

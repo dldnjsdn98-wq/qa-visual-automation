@@ -1,0 +1,13 @@
+# Handoff
+- Task / owner: ARCH-OCR-001 / Architect02.
+- Status / activation evidence: READY_FOR_REVIEW requested; Phase3 activation handoff authorized contract only after Phase2 ACCEPTED.
+- Changed files: docs/architecture/phase-3-ocr-contract.md; .orchestration/reports/ARCH-OCR-001-02.md; this handoff. New files only.
+- Contract changes: P3-OCR-v1 revision1; immutable run snapshot/idempotency; durable PostgreSQL job/fence/attempt/recovery; model/locale qualification; raw-raster polygon/confidences; conservative normalized rational matching/global assignment; explicit errors/UNVERIFIED; paged API/Web immutable history.
+- Exact contract SHA-256: 46940dd1dd7775422213b2ba422b63650f4e83740e034cf29dc83f23970acb82
+- Branch / commit: null / null.
+- Commands and PASS / FAIL / NOT_RUN: Node v24.19.0 reference35 assertions PASS exit0; saved document6 links/10 sections/22 matrix rows/4 AC markers/JSON and3 unchanged baseline hashes PASS exit0; scoped git diff --check exit0 (untracked limitation recorded). Exact scripts in report. No product test or actual-engine inference run.
+- Acceptance IDs and evidence: AC-P3-01..04 NOT_RUN. Contract/static examples do not satisfy product acceptance.
+- Consultation:03 eighteen questions,04 twelve questions,05 eight questions,08 checklist explicitly dispositioned in report/contract10; hashes matched. No prep report equals contract acceptance.
+- Blockers / risks: independent exact contract review and PM claims pending; actual dependency/model/license/resource/Windows-Linux evidence NOT_RUN. Candidate package/model pair not certified. Implementation remains BLOCKED.
+- Review requested / result: PM01 to activate REVIEW-ARCH-OCR-001 for exact revision; Reviewer08 result pending. No author self-acceptance.
+- Next owner / next action: PM01 verifies three artifact hashes and activates existing Reviewer08 task. Reviewer returns ACCEPTED or CHANGES_REQUESTED. Only PM may later grant03/04/05 implementation claims. Same-cause3 correction-review pause and all prohibitions preserved.

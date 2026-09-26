@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.235" timestamp="2026-09-25T22:45:04.364858+09:00" hostname="wonwoo"><testcase classname="tests.backend.test_ocr_containment" name="test_native_effective_boundary_is_verified_before_workload_and_after" file="tests\backend\test_ocr_containment.py" line="125" time="0.067"><properties><property name="owned_tree_stop_confirmed" value="True" /><property name="observed_cleanup_seconds" value="0.01600000000325963" /><property name="owned_pid" value="49224" /></properties><failure message="backend.app.workers.ocr_containment.ContainmentUnavailable: Unexpected descendant in single-process job">tests\backend\test_ocr_containment.py:135: in test_native_effective_boundary_is_verified_before_workload_and_after
+    assert not handle.memory_exceeded()
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+backend\app\workers\ocr_containment.py:428: in memory_exceeded
+    return self._observe_memory()
+           ^^^^^^^^^^^^^^^^^^^^^^
+backend\app\workers\ocr_containment.py:436: in _observe_memory
+    self._check_limits()
+backend\app\workers\ocr_containment.py:395: in _check_limits
+    raise ContainmentUnavailable("Unexpected descendant in single-process job")
+E   backend.app.workers.ocr_containment.ContainmentUnavailable: Unexpected descendant in single-process job</failure></testcase></testsuite></testsuites>

@@ -1,0 +1,217 @@
+{
+  "manifest_sha256": "98ea7e81109668dd073ef4f011b4d4c14eff3eea2a96340a00062f6850050b0a",
+  "count": 42,
+  "all_match": true,
+  "checks": [
+    {
+      "path": "tests/ocr/.gitkeep",
+      "expected": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "actual": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "tests/ocr/benchmark_matching.py",
+      "expected": "fd30fc82feffa01c628979e0bc73564ecf011aec11e009205e32391f3dd2f2ad",
+      "actual": "fd30fc82feffa01c628979e0bc73564ecf011aec11e009205e32391f3dd2f2ad"
+    },
+    {
+      "path": "tests/ocr/fixtures/runtime/en.png",
+      "expected": "5cebaf7105405219a5eeb73cd74c06d643e491ef232776afc82289a772ab2a00",
+      "actual": "5cebaf7105405219a5eeb73cd74c06d643e491ef232776afc82289a772ab2a00"
+    },
+    {
+      "path": "tests/ocr/fixtures/runtime/fixture-manifest.json",
+      "expected": "c1c4d9cf668145eadbe69e70140ca06e9a76f34ad2eb13aca93ee383e315b175",
+      "actual": "c1c4d9cf668145eadbe69e70140ca06e9a76f34ad2eb13aca93ee383e315b175"
+    },
+    {
+      "path": "tests/ocr/fixtures/runtime/ja.png",
+      "expected": "cdda8d4ffc49236518fe64d4e51361b1694a4e32c0c0b0e7f791eb1b826ede5b",
+      "actual": "cdda8d4ffc49236518fe64d4e51361b1694a4e32c0c0b0e7f791eb1b826ede5b"
+    },
+    {
+      "path": "tests/ocr/fixtures/runtime/ko.png",
+      "expected": "d34992612ae1b01629475fdc7ed1bcc3359cfcb798c7bb22959f6cd709aa2702",
+      "actual": "d34992612ae1b01629475fdc7ed1bcc3359cfcb798c7bb22959f6cd709aa2702"
+    },
+    {
+      "path": "tests/ocr/fixtures/runtime/zh_Hans.png",
+      "expected": "6200748b27252a02fba5ed76fffe61799dfca05e0cebb4aab4e1d68cc4ba094c",
+      "actual": "6200748b27252a02fba5ed76fffe61799dfca05e0cebb4aab4e1d68cc4ba094c"
+    },
+    {
+      "path": "tests/ocr/fixtures/runtime/zh_Hant.png",
+      "expected": "2dc5a94d734b9a036ef6c9fdb2ab64177a58ab7d3429ef899eb44224c9fc3492",
+      "actual": "2dc5a94d734b9a036ef6c9fdb2ab64177a58ab7d3429ef899eb44224c9fc3492"
+    },
+    {
+      "path": "tests/ocr/test_bounds_errors.py",
+      "expected": "58f1024579357014b2276b3638e1c03d3329ae4b0e906f09c8abf8f22d1ebc5f",
+      "actual": "58f1024579357014b2276b3638e1c03d3329ae4b0e906f09c8abf8f22d1ebc5f"
+    },
+    {
+      "path": "tests/ocr/test_geometry_profiles.py",
+      "expected": "48d4a662f5fd7bc42d73cc5a0be2836d6bca15b50b580afcc4d1c5f5c0dc91b4",
+      "actual": "48d4a662f5fd7bc42d73cc5a0be2836d6bca15b50b580afcc4d1c5f5c0dc91b4"
+    },
+    {
+      "path": "tests/ocr/test_normalization_matching.py",
+      "expected": "cf3c9b01789e181df1ec4aa0e426563ac1a34eb6a388775592013ef586a93f19",
+      "actual": "cf3c9b01789e181df1ec4aa0e426563ac1a34eb6a388775592013ef586a93f19"
+    },
+    {
+      "path": "worker/ocr/.gitkeep",
+      "expected": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "actual": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "worker/ocr/__init__.py",
+      "expected": "4c407a0ab19db1821c7327aed0b206c3d6e36adca896d4fa3af2b844f008ce91",
+      "actual": "4c407a0ab19db1821c7327aed0b206c3d6e36adca896d4fa3af2b844f008ce91"
+    },
+    {
+      "path": "worker/ocr/adapter.py",
+      "expected": "aa052072b25d6c650dfdd732a56f70e826efba94a09852e4d45d80751caac045",
+      "actual": "aa052072b25d6c650dfdd732a56f70e826efba94a09852e4d45d80751caac045"
+    },
+    {
+      "path": "worker/ocr/errors.py",
+      "expected": "51d24ecd1644a3dd1da86eee74592749099a6722f2ffb77ee1a4de5d2984fa40",
+      "actual": "51d24ecd1644a3dd1da86eee74592749099a6722f2ffb77ee1a4de5d2984fa40"
+    },
+    {
+      "path": "worker/ocr/geometry.py",
+      "expected": "2c6ca2d0977069ece5a9844d75179bda29b8977dd0b2c545b0a55b8c6d672684",
+      "actual": "2c6ca2d0977069ece5a9844d75179bda29b8977dd0b2c545b0a55b8c6d672684"
+    },
+    {
+      "path": "worker/ocr/paddle_engine.py",
+      "expected": "8715c57f9dc8a4b5352ecf1878a19cb3cbbff42fe18635209d23777b27228196",
+      "actual": "8715c57f9dc8a4b5352ecf1878a19cb3cbbff42fe18635209d23777b27228196"
+    },
+    {
+      "path": "worker/ocr/profiles/__init__.py",
+      "expected": "70ec82982be73069ab5fb8d973246a7973035a8672f491e6fb83e4a6626f0be1",
+      "actual": "70ec82982be73069ab5fb8d973246a7973035a8672f491e6fb83e4a6626f0be1"
+    },
+    {
+      "path": "worker/ocr/profiles/fixtures/fixture-contract-v1.profile.json",
+      "expected": "c666be589389afeff9391246cbaa61741c68c909c9a8c504b868abcaef390fae",
+      "actual": "c666be589389afeff9391246cbaa61741c68c909c9a8c504b868abcaef390fae"
+    },
+    {
+      "path": "worker/ocr/profiles/registered/.gitkeep",
+      "expected": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "actual": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "worker/ocr/profiles/registered/paddleocr-korean-medium-linux-x86_64-debian13-glibc2.41-cpython312-v1.profile.json",
+      "expected": "17b621ad3fbc5b6aba2c8da1b14ffc68b87efb992da15b7377fa3defcb24736a",
+      "actual": "17b621ad3fbc5b6aba2c8da1b14ffc68b87efb992da15b7377fa3defcb24736a"
+    },
+    {
+      "path": "worker/ocr/profiles/registered/paddleocr-korean-medium-windows-amd64-cpython312-v1.profile.json",
+      "expected": "cce0193c3a7737ba05ca34c481cd9b8caa6515d75bd53fc1b87ba2189d9b32ad",
+      "actual": "cce0193c3a7737ba05ca34c481cd9b8caa6515d75bd53fc1b87ba2189d9b32ad"
+    },
+    {
+      "path": "worker/ocr/profiles/registered/paddleocr-unified-medium-linux-x86_64-debian13-glibc2.41-cpython312-v1.profile.json",
+      "expected": "0fd9b7c1f70af19fcc46d83403594910acd8eb03e60f43ae4215dc321b69cb3d",
+      "actual": "0fd9b7c1f70af19fcc46d83403594910acd8eb03e60f43ae4215dc321b69cb3d"
+    },
+    {
+      "path": "worker/ocr/profiles/registered/paddleocr-unified-medium-windows-amd64-cpython312-v1.profile.json",
+      "expected": "f73d83fa82d15cc27aff79c8f9e7b25f34782ae6db12d68f2c64490c9fee467e",
+      "actual": "f73d83fa82d15cc27aff79c8f9e7b25f34782ae6db12d68f2c64490c9fee467e"
+    },
+    {
+      "path": "worker/ocr/profiles/registry.py",
+      "expected": "61b802ce52ee0cca7d6cb7d18d5867f6afb9af15d69a58ad634ded5d4aad8f31",
+      "actual": "61b802ce52ee0cca7d6cb7d18d5867f6afb9af15d69a58ad634ded5d4aad8f31"
+    },
+    {
+      "path": "worker/ocr/requirements-linux.lock",
+      "expected": "8136db6b61b6d4c25e9d433a701ff8397d620cda89b3f18516ab08839fb1b9d3",
+      "actual": "8136db6b61b6d4c25e9d433a701ff8397d620cda89b3f18516ab08839fb1b9d3"
+    },
+    {
+      "path": "worker/ocr/requirements-windows.lock",
+      "expected": "b51a4c325caf2bcfb6be89efa20168b77ae60d36ec9db11a2bee383ca67d4da6",
+      "actual": "b51a4c325caf2bcfb6be89efa20168b77ae60d36ec9db11a2bee383ca67d4da6"
+    },
+    {
+      "path": "worker/ocr/schemas/__init__.py",
+      "expected": "3e9a7da0bb73e75f96e4bb71e05c00cd44ef924344aca48482afd7cceb22b902",
+      "actual": "3e9a7da0bb73e75f96e4bb71e05c00cd44ef924344aca48482afd7cceb22b902"
+    },
+    {
+      "path": "worker/ocr/schemas/v1/canonical-regions.schema.json",
+      "expected": "d8c7465376717a1f9ce109bb81b48465e76007d1154f300f18dda6e357cbc9db",
+      "actual": "d8c7465376717a1f9ce109bb81b48465e76007d1154f300f18dda6e357cbc9db"
+    },
+    {
+      "path": "worker/ocr/schemas/v1/expected-snapshot.schema.json",
+      "expected": "477d745b2003448ea4d67651b171e8de54891725d24f9fc095c094b0770adefa",
+      "actual": "477d745b2003448ea4d67651b171e8de54891725d24f9fc095c094b0770adefa"
+    },
+    {
+      "path": "worker/ocr/schemas/v1/ocr-adapter-output.schema.json",
+      "expected": "daea515f1b47c9157c52fa874c0c34d0973b1336a4dce273e625103f3b3dc177",
+      "actual": "daea515f1b47c9157c52fa874c0c34d0973b1336a4dce273e625103f3b3dc177"
+    },
+    {
+      "path": "worker/ocr/schemas/v1/profile-manifest.schema.json",
+      "expected": "9bbf0f3c99889d47cbc902828552fda8ca3ec8bc047395f0de8cc3407a4b8e35",
+      "actual": "9bbf0f3c99889d47cbc902828552fda8ca3ec8bc047395f0de8cc3407a4b8e35"
+    },
+    {
+      "path": "worker/ocr/schemas/v1/source-facts.schema.json",
+      "expected": "6881da67906ffd0e333bca51cda1955df2d9835652325bbcb3229fb86f73dcee",
+      "actual": "6881da67906ffd0e333bca51cda1955df2d9835652325bbcb3229fb86f73dcee"
+    },
+    {
+      "path": "worker/ocr/schemas/v1/verification-adapter-output.schema.json",
+      "expected": "785b5dcbda5b548363463d1caf0811cdabb6ebc3cf996ad04b569861abf26b99",
+      "actual": "785b5dcbda5b548363463d1caf0811cdabb6ebc3cf996ad04b569861abf26b99"
+    },
+    {
+      "path": "worker/ocr/schemas/v1/verification-config.schema.json",
+      "expected": "5e093e4bb6fcc28945b0e5b4d7fa7ab8bb503f0f866b3e17b11a65218e2511e4",
+      "actual": "5e093e4bb6fcc28945b0e5b4d7fa7ab8bb503f0f866b3e17b11a65218e2511e4"
+    },
+    {
+      "path": "worker/ocr/validation.py",
+      "expected": "acd4204472d3fbc2f07c441a6831e863f5ef54545741a6fa72ee77b81ddcfe1e",
+      "actual": "acd4204472d3fbc2f07c441a6831e863f5ef54545741a6fa72ee77b81ddcfe1e"
+    },
+    {
+      "path": "worker/verification/.gitkeep",
+      "expected": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "actual": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "worker/verification/__init__.py",
+      "expected": "bc838af9e800568cb3c8387f2ab0f41f9344a42c0ef4e240cd29a761f315fdbd",
+      "actual": "bc838af9e800568cb3c8387f2ab0f41f9344a42c0ef4e240cd29a761f315fdbd"
+    },
+    {
+      "path": "worker/verification/adapter.py",
+      "expected": "0590d70344f3207c3c6fcd95e68d0f2b6011eaea274107579f305fc66ff39178",
+      "actual": "0590d70344f3207c3c6fcd95e68d0f2b6011eaea274107579f305fc66ff39178"
+    },
+    {
+      "path": "worker/verification/assignment.py",
+      "expected": "2818805068e5067ca69e619d65cc612b572c0ddcb150063b8274e1bc4b5c16ef",
+      "actual": "2818805068e5067ca69e619d65cc612b572c0ddcb150063b8274e1bc4b5c16ef"
+    },
+    {
+      "path": "worker/verification/levenshtein.py",
+      "expected": "6774d70c162e5944074760034d954d9496a547cfe6a13529b4600de4f43d0f70",
+      "actual": "6774d70c162e5944074760034d954d9496a547cfe6a13529b4600de4f43d0f70"
+    },
+    {
+      "path": "worker/verification/normalization.py",
+      "expected": "79ba9cd724e257418f987f84012db8bb37c42d4838ad45766431b5f6bcc95161",
+      "actual": "79ba9cd724e257418f987f84012db8bb37c42d4838ad45766431b5f6bcc95161"
+    }
+  ]
+}

@@ -100,4 +100,22 @@ The runner uses generated credentials, a random loopback port and uniquely owned
 
 Tests cover CRUD, Unicode round trips and rejection, scopes, restrictive deletes, missing/empty expectations, concurrent duplicates/mapping replacement, uploads/content/filters, original-byte preservation, storage failures, rollback/ambiguous commit, safe reconciliation and fresh migration/downgrade/re-upgrade/model parity.
 
-Phase 2 upload agent/idempotency, OCR, device automation, screenshots edits/deletes, S3 implementation and authentication are excluded.
+## Phase 3 OCR verification backend
+
+The Backend stores an immutable creation snapshot, profile/config digests and a durable PostgreSQL job for each explicit verification run. Start the separately supervised runner with:
+
+    python -m backend.app.workers.ocr
+
+Create and read runs below `/api/v1/projects/{project_id}/screenshots/{screenshot_id}/verification-runs`; list deployment profiles at `/api/v1/projects/{project_id}/ocr-profiles`. First creation returns `202`, replay of the same `(project_id, client_run_id)` and fingerprint returns `200`, and both return the original run location. Active run reads expose `Retry-After: 2`. Result resources stay unavailable until OCR and verification results commit atomically.
+
+The runner claims from the database with a generation/token lease, renews on a separate session, verifies the frozen source hash and canonical inputs, runs the `worker.ocr` and `worker.verification` adapters in a supervised child process, and publishes only complete bounded results. A profile is usable only when its registered immutable production document is valid, its canonical qualification status is `QUALIFIED`, it is production eligible, and the deployment admits that exact profile ID and digest for its worker target and release. API-local platform matching is not deployment admission; it cannot make an invalid, unqualified, or non-production document usable, and its local mismatch does not invalidate an otherwise exact external admission for the worker target. The repository fixture profile is never a production profile; an empty production registry is valid but cannot execute OCR.
+
+Admission defaults to unavailable. Supply the same externally managed, immutable JSON assertion to the API and runner with `QA_OCR_ADMISSION_PATH`, its exact raw-byte SHA-256 in `QA_OCR_ADMISSION_SHA256`, and the expected `QA_OCR_WORKER_TARGET` and `QA_OCR_RELEASE_ID`. The assertion is at most 64 KiB and has this exact versioned shape:
+
+    {"schema_version":1,"worker_target":"windows-x86_64","release_id":"release-2026.09.25","profiles":[{"profile_id":"qualified-profile-v1","profile_digest":"<64 lowercase hex characters>"}]}
+
+Unknown fields, duplicate keys or profile IDs, malformed values, a content-pin mismatch, or a target/release mismatch make every profile unavailable. There is no boolean readiness setting, and API-local operating-system, cgroup, cache, package, or model observations cannot enable admission. The content pin protects assertion integrity; it is not qualification evidence. Operators may publish a real assertion only after the exact target, release, profile, runtime, containment, models, dictionaries, native libraries, and required behavior have completed the approved qualification process.
+
+Phase 3 execution errors include `OCR_PROFILE_UNKNOWN`, `OCR_PROFILE_UNAVAILABLE`, `OCR_LOCALE_UNSUPPORTED`, `RUN_IDEMPOTENCY_CONFLICT`, `RESULT_NOT_READY`, and the durable safe worker error codes recorded on a failed Run. These errors do not expose storage paths, model locations, rejected payloads or child tracebacks.
+
+Device automation, screenshot edits/deletes, S3 implementation and authentication remain excluded.

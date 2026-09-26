@@ -1,0 +1,257 @@
+{
+  "kind": "conformance-checkpoint-artifact-index",
+  "status": "BLOCKED_NATIVE_QUALIFICATION_NOT_READY_FOR_REVIEW",
+  "count": 50,
+  "artifacts": [
+    {
+      "path": ".orchestration/handoffs/BACKEND-OCR-001-runtime-conformance-03.md",
+      "bytes": 5051,
+      "sha256": "8ebc8100e932633a71be451d13ec832f12f300a31fde7311bb500779f94c26ef"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-03.md",
+      "bytes": 15542,
+      "sha256": "77429950d9bbacdd377ec95f0aab982a6afd38725f4f098d5d9368f0abff8bb7"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-capture-03.py",
+      "bytes": 3262,
+      "sha256": "8739e9c144266c042eaabe21b8899fd1bb96c893bf0084e6fe8fb51759fa3afa"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/final-inventory-01.json",
+      "bytes": 104257,
+      "sha256": "8fd80076bc0bc72426c27b31cfd6404da76a2054ee2a3ae40dc6afd0dfa0f87a"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/linux-diagnostic-build-01.json",
+      "bytes": 4832,
+      "sha256": "393e0ad01bd7759da0ed5c5296a127e805683faf8f34bcee44238d0d904679dc"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/linux-diagnostic-build-01.log",
+      "bytes": 267,
+      "sha256": "59cf229a5fa5e5eaeeccb8421e8ec999fb23a852c51adea4a7e24b564762dcf3"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/linux-memory-preflight-01.json",
+      "bytes": 2254,
+      "sha256": "1bc3ae4d4704643095ce8b2238de35c7df67ba64b4df30ae790f66e5cde042e2"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/linux-memory-preflight-01.log",
+      "bytes": 328,
+      "sha256": "4a2e1c6ee0b04b7adf9075712bc64acdfb7be4bc164e2b2e2dafeed13425cc36"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/prior-checkpoint-scope.json",
+      "bytes": 11059,
+      "sha256": "87ceb2a18ef97f3ff8fad876c2983ee459d3dc0df4ffd12e97ddf1a0921de823"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/source-scope-01.json",
+      "bytes": 1006,
+      "sha256": "daf5755f5ad7321ce1376baa1cce553aaecd97ca196560c7a77dc0092387eb23"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-admission-api-01.json",
+      "bytes": 5033,
+      "sha256": "81fd60637878cf7a94d84488b0a90a56fdd47b8f7b5be71942ea4d7a1cfe9f5f"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-admission-api-01.log",
+      "bytes": 2263,
+      "sha256": "4724920283ff8fd74406be78fc22bce670b8ab0dfaef7ab688d749a6fa872c43"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-admission-api-01.xml",
+      "bytes": 6389,
+      "sha256": "211a0a63d76a45b1c481eac1aa4a38419d9d2a46e70e0a66a34f596baf83ff6b"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-admission-api-02.json",
+      "bytes": 5033,
+      "sha256": "aaa98c108aa3b9c83efcc937419d58bbb902577ce6c2dded6dd249f4bc694b25"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-admission-api-02.log",
+      "bytes": 628,
+      "sha256": "1eea8ad6fd39d08e282f3c2994cf154df4a22ed7af4b5fb13daf0bc8d03905ae"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-admission-api-02.xml",
+      "bytes": 4820,
+      "sha256": "6e514be6dd1e60c3eabdf06fe0e5dd3f80fa8ce612554f87746cebd1b59a9fb0"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-admission-db-01.json",
+      "bytes": 5141,
+      "sha256": "1ca2b7e705f62d6a78e1709936a65852e9a7bcb15ba0fca984c37d6011f13dea"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-admission-db-01.log",
+      "bytes": 1535,
+      "sha256": "364596848fa773f994cfd3c6c7ab743ff65c4c7101c7e45f8d010756ad759990"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-admission-db-01.xml",
+      "bytes": 1421,
+      "sha256": "1f7df117e2b2b12f261d91d3594b79fc12c8adb2fced55b192deb9ed72ef52aa"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-admission-provider-01.json",
+      "bytes": 5049,
+      "sha256": "1e54ca135883bbc780928658444ccb8f4104ba4cf23f60e9f7e76fb558fec22c"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-admission-provider-01.log",
+      "bytes": 628,
+      "sha256": "1e641a0aed8b7ae219a94d3a5622a25a8101ec7d3def116ae8fc521e509811de"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-admission-provider-01.xml",
+      "bytes": 2248,
+      "sha256": "45d2a756f4da64c19eb12264c0e044567126b69eb4ad8b92f9243280c996ae64"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-backend-final-01.json",
+      "bytes": 5079,
+      "sha256": "cc12df06daf652a9a9588b2d8f20a28fc60c35098ffe89490247cad1fc3426d2"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-backend-final-01.log",
+      "bytes": 966,
+      "sha256": "bbd02321425beb40f7a96ded6e2ea13210a11732c2b83170ac2d9c536a5167bf"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-backend-final-01.xml",
+      "bytes": 70004,
+      "sha256": "fb0f8e329c17e451b1145c04bc736e96906fb2dcab73eaf4f858df4afba3c6fc"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-claim-guard-02.json",
+      "bytes": 4064,
+      "sha256": "4fb2e4d80dbb947365ee22cc434a647e43eeca6465ddc83e2de9a012a1bebe36"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-claim-guard-02.log",
+      "bytes": 628,
+      "sha256": "57c1d18a43d95c2c9c684c77460e3657858d47b3fdcb5f386df75bf264ddcf2d"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-claim-guard-02.xml",
+      "bytes": 7191,
+      "sha256": "486bc978bc0e07c4749990c2d3ab4a8beb3ef117799d9ebce64c30d6c977a64d"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-db-boundary-01.json",
+      "bytes": 3995,
+      "sha256": "010b01f987ae2f336cb3b4a88036dd55359761f51416771e05f6f5be76438a0f"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-db-boundary-01.log",
+      "bytes": 628,
+      "sha256": "5c02de9b4ecd09fbaf0a9448e56bd798c908fff2b49144b2ecd2caaaefb5ee66"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-db-boundary-01.xml",
+      "bytes": 3352,
+      "sha256": "4a532ad92929514787fd54262ea2c7d0b0368891a0b1612c900d4a7b02797d81"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-deterministic-01.json",
+      "bytes": 4073,
+      "sha256": "75837a0cceb6a58eff5b00e2e3ab91e44642b422f7cc2e1d5f25a2bda1143d58"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-deterministic-01.log",
+      "bytes": 642,
+      "sha256": "f8fa5748423fb75f095d9b232786cde883474d0d22ae1320549c133e347ae5e5"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-deterministic-01.xml",
+      "bytes": 6868,
+      "sha256": "b65193b2a52d1acb71e8253f1039372e7b60938b758948de6595546077795302"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-native-boundary-01.json",
+      "bytes": 4078,
+      "sha256": "646e6cf8110a71d87335dc79c0d294a5f2e99e26ecc0b8165fbd7bbde7816644"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-native-boundary-01.log",
+      "bytes": 1660,
+      "sha256": "92a0ddf071d2c677453dd188656bd28777e51daa3a11c855bfcade723dc68b80"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-native-boundary-01.xml",
+      "bytes": 1458,
+      "sha256": "113c4079b173e85ad27216b0c0dc05f65963d863dd6e3e34241b21aa90dd0f6d"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-native-boundary-02.json",
+      "bytes": 4202,
+      "sha256": "7fb56c2d1abb0cbadd242debe26a4c77b65ac304c70401ff821c6a53273a6bfc"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-native-boundary-02.log",
+      "bytes": 1708,
+      "sha256": "2acde35a24ff3ba2bc50a6a59832dc2eec86336d94a174804db92934d3c07a70"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-native-boundary-02.xml",
+      "bytes": 11485,
+      "sha256": "f424b1b8c6e7635bd114b978003973c1982a4ad80862c5b7ec97f85f1353b37d"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-prelaunch-db-01.json",
+      "bytes": 5107,
+      "sha256": "51bd3c6b7a9cf1ca8aeea8be223356c4c62c40f64cb78c536b238d18da7dc71e"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-prelaunch-db-01.log",
+      "bytes": 627,
+      "sha256": "09d29ebd3a3f51d69e850c7bc1989bfd3add2bb854721b9b57e4d72956369676"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-prelaunch-db-01.xml",
+      "bytes": 3138,
+      "sha256": "efbde740563fef3ecb751b3b80faa841f9033804d1566a56de63519a658d766a"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-protocol-regression-02.json",
+      "bytes": 5732,
+      "sha256": "ce61d582197e85bb9f40cb82caeb567239951dcc6c326ec3e33339628c4ad5bf"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-protocol-regression-02.log",
+      "bytes": 628,
+      "sha256": "96acc029d586fc9c33ff54b305901d42f59379c988d2f178a4e0c10d80ddc634"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-protocol-regression-02.xml",
+      "bytes": 2284,
+      "sha256": "491aadcb3544e2cebb3b6b376baee870147b504cf35412e763701f77655c08f0"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-inventory-03.py",
+      "bytes": 16680,
+      "sha256": "1f155d92d78f9d9d9e881972b4a0b8c31e6bbb56fc55c3e28d8d2edfebd914f9"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-manifest-03.py",
+      "bytes": 1518,
+      "sha256": "c73dbcea7f69d82e1e996f9a7848272471da4aa1038db510ebada145016d9230"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-scope-03.py",
+      "bytes": 2510,
+      "sha256": "23be75d4faac2214a15b41819c31d8915a725f3999a36c599270e90093394aec"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-source-manifest.txt",
+      "bytes": 10669,
+      "sha256": "73bcf6e6e9eee2069a84ffeb2b20a6902f47187794563e0a72d3aa6259f25e12"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "C:\\Dev\\qa-visual-automation\\.pytest_cache\\agent-clean-win\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "pytest",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "tests/backend/test_ocr_containment.py::test_l1_shortpeak_oracle",
+    "--junitxml=C:\\Dev\\qa-visual-automation\\.orchestration\\reports\\BACKEND-OCR-001-approved-application-evidence-04\\pure12-junit.xml"
+  ],
+  "cwd": "C:\\Dev\\qa-visual-automation",
+  "environment_controls": {
+    "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "native_opt_in": "absent",
+    "PYTEST_ADDOPTS": "absent",
+    "PYTEST_PLUGINS": "absent"
+  }
+}

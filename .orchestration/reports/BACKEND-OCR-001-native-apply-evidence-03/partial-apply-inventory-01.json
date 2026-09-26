@@ -1,0 +1,71 @@
+{
+  "status": "NO_PARTIAL_SOURCE_APPLICATION_OBSERVED",
+  "files": [
+    {
+      "path": "backend/app/workers/ocr_containment.py",
+      "exists": true,
+      "bytes": 41870,
+      "raw_sha256": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+      "canonical_lf_sha256": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+      "baseline_sha256": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+      "intended_canonical_sha256": "6129ff42c0789df51c105068cbda48d0b299885f53c491e7d3a777315661467c",
+      "matches_baseline": true,
+      "matches_intended_canonical": false,
+      "pure_oracle_node_present": false
+    },
+    {
+      "path": "tests/backend/test_ocr_containment.py",
+      "exists": true,
+      "bytes": 17831,
+      "raw_sha256": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+      "canonical_lf_sha256": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+      "baseline_sha256": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+      "intended_canonical_sha256": "52349c96c31b6c373d8d8c99471b21df64ea5dea4a0a77f52539a884492e0f02",
+      "matches_baseline": true,
+      "matches_intended_canonical": false,
+      "pure_oracle_node_present": false
+    }
+  ],
+  "git_status": {
+    "argv": [
+      "git",
+      "status",
+      "--short",
+      "--untracked-files=all",
+      "--",
+      "backend/app/workers/ocr_containment.py",
+      "tests/backend/test_ocr_containment.py"
+    ],
+    "exit_code": 0,
+    "stdout": "?? backend/app/workers/ocr_containment.py\n?? tests/backend/test_ocr_containment.py\n",
+    "stderr": ""
+  },
+  "git_diff": {
+    "argv": [
+      "git",
+      "diff",
+      "--",
+      "backend/app/workers/ocr_containment.py",
+      "tests/backend/test_ocr_containment.py"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "git_diff_limit": "files currently untracked; empty tracked diff does not establish unchanged content; exact baseline hashes do",
+  "filesystem_context": {
+    "cwd": "C:\\Dev\\qa-visual-automation",
+    "declared_sandbox": "workspace-write",
+    "target_scope": "workspace root, not .git/.agents/.codex",
+    "file_attributes_observed": "Archive; not ReadOnly",
+    "escalation": "not requested",
+    "host_acl_or_token_cause": "UNDETERMINED; no ACL/identity/security changes or alternative write attempted"
+  },
+  "error_distinction": {
+    "unlink": "git warning Invalid argument; cause not determined",
+    "write": "git error Permission denied; cause not determined",
+    "relationship": "not established whether same underlying failure"
+  },
+  "automatic_restore": "NOT_ATTEMPTED",
+  "pure12": "NOT_RUN: node absent in actual source"
+}

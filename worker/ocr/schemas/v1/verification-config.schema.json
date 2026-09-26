@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:qa-visual-automation:ocr:verification-config:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["configuration_sha256", "pass_threshold", "review_threshold", "normalization_version", "matching_version"],
+  "properties": {
+    "configuration_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "pass_threshold": {"type": "number", "minimum": 0, "maximum": 100, "multipleOf": 0.01},
+    "review_threshold": {"type": "number", "minimum": 0, "maximum": 100, "multipleOf": 0.01},
+    "normalization_version": {"const": "norm-v1"},
+    "matching_version": {"const": "one-to-one-levenshtein-v1"}
+  }
+}

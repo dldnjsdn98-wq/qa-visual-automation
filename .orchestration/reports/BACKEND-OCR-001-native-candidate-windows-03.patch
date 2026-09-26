@@ -1,0 +1,15 @@
+diff --git a/backend/app/workers/ocr_containment.py b/backend/app/workers/ocr_containment.py
+--- a/backend/app/workers/ocr_containment.py
++++ b/backend/app/workers/ocr_containment.py
+@@ -674,9 +674,9 @@ def _launch_windows(argv, env, cwd, limit):
+         command = c.create_unicode_buffer(subprocess.list2cmdline(list(argv)))
+         environment = c.create_unicode_buffer(
+             "\0".join(f"{key}={value}" for key, value in sorted(env.items(), key=lambda item: item[0].upper())) + "\0\0")
+-        # CREATE_SUSPENDED | CREATE_UNICODE_ENVIRONMENT | CREATE_NO_WINDOW |
++        # CREATE_SUSPENDED | CREATE_UNICODE_ENVIRONMENT | DETACHED_PROCESS |
+         # EXTENDED_STARTUPINFO_PRESENT.  No BREAKAWAY_FROM_JOB privilege request.
+-        flags = 0x4 | 0x400 | 0x08000000 | 0x00080000
++        flags = 0x4 | 0x400 | 0x8 | 0x00080000
+         a.require(a.kernel.CreateProcessW(
+             argv[0], command, None, None, True, flags, c.cast(environment, c.c_void_p),
+             cwd, c.byref(startup), c.byref(info)), "Create suspended owned process")

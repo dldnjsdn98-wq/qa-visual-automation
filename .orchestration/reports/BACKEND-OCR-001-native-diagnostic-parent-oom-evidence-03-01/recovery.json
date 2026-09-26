@@ -1,0 +1,46 @@
+{
+  "attempt_error_codes": [
+    "LEASE_EXPIRED",
+    null
+  ],
+  "attempt_outcomes": [
+    "EXPIRED",
+    "STARTED"
+  ],
+  "database": "qa_backend_parent_oom_e4e8e72dbfe64ae29609ac2f3ce76a63",
+  "ended_utc": "2026-09-25T14:57:15.035385+00:00",
+  "expiry_observed_at_db_clock": "2026-09-25T14:57:14.186225+00:00",
+  "first_recovery_db_observed_at": "2026-09-25T14:56:19.635481+00:00",
+  "job_state": "RUNNING",
+  "original_lease_expires_at": "2026-09-25T14:57:14.183810+00:00",
+  "phase": "durable_lease_takeover_complete",
+  "pre_takeover_attempt_outcome": "STARTED",
+  "pre_takeover_generation": 1,
+  "pre_takeover_has_results": false,
+  "pre_takeover_last_error_code": null,
+  "pre_takeover_state": "RUNNING",
+  "project_id": "4d32e310-6af1-4a62-8386-73abb09e1884",
+  "replacement_attempt_count": 2,
+  "replacement_claimed_at": "2026-09-25T14:57:14.991158+00:00",
+  "replacement_generation": 2,
+  "replacement_lease_expires_at": "2026-09-25T14:58:14.991158+00:00",
+  "replacement_lease_seconds": 60.0,
+  "run_id": "d44d0369-db4c-4b10-ad0b-c283ac0d9d58",
+  "run_status": "RUNNING",
+  "schema_version": 1,
+  "source_sha256": {
+    "backend/Dockerfile.test": "5f93a520ceee7612def4fae20ed2d9d6ef06ff5d83efebdba54592c828ab8418",
+    "backend/app/repositories/verification_runs.py": "40baa349c9ca23ed4feac7734b837907c9d9abbbb0f83f5fe9a7588e16a0ca06",
+    "backend/app/services/verification_jobs.py": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+    "backend/app/workers/ocr_containment.py": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+    "backend/migrations/versions/0004_phase3_ocr_verification.py": "8132cd7b43aba5a543d3acbdc3be218ceab7f3e303729a4ac9e7f7d0ccb0d024",
+    "tests/backend/test_ocr_containment.py": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+    "tests/backend/test_ocr_jobs.py": "13eea9e356f528b432e8ca9fade6257a8f4fd6bef37fa033665d7e527ab5197c",
+    "tests/backend/test_ocr_runtime_db.py": "88bf8639bff1b1c0fb6d9b89491d454b5c06b98d2684f27c02e597e63d89692f"
+  },
+  "stale_generation_denials": {
+    "renew": "LostFence",
+    "stage": "LostFence"
+  },
+  "wait_elapsed_seconds": 55.422171578000416
+}

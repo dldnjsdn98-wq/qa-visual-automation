@@ -1,0 +1,8 @@
+{
+  "script_sha256": "d0a8e756cdd4cafc394d12a68e527632365aeaf43f6d9ca8cc063763db21d7fd",
+  "pins_sha256": "d92e20493eb42a3d4d2702b17c3d5559c17cad78e31b364387039e649146f2bc",
+  "host_source_raw_lf_matches": 113,
+  "new_output_absent": true,
+  "native": "NOT_RUN",
+  "activation_sha256_at_read": "02d8bc6bcabc6015a8cb26f610f105f645ee33e5fa4ce9045905d7c515250887"
+}

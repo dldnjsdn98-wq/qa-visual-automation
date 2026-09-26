@@ -4,7 +4,7 @@ from fastapi import APIRouter, Request, Response, Query, Depends
 from pydantic import AwareDatetime, model_validator, ValidationError
 from starlette.concurrency import run_in_threadpool
 from backend.app.api.dependencies import DB, get_storage
-from backend.app.schemas.screenshots import Screenshot, ScreenshotUpload
+from backend.app.schemas.screenshots import AgentScreenshotUpload, Screenshot, ScreenshotUpload
 from backend.app.schemas.strings import ExpectedStrings
 from backend.app.schemas.common import Page
 from backend.app.models import Screenshot as Model
@@ -21,7 +21,7 @@ class ScreenshotFilter(Pagination):
     locale_id: UUID | None = None
     category_id: UUID | None = None
     situation_id: UUID | None = None
-    source: Literal["manual"] | None = None
+    source: Literal["manual", "agent", "automation"] | None = None
     uploaded_from: AwareDatetime | None = None
     uploaded_to: AwareDatetime | None = None
 
@@ -33,22 +33,26 @@ class ScreenshotFilter(Pagination):
 
 
 router = APIRouter(prefix="/projects/{project_id}/screenshots", tags=["screenshots"])
-upload_schema = {"requestBody": {"required": True, "content": {"multipart/form-data": {"schema": {"type": "object", "additionalProperties": False, "required": ["file", "metadata"], "properties": {"file": {"type": "string", "format": "binary", "description": "One original PNG/JPEG, <=20 MiB"}, "metadata": {"type": "string", "description": "JSON-serialized ScreenshotUpload; browser sets multipart boundary", "contentMediaType": "application/json"}}}}}}}
+upload_schema = {"requestBody": {"required": True, "content": {"multipart/form-data": {"schema": {"type": "object", "additionalProperties": False, "required": ["file", "metadata"], "properties": {"file": {"type": "string", "format": "binary", "description": "One original PNG/JPEG, <=20 MiB"}, "metadata": {"type": "string", "description": "JSON-serialized manual or agent upload metadata; client sets multipart boundary", "contentMediaType": "application/json"}}}}}}}
 
 
-@router.post("", response_model=Screenshot, status_code=201, dependencies=[query_guard()], openapi_extra=upload_schema)
+@router.post("", response_model=Screenshot, status_code=201, responses={200: {"model": Screenshot, "description": "Completed agent upload replay"}}, dependencies=[query_guard()], openapi_extra=upload_schema)
 async def upload(project_id: UUID, request: Request, response: Response, session: DB, storage=Depends(get_storage)):
     if "idempotency-key" in request.headers:
-        raise DomainError(field="body", reason="Idempotency-Key is not supported in Phase 1")
+        raise DomainError(field="body", reason="Idempotency-Key is not supported; use client_upload_id for agent uploads")
     values, stream, filename, media_type = await run_in_threadpool(parse_upload, request.headers.get("content-type", ""), await request.body())
     try:
-        metadata = ScreenshotUpload.model_validate(values)
+        schema = AgentScreenshotUpload if isinstance(values, dict) and values.get("source") in ("agent", "automation") else ScreenshotUpload
+        metadata = schema.model_validate(values)
     except ValidationError as exc:
         from backend.app.api.middleware import validation_error
         raise validation_error(exc, "metadata") from None
-    result = await run_in_threadpool(service.upload, session, storage, project_id, metadata, stream, filename, media_type)
-    response.headers["Location"] = f"/api/v1/projects/{project_id}/screenshots/{result['id']}"
-    return result
+    outcome = await run_in_threadpool(service.upload, session, storage, project_id, metadata, stream, filename, media_type)
+    response.status_code = outcome.status_code
+    response.headers["Location"] = f"/api/v1/projects/{project_id}/screenshots/{outcome.screenshot['id']}"
+    if outcome.replayed is not None:
+        response.headers["Idempotency-Replayed"] = str(outcome.replayed).lower()
+    return outcome.screenshot
 
 
 @router.get("", response_model=Page[Screenshot], dependencies=[query_guard(*ScreenshotFilter.model_fields)])

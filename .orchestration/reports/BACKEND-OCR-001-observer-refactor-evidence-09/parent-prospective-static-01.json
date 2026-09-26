@@ -1,0 +1,27 @@
+{
+  "scope": "UNAPPLIED source strings AST/text only, no import/exec",
+  "environment_function_exact_text_ast": "PASS",
+  "runner_rest_ast_equivalent": "PASS",
+  "environment_module_only_os_and_function": "PASS",
+  "unchanged_test_functions": [
+    "_finish",
+    "_launch",
+    "_native_limit",
+    "_l1_events",
+    "_l1_identity",
+    "_l1_members",
+    "_l1_oracle",
+    "test_l1_shortpeak_oracle",
+    "test_native_pressure_and_owned_tree_cleanup"
+  ],
+  "child_constants_oracle": "PASS",
+  "timed_region_exact_text": "PASS",
+  "finally_cleanup_tail_exact_text": "PASS",
+  "candidate_prospective_hashes": "PASS",
+  "candidate_lifecycle_resource_cleanup_unchanged": "PASS",
+  "noconftest_occurrences": 1,
+  "candidate_sha256": "8ce72f4e3202d3f01ee3438615cedfcd7b8ce7323c4c69ec9bcc457e32728ed9",
+  "diagnostics_patch_sha256": "deb9a9b80a43ff160612835422dc320a740f75c4d1fe0e7c9db2fb9370b76b6e",
+  "runtime_tests": "NOT_RUN missing actual helper",
+  "actual_newtest_draft": "66ee202f0843064138f87456d54002062ad6fa752d4e9e755c1d603a00dcc85b"
+}

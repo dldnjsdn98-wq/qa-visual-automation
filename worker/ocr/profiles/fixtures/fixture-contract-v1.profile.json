@@ -1,0 +1,45 @@
+{
+  "adapter_version": 1,
+  "profile_id": "fixture-contract-v1",
+  "production_eligible": false,
+  "engine": {
+    "name": "synthetic-fixture",
+    "version": "1",
+    "packages": [],
+    "native_packages": []
+  },
+  "models": [],
+  "artifacts": [],
+  "language_map": {
+    "version": "fixture-language-map-v1",
+    "aliases": [
+      {"input": "en", "family": "en"}
+    ]
+  },
+  "coordinate_space": "original-raster-v1",
+  "normalization_version": "norm-v1",
+  "matching_version": "one-to-one-levenshtein-v1",
+  "unicode_version": "15.0.0",
+  "rapidfuzz_version": "3.14.6",
+  "preprocessing": {
+    "exif_policy": "ignored-v1",
+    "document_orientation": false,
+    "image_unwarping": false,
+    "textline_orientation": false,
+    "steps": ["identity"]
+  },
+  "engine_options": [],
+  "runtime_policy": {
+    "python": "3.12",
+    "device": "cpu",
+    "numeric_mode": "fp32",
+    "thread_count": 1,
+    "network_allowed": false
+  },
+  "qualification": {
+    "status": "QUALIFIED",
+    "unavailable_code": null,
+    "platforms": ["fixture-only"],
+    "evidence_sha256": []
+  }
+}

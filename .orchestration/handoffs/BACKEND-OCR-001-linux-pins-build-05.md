@@ -1,0 +1,16 @@
+# Handoff
+- Task / owner: BACKEND-OCR-001 / P3-RUNTIME-001, Backend03.
+- Status / activation evidence: BUILD_AND_METADATA_PASS under PHASE-3-linux-pins-build-01.md after parent source audit and independent Mill exact PASS. No native activation.
+- Changed files: own05 source-pin JSON/audit, independent review, frozen context tar/manifest, build capture/evidence, final report/handoff/manifest only. Product/helper/test/recipe/dependencies unchanged from checkpoint04.
+- Contract changes: none; capture predicates and raw/LF gates unchanged, W1-only6129 plus L1test52349 preserved, extra Windows hook absent.
+- Branch / commit: null / null.
+- Commands and PASS / FAIL / NOT_RUN: parent113 pins/139 context hashes and tar members PASS; independent exact source/closure review PASS d009d91ca5c33f55122825b15b86706698a4e575142f7253841583383592e566; one docker build from frozen tar exit0, wrapper0, result metadata0 Linux/amd64. Recipe pip check no broken requirements. No pytest/native/container-run/DB/model checks executed. Prior pure12PASS is not rerun.
+- Pin identity: d92e20493eb42a3d4d2702b17c3d5559c17cad78e31b364387039e649146f2bc for .orchestration/reports/BACKEND-OCR-001-linux-source-pins-05.json;113 entries with exact raw+LF hashes. Boole audit1edd8bfd9012e7615f230a0ead3c19cd84b73edeeaf1d3de3880617f4824dd22. Requested Terra/high owner and Sol/high reviewer; actual served model identity unverified.
+- Build identity: inspected immutable sha256:a1337c5556ab00f01dac45075f6bbf71ba9198c1b179a83d0210e5879a426d0a; tag qa-backend-ocr-l1:20260926-pins-d92e20493eb4. Raw log209762ed893e1be9627c02334f4903b8f46bbebf939b7a85e93f44f020cc540f. Base preinspect NOT_PRESENT; actual FROM digest2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94cd8ebbe06a9 from raw log, not inferred from missing tag metadata.
+- Source drift:139/139 raw+LF equal before/after/final host readback, including previous15 monitored sources. Tar members and context hashes retained. Image-internal source match UNVERIFIED until later explicitly authorized capture; no silent CRLF conversion acceptance.
+- Acceptance IDs and evidence: paired .orchestration/reports/BACKEND-OCR-001-linux-pins-build-05.md and linux-build-evidence-05; final own linux-pins-build-manifest-05.json. AllP3AC/admission/04/08 and Windows3/cleanup2 unchanged.
+- Blockers / risks: native invocation still HOLD; build/input review is not runtime qualification. Existing mutable base tag/network apt/pip recipe unchanged, actual resolution captured; no full reproducibility claim. No additional hook or permission workaround.
+- Review requested / result: Mill independent prebuild PASS; Boole recorded build-evidence crosscheck follows in paired report. PM evaluates final packet without automatically activating next step.
+- Next owner / next action: PM reviews pins/review/build packet and decides a distinct native invocation activation. Backend03 performs no automatic container run or retry.
+
+- Final evidence crosscheck: Boole consistent, SHA256fca840cdd784985d33f1c3bd01fd6fb2c5470e06dfab88e2e27b9cf332fd4b6e. PM independently confirmed recorded build packet. All05 own artifacts frozen in linux-pins-build-manifest-05.json; further execution remains separately gated.

@@ -1,0 +1,27 @@
+{
+  "interpreter": ".pytest_cache/agent-clean-win/Scripts/python.exe",
+  "version": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "implementation": "CPython",
+  "platform": "win32",
+  "machine": "AMD64",
+  "optimize": 0,
+  "executable_sha256": "0b471133e110cfb53a061cad528ce8e517d7b9ac41a0a396c39ad795a487fc14",
+  "venv_config_sha256": "e2a4e17a5ba17588153425248946b9e9d83162940617309381d49839a8fa14a0",
+  "installed_distribution_metadata": {
+    "pytest": "9.1.1",
+    "pluggy": "1.6.0",
+    "iniconfig": "2.3.0",
+    "packaging": "26.3",
+    "sqlalchemy": "2.0.54",
+    "psycopg": "3.3.6",
+    "fastapi": "0.141.1",
+    "httpx": "0.28.1",
+    "anyio": "4.15.1",
+    "pydantic": "2.13.5",
+    "setuptools": "84.0.0"
+  },
+  "requirements_lock_sha256": "30c023d97b69a0d4e82a449bb88bc0fb542e95bf5c07674215821bd769661352",
+  "product_import": "NOT_RUN",
+  "focused_tests": "NOT_RUN source-write hold",
+  "native": "NOT_RUN"
+}

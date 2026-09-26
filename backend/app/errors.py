@@ -1,8 +1,9 @@
 class DomainError(Exception):
-    def __init__(self, status=422, code="VALIDATION_ERROR", message="Request validation failed", field=None, reason=None):
+    def __init__(self, status=422, code="VALIDATION_ERROR", message="Request validation failed", field=None, reason=None, retry_after=None):
         super().__init__(message)
         self.status, self.code, self.message = status, code, message
         self.details = [{"field": field, "reason": reason}] if reason else []
+        self.retry_after = retry_after
 
 
 def not_found():

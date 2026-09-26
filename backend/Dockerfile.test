@@ -1,9 +1,29 @@
-FROM python:3.12-slim
+FROM python:3.12.14-slim-trixie
+
+RUN apt-get update \
+    && apt-get install --no-install-recommends -y \
+        libgl1=1.7.0-1+b2 \
+        libglib2.0-0=2.84.4-3~deb13u5 \
+        libgomp1=14.2.0-19 \
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
+
+# /models/ocr is the target for the deployment's external read-only model
+# mount. The Paddle caches remain separate and writable by the image's
+# existing root execution user.
+ENV QA_OCR_MODEL_ROOT=/models/ocr \
+    PADDLE_HOME=/var/cache/paddle \
+    PADDLE_PDX_CACHE_HOME=/var/cache/paddle
+RUN mkdir -p /models/ocr /var/cache/paddle \
+    && chmod 0755 /var/cache/paddle
+
 COPY backend/requirements.lock /app/backend/requirements.lock
 RUN python -m pip install --no-cache-dir --require-hashes -r backend/requirements.lock
 COPY pyproject.toml alembic.ini ./
 COPY backend ./backend
+COPY worker ./worker
 COPY tests/backend ./tests/backend
+COPY tests/ocr/fixtures/runtime ./tests/ocr/fixtures/runtime
 RUN python -m pip install --no-deps --no-build-isolation . && python -m pip check
 CMD ["python", "-m", "pytest", "tests/backend", "-q", "--tb=short"]

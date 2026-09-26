@@ -1,0 +1,13 @@
+# Handoff
+- Task / owner: BACKEND-OCR-001 / P3-RUNTIME-001, Backend03.
+- Status / activation evidence: HEADROOM_PRECONDITION_FAILED / enforcement HOLD, cleanup confirmed. PHASE-3-linux-capture-02.md authorized one direct candidate07 invocation, performed once without original patch.
+- Changed files: own08 outer capture/raw evidence, parent audit/report, Mill review, Boole packaging, Galileo bounded fact/attribution assessment, final handoff/manifest. Original source/pins/capture/product/image and06/07 unchanged.
+- Contract changes: none; fixed512MiB/320+224MiB/64..160MiB/250ms constraints unchanged.
+- Branch / commit: null / null.
+- Commands and PASS / FAIL / NOT_RUN: preflight113 PASS; image-internal113 raw+LF matches PASS before pytest; actual single selected shortpeak JUnit1FAILED/0errors/0skips/one warning at headroom assertion328. Actual headroom20561920bytes19.609375MiB. Child320MiB ready; incremental224MiB/t0/G/oracle NOT_REACHED. Natural container exit1/OOMfalse; captured process exit2/tool shell1. No rerun/pure12/279/build.
+- Source/image: candidatee669d74fc1f683ad57cf3792860910f65198cbed3f6d0dee91232c36e36d082c, pinsd92e20493eb42a3d4d2702b17c3d5559c17cad78e31b364387039e649146f2bc, imagesha256:a1337c5556ab00f01dac45075f6bbf71ba9198c1b179a83d0210e5879a426d0a;113 beforeafter/inner/pins equality. Originald0a8 unchanged.
+- Cleanup: childTrue0.03088249099528184s; one exact owned rm exit0/fullID e09a6dde9cdf0ea91be9c3b2ea00abe646f96c77ba2aaec3deeca9f328f296a6 after natural terminal capture. No forced stop; no extra absence query. cleanuptrue,launchuncertainfalse.
+- Review requested / result: Mill enforcementHOLD8c1571bd9359dc550df3fa3b5d11fbd9b9b6a9130415ab960b705a157bd21fba; Galileo attribution-only8893cff8bd6473bf3d5f75119ad265afb5088cec7270938cee402067a0a720b2; Boole12artifact indexddb71bde473b427aff882c45fdcbd8dec1e5d7c4f2851db0aa9c9635be484a22. Reused requestedSol/high,Astra/medium,Terra/high; actual model identities unverified.
+- Acceptance IDs and evidence: paired linux-capture-08.md/final linux-capture-manifest-08.json. Windows3/historicalcleanup2 and04/08/admission/allP3AC unchanged.
+- Blockers / risks: fixed headroom setup failure, no timed enforcement result. Raw UNPROVED_OBSERVER_EXIT retained but does not establish observer OOM/death; completed assertion/JUnit and OOMfalse show precise cause. Aggregate cgroup charge cannot identify observer/import/cache/child components from this record. Do not classify as model-capacity or permission failure.
+- Next owner / next action: PM and Architect02 read-only headroom reassessment; supporting facts/code order transmitted. No source/pin/number/fixture change or native retry authorized by08 packet. Parent run/evidence complete.

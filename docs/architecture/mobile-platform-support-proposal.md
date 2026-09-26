@@ -1,6 +1,6 @@
 # Android·iOS 블랙박스 UI 검사 플랫폼 지원 제안
 
-작성일: 2026-09-22. 상태: **설계 제안 / 구현·기기 검증 NOT_RUN / 독립 acceptance 미획득**.
+초안 작성일: 2026-09-22. 재개·제출 검증일: 2026-09-25. 상태: **설계 제안 / 모바일 구현·기기 검증 NOT_RUN / 본 제안의 독립 acceptance 미획득**.
 소유 파일: `docs/architecture/mobile-platform-support-proposal.md` 한 개. 작업 루트: `C:\Dev\qa-visual-automation`. Branch/commit: null/null; Commit/Push 없음.
 
 ## 1. 결론과 확인 범위
@@ -11,14 +11,15 @@ Windows에서 Android는 ADB 기반 원본 캡처·시각 좌표 입력을 확�
 
 | 근거 | 확인 내용 | 해석 한계 |
 | --- | --- | --- |
-| `.orchestration/PROJECT_STATE.yaml` (last_updated 2026-09-20), `TASKS.yaml`, `ACCEPTANCE.yaml`, `DECISIONS.md` | Phase 1 ACCEPTED, Phase 2 P2-UPLOAD-v1 revision1 독립 계약 검토 단계; AC-P2-01..04 NOT_RUN | 해당 상태 기록을 읽었으며 제품 테스트를 다시 실행한 것은 아님 |
+| `.orchestration/PROJECT_STATE.yaml`, `TASKS.yaml`, `ACCEPTANCE.yaml`, `DECISIONS.md` | 9/22 초안 당시 revision1 검토 단계. 9/25 재개 시 Phase 1 ACCEPTED 유지, Phase 2 revision2 계약 ACCEPTED 및 제품 CHANGES_REQUESTED; AC01/03 FAIL, AC02/04 NOT_RUN | 계약 승인과 제품 acceptance는 별개. 해당 기록을 읽었으며 제품 테스트를 다시 실행한 것은 아님 |
+| `.orchestration/handoffs/PHASE-2-review-recovery-rework-01.md`, `.orchestration/reports/REVIEW-UPLOAD-001-08.md` | Backend005/009, uploader006/007, Web008 보완 및 독립 실행 증거 확보가 기존 담당 범위 | 본 모바일 제안은 해당 결함을 수정하거나 종료 판정하지 않음 |
 | `.orchestration/handoffs/PHASE-1-acceptance-01.md` | 수동 업로드·다국어 관리 포함 13개 Web AC 완료 기록 | Android/iOS 기기별 캡처 지원을 검증한 기록은 아님 |
 | `docs/prompts/01_pm.md`, `02_architect.md`, `06_screenshot_agent.md`, `07_visual_automation.md`, `08_reviewer.md` | PM gate/소유권, 원본 보존, ADB 입력 및 시각 인식 허용, 게임 내부 접근 금지 | iOS WDA 입력 허용이 명시되어 있지 않음 |
 | `docs/architecture/overview.md`, `domain-model.md`, `api-contract.md`, `data-flow.md` | 캡처와 업로더 분리, bounded open CaptureMetadata, 원본 저장 | metadata 확장 공간이 있다는 사실과 전용 UI/검증 기능 구현 여부는 별개 |
 | `docs/phases/phase-4-automation.md`, `phase-7-integration.md` | Phase 4 ADB 자동화 및 Phase 7 Android 흐름은 계획 상태 | 본 제안으로 기존 phase gate를 앞당기지 않음 |
-| `docs/architecture/phase-2-upload-contract.md` §§1,2,7,8 | 원본·metadata 불변 의도, marker-last publication, 업로더 분리 계약 제출안 | 독립 승인 전이며 이 작업에서 수정하거나 재심사하지 않음 |
+| `docs/architecture/phase-2-upload-contract.md` §§1,2,7,8 및 `REVIEW-ARCH-UPLOAD-001-revision-2-08.md` | revision2 계약 승인 기록 확인; 원본·metadata 불변 의도, marker-last publication, immutable spool binding, 업로더 분리 | 계약은 이 작업에서 수정하거나 재심사하지 않으며 제품 승인으로 해석하지 않음 |
 
-지침 탐색: 루트 `AGENTS.md` 읽기는 파일 없음으로 종료했고, `C:\AGENTS.md`, `C:\Dev\AGENTS.md`, `docs/AGENTS.md`, `docs/architecture/AGENTS.md` 및 접근 가능한 저장소 검색에서도 적용할 AGENTS.md를 찾지 못했다. 사용자 지시와 위 역할 문서를 적용했다. 기존 임시 테스트 디렉터리 하나는 접근 거부되어 탐색 완전성을 주장하지 않는다. 외부 공식 문서의 최신 내용을 이번 작업에서 조회하지 않았으며, 아래 플랫폼 설명은 일반적인 도구 전제에 기반한 제안이다. 실제 설치 버전·실기기 조합에서 후속 검증한다.
+지침 탐색: 9/22 초안 당시 루트 및 적용 상위/하위 경로에서 AGENTS.md를 찾지 못했으나, 9/25 재개 시 생성된 루트 `AGENTS.md`를 직접 읽고 적용했다. 기존 파일 소유권·독립 gate를 유지하며 차단 작업 반복/우회, push/배포/사용자 데이터 삭제/DB 초기화/계정 보안 변경은 하지 않는다. 기존 임시 테스트 디렉터리 하나의 접근 거부는 당시 탐색 한계이며 재탐색하지 않았다. 외부 공식 문서의 최신 내용을 이번 작업에서 조회하지 않았으며, 아래 플랫폼 설명은 일반적인 도구 전제에 기반한 제안이다. 실제 설치 버전·실기기 조합에서 후속 검증한다.
 
 ## 2. 지원 경로와 전제
 
@@ -46,6 +47,8 @@ iOS의 WDA는 외부 테스트 runner이며 게임 소스가 없어도 사용 �
 6. 화면 안정화와 required/optional/forbidden 시각 anchor를 확인하고 checkpoint를 촬영한다. 애니메이션·네트워크 지연에는 bounded polling과 timeout을 사용한다. 불명확한 상태에서 좌표 입력을 반복하지 않고 원본·마지막 상태·진단을 남긴다. 보호 화면의 검은 캡처, USB 끊김, 권한 실패는 성공으로 처리하지 않는다.
 7. Phase 1 경로는 기존 `source=manual` 업로드를 유지한다. 미래 agent import는 `source=agent`, 시각 시나리오 producer는 `source=automation`을 제안하되 Phase 2 승인 계약의 의미를 따른다. 사람 촬영 여부는 별도 capture_method로 기록한다. 플랫폼을 source enum에 추가하지 않는다.
 8. 미래 producer는 승인된 06 helper로 original/manifest/ready를 발행하고 기존 업로더에 넘긴다. 임의 파일 복사만으로 `captures/pending`을 ready로 만들지 않는다. 재전송 중 metadata를 보완하거나 UUID를 바꾸지 않는다. 수정된 context는 명시적인 새 capture intent이며 이전 원본을 보존한다.
+
+revision2 연결 원칙: Windows local spool의 기존 `binding.json` 목적지 권위와 검증 순서를 따른다. Mac에서 네트워크 공유 spool을 직접 조작하거나 기존 ACK를 다른 Backend로 옮기지 않는다. 별도 수신 staging에서 원본을 확인한 뒤 Windows producer가 로컬에 발행하는 경로를 제안한다. 플랫폼 수집기 연결은 현재 06의 파일시스템/origin 수정 및 독립 검증을 대체하지 않는다.
 
 ## 4. 해상도와 좌표계
 
@@ -161,7 +164,9 @@ unknown은 위 확장 profile에서 null 또는 생략으로 표현하되 reserv
 
 독립 검토 통합: Android 검토의 wm base≠panel, rotation 경쟁 상태, override 복원·변환 오차 권고를 반영했다. iOS 검토의 현재 ADB-only 정책, 게임/runner 서명 분리, 수동/WDA baseline 차이와 무인 복구 전제를 반영했다. 이는 지정 Reviewer 08의 독립 acceptance를 대체하지 않는다.
 
-PM 반영 제안: (1) 현재 Phase 2 검토와 제출 4파일 hash를 유지한다. (2) 이 문서를 플랫폼 범위 검토 입력으로 받고 기기/지원 OS/locale inventory만 수집한다. (3) Phase 2 승인 후 06의 기존 producer 경계에 Android/iOS import provenance를 연결한다. (4) Phase 3/4 기존 gate 아래 07과 Architect가 Android geometry/시각 검사를 구체화한다. (5) iOS 자동화는 Mac/서명 전제 및 black-box 허용 범위 결정을 별도로 받아 기존 담당자에게 배정한다. 공통 파일 claim과 acceptance 등록은 PM, metadata 의미 합의는 Architect, 독립 판정은 Reviewer 08 소유다.
+PM 반영 제안: (1) 승인된 Phase 2 revision2 계약 4파일을 유지하고 기존 제품 재작업/독립 검토를 우선한다. (2) 이 문서를 플랫폼 범위 검토 입력으로 받고 기기/지원 OS/locale inventory만 수집한다. (3) Phase 2 제품 승인 및 별도 파일 claim 후 06의 기존 producer 경계에 Android/iOS import provenance를 연결한다. (4) Phase 3/4 기존 gate 아래 07과 Architect가 Android geometry/시각 검사를 구체화한다. (5) iOS 자동화는 Mac/서명 전제 및 black-box 허용 범위 결정을 별도로 받아 기존 담당자에게 배정한다. 공통 파일 claim과 acceptance 등록은 PM, metadata 의미 합의는 Architect, 독립 판정은 Reviewer 08 소유다.
+
+재개 기록: Android/iOS 서브에이전트의 완료 보고와 초안에 통합된 권고를 복구했다. 현재 실행 중인 하위 에이전트가 없어 중복 작업을 생성하지 않았다. 9/22의 revision1 검증 결과는 과거 기록이며 revision2 보존 검증과 혼동하지 않는다. 문서 작성 완료는 모바일 지원 구현 완료나 Phase 2 제품 승인과 다르다.
 
 다음 검토 시 참고할 공식 문서 위치(이번 작업에서 최신 페이지 내용 검증 안 함):
 

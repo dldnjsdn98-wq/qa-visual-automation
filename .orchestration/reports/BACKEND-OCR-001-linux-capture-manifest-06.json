@@ -1,0 +1,88 @@
+{
+  "status": "UNPROVED_OWNERSHIP_OR_CLEANUP",
+  "artifacts": [
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-06.md",
+      "bytes": 5817,
+      "sha256": "90f0f81c6e670cd2bffb4a97ac6183ba60f540fc9d3886f38188234954039067"
+    },
+    {
+      "path": ".orchestration/handoffs/BACKEND-OCR-001-linux-capture-06.md",
+      "bytes": 2774,
+      "sha256": "d75776dd688026970ea987a7135c3429a1e59f9e2c486e2193bc4dd922afc909"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-review-06.md",
+      "bytes": 6453,
+      "sha256": "e9f9910c417dca04b4636f3eb85ee6f6f00a611c8ee175f95d517ea25c06cbdd"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-artifacts-06.json",
+      "bytes": 3733,
+      "sha256": "9fc8b0a32b1d9a2b20f37cf8685f4021d11d1eafde067bf045413a125757e9db"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-artifact-audit-06.md",
+      "bytes": 2538,
+      "sha256": "5573e4f945f0dd2773521c801c67a242d9c9bb882931b7520e5738f41f391c1e"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-parent-audit-06.json",
+      "bytes": 988,
+      "sha256": "03d04df55adb8def727c9db5249f403b71f35aaaa777747f748c1d0870b630d3"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-outer-06.py",
+      "bytes": 2357,
+      "sha256": "c20ce6d7c38589a878d0c3809410d71628de487a3454f980eca79c9d7c3a0bc2"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-outer-06/command.json",
+      "bytes": 952,
+      "sha256": "87378e7169e9db4426429bfbf83eacf8e5602e6a0edc19364c7d2a83726525df"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-outer-06/preflight.json",
+      "bytes": 363,
+      "sha256": "c7f42e8ef0564c1f6c915fa6caa6a145c11e16248f337d5e453fea1050d8fdf8"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-outer-06/result.json",
+      "bytes": 1310,
+      "sha256": "7e431dd0f31897e2dafab0a33a774b836cb3068e0df1a6b550e4d08822c14b68"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-outer-06/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-outer-06/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-linux-evidence-03-06/capture.py",
+      "bytes": 16815,
+      "sha256": "d0a8e756cdd4cafc394d12a68e527632365aeaf43f6d9ca8cc063763db21d7fd"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-linux-evidence-03-06/manifest.json",
+      "bytes": 57056,
+      "sha256": "cd519e114459fe5ee07967b9a536fd8ae4660a6514762f183df61e4008381eb5"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-linux-evidence-03-06/source-pins.json",
+      "bytes": 25270,
+      "sha256": "d92e20493eb42a3d4d2702b17c3d5559c17cad78e31b364387039e649146f2bc"
+    }
+  ],
+  "capture_attempts": 1,
+  "capture_exit_code": 2,
+  "tool_shell_exit_code": 1,
+  "container_id": "affc94c2fe2468fd867c1e80be5878836a9b70868e68f2bff4f54d9c84988e8a",
+  "original_cleanup_confirmed": false,
+  "pressure_pytest": "NOT_RUN",
+  "image_internal_equality": "NOT_RUN",
+  "separate_recovery": "checkpoint07 separately activated, no retroactive06 PASS"
+}

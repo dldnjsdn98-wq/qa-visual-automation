@@ -1,0 +1,21 @@
+{
+  "attribution_limit": "container-level OOMKilled/exit137 proves PID1 container death, but does not independently prove the tiny child was not an earlier OOM victim",
+  "container_id": "e8a4c4f3aae15b12c65246a39d6f33edc417295eafd194e627e557282a1ac4af",
+  "container_name": "qa-ocr-parent-oom-e4e8e72dbfe6",
+  "docker_wait_exit_code": 137,
+  "environment_inspected": false,
+  "exit_code": 137,
+  "finished_at": "2026-09-25T14:56:14.78962799Z",
+  "host_stop_before_inspect": false,
+  "image_id": "sha256:56c45fb0dac074888d84484e414107c95342ab325e148c916fe55e454f1df662",
+  "memory_bytes": 536870912,
+  "memory_swap_bytes": 536870912,
+  "network_mode": "container:6ebd78cb5629b910fc37eba42561d9fec86b24e7cb614d7e86d4932e11a0c3f3",
+  "nonce_label": "e4e8e72dbfe64ae29609ac2f3ce76a63",
+  "oom_killed": true,
+  "owner_label": "BACKEND-OCR-001-native-diagnostic-parent-oom-03",
+  "recorded_utc": "2026-09-25T14:56:14.937981+00:00",
+  "schema_version": 1,
+  "started_at": "2026-09-25T14:56:12.897000381Z",
+  "state_error": ""
+}

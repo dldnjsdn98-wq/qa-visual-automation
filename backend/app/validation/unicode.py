@@ -35,3 +35,34 @@ def decode_json(raw, path="body"):
         return validate_unicode(value, path)
     except RecursionError:
         raise DomainError(field=path, reason="nesting limit exceeded") from None
+
+
+def decode_strict_json(raw, path="body"):
+    """Decode a persistable JSON object while rejecting duplicate keys."""
+    try:
+        decoded = raw.decode("utf-8", "strict") if isinstance(raw, bytes) else raw
+    except UnicodeDecodeError:
+        raise DomainError(field=path, reason="invalid UTF-8") from None
+
+    def unique_object(pairs):
+        result = {}
+        for key, value in pairs:
+            if key in result:
+                raise DomainError(field=path, reason="duplicate object keys are not allowed")
+            result[key] = value
+        return result
+
+    try:
+        value = json.loads(
+            decoded,
+            object_pairs_hook=unique_object,
+            parse_constant=lambda _: (_ for _ in ()).throw(ValueError()),
+        )
+    except DomainError:
+        raise
+    except (ValueError, RecursionError):
+        raise DomainError(field=path, reason="invalid JSON") from None
+    try:
+        return validate_unicode(value, path)
+    except RecursionError:
+        raise DomainError(field=path, reason="nesting limit exceeded") from None

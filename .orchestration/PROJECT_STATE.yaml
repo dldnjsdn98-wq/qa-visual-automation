@@ -1,50 +1,66 @@
 project_name: Game Multilingual QA Visual Automation System
 project_status: IN_PROGRESS
-current_phase: 2
+current_phase: 3
 bootstrap_status: COMPLETE
 active_roles:
 - '01'
-- '02'
 - '03'
-- '04'
-- '06'
-- 08
 waiting_roles:
+- '02'
+- '04'
 - '05'
+- '06'
 - '07'
 - 09
 conditional_roles:
 - 08
 user_request_only_roles:
 - '10'
-current_milestone: 'Phase2 implementation READY: Backend/uploader/Frontend in parallel'
+current_milestone: Observer refactor09 source creation access denied; unchanged-source readback matched; unapplied proposals/static work continue
 pm_readiness:
-  result: IMPLEMENTATION_READY
-  evidence: .orchestration/handoffs/PHASE-2-implementation-20260925-01.md
-  reason: Exact revision2 accepted and implementation file claims assigned
+  result: OBSERVER_REFACTOR_SOURCE_WRITE_BLOCKED
+  phase: 3
+  evidence: .orchestration/handoffs/PHASE-3-implementation-01.md
+  reason: New helper CreateNew denied; runner write not reached; dependency implementation/import checks held; no retry or workaround
 reviewer_dispatch:
   status: DONE
-  task_id: REVIEW-ARCH-UPLOAD-001
-  contract_review_task: REVIEW-ARCH-UPLOAD-001
-  implementation_review_task: REVIEW-UPLOAD-001
+  task_id: REVIEW-ARCH-OCR-001
+  contract_review_task: REVIEW-ARCH-OCR-001
+  implementation_review_task: REVIEW-OCR-001
   thread_id: 01a06d9e-1f60-74e0-b8f2-c5af626c0f32
-  handoff: .orchestration/handoffs/REVIEW-ARCH-UPLOAD-001-01.md
-  reason: Exact revision1 submitted and Reviewer current-root preparation complete; independent contract review activated.
-  gate_conflict: null
-  delivery_status: DELIVERED
+  handoff: .orchestration/handoffs/REVIEW-ARCH-OCR-001-01.md
   requested_model: gpt-5.6-sol
   requested_reasoning_effort: high
   actual_model: null
-  execution_status: Contract revision2 ACCEPTED; implementation review waits for submissions
+  execution_status: Revision2 contract accepted; final implementation review gated
 role_state_semantics: Eligibility only; active_roles does not mean a role task is running.
 architecture_dispatch:
-  task_id: ARCH-UPLOAD-001
+  task_id: ARCH-OCR-001
   owner: '02'
   status: DONE
   thread_id: 01a06f38-6916-7d00-998d-649ed5482d43
-  handoff: .orchestration/handoffs/ARCH-UPLOAD-001-02.md
-  reason: Revision2 independently ACCEPTED
-failed_tests: []
+  handoff: .orchestration/handoffs/ARCH-OCR-001-02.md
+  reason: Exact revision2 focused amendment independently accepted
+failed_tests:
+- id: P3-RUNTIME-001-windows-runner-02
+  category: RUNTIME_REWORK_VALIDATION
+  status: FAIL
+  owner: '03'
+  evidence: .orchestration/reports/BACKEND-OCR-001-runtime-rework-evidence-03/windows-runner-02.json
+  summary: 1 PASS,3 FAIL,5 SKIP; cleanup/quarantine and oversized test boundary; no acceptance
+- id: P3-RUNTIME-001-windows-native-accounting
+  status: FAIL
+  owner: '03'
+  category: NATIVE_CONTAINMENT_CONFORMANCE
+  evidence: .orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-native-boundary-02.json
+  same_cause_executions: 3
+  disposition: PAUSED_REASSESSMENT_REQUIRED
+  latest_evidence: .orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/windows-owned-identity-facts-01.json
+- id: P3-RUNTIME-001-linux-native-pressure-01
+  status: FAIL
+  owner: '03'
+  category: PRESSURE_TEST_PHASE_ATTRIBUTION_UNRESOLVED
+  evidence: .orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-native-pressure-01.json
 historical_failed_tests:
 - id: default_postgresql_authenticated_select
   category: ENVIRONMENT
@@ -57,11 +73,13 @@ historical_failed_tests:
   resolution_evidence: .orchestration/reports/ENV-P1-DB-001-08.md
 critical_issues: []
 blocked_tasks:
-- FRONTEND-UPLOAD-VERIFY-001
-- REVIEW-UPLOAD-001
+- FRONTEND-OCR-VERIFY-001
+- REVIEW-OCR-001
 required_completion_blockers:
-- Backend/uploader/Frontend submissions and real Web evidence pending
-- All four Phase2 AC PASS and independent implementation review pending
+- Windows native containment conformance and corrected actual runner/model evidence
+- Remaining Linux native pressure/tree/actual-model qualification
+- Qualified shared production admission and matching affected Web rerun
+- Independent Phase3 review and all four AC PASS
 environment_issues:
 - id: ENV-P1-DB-001
   status: RESOLVED
@@ -71,7 +89,7 @@ environment_issues:
   evidence: .orchestration/reports/R08-WEB-002-closure-08.md
   note: Full independent closure accepted; historical authentication failures and subsequent successes retained.
   resolved_on: '2026-09-13'
-last_updated: '2026-09-25'
+last_updated: '2026-09-26'
 phase1_completion_evidence: .orchestration/handoffs/PHASE-1-acceptance-01.md
 phase2_dispatch:
 - task_id: ARCH-UPLOAD-001
@@ -355,3 +373,1204 @@ phase2_implementation_activation:
   delivery_status: DELIVERED_TO_03_06_04
   actual_models: null
   execution_status: Delivery confirmed; completion not inferred
+phase2_frontend_submission:
+  status: READY_FOR_REVIEW
+  owner_evidence: .orchestration/reports/FRONTEND-UPLOAD-001-04.md
+  submission_hashes:
+    frontend/lib/types.ts: 050e57b9691fe70555d5af5d71e051519587e9f41101a660f81e79c609867894
+    frontend/lib/api.ts: d878049044a2a2f51f774e9101a9fb7337df1193d376094627d1662db0f5b04c
+    frontend/components/screenshots.tsx: f0bb3b21081269ae7fa4c7132a766505ac634738e47dc356bad9bdd7a8ed8c9d
+    frontend/app/globals.css: 62cdf7877404b6b3c93f9bedd5b92aee1f527c2d85dff7eda9d42786f4c5a3f6
+    frontend/tests/api.test.ts: 79ad3cfc27be8e0994761531a8184ae42be596c3a5e4d6bc8f1d24c026a801f7
+    frontend/tests/components.test.tsx: 1755be9b3c61ed7783433c99cf45795d004b3af61b9540bf5bcc985bdd21e74f
+    .orchestration/reports/FRONTEND-UPLOAD-001-04.md: a44f28be39eebf2dae5cc0fe92457f3c95588615e7fc3026206301cf5d1454cb
+    .orchestration/handoffs/FRONTEND-UPLOAD-001-04.md: 37a949efa80f0f100ba818be13ed64e3c8dc87be51f0d803078610d1d627b4fe
+  pm_checks: Read report/handoff and scoped product diff; git diff --check exit0
+  independent_review: PENDING
+  actual_web: NOT_RUN
+  backend_uploader: Both READY_FOR_REVIEW
+phase2_backend_submission:
+  status: READY_FOR_REVIEW
+  evidence: .orchestration/reports/BACKEND-UPLOAD-001-review-rework-03.md
+  manifest: .orchestration/reports/BACKEND-UPLOAD-001-review-rework-source-manifest.txt
+  aggregate: a8b5225bceb106cc3e09883eb3e68c2a28d659f8c0ee9ec65eb6974ffa7696a0
+  pm_checks: 77 current hashes and complete ordinal inventory plus3 raw evidence hashes matched; no product test rerun
+  owner_tests: 7 new,38 risk,8 regression,126 host,126 Linux PASS; prior1fail125 preserved
+  independent_closure: 005/009 and earlier findings OPEN pending Reviewer
+  models: Requested subagents not_found; parent execution, actual model unverified
+phase2_restart_checkpoint:
+  uploader: Final report submitted; prior approval wait resolved
+  review_preflight: Stable Backend read-only evidence/risk analysis delivered to08; full review gate BLOCKED
+  web_verification: READY; all implementation submission entry conditions satisfied
+  tests: Prior owner results preserved; no PM product rerun
+phase2_uploader_submission:
+  status: READY_FOR_REVIEW
+  evidence: .orchestration/reports/UPLOAD-001-review-rework-06.md
+  manifest: .orchestration/reports/UPLOAD-001-review-rework-source-manifest-06.txt
+  aggregate: eefafa7ce16a82b8f30613612968b6acb74b3ba09f3f2f2788547a7937b9c934
+  pm_checks: 35 current source hashes matched; report/handoff hashes matched
+  owner_tests: Windows133PASS2SKIP;Linux133PASS2SKIP;original live1PASS
+  independent_closure: 006/007 OPEN pending Reviewer
+phase2_preflight_findings:
+- id: R08-P2-PREFLIGHT-001
+  severity: MAJOR
+  status: RESOLVED
+  type: PRODUCT_DEFECT
+  summary: Same-length committed-object corruption returned without hash check
+  owner: '03'
+  evidence: .orchestration/reports/REVIEW-UPLOAD-001-preflight-08.md
+  resolution_evidence: .orchestration/reports/REVIEW-UPLOAD-001-rereview-08.md
+- id: R08-P2-PREFLIGHT-002
+  severity: MAJOR
+  status: RESOLVED
+  type: EVIDENCE_GAP
+  summary: Real receipt-aware reconcile/F14 transitions and deletion safety unexecuted
+  owner: '03'
+  evidence: .orchestration/reports/REVIEW-UPLOAD-001-preflight-08.md
+  resolution_evidence: .orchestration/reports/REVIEW-UPLOAD-001-rereview-08.md
+- id: R08-P2-PREFLIGHT-003
+  severity: MAJOR
+  status: RESOLVED
+  type: EVIDENCE_GAP
+  summary: Populated migration/F21 complete facts Unicode and original-byte preservation unproven
+  owner: '03'
+  evidence: .orchestration/reports/REVIEW-UPLOAD-001-preflight-08.md
+  resolution_evidence: .orchestration/reports/REVIEW-UPLOAD-001-rereview-08.md
+phase2_web_preliminary:
+  status: PRELIMINARY_OWNER_EVIDENCE
+  path: .orchestration/reports/FRONTEND-UPLOAD-VERIFY-001-04-evidence.json
+  sha256: b4d3910265257043f60267b5393ca409c4a3d8601b4507a365a2aa690adb4620
+  source_snapshot:
+    backend/app/services/screenshots.py: 3c5e36450160f57f732071f8c9bf4eed5684c978e887f499264eee1f50dc7a2b
+    backend/app/storage/local.py: ca93d0dce1418ee0db6b2868fdda5c1328e2cf1958411cb0df2214219f370afc
+  final_gate: Await corrected Backend final submission; rerun affected content/hash/manual and match Web evidence
+  pm_check: Read/hash and Unicode codepoints only; no runtime Web rerun
+phase2_preflight_revision:
+  path: .orchestration/reports/REVIEW-UPLOAD-001-preflight-08.md
+  current_sha256: 888aa5245bc9b46bd99ef21080412f5b7dd8f35ee3ab797c4216d0c7d835fadf
+  previous_sha256: df50c3b749876a0ad5b310b09c0c2a9e72c3d05a649b3eb458331df1d8e2a6f1
+  change: Reviewer read/hash-verified final Linux owner evidence; no independent execution or current source-manifest comparison
+  findings: Three OPEN; corrected Backend and final Web submission pending
+phase2_backend_rework_checkpoint:
+  evidence: .orchestration/reports/BACKEND-UPLOAD-001-rework-03.md
+  status: READY_FOR_REVIEW
+  artifact_hashes: Report/handoff/raw log matched
+  key_source_hashes: All7 listed hashes matched
+  aggregate_status: MATCHED_ALL75_CURRENT_FILES
+  owner_aggregate: d1799260941c7396c4e3931f21eb07e4857e90f7075d84fba962a1f5b672a0fe
+  pm_ordinal_aggregate: 1464c7678cf044f0da996c19cc0174dc31581306e7c011ba98ff1e5d1dc754e5
+  next: Owner per-file manifest/exact sorting requested; no drift assumed
+  owner_tests: 29 targeted/119 finalLinux PASS; not PM rerun
+  canonical_aggregate: 1464c7678cf044f0da996c19cc0174dc31581306e7c011ba98ff1e5d1dc754e5
+  manifest: .orchestration/reports/BACKEND-UPLOAD-001-rework-source-manifest.txt
+phase2_web_final_submission:
+  status: REWORK_LIVE_READY
+  evidence: .orchestration/reports/FRONTEND-UPLOAD-VERIFY-001-04.md
+  hashes:
+    .orchestration/reports/FRONTEND-UPLOAD-VERIFY-001-04.md: caa5bd1d03b74f044b86017c13884c97dd272c1b6baf8bfbd3c594280708edcc
+    .orchestration/handoffs/FRONTEND-UPLOAD-VERIFY-001-04.md: 9a4f4fc358d1d14688bad68f4b5d8b5185b1708c57ed2f0143534eda031c1b19
+    .orchestration/reports/FRONTEND-UPLOAD-VERIFY-001-04-corrected-evidence.json: 8bcd4d64a36239f6d7dacad8b669b816681e4469f91da66f612161b1844ece71
+    tests/frontend/run_integration.py: ae5b901de8a8e41caeca62aa2bf982a7f56e2269538dfbe47c3a3fa74713862e
+    .orchestration/reports/REVIEW-UPLOAD-001-preflight-08.md: 888aa5245bc9b46bd99ef21080412f5b7dd8f35ee3ab797c4216d0c7d835fadf
+  attribution: OWNER_REPORTED actualWeb; PM hash/read checks only
+  rework_gate: Matching Backend03 and Uploader06 owner submissions are READY_FOR_REVIEW; Web04 final current-harness run delivered
+phase2_independent_review:
+  task: REVIEW-UPLOAD-001
+  status: ACCEPTED
+  handoff: .orchestration/handoffs/REVIEW-UPLOAD-001-rereview-08.md
+  requested_model: gpt-5.6-sol
+  requested_reasoning_effort: high
+  actual_model: null
+  findings: All nine required findings RESOLVED
+  delivery_status: DELIVERED_CURRENT_REREVIEW
+  result: ACCEPTED
+  evidence: .orchestration/reports/REVIEW-UPLOAD-001-rereview-08.md
+  execution_status: COMPLETED
+  previous_review:
+    result: CHANGES_REQUESTED
+    evidence: .orchestration/reports/REVIEW-UPLOAD-001-08.md
+phase2_review_findings:
+- id: R08-P2-REVIEW-004
+  severity: MAJOR
+  status: RESOLVED
+  owner: 08
+  type: EVIDENCE_GAP
+  evidence: .orchestration/reports/REVIEW-UPLOAD-001-08.md
+  resolution_evidence: .orchestration/reports/REVIEW-UPLOAD-001-rereview-08.md
+- id: R08-P2-REVIEW-005
+  severity: MAJOR
+  status: RESOLVED
+  owner: '03'
+  type: PRODUCT_DEFECT
+  evidence: .orchestration/reports/REVIEW-UPLOAD-001-08.md
+  resolution_evidence: .orchestration/reports/REVIEW-UPLOAD-001-rereview-08.md
+- id: R08-P2-REVIEW-006
+  severity: MAJOR
+  status: RESOLVED
+  owner: '06'
+  type: PRODUCT_DEFECT
+  evidence: .orchestration/reports/REVIEW-UPLOAD-001-08.md
+  resolution_evidence: .orchestration/reports/REVIEW-UPLOAD-001-rereview-08.md
+- id: R08-P2-REVIEW-007
+  severity: MAJOR
+  status: RESOLVED
+  owner: '06'
+  type: PRODUCT_DEFECT
+  evidence: .orchestration/reports/REVIEW-UPLOAD-001-08.md
+  resolution_evidence: .orchestration/reports/REVIEW-UPLOAD-001-rereview-08.md
+- id: R08-P2-REVIEW-008
+  severity: MAJOR
+  status: RESOLVED
+  owner: '04'
+  type: EVIDENCE_GAP
+  evidence: .orchestration/reports/REVIEW-UPLOAD-001-08.md
+  resolution_evidence: .orchestration/reports/REVIEW-UPLOAD-001-rereview-08.md
+- id: R08-P2-REVIEW-009
+  severity: MEDIUM
+  status: RESOLVED
+  owner: '03'
+  type: PRODUCT_DEFECT
+  evidence: .orchestration/reports/REVIEW-UPLOAD-001-08.md
+  resolution_evidence: .orchestration/reports/REVIEW-UPLOAD-001-rereview-08.md
+latest_resume_coordination:
+  source: Current app turn snapshots and existing Reviewer bounded check; no repeated environment commands
+  role_execution:
+    '03':
+      turn: 01a0d60f-e6a4-7d12-b02c-583ed950f922
+      status: DONE_ACCEPTED
+      completion: Owner correction submitted and PM source hashes matched; independent closure pending
+    '06':
+      turn: 01a0d610-76fb-7712-9a90-d1618c1f7352
+      status: DONE_ACCEPTED
+      completion: Owner correction submitted and PM source hashes matched; independent closure pending
+    '04':
+      turn: 01a0d610-78c0-7c43-8e67-eac0f00f9ccf
+      status: DONE_ACCEPTED
+      completion: .orchestration/reports/FRONTEND-UPLOAD-VERIFY-001-review-rework-04.md
+  reviewer_environment: 'AVAILABLE per Reviewer08 changed-permission checkpoint: Docker client/server29.7.2 API1.55 Linux, Python3.12.10 and isolated
+    validation dependencies; availability only, no test run'
+  reviewer_check_turn: 01a0d49f-1485-7d00-ab0b-100270ac9dda
+  redispatch: No duplicate resume, agent creation, environment request or test rerun
+  rereview_gate: COMPLETED_ACCEPTED
+  repeated_cause_rule: At three same-cause correction/re-review cycles, pause affected work and document cause/decision. Interruptions and permission
+    denials are not successful review cycles.
+phase2_web_review008_preparation:
+  finding: R08-P2-REVIEW-008
+  status: HARNESS_PREPARED_NOT_RUNTIME_VERIFIED
+  harness_sha256: 3d4952eb33bf6c4c928563a128d7b6fa7d19305ce4005096fdce61fbbe69ee1c
+  contract_test_sha256: a30e873a2ee7f6b3163a048efa5407cbb183ab695cfb1164c990fbb93ca2373c
+  owner_checks: AST parse and scoped diff-check PASS
+  pm_checks: Both hashes matched; scoped diff-check PASS; source includes agent/automation/manual/empty-string assertions
+  runtime: Independent Web execution ACCEPTED; current source/evidence matched
+  subagents: Two prior read-only agents not_found, no usable result; parent completed preparation, no duplicated agents
+pm_status_audit_20260925:
+  agent_id: 01a0d629-f235-7c30-a2bc-7c4fe6c06c9f
+  requested_model: gpt-5.6-terra
+  requested_reasoning_effort: high
+  actual_model: null
+  scope: Read-only current orchestration consistency; no product verification
+  status: COMPLETED_WITH_LIMITATION
+  result: Current summary inconsistencies found and corrected; sidecar missed .orchestration/ACCEPTANCE.yaml path, so AC retained from PM direct
+    checks; no product tests
+phase2_status: ACCEPTED
+phase2_completion_evidence: .orchestration/handoffs/PHASE-2-acceptance-01.md
+phase2_acceptance_limits:
+- check: Real PostgreSQL recovery/standby pg_is_in_recovery branch
+  status: NOT_RUN
+  blocking: false
+  reason: Reviewer accepted primary reconciliation matrix and static guard; no direct standby execution claimed
+next_phase_activation: Phase3 contract/preparation activated by explicit continuation request
+phase3_activation:
+  handoff: .orchestration/handoffs/PHASE-3-activation-01.md
+  status: IMPLEMENTATION_READY
+  delivery_status: DELIVERED_TO_EXISTING_02_05_03_04_08
+  shared_ownership:
+    pyproject.toml: 03 sole editor after contract/PM activation
+    docs/architecture/phase-3-ocr-contract.md: '02'
+    worker/ocr/: 05 after gate
+    worker/verification/: 05 after gate
+    backend/: 03 after gate
+    frontend/: 04 after gate
+    orchestration: '01'
+  scope_guard: No Phase4 device automation; Android/iOS screenshots and resolution/language QA context retained; no mobile proposal edits
+  preparation_submissions:
+    '03':
+      task: PREP-BACKEND-OCR-001
+      status: DONE
+      evidence: .orchestration/reports/PREP-BACKEND-OCR-001-03.md
+      hashes:
+        reports/PREP-BACKEND-OCR-001-03.md: 253d8821fb5111db2e217401be7c1edd60a0d86456ee4ab75b81b18aba5a7105
+        handoffs/PREP-BACKEND-OCR-001-03.md: f2fb6432fafaa8791062ad0f812f001d9d9d108679024cfdf398d4c24cfb0758
+      implementation: BLOCKED pending independently accepted exact contract and PM claims
+    '04':
+      task: PREP-FRONTEND-OCR-001
+      status: DONE
+      evidence: .orchestration/reports/PREP-FRONTEND-OCR-001-04.md
+      hashes:
+        reports/PREP-FRONTEND-OCR-001-04.md: 8bbf33936d463f854ee414277ce02db78aadb5bd109ed272c4aeff700ad622f0
+        handoffs/PREP-FRONTEND-OCR-001-04.md: 6d0c3b1b1a6949f29f8ca9630657dee8070767262b163f593e73ddf40371d5f3
+      file_claim_status: PROPOSED_ONLY; implementation BLOCKED
+    08:
+      task: REVIEW-OCR-PREP-001
+      status: DONE
+      evidence: .orchestration/reports/REVIEW-OCR-PREP-001-08.md
+      hashes:
+        reports/REVIEW-OCR-PREP-001-08.md: 310c2a6bef3a929de7b9fc5293cb53896df9a31ab333f7371ab310d6c6468a8d
+        handoffs/REVIEW-OCR-PREP-001-08.md: ec3cc04c0a9819105049493bfcc6e4eb097524af1b0123aeffcc753277d70d8a
+      disposition: Preparation only; exact contract review remains BLOCKED
+    '05':
+      task: PREP-OCR-001
+      status: DONE
+      evidence: .orchestration/reports/PREP-OCR-001-05.md
+      hashes:
+        reports/PREP-OCR-001-05.md: 556a29eef0cfb486e44f1896c4b6ff4f720198072215178bad711dc087a0630e
+        handoffs/PREP-OCR-001-05.md: 624e500654143e6072cae16281aec1167c6ce1cac7016384e0a17183db9d302f
+      runtime: NOT_RUN; version/model selection proposals only
+  implementation_handoff: .orchestration/handoffs/PHASE-3-implementation-01.md
+  implementation_file_claims:
+    '03':
+    - backend/
+    - tests/backend/
+    - pyproject.toml
+    - worker/__init__.py (only if packaging requires)
+    - own reports/handoffs
+    - .pytest_cache/phase3-backend-03/
+    '05':
+    - worker/ocr/
+    - worker/verification/
+    - tests/ocr/
+    - worker/ocr/requirements-windows.lock
+    - worker/ocr/requirements-linux.lock
+    - worker/ocr/schemas/
+    - worker/ocr/profiles/
+    - own reports/handoffs
+    - .pytest_cache/phase3-ocr-05/ (isolated env/cache/models only)
+    '04':
+    - frontend/lib/types.ts
+    - frontend/lib/api.ts
+    - frontend/lib/navigation.ts
+    - frontend/components/screenshots.tsx
+    - frontend/components/workspace.tsx
+    - frontend/app/globals.css
+    - frontend/tests/api.test.ts
+    - frontend/tests/components.test.tsx
+    - frontend/tests/integration/contract.test.ts
+    - tests/frontend/run_integration.py
+    - own reports/handoffs
+    - .pytest_cache/phase3-frontend-04/
+phase3_contract_review:
+  status: ACCEPTED
+  revision: 2
+  artifact_hashes:
+    docs/architecture/phase-3-ocr-contract.md: 46940dd1dd7775422213b2ba422b63650f4e83740e034cf29dc83f23970acb82
+    .orchestration/reports/ARCH-OCR-001-02.md: 27af58b950cd2f6487480d79b0efaf14329febd7a028785d6c126ff02eb9f69d
+    .orchestration/handoffs/ARCH-OCR-001-02.md: 1cb09f7f4faf36b1f8ac30d038ba75e7289da02772b3543653739814ab4784d8
+  delivery_status: DELIVERED
+  requested_model: gpt-5.6-sol
+  requested_reasoning_effort: high
+  actual_model: null
+  recovery_checkpoint:
+    previous_turn: 01a0d65c-4df8-77f3-a24d-42084e3191b2
+    observed: idle/completed without result or submitted artifacts
+    action: 'One explicit transition delivered: end prior diagnosis and perform REVIEW-ARCH-OCR-001; no permission or model change'
+    completion: Not evidenced
+    latest_turn: 01a0d65e-9400-7822-aa2c-377a3b7c73e4
+    outcome: Completed/idle again with no result or report/handoff; parent notified; no repeated resume
+    correction: 'Parent inspected Reviewer raw rollout: final answers existed but treated OCR directions as earlier approval-diagnostic evidence.
+      App read/wait omitted final text. Not an execution failure or permission denial.'
+  execution_status: COMPLETED
+  evidence: .orchestration/reports/REVIEW-ARCH-OCR-001-revision-2-08.md
+  verified_artifact_hashes:
+    docs/architecture/phase-3-ocr-contract.md: 46940dd1dd7775422213b2ba422b63650f4e83740e034cf29dc83f23970acb82
+    .orchestration/reports/REVIEW-ARCH-OCR-001-08.md: c9b723eca12e2f4df254e910c47fbf6104647301af9728c55d287760a5a268da
+    .orchestration/handoffs/REVIEW-ARCH-OCR-001-08.md: 6a7effb32d8990d7e1a3fb6b484de89fd76a1e8795ec49f25d30b057e11f7f91
+historical_dispatch_summaries:
+- phase: 2
+  pm_readiness:
+    result: IMPLEMENTATION_READY
+    evidence: .orchestration/handoffs/PHASE-2-implementation-20260925-01.md
+    reason: Exact revision2 accepted and implementation file claims assigned
+  reviewer_dispatch:
+    status: DONE
+    task_id: REVIEW-ARCH-UPLOAD-001
+    contract_review_task: REVIEW-ARCH-UPLOAD-001
+    implementation_review_task: REVIEW-UPLOAD-001
+    thread_id: 01a06d9e-1f60-74e0-b8f2-c5af626c0f32
+    handoff: .orchestration/handoffs/REVIEW-ARCH-UPLOAD-001-01.md
+    reason: Exact revision1 submitted and Reviewer current-root preparation complete; independent contract review activated.
+    gate_conflict: null
+    delivery_status: DELIVERED
+    requested_model: gpt-5.6-sol
+    requested_reasoning_effort: high
+    actual_model: null
+    execution_status: Contract revision2 ACCEPTED; implementation review waits for submissions
+  architecture_dispatch:
+    task_id: ARCH-UPLOAD-001
+    owner: '02'
+    status: DONE
+    thread_id: 01a06f38-6916-7d00-998d-649ed5482d43
+    handoff: .orchestration/handoffs/ARCH-UPLOAD-001-02.md
+    reason: Revision2 independently ACCEPTED
+phase3_implementation_dispatch:
+  BACKEND-OCR-001:
+    owner: '03'
+    delivery_status: DELIVERED_MATCHED_OCR05
+    requested_model: gpt-5.6-sol
+    requested_reasoning_effort: high
+    actual_model: null
+    execution_status: RUNTIME_REWORK_IN_PROGRESS
+    turn_id: 01a0d800-b407-7f02-889b-d16b3b9b7b28
+    previous_execution_status: OWNER_SUBMITTED_READY_FOR_REVIEW
+  OCR-001:
+    owner: '05'
+    delivery_status: DELIVERED_RUNTIME_RESUME
+    requested_model: gpt-5.6-sol
+    requested_reasoning_effort: high
+    actual_model: null
+    execution_status: OWNER_SUBMITTED_READY_FOR_REVIEW
+    turn_id: 01a0d7b5-476a-7100-a84e-72e73eb3bb13
+    evidence: .orchestration/reports/OCR-001-05.md
+  FRONTEND-OCR-001:
+    owner: '04'
+    delivery_status: DELIVERED
+    requested_model: gpt-5.6-sol
+    requested_reasoning_effort: medium
+    actual_model: null
+    execution_status: OWNER_SUBMITTED_READY_FOR_REVIEW
+    turn_id: 01a0d687-15f4-7bb3-9587-2777fc9d4f14
+    evidence: .orchestration/reports/FRONTEND-OCR-001-04.md
+    pm_hash_check: PASS report/handoff+10sources; no PM runtime
+phase3_frontend_submission:
+  status: READY_FOR_REVIEW
+  evidence: .orchestration/reports/FRONTEND-OCR-001-04.md
+  owner_results: Vitest37/typecheck/isolatedbuild/harnesscompile PASS
+  integration: NOT_RUN; FRONTEND-OCR-VERIFY-001 blocked
+  current_source_hashes:
+    frontend/lib/types.ts: 9b2168f035a08edaacb82dd6c47b1127eadac565249b4cbc08735b5bcc052757
+    frontend/lib/api.ts: d6ef85996af23b93736d4fbfd09117ef24a6e3f2011edfbe17a80d65b0d356e5
+    frontend/lib/navigation.ts: 0d61220c5919007f218ac9d2200c6009aaa1f119370e9e14e2ef591b9e2c345c
+    frontend/components/screenshots.tsx: 2f0dcddbf0be66eb8394219bee0a666d7727dacbf0b388f54f413dea41f203d4
+    frontend/components/workspace.tsx: 19f48b3aeb0c3197548060242f1e408370428044445f2845fdc88b4aa9be3413
+    frontend/app/globals.css: 4a9f5dc22b65a12f8a8465cce9818032c2b98ee63f6099f9359a76a21211fad8
+    frontend/tests/api.test.ts: 13950786ee324f9dc18d998d6dc97ba8c27273363b17838aace9bfb2f0842199
+    frontend/tests/components.test.tsx: 6ff19229ebf3c8ee0b036afeca4a1b8fbd3ce78ec30e606cf0b6906268a727db
+    frontend/tests/integration/contract.test.ts: 72d9cf2522e27490c84dc3d53e4097ff10f2ec99c325d7204355e8d1084dd46b
+    tests/frontend/run_integration.py: f2b05ca8219deedd6087d39d5d81e0e2fc4f1237486812c85703ea01e8e0acec
+phase3_dependency_issue:
+  id: P3-OCR-DEP-001
+  status: RESOLVED_CONTRACT_ONLY
+  type: CONTRACT_DEPENDENCY_CONFLICT
+  owner: '02'
+  evidence: .pytest_cache/phase3-ocr-05/windows-resolver-report.json
+  sha256: dce46dc6dc9434a00a0137d8ea484e3e9f44a34ca02a21d82beb0f049a9cdb57
+  summary: PaddleX3.7.2 ocr-core requires nonheadless opencv-contrib-python4.10.0.84, conflicting with rev1 headless-only
+  affected_scope: OCR runtime resolution/installation/model acquisition/AVAILABLE; pure matching geometry Backend/API/UI remain authorized
+  decision: PM adopts exact revision2; actual runtime/model qualification pending, no AVAILABLE inferred
+  resolution_evidence: .orchestration/reports/REVIEW-ARCH-OCR-001-revision-2-08.md
+phase3_contract_amendment:
+  status: ACCEPTED
+  owner: '02'
+  requested_model: gpt-5.6-sol
+  requested_reasoning_effort: high
+  actual_model: null
+  independent_review: ACCEPTED exact revision2
+  artifact_hashes:
+    docs/architecture/phase-3-ocr-contract-revision-1.md: 46940dd1dd7775422213b2ba422b63650f4e83740e034cf29dc83f23970acb82
+    docs/architecture/phase-3-ocr-contract.md: 478fafdcf7d3876f9437137e382d41872f100dad40206a280da7551283e8dd44
+    .orchestration/reports/ARCH-OCR-001-revision-2-02.md: 8d1dafe33f9384315d5086aade4283f25eda2a205b813dfdb7edacda8f236f0a
+    .orchestration/handoffs/ARCH-OCR-001-revision-2-02.md: 2bb8bcf8d59acfc21290436dab05b87c36a6e2b76f0dc63ac7946151ee9fd82f
+  delivery_status: DELIVERED_AFTER_USER_APPROVAL
+  execution_status: COMPLETED
+  execution_blocker: null
+  user_authorization: User replied ㄱㄱ in PM conversation to explicit revision2 review/report authorization request
+  evidence: .orchestration/reports/REVIEW-ARCH-OCR-001-revision-2-08.md
+  verified_hashes:
+    docs/architecture/phase-3-ocr-contract.md: 478fafdcf7d3876f9437137e382d41872f100dad40206a280da7551283e8dd44
+    .orchestration/reports/REVIEW-ARCH-OCR-001-revision-2-08.md: 8b525e4599188012d47d23368ef30cf4a41fc6a8fe6891f038d9e266f29024d0
+    .orchestration/handoffs/REVIEW-ARCH-OCR-001-revision-2-08.md: 554ff00ad67ceaddbe9b940b1b567f42e777a83359c370c2e2e40cce7a670e6e
+phase3_runtime_reactivation:
+  status: DELIVERED_EXECUTION_OBSERVED
+  owners:
+  - '03'
+  - '05'
+  handoff: .orchestration/handoffs/PHASE-3-runtime-resume-01.md
+  contract_sha256: 478fafdcf7d3876f9437137e382d41872f100dad40206a280da7551283e8dd44
+  qualification: NOT_RUN until actual owner evidence, no product AC promotion
+  turns:
+    '03': 01a0d7b5-4811-7253-8299-509885c5f44e
+    '05': 01a0d7b5-476a-7100-a84e-72e73eb3bb13
+phase3_ocr_submission:
+  report: .orchestration/reports/OCR-001-05.md
+  report_sha256: 00bd6bad784e49a13201b4022a57bd7661d174c81818fa0c8d21394d4ea56d27
+  handoff: .orchestration/handoffs/OCR-001-05.md
+  handoff_sha256: ec603e0c297c83510bda66bd265f49a9ff5e4998242c85ef738da1a69728c83b
+  source_manifest: .orchestration/reports/OCR-001-05-source-manifest.txt
+  manifest_sha256: 98ea7e81109668dd073ef4f011b4d4c14eff3eea2a96340a00062f6850050b0a
+  owner_ordinal_aggregate: 058a445d90b7c50897f77f503a31e7dd425ea71f845a70a40666816e3c7a7b94
+  pm_verification: All42 current source size/SHA entries matched;7 major evidence file hashes matched and execution JSON inspected; no PM inference
+    rerun
+  owner_results: 23 tests; Windows/Linux5locale actual adapter, final-profile en/ko smoke; actual Backend/Web NOT_RUN
+  qualification_scope: Owner qualification submitted, not independent approval. Full5locale matrix precedes provenance metadata update; final
+    exact-profile smoke en/ko only.
+phase3_backend_runtime_submission:
+  report: .orchestration/reports/BACKEND-OCR-001-runtime-resume-03.md
+  report_sha256: 73919a4de478f1c85484f3388ac776b7a85e542cff316fea06d6ff89cb918afc
+  handoff_sha256: a04677b98e76996020c98d54c1fbb2a61f7f85e2b4bdc7bd39d38f6878979d97
+  manifest: .orchestration/reports/BACKEND-OCR-001-runtime-resume-source-manifest.txt
+  manifest_sha256: 7b3bb7e5638f1e7cbda101bd2e5451f5453c0b547e410b3b9d7d06a3b8e2e23d
+  aggregate: bb9c86a548c31bfb69329024ad992e605c41d10f6e7258c9b81dd5cb2237187f
+  pm_check: Current95 Backend +42 Worker entries matched; report/handoff read/hashed; runtime results owner-attributed
+  limits: Real runner test uses NO_EXPECTATIONS/UNVERIFIED; Web must validate populated expectations. Source storage read outside child timer
+    and child-PID sampled RSS retained for final independent disposition.
+phase3_web_verification:
+  status: BLOCKED_AFFECTED_RERUN
+  owner: '04'
+  requested_model: gpt-5.6-sol
+  requested_reasoning_effort: medium
+  actual_model: null
+  delivery_status: DELIVERED
+  handoff: .orchestration/handoffs/PHASE-3-web-verification-01.md
+  latest_submission:
+    report: .orchestration/reports/FRONTEND-OCR-VERIFY-001-04.md
+    report_sha256: 3c97374bf0fc9ecf146287a4b03f9eddc2612380aa342063a7db348e2cd56fff
+    handoff_sha256: f71be8b6e38755048bdc92ba35747b5a1b6643c554d615c5cc3cc5abf5700b6e
+    evidence_sha256: dc23871457272dbba938481d4020a075edc61fc8e71599a2dce5cb1e15b73ca3
+    harness_sha256: 67d0223f2eb6b079037d19db9b4b95c4abd67448ca376e651498f3a8b16264ff
+    pm_check: Report/handoff+evidence/diagnostic/log+executed harness matched;95Backend/42Worker source matched; cleanup complete
+    status: MATCHED_OWNER_EVIDENCE_FOR_PRE_FIX_SNAPSHOT
+    owner_result: Actual Korean itemPASS/aggregateUNVERIFIED,mutationFAIL,inputhashfailure/history/browser/OpenAPI2PASS; not independent acceptance
+phase3_runtime_rework:
+  id: P3-RUNTIME-001
+  status: OPEN
+  severity: MAJOR
+  owner: '03'
+  type: IMPLEMENTATION_CONTRACT_MISMATCH
+  evidence: .orchestration/reports/BACKEND-OCR-001-runtime-reproducibility-addendum-03.md
+  sha256: aef7bea1af2d8c57938736be4ad8b95e6a7c4dc23e30d210ec314ce8c2274d18
+  summary: Uninterruptible parent source open/read and up to10s stop joins violate whole-attempt deadline; owner confirmed
+  completion: Same absolute deadline covers source read through matching/cleanup; blocked read terminable, bounded IPC/size/hash and fencing preserved;
+    Windows/Linux fault evidence
+  execution: Actual inProgress observed turn01a0d8f0-649f-7d81-89fe-4ebd981dbadc after one dispatch
+  owner_design_checkpoint:
+    status: OWNER_REPORTED_IN_PROGRESS_NOT_ACCEPTED
+    delegations:
+      runner_source: Astra/medium requested
+      target_tests: Sol/high requested
+      unique_evidence: Terra/high requested
+    design: Metadata/source spawn isolation; cleanup reserve inside same300s absolute budget; unresolved kill liveness quarantine/no new claim
+      or finalize
+    actual_models: Unverified
+    architect_clarification: Complete; parent ownership required, continuous memory enforcement evidence required
+    scope: No shared storage/API/deps/profile/host changes
+  commit_boundary_question:
+    status: CLARIFIED_PARENT_OWNED_SETTLEMENT_WITH_QUARANTINE
+    source_agent: 01a0d854-c3b5-7e22-913e-73d4ec07848e
+    issue: Already-issued DB COMMIT may complete after client kill/deadline; no rollback guarantee inferred
+    gate: No unauthorized service/API scope extension or contract waiver;03parent integrates; existing fenced fresh-primary uncertainty recovery
+      remains authority
+    independent_work: Source-read/cleanup bounded correction continues
+    current_question: Parent DB network wait/cleanup versus productive deadline and quarantine; strict no-late-server-COMMIT not required by PM
+  child_authority_checkpoint:
+    status: OPEN_DESIGN_CONFLICT
+    contract_reference: docs/architecture/phase-3-ocr-contract.md:58
+    finding: Accepted contract says child has no DB write authority; current work-in-progress child owns stage/renew/finalize. No waiver authorized.
+    action: Resume parent-owned DB correction under new PM handoff; child authority conflict remains open until corrected
+    backend_response: Owner independent Astra review also identified conflict; 26 Windows tests owner-reported, final evidence pending
+    delivery: Clarification and bounded hold delivered to existing02/03 tasks
+    actual_models: null
+  test_checkpoint: Sol owner reports first16PASS/5FAIL, helpers corrected but not rerun at report;03 authorized captured independent rerun; integrated/realrunner
+    pending conforming design
+  pm_consistency_sidecar: Sartre completed read-only audit; current gates verified; historical dispatch labels retained as previous status; no
+    product tests
+  captured_test_checkpoint:
+    owner: '03'
+    pm_check: Read capture metadata/JUnit, matched log hashes; no PM test execution
+    runs:
+    - run: windows-source-01
+      exit_code: 0
+      junit:
+        tests: 16
+        failures: 0
+        errors: 0
+        skipped: 0
+      log_sha256: 78968f0b12885aaf84c01bf9e7cc86a8406bbf42b06fc405970754e3435fa8a7
+      evidence: .orchestration/reports/BACKEND-OCR-001-runtime-rework-evidence-03/windows-source-01.json
+    - run: windows-jobs-results-01
+      exit_code: 0
+      junit:
+        tests: 26
+        failures: 0
+        errors: 0
+        skipped: 0
+      log_sha256: f0b848553996e658ab714c2eff253d25d3efebcf7b5312df869e8a7afd98f967
+      evidence: .orchestration/reports/BACKEND-OCR-001-runtime-rework-evidence-03/windows-jobs-results-01.json
+    - run: windows-runner-02
+      exit_code: 1
+      junit:
+        tests: 9
+        failures: 3
+        errors: 0
+        skipped: 5
+      log_sha256: 918f0ef8d170c7f6bb6acf2d5877e4107e68dac32ab6e1f8f3b005981adcf1b6
+      evidence: .orchestration/reports/BACKEND-OCR-001-runtime-rework-evidence-03/windows-runner-02.json
+    gate: Partial only; child authority and cleanup failures unresolved
+  partial_submission:
+    status: PARTIAL_BLOCKED_NOT_READY_FOR_REVIEW
+    hashes:
+      reports/BACKEND-OCR-001-runtime-rework-03.md: 888569209f664a0b9e8eb0cb6cc68cd1104f71909ba7bc11dfa9a5bef27104c9
+      handoffs/BACKEND-OCR-001-runtime-rework-03.md: c25501234141f1e42fa3b1a0250a3a8cae014854c22af74081adc20985936101
+      reports/BACKEND-OCR-001-runtime-rework-draft-source-manifest.txt: fbaf582a8d8606b1ab794e42a54e2de48513d43783cf899dd28a7c0c2639e039
+      reports/BACKEND-OCR-001-runtime-rework-evidence-03/artifact-inventory.json: 2f5a953e4153543b977275fbf055a9692430cd4141ab2d8814a6899a45bf21ff
+    pm_check: Matched97 current source files and27 inventory artifact sizes/hashes; inspected new JUnit; no PM test execution
+    additional_owner_results:
+      windows-oversize-03:
+        tests: 1
+        failures: 0
+        errors: 0
+        skipped: 0
+      linux-independent-01:
+        tests: 19
+        failures: 0
+        errors: 0
+        skipped: 0
+    remaining: Windows deadline/RSS cleanup failures2; child DB authority, parent DB cleanup and RSS interpretation pending
+    same_cause_executions: 2
+    final_production_and_realrunner: NOT_RUN
+    requested_model: gpt-6-astra
+    actual_model: null
+  architect_clarification:
+    status: COMPLETE_PM_MATCHED
+    report: .orchestration/reports/ARCH-OCR-runtime-clarification-02.md
+    report_sha256: 8eed0822dee5781b8fb23187f1a24a1d1ff1014a14f5bee59e2bc99f42795375
+    handoff_sha256: eba017cc6d925bbaaf2477d358131e9a9c04a000e78462b3d72a8220c5c4cfee
+    product_acceptance: false
+  resume_delivery:
+    status: DELIVERED
+    requested_model: gpt-6-astra
+    requested_reasoning_effort: medium
+    actual_model: null
+    handoff: .orchestration/handoffs/PHASE-3-runtime-conformance-resume-01.md
+    execution_status: IN_PROGRESS
+  conformance_subagents:
+  - name: Einstein
+    scope: sole runner/source/optional runtime/service writer
+    requested: Astra/medium
+    actual_model: null
+  - name: Galileo
+    scope: disjoint containment helper
+    requested: Astra/medium
+    actual_model: null
+  - name: Fermat
+    scope: exclusive focused tests; execution after reviewed correction
+    requested: Sol/high
+    actual_model: null
+  linux_containment_preflight:
+    status: FACILITY_CONFIG_OBSERVED_NOT_QUALIFICATION
+    evidence: .orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/linux-memory-preflight-01.json
+    log_sha256: 4a2e1c6ee0b04b7adf9075712bc64acdfb7be4bc164e2b2e2dafeed13425cc36
+    memory_max: 2147483648
+    swap_max: 0
+    pm_check: Capture/log read and log SHA matched
+    pending: shortpeak/tree enforcement, parent-versus-child OOM scope, causal classification and recovery
+  execution_interruption_checkpoint:
+    classification: EXECUTION_RATE_OR_USAGE_LIMIT_NOT_PRODUCT_FAILURE
+    source: Backend03 owner report plus PM current source inspection
+    resumption: Owner reports one resume/send per existing Einstein/Galileo/Fermat; no duplicate writer
+    observed_changes: verification_jobs.py mutation_guard partial; runner/source retain prior draft hashes; runtime/containment helpers absent
+      at checkpoint
+    tests: No new tests claimed; Linux preflight not repeated; cleanup same-cause count remains2
+    on_repeat: Stop affected retry loop and preserve checkpoint; no automatic model downgrade
+    actual_models: null
+  windows_memory_interpretation:
+    source: Architect02 focused follow-up delegation; no file/test changes by02
+    status: CONDITIONAL_DESIGN_ADMISSIBILITY_NOT_QUALIFICATION
+    mechanism: Effective hard maximum working set <=2GiB plus child-only Job ActiveProcessLimit1 and no breakaway
+    conditions:
+    - No material workload before verified containment
+    - Effective flags/maximum query failures or uncertain enforcement leave platform UNAVAILABLE
+    - Prove descendant denial across normal/error/timeout/native paths
+    - Real touched sustained/shortpeak/file-mapped/shared/native-thread tests
+    - Prevent or detect child relaxation of limits; requery before acceptance
+    - Actual pinned Windows runtime qualification at2GiB with OS/API/peak/cause/cleanup evidence
+    insufficient: JobMemoryLimit private commit alone or sampled RSS alone
+    delivery: Forwarded to03 parent for existing containment lane
+    tests: NOT_RUN by02/PM; Backend evidence pending
+  windows_model_access:
+    status: HISTORICAL_PROVENANCE_RECEIVED_CURRENT_ACCESS_UNKNOWN
+    source: 03 historical host traversal denial; permitted Docker read-only mount is not Windows host permission evidence
+    action: Historical provenance forwarded03; preserve denial boundary, no alternate-method bypass; current actual qualification remains access-dependent
+    independent_work: Native synthetic Windows containment and permitted Linux runtime work continue
+    acceptance: Windows actual affected qualification PENDING; no inference from old smoke
+    owner05_provenance:
+      model_root: .pytest_cache/phase3-ocr-05/model-cache/official_models
+      runtime: .pytest_cache/phase3-ocr-05/windows-venv/Scripts/python.exe
+      runtime_version: CPython3.12.14
+      method: Previously approved qualification Python reads exact profile-known files; historical permission only
+      model_manifest_sha256: c1f470956200736ad48dda6e6a8df5bc11daa2a7fda9f1907231e34ef99cc617
+      final_smoke_sha256: 0a9c24af0a382d4292ce64ef31b210fc7194b9582a1d2b369a6bfd33ffc64dfc
+      evidence_limit: Post-run peak RSS assertion, not OS-level hard memory enforcement
+      verification_source: Owner05 existing evidence report; no new PM model access/test
+  availability_gate_question:
+    status: CLARIFIED_MINIMAL_SHARED_INPUT_AUTHORIZED
+    scope: Shared deployment-qualified readiness for listing/new creation; no API-local cap inference for remote runner
+    independent_work: Existing runner/containment work continues
+    difficulty: high
+    requested_model: gpt-5.6-sol
+    requested_reasoning_effort: high
+    actual_model: null
+    decision: Immutable exact profile/digest+worker target/release admission supplied consistently to API and runner; default false; current local
+      API capability is not worker readiness
+    replay: Existing identity/fingerprint arbitration before registry/readiness; same200/different409 preserved
+    scope_addition: One shared provider/runtime assertion input and focused tests/docs; no profile/schema/fleet/public API additions
+  db_boundary_submission:
+    evidence: .orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-db-boundary-01.json
+    junit:
+      tests: 10
+      failures: 0
+      errors: 0
+      skipped: 0
+    log_sha256: 5c02de9b4ecd09fbaf0a9448e56bd798c908fff2b49144b2ecd2caaaefb5ee66
+    current_slice_hash_matches:
+      backend/app/services/verification_jobs.py: true
+      tests/backend/test_ocr_runtime_db.py: true
+    scope: Owner real PostgreSQL DB boundary with synthetic local clock; no native/child/cleanup qualification
+    pm_verification: Read metadata/log/JUnit and matched log/current slice hashes; no PM execution
+  windows_bootstrap_checkpoint: Owner correcting venv redirector/ActiveProcessLimit1 compatibility; native tests pending, no model access attempted
+  admission_implementation_checkpoint:
+    status: OWNER_REPORTED_IN_PROGRESS
+    module: backend/app/workers/ocr_admission.py
+    interface_proposal: QA_OCR_ADMISSION_PATH + SHA256 content pin + WORKER_TARGET + RELEASE_ID; bounded pure provider
+    owner_agent: 01a0d8cd-6172-72d1-84e5-24a9913b985e
+    nickname: Descartes
+    requested_model: gpt-5.6-sol
+    requested_reasoning_effort: high
+    actual_model: null
+    scope: admission module,verification_runs API service,API/admission tests,relevant README; disjoint from Fermat existing tests
+    runner_integration_owner: Backend03 parent sole writer
+    other_lanes: Einstein parent lane and Galileo helper owner-reported AST only; Galileo read-only runner review
+    native_tests: Pending reviewed direct-base interpreter correction; no PASS claimed
+  windows_native_checkpoint:
+    status: WINDOWS_UNQUALIFIED_FAIL_CLOSED
+    native_accounting_same_cause_executions: 3
+    prior_cleanup_same_cause_executions: 2
+    finding: Observed ActiveProcesses2 while Job limit1; owner reports effective hardWS256MiB; owned stop confirmed; root cause unresolved
+    action: Static root-cause investigation then reviewed material fix before any next probe; no unchanged third attempt or limit relaxation
+    independent_work: Linux/admission/DB continue
+    runs:
+    - run: windows-deterministic-01
+      junit:
+        tests: 34
+        failures: 0
+        errors: 0
+        skipped: 0
+      log_sha256: f8fa5748423fb75f095d9b232786cde883474d0d22ae1320549c133e347ae5e5
+      evidence: .orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-deterministic-01.json
+    - run: windows-claim-guard-02
+      junit:
+        tests: 12
+        failures: 0
+        errors: 0
+        skipped: 0
+      log_sha256: 57c1d18a43d95c2c9c684c77460e3657858d47b3fdcb5f386df75bf264ddcf2d
+      evidence: .orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-claim-guard-02.json
+    - run: windows-native-boundary-02
+      junit:
+        tests: 1
+        failures: 1
+        errors: 0
+        skipped: 0
+      log_sha256: 2acde35a24ff3ba2bc50a6a59832dc2eec86336d94a174804db92934d3c07a70
+      evidence: .orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-native-boundary-02.json
+    pm_check: Read latest failure log; capture/JUnit and log hashes matched; no PM tests
+    actual_model_attempt: NOT_RUN
+  admission_slice_submission:
+    status: SUBMITTED_SLICE_PARENT_INTEGRATION_PENDING
+    source_agent: 01a0d8cd-6172-72d1-84e5-24a9913b985e
+    sha256:
+      backend/app/workers/ocr_admission.py: d430b63155b29f7069098ee41ce6780f8cdb83f6dbc3c3e3536db2e0dbd219d6
+      tests/backend/test_ocr_admission.py: 04aa49476caf2dc6e69e3e7b1e10c8d2030a1eadb0375ad2ff798d2ce62c94d7
+      backend/app/services/verification_runs.py: fcb3c51fcc757413d9f6aac2271243a7fedd39927181e08e61d6ff2bdaaa2425
+      tests/backend/test_ocr_api.py: 36cec32979c576483815c44644b9e1de6fea99772d68347de448bc6276e4be7f
+      backend/README.md: 364ca568768d4e4f120c04674c73e619382e5018faa957c821c3ced74c8fc4b3
+    pm_check: Five reported hashes matched, focused API paths read; no product tests run
+    owner_validation: git diff --check PASS; pytest/runtime NOT_RUN
+    next: Parent captured provider/API/runner integration; preserve replay and invalid-document failclosed
+  admission_protocol_checkpoint:
+    status: IN_PROGRESS_OWNER_SLICES_NOT_FINAL
+    verified_owner_runs:
+      windows-admission-db-01: 3PASS
+      windows-admission-provider-01: 11PASS
+      windows-protocol-regression-02: 10PASS
+    pm_check: Capture exit codes/JUnit/log SHA verified; no PM test execution
+    open_corrections:
+    - Immutable qualification.status required even when deployment admission true; API negative tests pending
+    - Safe prelaunch containment failure needs explicit no-workload/confirmed cleanup evidence before durable failure; uncertainty still quarantines
+    windows_native: UNAVAILABLE; no third probe
+    linux_pressure: Draft corrections and independent static review before isolated execution
+    web_review: 04/08 remain gated
+  admission_qualification_fix:
+    status: CORRECTED_API25PASS_EVIDENCE_MATCHED
+    matched: Provider, provider tests, service and README matched supplied freeze hashes
+    mismatch_path: tests/backend/test_ocr_api.py
+    reported_sha256: dd73a58ea264f6827a225fa61e3db79a6b35803b1142d82069a32a2a4de5f125
+    observed_sha256: d9c46d4cd14f32cdabadf1b3865a4c0a00cb3f6cec4dee68e4307d618819c72c
+    action: Parent notified; preserve concurrent edits and capture actual test snapshot; no rollback
+    tests: NOT_RUN by sidecar/PM; parent execution evidence pending
+    pm_correction: Premature all5-match relay corrected immediately after failed assertion; no acceptance inferred
+    resolution: Owner confirms per-test UUID fixture prevents persisted historical profile interference; observed d9c46d4 hash matches corrected
+      test
+  linux_build_blocker:
+    status: RESOLVED_FOR_NEW_APPROVED_BUILD
+    scope: New Linux diagnostic image/runtime qualification
+    reason: Docker config.json and buildx/instances AccessDenied
+    action: No same-action retry/config relocation/permission bypass; independent local work continues
+    image_produced: false
+    runtime_tests: NOT_RUN
+    evidence:
+      run: linux-diagnostic-build-01
+      exit_code: 1
+      log_sha256: 59cf229a5fa5e5eaeeccb8421e8ec999fb23a852c51adea4a7e24b564762dcf3
+      evidence: .orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/linux-diagnostic-build-01.json
+    resolution_evidence: .orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-diagnostic-build-01.json
+  api_fixture_rework:
+    status: CORRECTED_FULL_FILE_OWNER_PASS_PM_EVIDENCE_MATCHED
+    prior_result:
+      run: windows-admission-api-01
+      exit_code: 1
+      log_sha256: 4724920283ff8fd74406be78fc22bce670b8ab0dfaef7ab688d749a6fa872c43
+      evidence: .orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-admission-api-01.json
+      junit:
+        tests: 25
+        failures: 3
+        errors: 0
+        skipped: 0
+    cause: Repeated fixture identity collided with legitimate persisted historical profile
+    correction: Unique per-test profile ID tied to canonical digest/admission
+    pm_check: Capture/log hashes verified; no PM test execution
+    corrected_result:
+      evidence: .orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-admission-api-02.json
+      junit:
+        tests: 25
+        failures: 0
+        errors: 0
+        skipped: 0
+      log_sha256: 1eea8ad6fd39d08e282f3c2994cf154df4a22ed7af4b5fb13daf0bc8d03905ae
+      pm_check: Capture/JUnit/log hash and test before/after hash matched; no duplicate execution
+      limit: API slice only; production admission and runtime qualification remain unproven
+  final_local_checkpoint:
+    status: BLOCKED_NATIVE_QUALIFICATION_NOT_READY_FOR_REVIEW
+    hashes:
+      reports/BACKEND-OCR-001-runtime-conformance-03.md: 77429950d9bbacdd377ec95f0aab982a6afd38725f4f098d5d9368f0abff8bb7
+      handoffs/BACKEND-OCR-001-runtime-conformance-03.md: 8ebc8100e932633a71be451d13ec832f12f300a31fde7311bb500779f94c26ef
+      reports/BACKEND-OCR-001-runtime-conformance-source-manifest.txt: 73bcf6e6e9eee2069a84ffeb2b20a6902f47187794563e0a72d3aa6259f25e12
+    artifact_index_sha256: c5d14eab254bdadac2b49434c560ab36fa15c87214829a40fafbbcbd8a8a2d03
+    pm_check: Matched103 current source files and50 artifact sizes/hashes; final15 capture sources stable; final JUnit/log inspected
+    junit:
+      tests: 294
+      failures: 0
+      errors: 0
+      skipped: 15
+    owner_results: 279PASS15SKIP0FAIL; native/actual-model checks skipped, not PASS
+    blockers:
+    - Windows native active-process mismatch;2same-cause failures, no third unchanged probe
+    - Linux Docker config/buildx access denied; no corrected image/runtime qualification
+    no_production_admission: true
+    pm_product_tests: NOT_RUN; evidence verification only
+  native_diagnostic_resume:
+    status: DELIVERED_ACTUAL_IN_PROGRESS_OBSERVED
+    handoff: .orchestration/handoffs/PHASE-3-native-diagnostic-resume-01.md
+    owner: '03'
+    goal: Windows discriminating root cause/correction; Linux legitimate approval-context analysis
+    requested_model: gpt-6-astra
+    requested_reasoning_effort: medium
+    actual_model: null
+    subtasks:
+    - lane: Windows
+      difficulty: highest
+      requested: Astra/medium
+      reason: Native containment/identity correctness with2 prior failures
+    - lane: Linux permissions
+      difficulty: medium
+      requested: Sol/medium
+      reason: Bounded read-only execution-context and approval analysis; escalate reasoning only if concrete complexity
+    - lane: Focused verification
+      difficulty: high
+      requested: Sol/high
+      reason: Native process/deadline/DB recovery evidence
+    - lane: Evidence inventory
+      difficulty: low
+      requested: Terra/high
+      reason: Bounded hashes and execution records
+  linux_native_resume_checkpoint:
+    status: BUILD_AND_FOCUSED_NATIVE_SLICES_PASS_NOT_FULL_QUALIFICATION
+    image_id: sha256:dc9828b1c1984044900b45a2d46e96dd2a2a3fb851f0d1bee631e6e0f271e99e
+    platform: linux/amd64
+    runs:
+    - run: linux-diagnostic-build-01
+      exit_code: 0
+      log_sha256: fb16af23e62d694821263b101ee6b53b9c803672ba0db9abc6df930901426ea9
+      evidence: .orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-diagnostic-build-01.json
+    - run: linux-image-identity-01
+      exit_code: 0
+      log_sha256: 77344a44586a00e5c44b0575f67201ad8b8da33e252d74cc819fdd4540b64e26
+      evidence: .orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-image-identity-01.json
+    - run: linux-native-boundary-01
+      exit_code: 0
+      log_sha256: bee560ea8d8012e233b7fd364063c8992849be857bf3962a7f51e2759a647bee
+      evidence: .orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-native-boundary-01.json
+      junit:
+        tests: 1
+        failures: 0
+        errors: 0
+        skipped: 0
+    - run: linux-native-supervision-01
+      exit_code: 0
+      log_sha256: 58ad86c24d84124a6e23f0a32d4ce533fa9c5b59d5b7df1ff6056bdca6883b1b
+      evidence: .orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-native-supervision-01.json
+      junit:
+        tests: 9
+        failures: 0
+        errors: 0
+        skipped: 0
+    authorization: Owner reports ordinary approval route succeeded without config/ACL/identity change
+    pm_check: Read captures/JUnit/image identity; log hashes and before/after source stability matched
+    remaining: Pressure/tree/parentOOM and actual qualified OCR evidence; Windows reviewed changed diagnostic pending
+  linux_pressure_checkpoint:
+    status: PARTIAL_PRESSURE_EVIDENCE_REWORK
+    evidence: .orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-native-pressure-01.json
+    junit:
+      tests: 3
+      failures: 1
+      errors: 0
+      skipped: 1
+    log_sha256: 2fd1067ce8033399d2459f5ccf559238ee2888a069ec92244eef352194b977a0
+    mapped: One case PASS only within assertions
+    shortpeak: SKIP; duration evidence absent, OOM event alone insufficient
+    descendant: FAIL; expected touched-memory readiness phase missing, cause attribution unresolved
+    cleanup: Owner reports all3 owned trees cleaned; not proof of aggregate enforcement
+    action: Reviewed test handshake/phase attribution correction; separate fresh containers per mode; no test weakening or unchanged repeat
+    pm_check: Failure/skip log and JUnit read; log SHA matched, no PM execution
+  linux_pressure_followup:
+    status: PARTIAL_NATIVE_PROGRESS_NOT_PLATFORM_ACCEPTANCE
+    runs:
+    - run: linux-descendant-pressure-02
+      junit:
+        tests: 1
+        failures: 0
+        errors: 0
+        skipped: 0
+      log_sha256: b27fc1db20a89434fbbc17d988d25f1a08a3fad42bb3ecb58fdd85304a16ef25
+      evidence: .orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-descendant-pressure-02.json
+    - run: linux-mapped-pressure-02
+      junit:
+        tests: 1
+        failures: 0
+        errors: 0
+        skipped: 0
+      log_sha256: 51d24562c79f3e87caa5454a4201e9b32af703b11bbf15063811ed93018642dd
+      evidence: .orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-mapped-pressure-02.json
+    - run: linux-shortpeak-pressure-02
+      junit:
+        tests: 1
+        failures: 0
+        errors: 0
+        skipped: 1
+      log_sha256: 3c125f698c61a5bfbb7c567c591f94e23bbd6a9249ad2230714310b194dfb4c1
+      evidence: .orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-shortpeak-pressure-02.json
+    - run: linux-real-runner-01
+      junit:
+        tests: 1
+        failures: 0
+        errors: 0
+        skipped: 0
+      log_sha256: 16d175d864c36e0e997b97caf3e02a34852142ca15582ccfd8a8d011a1b91d58
+      evidence: .orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-real-runner-01.json
+    image_owner_report: sha256:56c45fb0dac074888d84484e414107c95342ab325e148c916fe55e454f1df662
+    limits:
+    - Mapped case establishes bounded paging only
+    - 'Shortpeak remainsSKIP: observed exit upper0.41193944s does not establish sub250ms requirement'
+    - Real runner1PASS uses synthetic admission, not production authorization
+    - ParentOOM durable lease recovery and Windows qualification pending
+    pm_check: All4 capture/JUnit/log SHA matched; actual realrunner completion observed, no PM duplicate run
+  windows_native_pause:
+    status: PAUSED_SAME_CAUSE_THREE_REASSESSMENT_REQUIRED
+    native_same_cause_failures: 3
+    prior_cleanup_failures: 2
+    evidence: .orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/windows-owned-identity-facts-01.json
+    sha256: 61d2f1955a3ee7531533cf92758ce0425a8ea1d017a1824ce127130203de1ad0
+    observed: Owned python111908 and conhost106636; NT parent111908, Job membership before/after matched; actual2 under limit1
+    cleanup_confirmed: true
+    query_alive: false
+    identity_complete: false
+    limits: Conclusive recorded process identity observations do not imply complete qualification; identity_complete false retained
+    action: No more Windows edits/execution or failure-count exemptions before reassessment and renewed activation
+    independent_work: Linux parentOOM review and evidence closure only
+    static_review_addendum:
+      source: Owner03 relays independent Galileo/Fermat static review
+      finding: identity_complete classifier considered STARTED .parent/.image_file events without value despite successful RETURNED observations
+      preservation: Raw script/result unchanged; failurecount3 and Windows pause unchanged
+      missing:
+      - Pre-resume executable identity
+      - Parent Job membership
+      - Repeated post-identity counts
+      evidence_limits: Snapshots non-atomic; executable hash covers disk image only
+      pm_verification: Review findings owner-attributed; no new native execution or classifier rewrite
+  linux_parent_oom_checkpoint:
+    status: CONTROLLED_JOB_SERVICE_PARENT_OOM_RECOVERY_PASS
+    evidence_directory: .orchestration/reports/BACKEND-OCR-001-native-diagnostic-parent-oom-evidence-03-01
+    hashes:
+      cleanup.json: ef20b0f538602101ed07a7ddcb0a0b429323ccda7b0d85f3670696dbc246c866
+      database-created.json: d611fbe1c60f85185812092e8863f26914ce491d53293e117ac255da2b611c8e
+      manifest.json: 267eada18fa35a01d9e899ef875a2f505805bd26935a5c0e2aeb28f5e760efef
+      oom-container-inspect.json: b6f70201bcb5609c25bf8ff7c4eccef6aabb669d7df6aa9f1757c68e4d977f1e
+      oom-ready.json: 55def3ba0c5f62f9269650d7d250c649516a94d41cb20f6edb78ee1d85590d4c
+      recovery.json: 54fe20cee9ac9f6971364ec33d9f39fc589bb381040c6a094c3b7423151bfe54
+      setup.json: 9d4fc1ee5d5d8eec9f844262a9a7af21d6f5283da1974ad2551eff4e5ce35f97
+    observed: Actual claimingPID1 OOMKilled/exit137; real60s lease expiry then generation2; stale renew/stage LostFence;4owned containers and
+      nonce/OID matched DB cleaned
+    pm_check: Manifest/recovery/cleanup facts read and invariants checked; no PM native execution
+    limits: Not full OCRRunner OOM qualification; cannot prove tiny child not an earlier OOM victim; not added to pytest totals
+    source_before_after_equal: true
+  native_final_evidence_status: Owner final audit/index in progress; no new native execution authorized
+  native_final_submission:
+    status: PARTIAL_PM_INTEGRITY_CHECK_BLOCKED_NATIVE_QUALIFICATION
+    report_sha256: 86557e995cf5ec1ad8906253a9abb438cc3da2aae83bddd1d3729461e0981ef2
+    handoff_sha256: 4e8972bcb705debbc9e047e5c2133921f4b97cd226a66a1e752af648c2f794ed
+    artifact_index: BACKEND-OCR-001-native-diagnostic-artifact-index-03-02.json
+    index_sha256: 0300b6c8c3fd8185603652fafac4811cbf0166dddd5d9c4379217308e2546261
+    pm_check: Current report/handoff/index hashes and103current source entries matched; recursive56artifact check incomplete
+    denied_path: .orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/windows-identity-03-mokoyye2/identity.json
+    action: No repeat/bypass; owner56/56 verification retained as owner attribution
+    limits: Windows paused3; shortpeak unproved; Linux actualOCR synthetic/noexpectations and controlled parentOOM only
+  native_reassessment:
+    owner: '02'
+    status: COMPLETE_READ_HASH_MATCHED
+    requested_model: gpt-6-astra
+    requested_reasoning_effort: medium
+    actual_model: null
+    handoff: .orchestration/handoffs/PHASE-3-native-reassessment-01.md
+    scope: Read-only Windows correction/proof-design and Linuxshortpeak requirement reassessment; no native execution/product edits
+  native_reassessment_decision:
+    status: MATCHED_W1_L1_CANDIDATE_PREPARATION_AUTHORIZED
+    report_sha256: 7fa4ba3b9452bd35317a051104aa9f18d4ca22e652ac25c0c8a628b7c1108a7c
+    handoff_sha256: 5a2de4348bcd87463beae9bc739ca60bd87a7ba016caefde9207ae261a8e441d
+    decision: W1 and L1 candidate patch/plans only; authoritative API review and fixed oracle prerequisites; no applied product diff/native execution
+    next_handoff: .orchestration/handoffs/PHASE-3-native-correction-plan-01.md
+    requested_windows: Astra/medium highest
+    requested_linux: Sol/high high
+    actual_models: null
+    counter_reset: false
+    delivery_status: DELIVERED
+  native_candidate_application:
+    status: APPLIED_EXACT_CANDIDATES_PURE12_PASS
+    manifest_sha256: 60895d0c70c1a8cc89691ca3f4c13ae1a08740bebd2edcfe7d515616b3548c89
+    pm_check: All11 artifacts and3baseline hashes matched; independent reviews read
+    windows_patch: 84a8fb80f36b7718ac580c31f3fec8fc44cb8c6be28dc50539a30e1126ea1f9f
+    linux_patch: d15ebab5fc1a5c3b4bb6fdd8c5d06907216decbff087f9f7722b34f9669a6639
+    handoff: .orchestration/handoffs/PHASE-3-native-candidate-apply-01.md
+    native_execution: HOLD; concrete harness/exact review prerequisites unresolved
+    verification: 12pure oracle cases only after fixture side-effect check; no broad/native execution
+    actual_models: null
+  candidate_application_blocker:
+    status: RESOLVED_BY_USER_AUTHORIZED_ORDINARY_APPROVAL
+    owner_report: git apply W1+L1 exit128; unlink Invalid argument then write mode100644 Permission denied
+    pm_readback:
+      backend/app/workers/ocr_containment.py: ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5
+      tests/backend/test_ocr_containment.py: 382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b
+    finding: Both exact baseline hashes unchanged at PM check; CREATE_NO_WINDOW remains and L1 oracle absent
+    action: Hold source application; no retry/alternate writer/ACL/security/escalation bypass; preserve command failure and read-only context
+      analysis
+    pure_oracle: NOT_RUN; proposed node not applied
+    independent_work: Own evidence concrete harness preparation continues
+    classification: Filesystem/tool execution failure, not model capability/product-test failure
+    resolution_evidence: .orchestration/reports/BACKEND-OCR-001-approved-application-evidence-04
+  native_apply_final_submission:
+    status: STATIC_COMPLETE_SOURCE_WRITE_BLOCKED_NOT_EXECUTION_READY
+    report_sha256: f1585d343ee3dd4ebc6a1a406a8a3c88233c02ad360703fb8478c10ff04a27a3
+    handoff_sha256: f898496ea991fe16cf17ca88e96400eb622108074a5b4bc9d0fd9c84a81a5cf4
+    manifest_sha256: 1028a217e3541d4df6eef9befbc63c882a84f6e4680ade86f27e95db8534bae9
+    pm_check: All13artifact and2baseline byte sizes/hashes matched; exact hook and failure record read
+    source_application: None; exactbaseline retained
+    pure12: NOT_RUN
+    native: NOT_RUN
+    sequence_decision: Preserve W1-only+L1 source freeze for Linux capture first; defer extra Windows hook application until distinct reviewed
+      source snapshot, no blind repin
+    hook_disposition: Exact proposed scope identified; application deferred, not permission to bypass write denial
+    next_blocker: Legitimate source-write authorization/context resolution required; no automatic retry or alternate writer
+  source_write_user_resume:
+    authorization: User explicit go-ahead after concrete2patch ordinary approval blocker report
+    scope: Owner03 one ordinary require_escalated approval request for exact git apply W1+L1; successful byte verification then12pure oracle only
+    precheck: PM gitapply--check exit0 and2baseline/2patch hashes matched
+    status: OWNER_IN_PROGRESS_APPROVAL_RESULT_PENDING
+    native_hook_build_model: HOLD
+    no_permission_settings_change: true
+    execution_turn_id: 01a0d952-9f32-70d1-949c-52d9b1009481
+  approved_application_checkpoint:
+    status: EXACT_SOURCE_APPLIED_PURE12_PASS_FINAL_REVIEW_PENDING
+    evidence: .orchestration/reports/BACKEND-OCR-001-approved-application-evidence-04
+    pm_check: Actual2source raw/LF hashes match approved candidates; parsedJUnit12tests0failures0errors0skips, rawlog/result inspected
+    sources:
+      backend/app/workers/ocr_containment.py:
+        raw: 9a47c3348980b4f5d25afafce5407ed067cd974caff2b60b87d2dc5f8228dbd9
+        lf: 6129ff42c0789df51c105068cbda48d0b299885f53c491e7d3a777315661467c
+      tests/backend/test_ocr_containment.py:
+        raw: e72c2fb79a9bc3b0c0e08f155b5c78f16173d8e02ecc9f8349f2ecab3674af45
+        lf: 52349c96c31b6c373d8d8c99471b21df64ea5dea4a0a77f52539a884492e0f02
+    owner_execution: One ordinary elevated approved gitapply exit0; noACL/security/alternatewriter changes
+    tests: Pure12 only; notnative qualification
+    remaining: Independent evidence review/finalmanifest then separate exact-image/native approval; Windowsadditionalhookheld
+    pm_tests: No duplicate execution
+  approved_application_final:
+    status: FINAL_SOURCE_APPLICATION_EVIDENCE_MATCHED
+    manifest_sha256: 6bf12e9669f4c46a4c3488e223c927794fc18f6977b947fcf4f88a1ebf3bfcbf
+    report_sha256: 2f6573a9ee13fb88609437b1e49a1f01221e49806c41f9f99c2fa4441da01e04
+    handoff_sha256: eaa55a6b85edcc06780d649e0255b1628c3c21a2bd461b3fbed685117b960d3b
+    review_sha256: bdf3063b32fcb55b5c2d4c94ff95e1500cfe165e4ffe4b33d3246c4693b1dcd3
+    next: Source-pin preparation and independent static review; then one exact-source diagnostic build permitted; no native execution
+    handoff: .orchestration/handoffs/PHASE-3-linux-pins-build-01.md
+  linux_pin_evidence_agent:
+    nickname: Boole
+    agent_id: 01a0d8da-1239-76e3-a26e-317d40428d29
+    requested_model: gpt-5.6-terra
+    requested_reasoning_effort: high
+    actual_model: null
+    provenance: Backend03 recorded spawn nickname plus resume/native103 evidence assignment/close tool history
+    status: ID_DELIVERED_TO_OWNER_FOR_REUSE
+    scope: Source pin hashing only;03 controls resume,Mill independent closure review
+phase3_rss_question:
+  status: CLARIFIED_IMPLEMENTATION_EVIDENCE_PENDING
+  scope: Whether sampled direct-child RSS satisfies accepted child budget; no silent waiver or unrequested OS hardcap scope
+  execution: Report and handoff read/hash matched; no test or independent acceptance
+
+linux_source_pin_checkpoint_05:
+  status: SOURCE_PIN_PACKET_HASH_MATCHED_INDEPENDENT_REVIEW_PENDING
+  pins_sha256: d92e20493eb42a3d4d2702b17c3d5559c17cad78e31b364387039e649146f2bc
+  boole_audit_sha256: 1edd8bfd9012e7615f230a0ead3c19cd84b73edeeaf1d3de3880617f4824dd22
+  context_manifest_sha256: a42bb46f1119f200cc5ee9a43363094bdc4c22db51dd8e1a2f13b1f8c96ce120
+  context_archive_sha256: 36230ae59062c2dde4575dfb1e5230b69a383d7abf1bed08366aa39a71c3a6c9
+  owner_report: 113 source pins and139 frozen context files; parent raw/LF113/113 and fixed predicates PASS
+  pm_check: Four artifact hashes matched; Boole and parent audit records read. No duplicate full source audit or build execution.
+  build: NOT_RUN at this checkpoint; conditional on Mill independent PASS
+  image_internal_verification: NOT_RUN; separate capture authorization required
+  native_execution: HOLD
+  actual_models: null
+
+linux_build_checkpoint_05:
+  status: BUILD_AND_METADATA_MATCHED_FINAL_PACKET_PENDING
+  review_sha256: d009d91ca5c33f55122825b15b86706698a4e575142f7253841583383592e566
+  image_id: sha256:a1337c5556ab00f01dac45075f6bbf71ba9198c1b179a83d0210e5879a426d0a
+  build_log_sha256: 209762ed893e1be9627c02334f4903b8f46bbebf939b7a85e93f44f020cc540f
+  build_exit_code: 0
+  build_attempts: 1
+  platform: linux/amd64
+  pm_check: Read independent review; review/log hashes matched; recorded139 before/after pairs equal; image inspection artifact matched. No PM
+    Docker invocation.
+  base_resolution: Preinspect absent; actual build resolved python:3.12.14-slim-trixie@sha256:2f17fc044b579bab302c2e8054d3a686e2cb9a83de48e70534b94cd8ebbe06a9
+    (owner report)
+  remaining: Boole final evidence crosscheck and owner final manifest; separate capture gate
+  image_internal_sources: NOT_RUN
+  native_execution: HOLD
+  actual_models: null
+
+linux_capture_activation_06:
+  status: DELIVERED_EXECUTION_NOT_YET_CONFIRMED
+  owner: '03'
+  handoff: .orchestration/handoffs/PHASE-3-linux-capture-01.md
+  build_final_manifest_sha256: ae89f4e4610c7762177685f9b2ca2a43b3c1c9cfd195553b9cdb80985b721443
+  pm_check: All20 artifact sizes/hashes and unchanged script/review matched
+  scope: One fixed Linux shortpeak capture; inner source equality must precede selected test
+  requested_capture_model: gpt-5.6-sol/high
+  actual_model: null
+  windows: PAUSED; counts preserved
+  acceptance: All Phase3 criteria NOT_RUN
+
+linux_capture_06_failure:
+  status: UNPROVED_OWNERSHIP_OR_CLEANUP
+  cause: Docker Go template json(index ...) parentheses missing; not access denial
+  container_id: affc94c2fe2468fd867c1e80be5878836a9b70868e68f2bff4f54d9c84988e8a
+  pm_check: 'Original manifest read: create0, inspect1 twice, no start/wait/stop/rm; source_unchanged true'
+  native_pressure: NOT_RUN
+  image_internal_sources: NOT_RUN
+  cleanup_confirmed: false
+  recovery_handoff: .orchestration/handoffs/PHASE-3-linux-residual-cleanup-01.md
+  native_retry: HOLD
+  counter_policy: Separate orchestration failure; Windows3 and historical cleanup2 preserved
+
+linux_capture_06_final:
+  manifest_sha256: 4264b0667561ede492b5dde2c44fab0f4c8ae075f7fff6b7c97800cbccc128c0
+  pm_check: All15 artifact sizes/hashes matched; independent HOLD read; native NOT_RUN preserved
+  recovery_script_sha256: ae059f5dab376b099e9dd422421176847e3c4c82032f2975069a9a3f3382f72e
+  recovery_prereview_sha256: 9d3ef2cf501c8d505d3f1abc8cd27df4026c12c7bf91b1951740c604da1c2b17
+  recovery_prereview: PASS_READ; exact script hash matched
+  recovery_execution: NOT_YET_CONFIRMED
+  original_failure: Immutable; successful later cleanup cannot convert capture06 to PASS
+
+linux_recovery_07_checkpoint:
+  status: REMOVAL_AND_ABSENCE_EVIDENCE_MATCHED_FINAL_REVIEW_PENDING
+  result_sha256: 47522de102a140b7ca2d6263f87406d9d1499a7586e1c715f75a8ca37489d177
+  pm_check: Three recorded commands; identity/never-started proof, rm0, exact No such container and unchanged06 manifest matched; no live Docker
+    query by PM
+  stdout_detail: Postinspect stdout newline-only; semantically empty after strip, not zero bytes
+  image_identity: Both saved requested_image and image_config are a1337c55 in this environment; fields preserved independently
+  original_failure: UNPROVED_OWNERSHIP_OR_CLEANUP retained; no qualification
+  next: Mill postreview, Boole final hashes; minimal candidate/static regression only
+  native_retry: HOLD
+
+linux_capture08_activation:
+  status: READY_PENDING_DELIVERY
+  handoff: .orchestration/handoffs/PHASE-3-linux-capture-02.md
+  final07_manifest: a2a9b279a1bed77e204708d819647ea711785fc475546540d8c8b65eb67873d1
+  pm_check: 23 artifact sizes/hashes matched; independent recovery and candidate reviews read
+  candidate_sha256: e669d74fc1f683ad57cf3792860910f65198cbed3f6d0dee91232c36e36d082c
+  execution_limit: 1
+  original06: FAIL preserved; pressure NOT_RUN
+  actual_model: null
+
+linux_capture08_result_checkpoint:
+  status: FAIL_FIXED_HEADROOM_PRECONDITION
+  junit: 1FAIL/0error/0skip
+  headroom_bytes: 20561920
+  required_headroom_mib: 64..160
+  inner_source_pairs: 113
+  pm_check: All4 capture artifact hashes and inner113 raw/LF pairs matched; JUnit/source order read
+  increment_gate: NOT_REACHED
+  natural_exit: 1
+  oom: false
+  cleanup_confirmed: true
+  source_unchanged: true
+  review: Final owner/Mill packet pending
+  next_handoff: .orchestration/handoffs/PHASE-3-linux-headroom-reassessment-01.md
+  native_execution: HOLD
+  architect_requested_model: gpt-6-astra/medium
+  actual_model: null
+
+linux_capture08_final:
+  status: FINAL_EVIDENCE_MATCHED_QUALIFICATION_HOLD
+  manifest_sha256: c3ea85bc957e75446474e1be74121c1995cad102a49735743d81313bfd612cea
+  pm_check: All20 artifact bytes/hashes matched; independent HOLD review read
+  backend_authorized_execution: COMPLETE; BACKEND-OCR-001 not DONE
+  architect_execution: IN_PROGRESS observed turn01a0d976-37f1-7881-b4c2-55863690412a
+  cleanup_evidence: Child stop and exact-owned rm0 receipt; no post-removal query performed
+  next: Architect read-only reassessment; no new native execution or numeric tuning
+  actual_models: null
+
+linux_observer_refactor_activation:
+  status: READY_PENDING_DELIVERY
+  owner: '03'
+  architect_report_sha256: d1bcae118b01da38d9600ffd063df2340c537551eed85308aa245da35218c735
+  handoff: .orchestration/handoffs/PHASE-3-linux-observer-refactor-01.md
+  scope: Shared unchanged child_environment; observer imports/pre-gate diagnostics; new candidate; focused non-native checks and independent review
+  build_native: HOLD
+  actual_models: null
+
+observer_refactor09_write_blocker:
+  status: BLOCKED_SOURCE_WRITE
+  classification: Filesystem access denied; not model capability, product test failure, or automatic approval-review rejection
+  owner_evidence: .orchestration/reports/BACKEND-OCR-001-observer-environment-09.md
+  pm_readback: Helper absent; runner115cbbf2, containment9a47c334, teste72c2fb7 match prior raw identities
+  attempts: 1
+  runner_write: NOT_REACHED
+  dependent_checks: HOLD until real helper implementation exists
+  allowed_remaining: Own unapplied proposal/diff and static review; other successful edits preserved
+  prohibited: Retry/escalation/alternate writer/ACL bypass under current scope
+  actual_models: null

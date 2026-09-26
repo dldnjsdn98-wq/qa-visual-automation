@@ -1,15 +1,16 @@
 import hashlib
 import io
 import os
+from datetime import datetime, timezone
 from uuid import uuid4, UUID
 import pytest
-from sqlalchemy import create_engine, inspect, insert
+from sqlalchemy import create_engine, inspect, insert, select
 from sqlalchemy.exc import IntegrityError
 from alembic.autogenerate import compare_metadata
 from alembic.migration import MigrationContext
 from backend.app.config import get_settings
 from backend.app.db import Base
-from backend.app.models import Project, Build, Locale, Category, Situation, StringKey, StringEntry
+from backend.app.models import Project, Build, Locale, Category, Situation, Screenshot, StringKey, StringEntry
 from backend.app.storage.local import LocalStorage
 from backend.app.storage.base import ObjectExists, StorageError
 from backend.app.maintenance.reconcile_storage import reconcile
@@ -32,7 +33,107 @@ def test_fresh_migration_roundtrip_and_metadata():
         migrate(engine, "0001_bootstrap", downgrade=True)
         assert inspect(engine).get_table_names() == ["alembic_version"]
         migrate(engine)
-        assert len(inspect(engine).get_table_names()) == 10
+        assert set(inspect(engine).get_table_names()) == set(Base.metadata.tables) | {"alembic_version"}
+    finally:
+        engine.dispose()
+        with admin.connect() as connection:
+            connection.exec_driver_sql(f'DROP DATABASE "{name}" WITH (FORCE)')
+        admin.dispose()
+
+
+def test_0002_data_is_preserved_by_additive_0003_migration(tmp_path):
+    name = "qa_migration_preservation_" + uuid4().hex
+    url = get_settings().database_url
+    admin = create_engine(url.set(database="postgres"), isolation_level="AUTOCOMMIT")
+    with admin.connect() as connection:
+        connection.exec_driver_sql(f'CREATE DATABASE "{name}" ENCODING \'UTF8\' TEMPLATE template0')
+    engine = create_engine(url.set(database=name))
+    project_id, build_id, locale_id, category_id, situation_id, screenshot_id = (uuid4() for _ in range(6))
+    original = image_bytes()
+    storage = LocalStorage(tmp_path / "migration-originals")
+    storage_key = f"objects/{project_id}/{screenshot_id}.png"
+    storage.publish(storage.stage(io.BytesIO(original), len(original)), storage_key)
+    uploaded_at = datetime(2025, 7, 8, 9, 10, 11, 123456, tzinfo=timezone.utc)
+    capture_metadata = {
+        "device": "기기 😀",
+        "nested": {
+            "日本語": ["한글", {"combining": "e\u0301", "empty": "", "null": None}],
+        },
+    }
+
+    def screenshot_snapshot(connection):
+        return dict(connection.execute(
+            select(
+                Screenshot.id,
+                Screenshot.project_id,
+                Screenshot.build_id,
+                Screenshot.locale_id,
+                Screenshot.category_id,
+                Screenshot.situation_id,
+                Screenshot.source,
+                Screenshot.original_filename,
+                Screenshot.uploaded_at,
+                Screenshot.storage_key,
+                Screenshot.file_hash,
+                Screenshot.media_type,
+                Screenshot.size_bytes,
+                Screenshot.width,
+                Screenshot.height,
+                Screenshot.metadata_version,
+                Screenshot.capture_metadata.label("capture_metadata"),
+                Screenshot.client_upload_id,
+            ).where(Screenshot.id == screenshot_id)
+        ).mappings().one())
+
+    def stored_bytes():
+        stream, size = storage.open_read(storage_key)
+        with stream:
+            data = stream.read()
+        assert size == len(data)
+        return data
+
+    try:
+        migrate(engine, "0002_phase1_domain")
+        with engine.begin() as connection:
+            connection.execute(insert(Project).values(id=project_id, slug="legacy", name="Legacy"))
+            connection.execute(insert(Build).values(id=build_id, project_id=project_id, label="1.0"))
+            connection.execute(insert(Locale).values(id=locale_id, project_id=project_id, code="ko-KR", name="Korean"))
+            connection.execute(insert(Category).values(id=category_id, project_id=project_id, slug="legacy", name="Legacy"))
+            connection.execute(insert(Situation).values(id=situation_id, project_id=project_id, category_id=category_id, slug="legacy", name="Legacy"))
+            connection.execute(insert(Screenshot).values(
+                id=screenshot_id,
+                project_id=project_id,
+                build_id=build_id,
+                locale_id=locale_id,
+                category_id=category_id,
+                situation_id=situation_id,
+                source="manual",
+                original_filename="기존-e\u0301-😀.png",
+                uploaded_at=uploaded_at,
+                storage_key=storage_key,
+                file_hash=hashlib.sha256(original).hexdigest(),
+                media_type="image/png",
+                size_bytes=len(original),
+                width=12,
+                height=8,
+                metadata_version=1,
+                capture_metadata=capture_metadata,
+                client_upload_id=None,
+            ))
+        with engine.connect() as connection:
+            before = screenshot_snapshot(connection)
+        original_before = stored_bytes()
+        migrate(engine)
+        with engine.connect() as connection:
+            after = screenshot_snapshot(connection)
+            assert after == before
+            assert after["capture_metadata"] == capture_metadata
+            assert after["uploaded_at"] == uploaded_at
+            assert "upload_receipts" in inspect(connection).get_table_names()
+            assert connection.exec_driver_sql("SELECT count(*) FROM upload_receipts").scalar_one() == 0
+        assert stored_bytes() == original_before == original
+        with engine.connect() as connection:
+            assert compare_metadata(MigrationContext.configure(connection), Base.metadata) == []
     finally:
         engine.dispose()
         with admin.connect() as connection:

@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "C:\\Dev\\qa-visual-automation\\.pytest_cache\\agent-clean-win\\Scripts\\python.exe",
+    "-E",
+    "-B",
+    ".orchestration\\reports\\BACKEND-OCR-001-native-apply-linux-capture-03.py",
+    "host",
+    "--image-id",
+    "sha256:a1337c5556ab00f01dac45075f6bbf71ba9198c1b179a83d0210e5879a426d0a",
+    "--source-pins",
+    ".orchestration\\reports\\BACKEND-OCR-001-linux-source-pins-05.json",
+    "--pins-sha256",
+    "d92e20493eb42a3d4d2702b17c3d5559c17cad78e31b364387039e649146f2bc",
+    "--evidence",
+    ".orchestration\\reports\\BACKEND-OCR-001-native-apply-linux-evidence-03-06"
+  ],
+  "cwd": "C:\\Dev\\qa-visual-automation",
+  "started_utc": "2026-09-25T16:31:01.393911+00:00",
+  "attempts": 1,
+  "script_sha256": "d0a8e756cdd4cafc394d12a68e527632365aeaf43f6d9ca8cc063763db21d7fd",
+  "pins_sha256": "d92e20493eb42a3d4d2702b17c3d5559c17cad78e31b364387039e649146f2bc",
+  "python_optimize": 0,
+  "native_exit_not_yet_known": true
+}

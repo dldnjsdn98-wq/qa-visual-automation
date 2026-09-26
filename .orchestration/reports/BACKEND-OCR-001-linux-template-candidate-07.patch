@@ -1,0 +1,13 @@
+--- a/.orchestration/reports/BACKEND-OCR-001-native-apply-linux-capture-03.py
++++ b/.orchestration/reports/BACKEND-OCR-001-native-apply-linux-capture-03.py
+@@ -205,8 +205,8 @@
+                       status=".State.Status", exit=".State.ExitCode", oom=".State.OOMKilled",
+                       started=".State.StartedAt", finished=".State.FinishedAt",
+                       memory=".HostConfig.Memory", swap=".HostConfig.MemorySwap",
+-                      network=".HostConfig.NetworkMode", owner='index .Config.Labels "qa.visual.owner"',
+-                      nonce='index .Config.Labels "qa.visual.nonce"')
++                      network=".HostConfig.NetworkMode", owner='(index .Config.Labels "qa.visual.owner")',
++                      nonce='(index .Config.Labels "qa.visual.nonce")')
+         template = "{" + ",".join(json.dumps(k) + ":{{json " + v + "}}" for k, v in fields.items()) + "}"
+         facts = json.loads(command(["docker", "container", "inspect", "--format", template, owned_id]))
+         require((facts["id"], facts["name"], facts["owner"], facts["nonce"])

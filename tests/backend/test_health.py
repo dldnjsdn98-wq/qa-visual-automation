@@ -20,7 +20,12 @@ def test_readiness_returns_unavailable_without_exposing_db_error(monkeypatch):
     assert response.json() == {"detail": "Database unavailable"}
 
 
-def test_openapi_contains_operations_and_phase1_routes():
+def test_openapi_contains_operations_and_current_routes():
     paths = client.get("/openapi.json").json()["paths"]
-    assert {"/health", "/ready", "/api/v1/projects"} <= set(paths)
-    assert not any("ocr" in path or "automation" in path for path in paths)
+    assert {
+        "/health",
+        "/ready",
+        "/api/v1/projects",
+        "/api/v1/projects/{project_id}/screenshots/{screenshot_id}/verification-runs",
+        "/api/v1/projects/{project_id}/ocr-profiles",
+    } <= set(paths)

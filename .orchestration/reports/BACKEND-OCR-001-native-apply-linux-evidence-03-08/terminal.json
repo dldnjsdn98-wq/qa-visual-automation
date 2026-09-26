@@ -1,0 +1,16 @@
+{
+  "exit": 1,
+  "finished": "2026-09-25T16:44:17.058705515Z",
+  "id": "e09a6dde9cdf0ea91be9c3b2ea00abe646f96c77ba2aaec3deeca9f328f296a6",
+  "image": "sha256:a1337c5556ab00f01dac45075f6bbf71ba9198c1b179a83d0210e5879a426d0a",
+  "memory": 536870912,
+  "name": "/qa-l1-9174a321142f4951852a2fe026e02a32",
+  "network": "none",
+  "nonce": "9174a321142f4951852a2fe026e02a32",
+  "oom": false,
+  "owner": "BACKEND-OCR-001-L1-capture-03",
+  "running": false,
+  "started": "2026-09-25T16:44:14.90386089Z",
+  "status": "exited",
+  "swap": 536870912
+}

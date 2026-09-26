@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "kind": "BACKEND-OCR-001-linux-residual-artifacts-07",
+  "actual_model": "UNVERIFIED",
+  "evidence_directory": ".orchestration/reports/BACKEND-OCR-001-linux-residual-evidence-07",
+  "artifact_count": 11,
+  "artifacts": [
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-residual-evidence-07/inspect-after-command.json",
+      "bytes": 448,
+      "sha256": "d0268d5a53d8f5c868d670ace74b86e3501357dd69d7d91eebce6d46bd8f2f52"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-residual-evidence-07/inspect-after-stderr.log",
+      "bytes": 112,
+      "sha256": "8c21e65650f8ee5fa1f92ae417512435a22c9f7a4da29a1f57f8fdd6b8c044fd"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-residual-evidence-07/inspect-after-stdout.log",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-residual-evidence-07/inspect-before-command.json",
+      "bytes": 1596,
+      "sha256": "792d46b878dc0af782a385997b02510f90c0460ab01383ebc587e28fe83f1093"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-residual-evidence-07/inspect-before-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-residual-evidence-07/inspect-before-stdout.log",
+      "bytes": 580,
+      "sha256": "c6ae8e56858a98f42d4bbb0270a7f18cc559f691468efb3f6884593c15a6ab63"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-residual-evidence-07/remove-command.json",
+      "bytes": 339,
+      "sha256": "d3e3a26f8f1b3195098b5f49ae521fdf754bf4c40cd151ce6949d26c668e4eaf"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-residual-evidence-07/remove-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-residual-evidence-07/remove-stdout.log",
+      "bytes": 65,
+      "sha256": "3aaab575bb7f23ca11c5e707bf0847fef23552716505e19ec54b966ac4356c9a"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-residual-evidence-07/result.json",
+      "bytes": 3060,
+      "sha256": "47522de102a140b7ca2d6263f87406d9d1499a7586e1c715f75a8ca37489d177"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-residual-evidence-07/validated-before-removal.json",
+      "bytes": 645,
+      "sha256": "405b31d7d2763a204a748d6d8d6bad5682655ddf0f632ada7241fe3ea20595c4"
+    }
+  ],
+  "checks": {
+    "validated_facts_match_inspect_log": true,
+    "command_records_match_result": true,
+    "commands_target_exact_id": true,
+    "plain_rm_once": true,
+    "absence_stderr_exact": true,
+    "remove_stdout_exact": true,
+    "embedded_streams": [
+      {
+        "label": "inspect-before",
+        "stdout_matches_raw_log": true,
+        "stderr_matches_raw_log": true
+      },
+      {
+        "label": "remove",
+        "stdout_matches_raw_log": true,
+        "stderr_matches_raw_log": true
+      },
+      {
+        "label": "inspect-after",
+        "stdout_matches_raw_log": true,
+        "stderr_matches_raw_log": true
+      }
+    ]
+  },
+  "outcome": {
+    "status": "EXACT_RESIDUAL_REMOVED_ABSENCE_CONFIRMED",
+    "removed": true,
+    "absence_confirmed": true,
+    "target": "affc94c2fe2468fd867c1e80be5878836a9b70868e68f2bff4f54d9c84988e8a",
+    "validated_before_removal": {
+      "id": "affc94c2fe2468fd867c1e80be5878836a9b70868e68f2bff4f54d9c84988e8a",
+      "name": "/qa-l1-3e363b492d1347efbbae6d4de1541353",
+      "owner": "BACKEND-OCR-001-L1-capture-03",
+      "nonce": "3e363b492d1347efbbae6d4de1541353",
+      "requested_image": "sha256:a1337c5556ab00f01dac45075f6bbf71ba9198c1b179a83d0210e5879a426d0a",
+      "image_config": "sha256:a1337c5556ab00f01dac45075f6bbf71ba9198c1b179a83d0210e5879a426d0a",
+      "running": false,
+      "status": "created",
+      "started": "0001-01-01T00:00:00Z",
+      "finished": "0001-01-01T00:00:00Z",
+      "exit": 0,
+      "oom": false,
+      "memory": 536870912,
+      "swap": 536870912,
+      "network": "none",
+      "read_only": true
+    },
+    "recorded_commands": [
+      {
+        "label": "inspect-before",
+        "argv": [
+          "docker",
+          "container",
+          "inspect",
+          "--format",
+          "{\"id\":{{json .Id}},\"name\":{{json .Name}},\"owner\":{{json (index .Config.Labels \"qa.visual.owner\")}},\"nonce\":{{json (index .Config.Labels \"qa.visual.nonce\")}},\"requested_image\":{{json .Config.Image}},\"image_config\":{{json .Image}},\"running\":{{json .State.Running}},\"status\":{{json .State.Status}},\"started\":{{json .State.StartedAt}},\"finished\":{{json .State.FinishedAt}},\"exit\":{{json .State.ExitCode}},\"oom\":{{json .State.OOMKilled}},\"memory\":{{json .HostConfig.Memory}},\"swap\":{{json .HostConfig.MemorySwap}},\"network\":{{json .HostConfig.NetworkMode}},\"read_only\":{{json .HostConfig.ReadonlyRootfs}}}",
+          "affc94c2fe2468fd867c1e80be5878836a9b70868e68f2bff4f54d9c84988e8a"
+        ],
+        "exit_code": 0,
+        "started_ns": 56698218000000,
+        "ended_ns": 56698375000000
+      },
+      {
+        "label": "remove",
+        "argv": [
+          "docker",
+          "rm",
+          "affc94c2fe2468fd867c1e80be5878836a9b70868e68f2bff4f54d9c84988e8a"
+        ],
+        "exit_code": 0,
+        "started_ns": 56698375000000,
+        "ended_ns": 56698546000000
+      },
+      {
+        "label": "inspect-after",
+        "argv": [
+          "docker",
+          "container",
+          "inspect",
+          "--format",
+          "{{.Id}}",
+          "affc94c2fe2468fd867c1e80be5878836a9b70868e68f2bff4f54d9c84988e8a"
+        ],
+        "exit_code": 1,
+        "started_ns": 56698546000000,
+        "ended_ns": 56698703000000
+      }
+    ],
+    "parent_reported_recovery_exit_code": 0,
+    "exit_code_provenance": "Parent completion notice; result.json has no overall exit_code field",
+    "review_sha256_recorded": "9d3ef2cf501c8d505d3f1abc8cd27df4026c12c7bf91b1951740c604da1c2b17",
+    "original_manifest_unchanged_recorded": true
+  },
+  "limits": {
+    "scope": "Stable07 top-level files only; no live state query or original06 rehash",
+    "recovery_separate_from_capture": true,
+    "retroactive_06_pass": false,
+    "native_qualification": "NOT_INFERRED",
+    "raw_evidence_modified": false
+  }
+}

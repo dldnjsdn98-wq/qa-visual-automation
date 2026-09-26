@@ -1,0 +1,243 @@
+diff --git a/tests/backend/test_ocr_containment.py b/tests/backend/test_ocr_containment.py
+--- a/tests/backend/test_ocr_containment.py
++++ b/tests/backend/test_ocr_containment.py
+@@ -167,1 +167,234 @@
++_L1_BASELINE = 320 * 1024 * 1024
++_L1_INCREMENT = 224 * 1024 * 1024
++_L1_CAP = 512 * 1024 * 1024
++
++
++_L1_CHILD = r'''
++import json, os, select, sys
++baseline, increment, nonce = int(sys.argv[1]), int(sys.argv[2]), sys.argv[3]
++os.set_blocking(1, False)
++def send(kind, **facts):
++    data = (json.dumps(dict(kind=kind, pid=os.getpid(), nonce=nonce, **facts)) + "\n").encode()
++    if len(data) > 1024 or os.write(1, data) != len(data):
++        raise RuntimeError("short diagnostic write")
++def gate():
++    if not select.select([0], [], [], 10)[0] or os.read(0, 1) != b"G":
++        raise RuntimeError("pressure gate missing")
++held = bytearray(baseline)
++for offset in range(0, baseline, 4096):
++    held[offset] = 1
++send("ready", touched=baseline, increment=increment)
++gate()
++send("attempt", requested=increment)
++extra = None
++try:
++    extra = bytearray(increment)
++    for offset in range(0, increment, 4096):
++        extra[offset] = 1
++except MemoryError:
++    send("denied", requested=increment, error="MemoryError")
++else:
++    extra = None
++    send("completed", requested=increment)
++# Bound even the post-result wait; observer cleanup is the sole stop operation.
++select.select([0], [], [], 10)
++'''
++
++
++def _l1_oracle(elapsed_ns, attempted, identity, cleaned, outcome, exit_code, delta):
++    """Pure evidence oracle; no elapsed-time subtraction or max-only PASS."""
++    if not cleaned:
++        return "FAIL_CLEANUP"
++    if not identity:
++        return "FAIL_IDENTITY"
++    if not attempted:
++        return "UNPROVED_ATTEMPT"
++    if elapsed_ns is None or elapsed_ns < 0 or elapsed_ns >= 250_000_000:
++        return "UNPROVED_TIMING"
++    if outcome == "exit" and exit_code == -9 and delta.get("oom_kill", 0) > 0:
++        return "PASS_KILLED_ATTEMPT"
++    if outcome == "denied" and delta.get("oom", 0) > 0:
++        return "PASS_DENIED_ATTEMPT"
++    return "UNPROVED_CAUSE"
++
++
++@pytest.mark.parametrize("overrides,expected", [
++    ({}, "PASS_KILLED_ATTEMPT"),
++    ({"outcome": "denied", "exit_code": None, "delta": {"oom": 1}}, "PASS_DENIED_ATTEMPT"),
++    ({"elapsed_ns": 250_000_000}, "UNPROVED_TIMING"),
++    ({"elapsed_ns": None}, "UNPROVED_TIMING"),
++    ({"elapsed_ns": -1}, "UNPROVED_TIMING"),
++    ({"attempted": False}, "UNPROVED_ATTEMPT"),
++    ({"identity": False}, "FAIL_IDENTITY"),
++    ({"cleaned": False}, "FAIL_CLEANUP"),
++    ({"delta": {"max": 1}}, "UNPROVED_CAUSE"),
++    ({"exit_code": 0}, "UNPROVED_CAUSE"),
++    ({"outcome": "completed"}, "UNPROVED_CAUSE"),
++    ({"outcome": "denied", "delta": {}}, "UNPROVED_CAUSE"),
++])
++def test_l1_shortpeak_oracle(overrides, expected):
++    facts = dict(elapsed_ns=249_999_999, attempted=True, identity=True,
++                 cleaned=True, outcome="exit", exit_code=-9, delta={"oom_kill": 1})
++    facts.update(overrides)
++    assert _l1_oracle(**facts) == expected
++
++
++def _l1_events():
++    return {key: int(value) for key, value in (
++        line.split() for line in Path("/sys/fs/cgroup/memory.events").read_text().splitlines()
++    )}
++
++
++def _l1_identity(pid):
++    # Read only the direct owned PID (or self); poll() retains the child PID.
++    fields = Path(f"/proc/{pid}/stat").read_text().rsplit(")", 1)[1].split()
++    return dict(pid=pid, start_ticks=int(fields[19]),
++                ppid=int(fields[1]), pgrp=int(fields[2]))
++
++
++def _l1_members():
++    return set(map(int, Path("/sys/fs/cgroup/cgroup.procs").read_text().split()))
++
++
++def _l1_shortpeak(tmp_path, record_property):
++    import select
++    from uuid import uuid4
++
++    assert _native_limit() == _L1_CAP, "L1 has a fixed 512MiB cap; no scaling/tuning"
++    assert os.getpid() == 1, "observer must be PID1 in a fresh dedicated disposable container"
++    assert _l1_members() == {os.getpid()}, "unrelated cgroup participants"
++    pre = _l1_events()
++    assert all(pre[k] == 0 for k in ("max", "oom", "oom_kill", "oom_group_kill"))
++    assert Path("/sys/fs/cgroup/memory.max").read_text().strip() == str(_L1_CAP)
++    assert Path("/sys/fs/cgroup/memory.swap.max").read_text().strip() == "0"
++    nonce = uuid4().hex
++    # One helper launch, unchanged explicit isolated environment, no DB/model.
++    handle, _ = _launch(_L1_CHILD, tmp_path, _L1_BASELINE, _L1_INCREMENT, nonce)
++    facts = dict(observer_pid=os.getpid(), child_pid=handle.pid,
++                 baseline_bytes=_L1_BASELINE, increment_bytes=_L1_INCREMENT,
++                 memory_limit_bytes=_L1_CAP, events_before_setup=pre,
++                 receiver="synchronous nonblocking pipe; no receiver thread")
++    messages = []
++    pending = bytearray()
++    attempted = False
++    outcome = None
++    exit_code = None
++    elapsed_ns = None
++    identity_valid = False
++    delta = {}
++    terminal_at = None
++    try:
++        os.set_blocking(handle.stdout.fileno(), False)
++        os.set_blocking(handle.stdin.fileno(), False)
++
++        def receive():
++            # Total protocol is <=3 lines; fail closed on partial/oversized input.
++            try:
++                chunk = os.read(handle.stdout.fileno(), 4096)
++            except BlockingIOError:
++                return []
++            pending.extend(chunk)
++            if len(pending) > 3072:
++                raise AssertionError("oversized L1 protocol")
++            result = []
++            while b"\n" in pending:
++                line, _, rest = pending.partition(b"\n")
++                pending[:] = rest
++                row = json.loads(line)
++                assert row.get("pid") == handle.pid and row.get("nonce") == nonce
++                result.append(row)
++            messages.extend(result)
++            assert len(messages) <= 3, "unexpected L1 protocol repetition"
++            return result
++
++        ready_deadline = time.monotonic() + 10
++        while not messages and time.monotonic() < ready_deadline:
++            select.select([handle.stdout], [], [], min(0.01, max(0, ready_deadline - time.monotonic())))
++            receive()
++            assert handle.poll() is None, "target exited before baseline readiness"
++        assert len(messages) == 1 and messages[0]["kind"] == "ready"
++        assert messages[0]["touched"] == _L1_BASELINE
++        assert messages[0]["increment"] == _L1_INCREMENT
++        owned = _l1_identity(handle.pid)
++        assert owned["ppid"] == os.getpid() and owned["pgrp"] == handle.pid
++        assert _l1_members() == {os.getpid(), handle.pid}
++        membership = Path(f"/proc/{handle.pid}/cgroup").read_text()
++        assert membership == Path("/proc/self/cgroup").read_text()
++        status = Path(f"/proc/{handle.pid}/status").read_text().splitlines()
++        anon_bytes = int(next(row.split()[1] for row in status if row.startswith("RssAnon:"))) * 1024
++        assert anon_bytes >= _L1_BASELINE, "baseline must be touched anonymous resident memory"
++        current = int(Path("/sys/fs/cgroup/memory.current").read_text())
++        headroom = _L1_CAP - current
++        assert 64 * 1024 * 1024 <= headroom <= 160 * 1024 * 1024, "fixed headroom precondition"
++        before_gate = _l1_events()
++        assert before_gate == pre, "setup events invalidate pressure attribution"
++        assert _l1_identity(handle.pid) == owned
++        assert handle.poll() is None
++        identity_valid = True
++        facts.update(identity=owned, cgroup_membership=membership,
++                     cgroup_inode=Path("/sys/fs/cgroup").stat().st_ino,
++                     baseline_rss_anon_bytes=anon_bytes, memory_current_before_gate=current,
++                     headroom_before_gate=headroom, events_before_gate=before_gate)
++        # Both endpoints use THIS surviving observer's monotonic_ns clock.
++        t0 = time.monotonic_ns()
++        assert os.write(handle.stdin.fileno(), b"G") == 1
++        terminal_deadline = time.monotonic() + 2
++        while time.monotonic() < terminal_deadline:
++            rows = receive()
++            for row in rows:
++                kind = row["kind"]
++                assert row.get("requested") == _L1_INCREMENT
++                if kind == "attempt":
++                    assert not attempted and outcome is None
++                    attempted = True
++                else:
++                    assert attempted and outcome is None and kind in {"denied", "completed"}
++                    if kind == "denied":
++                        assert row.get("error") == "MemoryError"
++                    outcome = kind
++                    terminal_at = time.monotonic_ns()
++            if outcome is not None:
++                identity_valid = _l1_identity(handle.pid) == owned
++                break
++            exit_code = handle.poll()  # WNOWAIT: same retained direct process, no PID reopen.
++            if exit_code is not None:
++                terminal_at = time.monotonic_ns()
++                outcome = "exit"
++                identity_valid = True
++                # Child could die between read and poll; recover queued attempt
++                # bytes without changing the earlier conservative exit endpoint.
++                for row in receive():
++                    assert row["kind"] == "attempt" and not attempted
++                    assert row.get("requested") == _L1_INCREMENT
++                    attempted = True
++                break
++            select.select([handle.stdout], [], [], 0.001)
++        if terminal_at is not None:
++            elapsed_ns = terminal_at - t0
++        after = _l1_events()
++        delta = {key: after[key] - value for key, value in before_gate.items()}
++        assert all(value >= 0 for value in delta.values()), "cgroup event counters reset"
++        assert _l1_members() <= {os.getpid(), handle.pid}, "unexpected pressure participant"
++        assert Path("/sys/fs/cgroup/memory.max").read_text().strip() == str(_L1_CAP)
++        assert Path("/sys/fs/cgroup/memory.swap.max").read_text().strip() == "0"
++        assert not pending, "truncated L1 protocol"
++        facts.update(t0_ns=t0, t1_ns=terminal_at, elapsed_upper_ns=elapsed_ns,
++                     attempted=attempted, outcome=outcome, exit_code=exit_code,
++                     events_after=after, events_delta=delta, identity_valid=identity_valid)
++    finally:
++        facts["messages"] = messages
++        try:
++            record_property("l1_evidence", json.dumps(facts, sort_keys=True))
++        finally:
++            # One existing bounded owned-tree stop; no retry or new observer thread.
++            _finish(handle, record_property)
++    verdict = _l1_oracle(elapsed_ns, attempted, identity_valid, True, outcome, exit_code, delta)
++    record_property("l1_verdict", verdict)
++    record_property("evidence_scope", "fixed short attempted allocation; not completed over-limit RSS or production qualification")
++    if verdict.startswith("FAIL"):
++        pytest.fail(verdict)
++    if not verdict.startswith("PASS"):
++        pytest.skip(verdict + "; no unchanged retry")
++
++
+ _PRESSURE_CHILD = r'''
+@@ -245,1 +478,4 @@
++    if mode == "shortpeak":
++        return _l1_shortpeak(tmp_path, record_property)
++
+     marker = tmp_path / "pressure.json"

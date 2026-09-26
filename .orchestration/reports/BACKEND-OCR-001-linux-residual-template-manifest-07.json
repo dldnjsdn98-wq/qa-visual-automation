@@ -1,0 +1,132 @@
+{
+  "status": "RESIDUAL_REMOVED_CANDIDATE_STATIC_PASS_NATIVE_HOLD",
+  "artifacts": [
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-residual-template-07.md",
+      "bytes": 6338,
+      "sha256": "c361ea5db2a7846347c0fc360a2302c10cd132eb21d599c5c429d765da544c14"
+    },
+    {
+      "path": ".orchestration/handoffs/BACKEND-OCR-001-linux-residual-template-07.md",
+      "bytes": 2683,
+      "sha256": "5f75cadc2d418bd6803babcfbfbbbe78cd957ac0ce11670e582a163b69cb0f5f"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-residual-cleanup-07.py",
+      "bytes": 5541,
+      "sha256": "ae059f5dab376b099e9dd422421176847e3c4c82032f2975069a9a3f3382f72e"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-residual-cleanup-review-07.md",
+      "bytes": 4879,
+      "sha256": "9d3ef2cf501c8d505d3f1abc8cd27df4026c12c7bf91b1951740c604da1c2b17"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-residual-parent-audit-07.json",
+      "bytes": 861,
+      "sha256": "1570547039ad710070f11f607e554b33cb5fdfb6adc5227b5682e5f1ff108b6c"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-template-candidate-07.py",
+      "bytes": 16819,
+      "sha256": "e669d74fc1f683ad57cf3792860910f65198cbed3f6d0dee91232c36e36d082c"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-template-candidate-07.patch",
+      "bytes": 1083,
+      "sha256": "91b45f31aaad4efb8fbb9032d76623ad8cae422f0d57701055e7678986ce9802"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-template-static-07.json",
+      "bytes": 1520,
+      "sha256": "fd860c3b5936fa9aebc66e5e8f48a70453b262d9839655b06af0896f4e8a450b"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-residual-outcome-review-07.md",
+      "bytes": 5473,
+      "sha256": "b3d5ac7771fa23ac0f7ee87c36b5a255c20df46441a320b696f77c2899421d3a"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-template-candidate-review-07.md",
+      "bytes": 4462,
+      "sha256": "622cab6b7d1c70523987749397d86a2d4fdd907fde23d1b280862c8a7baeb7e1"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-residual-artifacts-07.json",
+      "bytes": 6529,
+      "sha256": "b4b2bbbb847ebe3a6f230691c2a8507233c56a15bb5dfe1e986bc7e536b2ac14"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-residual-artifact-audit-07.md",
+      "bytes": 2459,
+      "sha256": "ce47eafe817605d040f49b7da98f1cefa2d5f6cbf376810824e9d46cf11e48b1"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-residual-evidence-07/inspect-after-command.json",
+      "bytes": 448,
+      "sha256": "d0268d5a53d8f5c868d670ace74b86e3501357dd69d7d91eebce6d46bd8f2f52"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-residual-evidence-07/inspect-after-stderr.log",
+      "bytes": 112,
+      "sha256": "8c21e65650f8ee5fa1f92ae417512435a22c9f7a4da29a1f57f8fdd6b8c044fd"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-residual-evidence-07/inspect-after-stdout.log",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-residual-evidence-07/inspect-before-command.json",
+      "bytes": 1596,
+      "sha256": "792d46b878dc0af782a385997b02510f90c0460ab01383ebc587e28fe83f1093"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-residual-evidence-07/inspect-before-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-residual-evidence-07/inspect-before-stdout.log",
+      "bytes": 580,
+      "sha256": "c6ae8e56858a98f42d4bbb0270a7f18cc559f691468efb3f6884593c15a6ab63"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-residual-evidence-07/remove-command.json",
+      "bytes": 339,
+      "sha256": "d3e3a26f8f1b3195098b5f49ae521fdf754bf4c40cd151ce6949d26c668e4eaf"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-residual-evidence-07/remove-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-residual-evidence-07/remove-stdout.log",
+      "bytes": 65,
+      "sha256": "3aaab575bb7f23ca11c5e707bf0847fef23552716505e19ec54b966ac4356c9a"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-residual-evidence-07/result.json",
+      "bytes": 3060,
+      "sha256": "47522de102a140b7ca2d6263f87406d9d1499a7586e1c715f75a8ca37489d177"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-residual-evidence-07/validated-before-removal.json",
+      "bytes": 645,
+      "sha256": "405b31d7d2763a204a748d6d8d6bad5682655ddf0f632ada7241fe3ea20595c4"
+    }
+  ],
+  "recovery_command_count": 3,
+  "ordinary_remove_count": 1,
+  "recovery_tool_exit": 0,
+  "original06_manifest_sha256": "cd519e114459fe5ee07967b9a536fd8ae4660a6514762f183df61e4008381eb5",
+  "original06_status_preserved": "UNPROVED_OWNERSHIP_OR_CLEANUP",
+  "candidate_sha256": "e669d74fc1f683ad57cf3792860910f65198cbed3f6d0dee91232c36e36d082c",
+  "candidate_execution": "NOT_RUN",
+  "image_internal_equality": "NOT_RUN",
+  "pressure_test": "NOT_RUN",
+  "actual_models": "unverified",
+  "windows_same_cause": 3,
+  "historical_cleanup": 2
+}

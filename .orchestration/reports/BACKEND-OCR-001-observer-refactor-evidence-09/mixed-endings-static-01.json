@@ -1,0 +1,26 @@
+{
+  "scope": "byte exact prospective extraction only",
+  "runner_before": {
+    "sha256": "115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82",
+    "crlf": 320,
+    "lone_lf": 58,
+    "bytes": 18199
+  },
+  "runner_proposed": {
+    "sha256": "b2fed1ebec25069821e3ddcd3f7c7368375dbf810575c232dad005b55a4fd314",
+    "crlf": 308,
+    "lone_lf": 58,
+    "bytes": 17542
+  },
+  "helper_proposed": {
+    "sha256": "4329d761e0885c40635abe4eba7c1f99114b7dd5ccfc6bb2a52492cad4d757eb",
+    "crlf": 14,
+    "lone_lf": 0,
+    "bytes": 741
+  },
+  "retained_runner_bytes_exact": true,
+  "exact_function_bytes_moved": true,
+  "on_disk_product_not_changed": true,
+  "no_newhelper_product": true,
+  "source_normalization": "NONE; own unifieddiff is textual, raw proposal hashes authoritative"
+}

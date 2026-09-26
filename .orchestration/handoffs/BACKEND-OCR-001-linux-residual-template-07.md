@@ -1,0 +1,13 @@
+# Handoff
+- Task / owner: BACKEND-OCR-001 / P3-RUNTIME-001, Backend03.
+- Status / activation evidence: separate EXACT_RESIDUAL_REMOVED_ABSENCE_CONFIRMED and PASS_STATIC_CANDIDATE under PHASE-3-linux-residual-cleanup-01.md. Original06 failed status remains immutable.
+- Changed files: own07 recovery script/rawlogs/records, prereview/outcome review, packaging, parent audit, unapplied two-expression candidate/patch/static evidence/review and final report/handoff/manifest. No original capture/product/pins/image edit.
+- Contract changes: none. Group owner/nonce label index expressions only; resource/timing/source/image/cleanup predicates unchanged.
+- Branch / commit: null / null.
+- Commands and PASS / FAIL / NOT_RUN: actual recovery tool exit0; exact initial inspect0 proves never-started created owned target, one plain rm0/fullID, one exact after-inspect1 gives No such container/fullID with newline-only stdout (strip-empty). Independent scoped recovery PASS. No container start/stop/kill, native pressure or image-internal raw/LF verification; no pytest rerun. Candidate AST/static two-change/argument-grouping checks PASS; candidate NOT_EXECUTED.
+- Exact residual: affc94c2fe2468fd867c1e80be5878836a9b70868e68f2bff4f54d9c84988e8a removed/absence confirmed by separate07. Parent and reviewer rehashed original06 manifestcd519e114459fe5ee07967b9a536fd8ae4660a6514762f183df61e4008381eb5 unchanged.
+- Candidate: linux-template-candidate-07.py SHAe669d74fc1f683ad57cf3792860910f65198cbed3f6d0dee91232c36e36d082c; patch91b45f31aaad4efb8fbb9032d76623ad8cae422f0d57701055e7678986ce9802; originald0a8 unchanged. Static evidencefd860c3b5936fa9aebc66e5e8f48a70453b262d9839655b06af0896f4e8a450b; no runtime/Go-interpreter test claim.
+- Review requested / result: Mill scoped outcome PASSb3d5ac7771fa23ac0f7ee87c36b5a255c20df46441a320b696f77c2899421d3a; candidate static PASS622cab6b7d1c70523987749397d86a2d4fdd907fde23d1b280862c8a7baeb7e1. Boole11-artifact hashesb4b2bbbb847ebe3a6f230691c2a8507233c56a15bb5dfe1e986bc7e536b2ac14. Requested Sol/high and Terra/high reused; actual model unverified.
+- Acceptance IDs and evidence: paired linux-residual-template-07.md and final linux-residual-template-manifest-07.json. Windows3/historicalcleanup2,04/08/allP3AC/admission unchanged.
+- Blockers / risks: original pressure/native and image-internal equality still NOT_RUN; template candidate is prepared only. Saved inspected .Config.Image/.Image were botha133, retained separately; no inferred identity mismatch or image content claim.
+- Next owner / next action: PM evaluates final frozen packet and any separate future exact candidate activation. No automatic retry or new Docker command.

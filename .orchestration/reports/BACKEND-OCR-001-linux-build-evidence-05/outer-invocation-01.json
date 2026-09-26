@@ -1,0 +1,15 @@
+{
+  "source": "transcribed exec tool request/result session82107; launch chunk45f36b, completion chunkef6a5d",
+  "command": "& .pytest_cache\\agent-clean-win\\Scripts\\python.exe -E -B .orchestration/reports/BACKEND-OCR-001-linux-build-capture-05.py --pins-sha256 d92e20493eb42a3d4d2702b17c3d5559c17cad78e31b364387039e649146f2bc --review-sha256 d009d91ca5c33f55122825b15b86706698a4e575142f7253841583383592e566",
+  "cwd": "C:\\Dev\\qa-visual-automation",
+  "sandbox_permissions": "require_escalated",
+  "requests": 1,
+  "actual_exit_code": 0,
+  "actual_result": {
+    "status": "BUILD_AND_METADATA_PASS",
+    "build_attempts": 1,
+    "source_unchanged": true,
+    "image_id": "sha256:a1337c5556ab00f01dac45075f6bbf71ba9198c1b179a83d0210e5879a426d0a"
+  },
+  "approval_vs_execution": "PM conditional authorization and ordinary tool approval preceded actual captured exit0; success checked against actual files, not inferred from approval"
+}

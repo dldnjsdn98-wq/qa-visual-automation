@@ -1,10 +1,13 @@
 """Export the running application's contract; no database connection required."""
 import json
 import re
+import sys
 from pathlib import Path
-from backend.app.main import app
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT))
+
+from backend.app.main import app  # noqa: E402 - repository root must precede an installed stale wheel.
 
 
 def main():

@@ -5,11 +5,11 @@ from backend.app.repositories.strings import key_by_string_id
 from backend.app.errors import database_error, DomainError
 
 
-def validate_references(session, project_id, values, field_prefix="body"):
-    repo.project(session, project_id)
+def validate_references(session, project_id, values, field_prefix="body", lock=False):
+    repo.project(session, project_id, key_share=lock)
     for field, model in (("build_id", Build), ("locale_id", Locale), ("category_id", Category), ("situation_id", Situation)):
         if values.get(field) is not None:
-            row = repo.get(session, model, values[field], project_id)
+            row = repo.get(session, model, values[field], project_id, key_share=lock)
             if field == "situation_id" and values.get("category_id") is not None and row.category_id != values["category_id"]:
                 raise DomainError(code="RELATIONSHIP_MISMATCH", field=f"{field_prefix}.situation_id", reason="situation does not belong to category")
 

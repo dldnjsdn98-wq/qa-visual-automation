@@ -1,0 +1,93 @@
+{
+  "status": "EXACT_SOURCE_APPLIED_PURE12_PASS_NATIVE_HOLD",
+  "artifacts": [
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-approved-application-04.md",
+      "bytes": 4824,
+      "sha256": "2f6573a9ee13fb88609437b1e49a1f01221e49806c41f9f99c2fa4441da01e04"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-approved-application-review-04.md",
+      "bytes": 4522,
+      "sha256": "bdf3063b32fcb55b5c2d4c94ff95e1500cfe165e4ffe4b33d3246c4693b1dcd3"
+    },
+    {
+      "path": ".orchestration/handoffs/BACKEND-OCR-001-approved-application-04.md",
+      "bytes": 2214,
+      "sha256": "eaa55a6b85edcc06780d649e0255b1628c3c21a2bd461b3fbed685117b960d3b"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-approved-application-evidence-04/application-01.json",
+      "bytes": 1435,
+      "sha256": "5741c7820ea5c928f197e8bf56f339d72f135a72730385d8da12f6b0d47bf056"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-approved-application-evidence-04/final-validation-01.json",
+      "bytes": 475,
+      "sha256": "4f40d780e1e5fb0c3b1445d7eac9ef435f98f7cb76a037d97ab09a96204b8505"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-approved-application-evidence-04/fixture-inspection-01.json",
+      "bytes": 418,
+      "sha256": "4366fe83df1a2c88c866f56a4f8413275efbf0a19e293f1b827864fe159c4789"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-approved-application-evidence-04/pure12-junit.xml",
+      "bytes": 1829,
+      "sha256": "ee5e941b5d3ece8c12321e5b4b612e227fd9c94a40a4384a8c5419d6d5349cc6"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-approved-application-evidence-04/pure12-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-approved-application-evidence-04/pure12-stdout.log",
+      "bytes": 628,
+      "sha256": "0c9d06633ca4477d4a34f9604e3b9bbe274a51e89da33ca1eceb049670b99be3"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-approved-application-evidence-04/test-command-01.json",
+      "bytes": 668,
+      "sha256": "e2118f1039538981839f339597de1b9602f6a1ded1f72a5e8453889cdeaa58d4"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-approved-application-evidence-04/test-result-01.json",
+      "bytes": 108,
+      "sha256": "2d0e498f0723fc53de72901b972ce62fc8c61ec3f4ee5a42dc74f8a45f80fef2"
+    }
+  ],
+  "actual_sources": [
+    {
+      "path": "backend/app/workers/ocr_containment.py",
+      "bytes": 42692,
+      "raw_sha256": "9a47c3348980b4f5d25afafce5407ed067cd974caff2b60b87d2dc5f8228dbd9",
+      "canonical_lf_sha256": "6129ff42c0789df51c105068cbda48d0b299885f53c491e7d3a777315661467c",
+      "expected_lf_sha256": "6129ff42c0789df51c105068cbda48d0b299885f53c491e7d3a777315661467c",
+      "matched": true
+    },
+    {
+      "path": "tests/backend/test_ocr_containment.py",
+      "bytes": 29181,
+      "raw_sha256": "e72c2fb79a9bc3b0c0e08f155b5c78f16173d8e02ecc9f8349f2ecab3674af45",
+      "canonical_lf_sha256": "52349c96c31b6c373d8d8c99471b21df64ea5dea4a0a77f52539a884492e0f02",
+      "expected_lf_sha256": "52349c96c31b6c373d8d8c99471b21df64ea5dea4a0a77f52539a884492e0f02",
+      "matched": true
+    }
+  ],
+  "independent_review": "PASS",
+  "pure_tests": {
+    "passed": 12,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "warnings": 1
+  },
+  "native": "NOT_RUN",
+  "additional_hook": "NOT_APPLIED",
+  "counts": {
+    "windows_same_cause": 3,
+    "separate_cleanup": 2
+  },
+  "prior03": "immutable; earlier failure retained"
+}

@@ -1,0 +1,14 @@
+{
+  "lane": "windows",
+  "source": "backend/app/workers/ocr_containment.py",
+  "source_sha256": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+  "patch_sha256": "84a8fb80f36b7718ac580c31f3fec8fc44cb8c6be28dc50539a30e1126ea1f9f",
+  "hunks": 1,
+  "candidate_lf_utf8_sha256": "6129ff42c0789df51c105068cbda48d0b299885f53c491e7d3a777315661467c",
+  "exact_in_memory_context": "PASS",
+  "candidate_ast_parse": "PASS",
+  "source_unchanged": true,
+  "patch_applied": false,
+  "candidate_executed": false,
+  "pytest_native_build_model": "NOT_RUN"
+}

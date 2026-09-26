@@ -1,0 +1,40 @@
+{
+  "unchanged_historical_recipe_dependency_pyproject": {
+    "backend/Dockerfile.test": {
+      "historic": "5f93a520ceee7612def4fae20ed2d9d6ef06ff5d83efebdba54592c828ab8418",
+      "current": "5f93a520ceee7612def4fae20ed2d9d6ef06ff5d83efebdba54592c828ab8418",
+      "same": true
+    },
+    "backend/requirements.lock": {
+      "historic": "30c023d97b69a0d4e82a449bb88bc0fb542e95bf5c07674215821bd769661352",
+      "current": "30c023d97b69a0d4e82a449bb88bc0fb542e95bf5c07674215821bd769661352",
+      "same": true
+    },
+    "pyproject.toml": {
+      "historic": "55aff766409ac914d161f7c42ddfda7e8a8f8d80213791af6b23fe595423ce57",
+      "current": "55aff766409ac914d161f7c42ddfda7e8a8f8d80213791af6b23fe595423ce57",
+      "same": true
+    }
+  },
+  "previous15_paths": [
+    "backend/app/workers/ocr.py",
+    "backend/app/workers/ocr_source.py",
+    "tests/backend/test_ocr_runner.py",
+    "tests/backend/test_ocr_source_read.py",
+    "tests/backend/test_ocr_runtime_integration.py",
+    "backend/app/workers/ocr_runtime.py",
+    "backend/app/workers/ocr_containment.py",
+    "backend/app/services/verification_jobs.py",
+    "tests/backend/test_ocr_runtime_db.py",
+    "tests/backend/test_ocr_containment.py",
+    "backend/app/workers/ocr_admission.py",
+    "tests/backend/test_ocr_admission.py",
+    "backend/app/services/verification_runs.py",
+    "tests/backend/test_ocr_api.py",
+    "backend/README.md"
+  ],
+  "all15_in_frozen_context": true,
+  "all139_verified_before_context_freeze": true,
+  "image_internal_raw_lf_verification": "NOT_RUN",
+  "native": "NOT_RUN"
+}

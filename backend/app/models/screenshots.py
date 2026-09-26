@@ -10,12 +10,20 @@ from .catalog import Identity, Scoped, scope_fk
 class Screenshot(Identity, Scoped, Base):
     __tablename__ = "screenshots"
     __table_args__ = (
-        UniqueConstraint("project_id", "id"), scope_fk("build_id", "builds"), scope_fk("locale_id", "locales"),
+        UniqueConstraint("project_id", "id"),
+        UniqueConstraint(
+            "project_id",
+            "id",
+            "client_upload_id",
+            name="uq_screenshots_project_id_id_client_upload_id",
+        ),
+        scope_fk("build_id", "builds"), scope_fk("locale_id", "locales"),
         ForeignKeyConstraint(["project_id", "category_id", "situation_id"], ["situations.project_id", "situations.category_id", "situations.id"], ondelete="RESTRICT"),
         CheckConstraint("size_bytes > 0 AND width > 0 AND height > 0", name="ck_screenshot_positive"),
         CheckConstraint("metadata_version = 1 AND jsonb_typeof(metadata) = 'object'", name="ck_screenshot_metadata"),
-        CheckConstraint("source = 'manual' AND client_upload_id IS NULL", name="ck_screenshot_phase1"),
+        CheckConstraint("(source = 'manual' AND client_upload_id IS NULL) OR (source IN ('agent','automation') AND client_upload_id IS NOT NULL)", name="ck_screenshot_source_client_upload"),
         CheckConstraint("file_hash ~ '^[0-9a-f]{64}$'", name="ck_screenshot_hash"),
+        Index("uq_screenshots_project_client_upload_id", "project_id", "client_upload_id", unique=True, postgresql_where=text("client_upload_id IS NOT NULL")),
         Index("ix_screenshots_recent", "project_id", text("uploaded_at DESC"), text("id DESC")),
         Index("ix_screenshots_filters", "project_id", "build_id", "locale_id", "situation_id", text("uploaded_at DESC"), text("id DESC")),
         Index("ix_screenshots_category", "project_id", "category_id"), Index("ix_screenshots_locale", "project_id", "locale_id"), Index("ix_screenshots_situation", "project_id", "situation_id"),

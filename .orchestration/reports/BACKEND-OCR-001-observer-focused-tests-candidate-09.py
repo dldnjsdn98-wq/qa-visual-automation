@@ -1,0 +1,365 @@
+"""UNAPPLIED proposal only. Do not execute while PM source disposition is pending.
+
+These review assertions operate on supplied source strings; they never import
+or execute a copied/prospective implementation. Parent may adopt after approval.
+Diagnostic cases target Galileo's finalized UNAPPLIED schema; source still HOLD.
+"""
+import ast
+
+
+# Proposed test bytes below; NOT authorized for execution.
+"""Synthetic authority checks; run with --noconftest and plugin autoload disabled.
+
+Run runner_reexport separately: it intentionally loads application dependencies.
+No test in this module launches an OCR child or requests native containment.
+"""
+import os
+import sys
+from types import SimpleNamespace
+
+import pytest
+
+
+@pytest.fixture
+def synthetic_environment(monkeypatch):
+    # Replace the mapping, never copy/read/retain the operator's ambient values.
+    values = {
+        "PGPASSWORD": "synthetic-secret",
+        "DATABASE_URL": "synthetic-db-url",
+        "POSTGRES_PASSWORD": "synthetic-secret",
+        "AWS_SECRET_ACCESS_KEY": "synthetic-secret",
+        "PYTHONPATH": "synthetic-pythonpath",
+        "PATH": "synthetic-path",
+        "HOME": "synthetic-home",
+        "USERPROFILE": "synthetic-userprofile",
+        "UNLISTED_SENTINEL": "synthetic-unlisted",
+        "SystemRoot": "synthetic-system-root",
+        "WINDIR": "synthetic-windows-directory",
+    }
+    monkeypatch.setattr(os, "environ", values)
+    return values
+
+
+def test_child_environment_authority_and_fixed_values(synthetic_environment):
+    from backend.app.workers.ocr_child_environment import child_environment
+
+    result = child_environment("synthetic-scratch")
+    assert result == {
+        "SystemRoot": "synthetic-system-root",
+        "WINDIR": "synthetic-windows-directory",
+        "TEMP": "synthetic-scratch", "TMP": "synthetic-scratch",
+        "HOME": "synthetic-scratch", "USERPROFILE": "synthetic-scratch",
+        "OMP_NUM_THREADS": "1", "MKL_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1", "PYTHONDONTWRITEBYTECODE": "1",
+        "PADDLE_PDX_DISABLE_MODEL_SOURCE_CHECK": "True",
+    }
+    assert synthetic_environment["HOME"] == "synthetic-home"
+    assert result is not synthetic_environment
+
+
+def test_child_environment_absent_optional_keys(synthetic_environment):
+    from backend.app.workers.ocr_child_environment import child_environment
+
+    synthetic_environment.clear()
+    result = child_environment("synthetic-scratch")
+    assert not {"SystemRoot", "WINDIR", "QA_OCR_MODEL_ROOT", "PADDLE_HOME",
+                "PADDLE_PDX_CACHE_HOME"} & result.keys()
+
+
+@pytest.mark.parametrize("key", ["QA_OCR_MODEL_ROOT", "PADDLE_HOME", "PADDLE_PDX_CACHE_HOME"])
+@pytest.mark.parametrize("absolute", [False, True])
+def test_child_environment_optional_normalized_paths(
+    synthetic_environment, monkeypatch, tmp_path, key, absolute,
+):
+    from backend.app.workers.ocr_child_environment import child_environment
+
+    monkeypatch.chdir(tmp_path)
+    relative = os.path.join("synthetic-models", "..", "synthetic-cache")
+    synthetic_environment[key] = os.path.join(str(tmp_path), relative) if absolute else relative
+    result = child_environment("synthetic-scratch")
+    assert result[key] == os.path.join(str(tmp_path), "synthetic-cache")
+    assert os.path.isabs(result[key])
+
+
+def test_runner_reexport_separate_process(monkeypatch, record_property):
+    """Parent selects ONLY this node in a separate inspected non-native process."""
+    assert "backend.app.workers.ocr" not in sys.modules, "requires fresh interpreter"
+    import psycopg
+    from backend.app import config
+
+    calls = []
+
+    def deny_connect(*args, **kwargs):
+        calls.append("connect")  # Never retain arguments, URLs or credentials.
+        raise AssertionError("DB connection forbidden in re-export check")
+
+    monkeypatch.setattr(psycopg, "connect", deny_connect)
+    monkeypatch.setattr(config, "get_settings", lambda: SimpleNamespace(
+        database_url="postgresql+psycopg://synthetic:synthetic@127.0.0.1:1/synthetic",
+        storage_root="synthetic-storage",
+    ))
+    from backend.app.workers.ocr_child_environment import child_environment
+    from backend.app.workers import ocr
+
+    assert ocr.child_environment is child_environment
+    assert calls == []
+    record_property("db_connect_calls", len(calls))
+
+
+def review_exact_environment_extraction(baseline_runner, proposed_runner, proposed_helper):
+    """AST comparison ignores formatting, but preserves the complete function."""
+    before = ast.parse(baseline_runner)
+    after = ast.parse(proposed_runner)
+    helper = ast.parse(proposed_helper)
+    old = [node for node in before.body if isinstance(node, ast.FunctionDef)
+           and node.name == "child_environment"]
+    moved = [node for node in helper.body if isinstance(node, ast.FunctionDef)
+             and node.name == "child_environment"]
+    assert len(old) == len(moved) == 1
+    assert ast.dump(old[0], include_attributes=False) == ast.dump(moved[0], include_attributes=False)
+    imports = [node for node in after.body if isinstance(node, ast.ImportFrom)
+               and node.module == "backend.app.workers.ocr_child_environment"]
+    assert len(imports) == 1
+    assert [(name.name, name.asname) for name in imports[0].names] == [("child_environment", None)]
+    before.body.remove(old[0])
+    after.body.remove(imports[0])
+    assert ast.dump(before, include_attributes=False) == ast.dump(after, include_attributes=False)
+    remaining = [node for node in helper.body if node is not moved[0]
+                 and not (isinstance(node, ast.Expr) and isinstance(node.value, ast.Constant)
+                          and isinstance(node.value.value, str))]
+    assert len(remaining) == 1 and isinstance(remaining[0], ast.Import)
+    assert [(name.name, name.asname) for name in remaining[0].names] == [("os", None)]
+
+
+def proposed_diagnostic_failure_matrix():
+    """Specification data, not executable diagnostic tests or claimed evidence."""
+    return (
+        ("read_missing", "fake reader raises FileNotFoundError; missing scalar None plus type only"),
+        ("read_oversized", "fake stream records one read(limit+1); reject oversized input"),
+        ("observer_persist_failure", "failure before launch; no handle, launch/finish counts zero"),
+        ("baseline_serialize_failure", "snapshot stored in facts; serialization raises; sole finish once"),
+        ("baseline_persist_failure", "fake flush/fsync/replace raises; sole finish once; no gate write"),
+        ("headroom_failure", "final current/headroom retained in JUnit facts; sole finish once; no gate write"),
+    )
+
+
+@pytest.fixture
+def diagnostics():
+    # Only the eventual adopted source, never a report-path module or source exec.
+    assert "backend.app.workers.ocr" not in sys.modules
+    import test_ocr_containment as module
+    assert "backend.app.workers.ocr" not in sys.modules
+    assert "backend.app.db" not in sys.modules
+    return module
+
+
+@pytest.mark.parametrize("failure", [FileNotFoundError, ValueError])
+def test_diagnostic_snapshot_missing_or_oversized_read(diagnostics, monkeypatch, failure):
+    import json
+
+    paths = []
+
+    def read(path, limit=65536):
+        paths.append(path)
+        raise failure("synthetic-private-detail-must-not-leak")
+
+    monkeypatch.setattr(diagnostics, "_l1_read_text", read)
+    snapshot = diagnostics._l1_snapshot("observer_only", 11)
+    assert snapshot["atomic"] is False
+    assert snapshot["processes"]["child"] is None
+    assert snapshot["processes"]["observer"]["pid"] == 11
+    assert snapshot["processes"]["observer"]["VmRSS_bytes"] is None
+    assert snapshot["cgroup"]["memory.current"] is None
+    assert snapshot["cgroup"]["memory.stat"]["anon"] is None
+    assert set(snapshot["errors"].values()) == {failure.__name__}
+    assert "synthetic-private-detail" not in json.dumps(snapshot)
+    assert set(paths) == {
+        "/sys/fs/cgroup/memory.current", "/sys/fs/cgroup/memory.max",
+        "/sys/fs/cgroup/memory.swap.max", "/sys/fs/cgroup/memory.stat",
+        "/sys/fs/cgroup/memory.events", "/proc/11/stat", "/proc/11/status",
+    }
+
+
+def test_diagnostic_read_is_max_plus_one(diagnostics, monkeypatch):
+    import io
+
+    reads = []
+
+    class Stream(io.BytesIO):
+        def read(self, size=-1):
+            reads.append(size)
+            return super().read(size)
+
+    stream = Stream(b"x" * 65537)
+    monkeypatch.setattr(diagnostics, "Path", lambda path: SimpleNamespace(
+        open=lambda mode: stream,
+    ))
+    with pytest.raises(ValueError, match="exceeds bound"):
+        diagnostics._l1_read_text("synthetic-path")
+    assert reads == [65537]
+    assert stream.closed
+
+
+@pytest.mark.parametrize("kind", ["nonserializable", "oversized"])
+def test_diagnostic_invalid_output_precedes_file_access(diagnostics, monkeypatch, kind):
+    def no_path(*args):
+        pytest.fail("invalid output reached filesystem")
+
+    monkeypatch.setattr(diagnostics, "Path", no_path)
+    value = {"value": object()} if kind == "nonserializable" else {"value": "x" * 32768}
+    with pytest.raises(TypeError if kind == "nonserializable" else ValueError):
+        diagnostics._l1_persist_snapshot("synthetic-output", value)
+
+
+@pytest.mark.parametrize("failure", ["observer_persist", "snapshot", "serialize", "flush",
+                                         "fsync", "replace", "headroom"])
+def test_diagnostic_failure_uses_existing_cleanup_once(diagnostics, monkeypatch, tmp_path, failure):
+    """Exercise adopted _l1_shortpeak/_finish with fake I/O; never launch native work."""
+    import json
+    import select
+
+    module = diagnostics
+    calls = []
+    properties = {}
+    ready = []
+    persisted = []
+    cap = module._L1_CAP
+    current = cap - 20 * 1024 * 1024
+
+    class Handle:
+        pid = 7
+        containment_info = {}
+        stopped = False
+        stdout = SimpleNamespace(fileno=lambda: 101)
+        stdin = SimpleNamespace(fileno=lambda: 102)
+
+        def stop(self, deadline):
+            calls.append("stop")
+            self.stopped = True
+            return True
+
+        def poll(self):
+            return 0 if self.stopped else None
+
+        def close(self):
+            calls.append("close")
+
+    handle = Handle()
+
+    def launch(script, path, baseline, increment, nonce):
+        calls.append("launch")
+        ready.append((json.dumps(dict(kind="ready", pid=7, nonce=nonce,
+                                     touched=baseline, increment=increment)) + "\n").encode())
+        return handle, cap
+
+    class Stream:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args):
+            return False
+
+        def write(self, raw):
+            return len(raw)
+
+        def flush(self):
+            if failure == "flush" and len(persisted) == 2:
+                raise OSError("synthetic-flush")
+
+        def fileno(self):
+            return 103
+
+    class FakePath:
+        def __init__(self, path):
+            self.text = str(path)
+            self.name = self.text.replace("\\", "/").rsplit("/", 1)[-1]
+
+        def with_name(self, name):
+            return FakePath(name)
+
+        def open(self, mode):
+            assert mode == "xb"
+            return Stream()
+
+        def read_text(self):
+            if self.text == "/sys/fs/cgroup/memory.current":
+                assert len(persisted) == 2
+                return str(current)
+            return {
+                "/sys/fs/cgroup/memory.max": str(cap),
+                "/sys/fs/cgroup/memory.swap.max": "0",
+                "/proc/7/cgroup": "0::/synthetic\n",
+                "/proc/self/cgroup": "0::/synthetic\n",
+                "/proc/7/status": f"RssAnon: {module._L1_BASELINE // 1024} kB\n",
+            }[self.text]
+
+    def fsync(fd):
+        assert fd == 103
+        if failure == "fsync" and len(persisted) == 2:
+            raise OSError("synthetic-fsync")
+
+    def replace(source, destination):
+        if failure == "replace" and len(persisted) == 2:
+            raise OSError("synthetic-replace")
+
+    def gate_write(*args):
+        pytest.fail("diagnostic failure released pressure gate")
+
+    monkeypatch.setattr(module, "os", SimpleNamespace(
+        getpid=lambda: 1, set_blocking=lambda *args: None,
+        read=lambda *args: ready.pop(0), write=gate_write, fsync=fsync, replace=replace,
+    ))
+    monkeypatch.setattr(module, "Path", FakePath)
+    monkeypatch.setattr(module, "time", SimpleNamespace(monotonic=lambda: 10.0))
+    monkeypatch.setattr(select, "select", lambda *args: ([], [], []))
+    monkeypatch.setattr(module, "_native_limit", lambda: cap)
+    monkeypatch.setattr(module, "_launch", launch)
+    monkeypatch.setattr(module, "_l1_members", lambda: {1, 7} if "launch" in calls else {1})
+    monkeypatch.setattr(module, "_l1_events", lambda: dict(max=0, oom=0, oom_kill=0, oom_group_kill=0))
+    monkeypatch.setattr(module, "_l1_identity", lambda pid: dict(pid=pid, ppid=1, pgrp=7, start_ticks=42))
+
+    def snapshot(phase, observer_pid, child_pid=None):
+        if phase == "baseline_ready" and failure == "snapshot":
+            raise RuntimeError("synthetic-snapshot")
+        return dict(phase=phase, atomic=False, cgroup={}, processes={}, errors={})
+
+    monkeypatch.setattr(module, "_l1_snapshot", snapshot)
+    original_persist = module._l1_persist_snapshot
+
+    def persist(path, value):
+        persisted.append(value["phase"])
+        if failure == "observer_persist":
+            raise OSError("synthetic-observer-persist")
+        return original_persist(path, value)
+
+    def dumps(value, **kwargs):
+        if failure == "serialize" and value.get("phase") == "baseline_ready":
+            raise TypeError("synthetic-serialization")
+        return json.dumps(value, **kwargs)
+
+    monkeypatch.setattr(module, "json", SimpleNamespace(dumps=dumps, loads=json.loads))
+    monkeypatch.setattr(module, "_l1_persist_snapshot", persist)
+    original_finish = module._finish
+
+    def finish(owned_handle, recorder):
+        assert owned_handle is handle
+        calls.append("finish")
+        return original_finish(owned_handle, recorder)
+
+    monkeypatch.setattr(module, "_finish", finish)
+    error = {"headroom": AssertionError, "snapshot": RuntimeError, "serialize": TypeError}.get(failure, OSError)
+    with pytest.raises(error):
+        module._l1_shortpeak(tmp_path, lambda key, value: properties.__setitem__(key, value))
+    if failure == "observer_persist":
+        assert calls == []
+        return
+    assert calls == ["launch", "finish", "stop", "close"]
+    facts = json.loads(properties["l1_evidence"])
+    assert facts["observer_snapshot"]["phase"] == "observer_only"
+    assert facts["baseline_rss_anon_bytes"] == module._L1_BASELINE
+    if failure != "snapshot":
+        assert facts["baseline_ready_snapshot"]["phase"] == "baseline_ready"
+    if failure == "headroom":
+        assert facts["memory_current_before_gate"] == current
+        assert facts["headroom_before_gate"] == cap - current
+    assert properties["owned_tree_stop_confirmed"] is True

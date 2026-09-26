@@ -1,0 +1,42 @@
+diff --git a/backend/app/workers/ocr_containment.py b/backend/app/workers/ocr_containment.py
+--- a/backend/app/workers/ocr_containment.py
++++ b/backend/app/workers/ocr_containment.py
+@@ -608,7 +608,10 @@
+ _FAILED_WINDOWS_LAUNCHES = []
+ 
+ 
+-def _launch_windows(argv, env, cwd, limit):
++def _launch_windows(argv, env, cwd, limit, *, _diagnostic_owner_sink=None):
++    if _diagnostic_owner_sink is not None and (
++            type(_diagnostic_owner_sink) is not list or _diagnostic_owner_sink):
++        raise ValueError("Diagnostic owner sink must be an empty built-in list")
+     import mmap
+     import msvcrt
+ 
+@@ -694,6 +697,12 @@
+         fds.remove(parent_out_fd)
+         owner = _WindowsContainedProcess(
+             a, job, port, info.hProcess, info.dwProcessId, parent_in, parent_out, limit, page)
++        if _diagnostic_owner_sink is not None:
++            # Publish before return/finally: supervisor owns stop even if unwind stalls.
++            # Caller must validate before resume and owns the primary thread handle.
++            owner._diagnostic_primary_thread = info.hThread
++            _diagnostic_owner_sink.append(owner)
++            return owner
+         owner._check_limits()  # Must prove effective cap and ownership BEFORE work.
+         # Once resume is attempted we conservatively assume useful work could
+         # have run, even if its return value or later setup fails.
+@@ -704,6 +713,13 @@
+         info.hThread = None
+         return owner
+     except BaseException as error:
++        if (_diagnostic_owner_sink is not None and _diagnostic_owner_sink
++                and _diagnostic_owner_sink[0] is owner):
++            # Ownership already transferred; never double-stop or close under queries.
++            error.cleanup_confirmed = False
++            error.workload_started = resume_attempted
++            _FAILED_WINDOWS_LAUNCHES.append((a, job, port, info.hProcess, info.hThread, owner))
++            raise
+         # No productive execution unless every cap was installed.  Cleanup is
+         # bounded; any unproven native ownership remains referenced for quarantine.
+         error.cleanup_confirmed = not bool(info.hProcess)

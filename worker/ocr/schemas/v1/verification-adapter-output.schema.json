@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:qa-visual-automation:ocr:verification-adapter-output:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["adapter_version", "snapshot_sha256", "configuration_sha256", "matching_version", "normalization_version", "items", "summary"],
+  "properties": {
+    "adapter_version": {"const": 1},
+    "snapshot_sha256": {"$ref": "#/$defs/sha256"},
+    "configuration_sha256": {"$ref": "#/$defs/sha256"},
+    "matching_version": {"const": "one-to-one-levenshtein-v1"},
+    "normalization_version": {"const": "norm-v1"},
+    "items": {"type": "array", "maxItems": 1000, "items": {"$ref": "#/$defs/item"}},
+    "summary": {"$ref": "#/$defs/summary"}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "item": {"type": "object", "additionalProperties": false, "required": ["expected_position", "string_key_id", "string_id", "entry_id", "expected_text", "normalized_expected", "translation_status", "region_index", "observed_text", "normalized_observed", "match_method", "match_score", "score_numerator", "score_denominator", "verification_status", "reason"], "properties": {"expected_position": {"type": "integer", "minimum": 0}, "string_key_id": {"type": "string"}, "string_id": {"type": "string"}, "entry_id": {"type": ["string", "null"]}, "expected_text": {"type": ["string", "null"]}, "normalized_expected": {"type": ["string", "null"]}, "translation_status": {"type": "string", "enum": ["present", "missing"]}, "region_index": {"type": ["integer", "null"], "minimum": 0}, "observed_text": {"type": ["string", "null"]}, "normalized_observed": {"type": ["string", "null"]}, "match_method": {"type": ["string", "null"], "enum": ["EXACT", "NORMALIZED", "FUZZY", "NONE", null]}, "match_score": {"type": ["number", "null"], "minimum": 0, "maximum": 100}, "score_numerator": {"type": ["integer", "null"], "minimum": 0}, "score_denominator": {"type": ["integer", "null"], "minimum": 1}, "verification_status": {"type": "string", "enum": ["PASS", "REVIEW", "FAIL", "UNVERIFIED"]}, "reason": {"type": "string", "enum": ["MATCHED", "NO_MATCH", "MISSING_TRANSLATION", "EMPTY_EXPECTED", "NORMALIZED_EMPTY_EXPECTED"]}}},
+    "summary": {"type": "object", "additionalProperties": false, "required": ["verification_status", "evaluation_reason", "incomplete", "total_count", "evaluated_count", "unverified_count", "pass_count", "review_count", "fail_count", "unmatched_region_count", "pass_threshold", "review_threshold"], "properties": {"verification_status": {"type": "string", "enum": ["PASS", "REVIEW", "FAIL", "UNVERIFIED"]}, "evaluation_reason": {"type": "string", "enum": ["EVALUATED", "PARTIAL_UNVERIFIED", "NO_EVALUABLE_EXPECTATIONS", "NO_EXPECTATIONS"]}, "incomplete": {"type": "boolean"}, "total_count": {"type": "integer", "minimum": 0}, "evaluated_count": {"type": "integer", "minimum": 0}, "unverified_count": {"type": "integer", "minimum": 0}, "pass_count": {"type": "integer", "minimum": 0}, "review_count": {"type": "integer", "minimum": 0}, "fail_count": {"type": "integer", "minimum": 0}, "unmatched_region_count": {"type": "integer", "minimum": 0}, "pass_threshold": {"type": "number", "minimum": 0, "maximum": 100}, "review_threshold": {"type": "number", "minimum": 0, "maximum": 100}}}
+  }
+}

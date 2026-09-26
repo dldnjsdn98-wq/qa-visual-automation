@@ -1,0 +1,14 @@
+{
+  "lane": "linux",
+  "source": "tests/backend/test_ocr_containment.py",
+  "source_sha256": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+  "patch_sha256": "d15ebab5fc1a5c3b4bb6fdd8c5d06907216decbff087f9f7722b34f9669a6639",
+  "hunks": 2,
+  "candidate_lf_utf8_sha256": "52349c96c31b6c373d8d8c99471b21df64ea5dea4a0a77f52539a884492e0f02",
+  "exact_in_memory_context": "PASS",
+  "candidate_ast_parse": "PASS",
+  "source_unchanged": true,
+  "patch_applied": false,
+  "candidate_executed": false,
+  "pytest_native_build_model": "NOT_RUN"
+}

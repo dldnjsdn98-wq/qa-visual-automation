@@ -1,0 +1,25 @@
+{
+  "status": "SOURCE_APPLICATION_BLOCKED_FILESYSTEM",
+  "recorded_utc": "2026-09-25T15:24:24.352683+00:00",
+  "evidence_origin": "transcribed command result from exec chunk9ce0bf plus subsequent read-only source rehash; not a preinstalled capture wrapper",
+  "precheck": "two frozen source and two patch hashes matched",
+  "git_apply_check_exit": 0,
+  "git_apply_exit": 128,
+  "git_apply_args": [
+    "git",
+    "apply",
+    ".orchestration/reports/BACKEND-OCR-001-native-candidate-windows-03.patch",
+    ".orchestration/reports/BACKEND-OCR-001-native-candidate-linux-03.patch"
+  ],
+  "stderr": "warning: unable to unlink 'backend/app/workers/ocr_containment.py': Invalid argument\nerror: unable to write file 'backend/app/workers/ocr_containment.py' mode 100644: Permission denied\n",
+  "post_failure_source_sha256": {
+    "backend/app/workers/ocr_containment.py": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+    "tests/backend/test_ocr_containment.py": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b"
+  },
+  "both_sources_still_baseline": true,
+  "partial_application_observed": false,
+  "retry_or_alternate_writer": "NOT_ATTEMPTED",
+  "permission_change": "NOT_ATTEMPTED",
+  "pure_oracle12": "NOT_RUN: approved candidate not applied; selected test node not present",
+  "native_build_container_model_db": "NOT_RUN"
+}

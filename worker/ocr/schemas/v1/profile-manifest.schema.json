@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:qa-visual-automation:ocr:profile-manifest:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["adapter_version", "profile_id", "production_eligible", "engine", "models", "artifacts", "language_map", "coordinate_space", "normalization_version", "matching_version", "unicode_version", "rapidfuzz_version", "preprocessing", "engine_options", "runtime_policy", "qualification"],
+  "properties": {
+    "adapter_version": {"const": 1},
+    "profile_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{0,127}$"},
+    "production_eligible": {"type": "boolean"},
+    "engine": {"$ref": "#/$defs/engine"},
+    "models": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "artifacts": {"type": "array", "items": {"$ref": "#/$defs/artifact"}},
+    "language_map": {"$ref": "#/$defs/languageMap"},
+    "coordinate_space": {"const": "original-raster-v1"},
+    "normalization_version": {"const": "norm-v1"},
+    "matching_version": {"const": "one-to-one-levenshtein-v1"},
+    "unicode_version": {"const": "15.0.0"},
+    "rapidfuzz_version": {"const": "3.14.6"},
+    "preprocessing": {"$ref": "#/$defs/preprocessing"},
+    "engine_options": {"type": "array", "items": {"$ref": "#/$defs/nameValue"}},
+    "runtime_policy": {"$ref": "#/$defs/runtimePolicy"},
+    "qualification": {"$ref": "#/$defs/qualification"}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "nameValue": {"type": "object", "additionalProperties": false, "required": ["name", "value"], "properties": {"name": {"type": "string", "minLength": 1}, "value": {"type": ["string", "number", "integer", "boolean", "null"]}}},
+    "package": {"type": "object", "additionalProperties": false, "required": ["name", "version", "filename", "byte_size", "sha256"], "properties": {"name": {"type": "string", "minLength": 1}, "version": {"type": "string", "minLength": 1}, "filename": {"type": "string", "pattern": "^[^/\\\\]+\\.whl$"}, "byte_size": {"type": "integer", "minimum": 1}, "sha256": {"$ref": "#/$defs/sha256"}}},
+    "nativePackage": {"type": "object", "additionalProperties": false, "required": ["name", "version", "architecture", "copyright_sha256"], "properties": {"name": {"type": "string", "minLength": 1}, "version": {"type": "string", "minLength": 1}, "architecture": {"type": "string", "minLength": 1}, "copyright_sha256": {"$ref": "#/$defs/sha256"}}},
+    "engine": {"type": "object", "additionalProperties": false, "required": ["name", "version", "packages", "native_packages"], "properties": {"name": {"type": "string", "minLength": 1}, "version": {"type": "string", "minLength": 1}, "packages": {"type": "array", "items": {"$ref": "#/$defs/package"}}, "native_packages": {"type": "array", "items": {"$ref": "#/$defs/nativePackage"}}}},
+    "artifact": {"type": "object", "additionalProperties": false, "required": ["name", "revision", "kind", "source_url", "byte_size", "sha256", "license_identifier", "license_evidence"], "properties": {"name": {"type": "string", "minLength": 1}, "revision": {"type": "string", "minLength": 1}, "kind": {"type": "string", "enum": ["detector", "recognizer", "orientation", "dictionary", "tokenizer", "font", "other"]}, "source_url": {"type": "string", "pattern": "^https://"}, "byte_size": {"type": "integer", "minimum": 1}, "sha256": {"$ref": "#/$defs/sha256"}, "license_identifier": {"type": "string", "minLength": 1}, "license_evidence": {"type": "string", "pattern": "^https://"}}},
+    "alias": {"type": "object", "additionalProperties": false, "required": ["input", "family"], "properties": {"input": {"type": "string", "minLength": 1}, "family": {"type": "string", "enum": ["en", "ko", "ja", "zh-Hans", "zh-Hant"]}}},
+    "languageMap": {"type": "object", "additionalProperties": false, "required": ["version", "aliases"], "properties": {"version": {"type": "string", "minLength": 1}, "aliases": {"type": "array", "items": {"$ref": "#/$defs/alias"}, "minItems": 1}}},
+    "preprocessing": {"type": "object", "additionalProperties": false, "required": ["exif_policy", "document_orientation", "image_unwarping", "textline_orientation", "steps"], "properties": {"exif_policy": {"const": "ignored-v1"}, "document_orientation": {"type": "boolean"}, "image_unwarping": {"type": "boolean"}, "textline_orientation": {"type": "boolean"}, "steps": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1}}},
+    "runtimePolicy": {"type": "object", "additionalProperties": false, "required": ["python", "device", "numeric_mode", "thread_count", "network_allowed"], "properties": {"python": {"const": "3.12"}, "device": {"const": "cpu"}, "numeric_mode": {"const": "fp32"}, "thread_count": {"type": "integer", "minimum": 1}, "network_allowed": {"const": false}}},
+    "qualification": {"type": "object", "additionalProperties": false, "required": ["status", "unavailable_code", "platforms", "evidence_sha256"], "properties": {"status": {"type": "string", "enum": ["UNQUALIFIED", "QUALIFIED"]}, "unavailable_code": {"type": ["string", "null"]}, "platforms": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true}, "evidence_sha256": {"type": "array", "items": {"$ref": "#/$defs/sha256"}, "uniqueItems": true}}}
+  }
+}

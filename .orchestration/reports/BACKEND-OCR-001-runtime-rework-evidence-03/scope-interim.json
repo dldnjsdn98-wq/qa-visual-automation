@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "scope-interim",
+  "status": "interim",
+  "final": false,
+  "tests_status": "ongoing",
+  "measured_at_utc": "2026-09-25T11:40:06.6041866Z",
+  "baseline": {
+    "path": ".orchestration/reports/BACKEND-OCR-001-runtime-rework-evidence-03/baseline.json",
+    "comparison": "current bytes compared with baseline.file_sha256; existing dirty git state predates this comparison"
+  },
+  "changed_files": [
+    {
+      "path": "backend/app/workers/ocr.py",
+      "status": "changed",
+      "baseline_sha256": "f76b975aed52b07e34b554bf63f6059889f396ea6f0ece08db350bb9d7499839",
+      "actual_sha256": "638f29322859a68add9530337f3135364938a34be2543161c67d1d5674cd70c4"
+    },
+    {
+      "path": "backend/app/workers/ocr_source.py",
+      "status": "new",
+      "baseline_sha256": null,
+      "actual_sha256": "b685fc61cedbe4d10e81cc88e93341987c5af39f6f5bac6a3a97d5a59cc26a6f"
+    },
+    {
+      "path": "tests/backend/test_ocr_runner.py",
+      "status": "changed",
+      "baseline_sha256": "227635205711bb193fa3b12f37991a200391aa42216483ec630f4f650c22211f",
+      "actual_sha256": "8204552ff32cadea1953a707dad35645258db726ab184ccd5d6c9efd2769bbb5"
+    },
+    {
+      "path": "tests/backend/test_ocr_source_read.py",
+      "status": "new",
+      "baseline_sha256": null,
+      "actual_sha256": "0c2cff31f19330f7fa9fa175e788b55cfcc183c551952b03ec8fd9f30cae8b08"
+    },
+    {
+      "path": "tests/backend/test_ocr_runtime_integration.py",
+      "status": "changed",
+      "baseline_sha256": "fc7436eb3b23af8018c52465f727acecd13282fb9ebe971119683934501dbc58",
+      "actual_sha256": "5a06cbb3b1c368031e32e7208af130962a6a44b5b3a9faca7ff0d807b9585465"
+    }
+  ],
+  "missing_files": [],
+  "unexpected_changes": [],
+  "scope": {
+    "expected_paths": [
+      "backend/app/workers/ocr.py",
+      "backend/app/workers/ocr_source.py",
+      "tests/backend/test_ocr_runner.py",
+      "tests/backend/test_ocr_source_read.py",
+      "tests/backend/test_ocr_runtime_integration.py"
+    ],
+    "new_source_scan_roots": ["backend", "tests/backend"],
+    "excluded_from_new_source_scan": ["__pycache__", "*.pyc", "*.pyo"],
+    "new_source_files": [
+      "backend/app/workers/ocr_source.py",
+      "tests/backend/test_ocr_source_read.py"
+    ]
+  },
+  "worker42": {
+    "baseline_path": ".orchestration/reports/BACKEND-OCR-001-runtime-rework-evidence-03/worker-baseline.json",
+    "manifest_path": ".orchestration/reports/OCR-001-05-source-manifest.txt",
+    "count": 42,
+    "aggregate_sha256": "058a445d90b7c50897f77f503a31e7dd425ea71f845a70a40666816e3c7a7b94",
+    "baseline_manifest_sha256": "98ea7e81109668dd073ef4f011b4d4c14eff3eea2a96340a00062f6850050b0a",
+    "actual_manifest_sha256": "98ea7e81109668dd073ef4f011b4d4c14eff3eea2a96340a00062f6850050b0a",
+    "manifest_sha256_match": true,
+    "checks_count": 42,
+    "checks_all_match": true
+  },
+  "tests": {
+    "executed": false,
+    "status": "ongoing",
+    "note": "No tests run for this evidence-only sidecar task."
+  }
+}

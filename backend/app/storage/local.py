@@ -6,7 +6,14 @@ from pathlib import Path
 from uuid import uuid4
 from backend.app.errors import DomainError
 from backend.app.validation.images import inspect_image
-from .base import StagedObject, StoredObject, StorageError, ObjectNotFound, ObjectExists
+from .base import (
+    ObjectExists,
+    ObjectMismatch,
+    ObjectNotFound,
+    StagedObject,
+    StoredObject,
+    StorageError,
+)
 
 ROOT = Path(__file__).resolve().parents[3]
 UUID_PATTERN = r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
@@ -94,6 +101,34 @@ class LocalStorage:
             return stream, os.fstat(stream.fileno()).st_size
         except FileNotFoundError:
             raise ObjectNotFound("Object not found") from None
+
+    def verify_exact(self, key, *, sha256, byte_count):
+        """Verify immutable facts from one open handle without replacing the object."""
+        try:
+            with self._path(key).open("rb") as stream:
+                before = os.fstat(stream.fileno())
+                digest = hashlib.file_digest(stream, "sha256").hexdigest()
+                after = os.fstat(stream.fileno())
+        except FileNotFoundError:
+            raise ObjectNotFound("Object not found") from None
+
+        identity_before = (
+            before.st_dev,
+            before.st_ino,
+            before.st_size,
+            before.st_mtime_ns,
+        )
+        identity_after = (
+            after.st_dev,
+            after.st_ino,
+            after.st_size,
+            after.st_mtime_ns,
+        )
+        if identity_before != identity_after:
+            raise StorageError("Object changed during verification")
+        if after.st_size != byte_count or digest != sha256:
+            raise ObjectMismatch("Object hash or size does not match")
+        return StoredObject(key, after.st_size, after.st_mtime)
 
     def stat(self, key):
         try:

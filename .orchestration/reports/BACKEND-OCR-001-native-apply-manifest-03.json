@@ -1,0 +1,89 @@
+{
+  "scope": "Backend03 own native-apply checkpoint only",
+  "status": "STATIC_PREPARATION_COMPLETE_SOURCE_WRITE_HOLD",
+  "artifacts": [
+    {
+      "path": ".orchestration/handoffs/BACKEND-OCR-001-native-apply-03.md",
+      "bytes": 2988,
+      "sha256": "f898496ea991fe16cf17ca88e96400eb622108074a5b4bc9d0fd9c84a81a5cf4"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-03.md",
+      "bytes": 10821,
+      "sha256": "f1585d343ee3dd4ebc6a1a406a8a3c88233c02ad360703fb8478c10ff04a27a3"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-evidence-03/exact-application-blocked-01.json",
+      "bytes": 1388,
+      "sha256": "3ef1df8fb618462946962303368b5c39610569b867ee7a15ac9a8224a953adad"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-evidence-03/linux-capture-static-01.json",
+      "bytes": 266,
+      "sha256": "5f3501fd9c071d8dd5651e6861bb521eb1c164ee0d7a6b8d9790dd066e2f60fb"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-evidence-03/partial-apply-inventory-01.json",
+      "bytes": 2802,
+      "sha256": "16931ce29e95223dde5657bdf29d16980ed44b479962b52cab80b5eb2f38a155"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-evidence-03/windows-capture-static-01.json",
+      "bytes": 843,
+      "sha256": "7893830c1f8a28f6389d0ae83e192e3524f6cb213f5faa76e8e4ca444c790f1a"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-linux-capture-03.py",
+      "bytes": 16815,
+      "sha256": "d0a8e756cdd4cafc394d12a68e527632365aeaf43f6d9ca8cc063763db21d7fd"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-linux-plan-03.md",
+      "bytes": 8744,
+      "sha256": "4d655c861b205add420a33c317aae4605037b60ea02dac53ee087aa7a3b2d595"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-linux-review-03.md",
+      "bytes": 4854,
+      "sha256": "43a67a75e3b203bb25cbe09cdaee16d0c115704a1f1a10fcb1d37bbb0b885c13"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-windows-harness-03.py",
+      "bytes": 20768,
+      "sha256": "be6b865e6ca8be5cea2bedf04bc6ed79dcdb17ed3510c165a393ee882f0d0a11"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-windows-hook-03.patch",
+      "bytes": 2169,
+      "sha256": "0496d7a5cc18881d7c8fda045969a8314911b1913673dd6372ef7418600c56f3"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-windows-plan-03.md",
+      "bytes": 13048,
+      "sha256": "cc8fcd7ce40fe2ade92e5dcdc11208b47123fe022880589d68083e6a33227865"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-windows-review-03.md",
+      "bytes": 8075,
+      "sha256": "56fd9923f1b179126144e17d508ab7fe20279b533c49b80265276802b782132f"
+    }
+  ],
+  "unchanged_sources": [
+    {
+      "path": "backend/app/workers/ocr_containment.py",
+      "bytes": 41870,
+      "sha256": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+      "unchanged": true
+    },
+    {
+      "path": "tests/backend/test_ocr_containment.py",
+      "bytes": 17831,
+      "sha256": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+      "unchanged": true
+    }
+  ],
+  "pure12": "NOT_RUN",
+  "native_execution": "NOT_RUN",
+  "windows_same_cause": 3,
+  "separate_cleanup": 2
+}

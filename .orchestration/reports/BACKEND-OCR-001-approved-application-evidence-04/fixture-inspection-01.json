@@ -1,0 +1,7 @@
+{
+  "inspection": "selected function only parametrized overrides/expected; backend fixtures non-autouse; engine/session factory lazy, no fixture or handler invokes connection for selected node",
+  "cases": 12,
+  "plugin_autoload": "disabled",
+  "native_flags": "removed from child environment",
+  "unrelated_discovery_denials": "one rg discovery encountered denied Reviewer08 directories; no retry or bypass"
+}

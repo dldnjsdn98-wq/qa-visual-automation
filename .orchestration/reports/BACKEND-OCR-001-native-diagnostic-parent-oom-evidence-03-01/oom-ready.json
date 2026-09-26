@@ -1,0 +1,86 @@
+{
+  "attempt_count": 1,
+  "attempt_outcome": "STARTED",
+  "child_environment_keys": [
+    "LANG",
+    "PYTHONDONTWRITEBYTECODE",
+    "PYTHONUNBUFFERED"
+  ],
+  "child_has_database_environment": false,
+  "child_pid": 7,
+  "child_role": "1MiB DB-free contained wait process",
+  "claimed_at": "2026-09-25T14:56:14.183810+00:00",
+  "containment_info": {
+    "cgroup_membership": "0::/",
+    "cgroup_mount": "/sys/fs/cgroup",
+    "child_attribution": false,
+    "cleanup_scope": "direct-child-reaped; no residual runnable cgroup work",
+    "events_before": {
+      "high": 0,
+      "low": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_group_kill": 0,
+      "oom_kill": 0
+    },
+    "events_current": {
+      "high": 0,
+      "low": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_group_kill": 0,
+      "oom_kill": 0
+    },
+    "events_delta": {
+      "high": 0,
+      "low": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_group_kill": 0,
+      "oom_kill": 0
+    },
+    "kind": "linux-cgroup-v2",
+    "memory_max": 536870912,
+    "memory_swap_max": "0",
+    "requested_limit": 536870912,
+    "scope": "dedicated-runner-container"
+  },
+  "database": "qa_backend_parent_oom_e4e8e72dbfe64ae29609ac2f3ce76a63",
+  "db_observed_at": "2026-09-25T14:56:14.203562+00:00",
+  "fence_identity_sha256": "356aee8de813c99de197cdaa7c1641da81e110b0fc20eb7cac0a2bcdf58c0251",
+  "generation": 1,
+  "has_results": false,
+  "job_state": "RUNNING",
+  "last_error_code": null,
+  "lease_expires_at": "2026-09-25T14:57:14.183810+00:00",
+  "lease_remaining_seconds": 59.980248,
+  "lease_seconds": 60,
+  "memory_events_before": {
+    "high": 0,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+  },
+  "memory_max": 536870912,
+  "memory_swap_max": 0,
+  "parent_pid": 1,
+  "parent_role": "process that called claim(), owns generation 1, and is allocation target",
+  "phase": "parent_allocation_about_to_start",
+  "project_id": "4d32e310-6af1-4a62-8386-73abb09e1884",
+  "recorded_utc": "2026-09-25T14:56:14.215285+00:00",
+  "run_id": "d44d0369-db4c-4b10-ad0b-c283ac0d9d58",
+  "schema_version": 1,
+  "source_sha256": {
+    "backend/Dockerfile.test": "5f93a520ceee7612def4fae20ed2d9d6ef06ff5d83efebdba54592c828ab8418",
+    "backend/app/repositories/verification_runs.py": "40baa349c9ca23ed4feac7734b837907c9d9abbbb0f83f5fe9a7588e16a0ca06",
+    "backend/app/services/verification_jobs.py": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+    "backend/app/workers/ocr_containment.py": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+    "backend/migrations/versions/0004_phase3_ocr_verification.py": "8132cd7b43aba5a543d3acbdc3be218ceab7f3e303729a4ac9e7f7d0ccb0d024",
+    "tests/backend/test_ocr_containment.py": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+    "tests/backend/test_ocr_jobs.py": "13eea9e356f528b432e8ca9fade6257a8f4fd6bef37fa033665d7e527ab5197c",
+    "tests/backend/test_ocr_runtime_db.py": "88bf8639bff1b1c0fb6d9b89491d454b5c06b98d2684f27c02e597e63d89692f"
+  },
+  "stage": "OCR"
+}

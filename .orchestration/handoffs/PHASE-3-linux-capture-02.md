@@ -1,0 +1,16 @@
+# PM01 corrected Linux capture single invocation
+
+Task BACKEND-OCR-001/P3-RUNTIME-001, owner03, root C:/Dev/qa-visual-automation.
+PM verified manifest a2a9b279a1bed77e204708d819647ea711785fc475546540d8c8b65eb67873d1 and all23 artifact sizes/hashes. Independent recovery PASS b3d5ac7771fa23ac0f7ee87c36b5a255c20df46441a320b696f77c2899421d3a and candidate PASS_STATIC_CANDIDATE622cab6b7d1c70523987749397d86a2d4fdd907fde23d1b280862c8a7baeb7e1 read. Exact residual resolved; original06 failure remains immutable. Grouped labels also succeeded in separate recovery inspect. This is explicit new activation after material reviewed correction, not an automatic unchanged retry.
+
+Run the separate candidate directly; do not apply patch to frozen original. Only two label expressions changed. Exact candidate SHA256 e669d74fc1f683ad57cf3792860910f65198cbed3f6d0dee91232c36e36d082c.
+
+    python -E -B .orchestration/reports/BACKEND-OCR-001-linux-template-candidate-07.py host --image-id sha256:a1337c5556ab00f01dac45075f6bbf71ba9198c1b179a83d0210e5879a426d0a --source-pins .orchestration/reports/BACKEND-OCR-001-linux-source-pins-05.json --pins-sha256 d92e20493eb42a3d4d2702b17c3d5559c17cad78e31b364387039e649146f2bc --evidence .orchestration/reports/BACKEND-OCR-001-native-apply-linux-evidence-03-08
+
+Use already approved interpreter without optimization. Parent verifies exact candidate hash, original unchanged, pins/current113 raw+LF and fresh output before execution. Ordinary tool approval boundaries apply; denial/drift stops without retry/repin/workaround. New outer command/stdout/stderr/exit capture in own08 namespace, preserve all06/07 artifacts. No image rebuild or source edit. The exact outer invocation above is reviewed against candidate argparse and unchanged lifecycle.
+
+All execution/ownership/source/cleanup and fixed oracle constraints from PHASE-3-linux-capture-01.md apply with ONLY candidate path/hash and fresh evidence destination replaced. Exactly one create/start and one selected shortpeak node; inner113 raw+LF equality before pytest. 512MiB cap,320+224MiB construction,64..160MiB headroom, strict250ms; no tuning or L2 substitution. Natural terminal facts before bounded exact-owned cleanup. No manufacture of timings or JUnit; missing witness/observer loss/skip/cleanup failure remain unproved. No second invocation automatically, even if failure is formatting/environmental. Preserve actual failure categories and counters.
+
+03 executes once; reuse Mill Sol/high independent outcome review and Boole Terra/high evidence packaging, no duplicate native run. Capture coordination high Sol/high requested because native lifecycle/causal proof; retain existing parent model if adjustment unsafe, actual model unverified. Escalate new containment/contract ambiguity to Astra/medium read-only assessment before changes. No DB/model/fulltests/Windows hook/probe, no04/08/admission/AC promotion, no commit/push/deploy/security change. Windows3 and separate historicalcleanup2 unchanged.
+
+Deliver exact invocation and source/image identities, inner source verification, JUnit/terminal/pressure timing when present, original failure preservation, cleanup/residual state, independent review and final manifest. This permission establishes execution eligibility only, not success or qualification.

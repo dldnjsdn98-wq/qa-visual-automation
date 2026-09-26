@@ -1,0 +1,47 @@
+BACKEND-UPLOAD-001 rework executable evidence
+Date: 2026-09-25 KST
+Environment: Docker Desktop Linux; Python 3.12; PostgreSQL 17.11 isolated container
+Credentials: passed directly with Docker --env-file .env; values not recorded
+Fixture isolation: random disposable databases, Alembic migration, DROP DATABASE WITH (FORCE) in finally
+
+INITIAL TARGETED RUN
+Command:
+python -m pytest tests/backend/test_screenshots.py::test_content_read_verifies_returned_bytes_and_preserves_state tests/backend/test_reconcile_upload_receipts.py tests/backend/test_migrations_storage.py::test_0002_data_is_preserved_by_additive_0003_migration -q -p no:cacheprovider --tb=short
+Result: FAIL (test-only integration error)
+Summary: 28 passed, 1 failed, 2 warnings
+Failure:
+tests/backend/test_migrations_storage.py:130
+KeyError: 'capture_metadata'
+Cause: SQLAlchemy Core exposed the physical JSONB column key; the snapshot select lacked an explicit mapped label.
+Correction: label Screenshot.capture_metadata as capture_metadata. No product or migration change.
+
+CORRECTED TARGETED RUN
+Identical command after the test-only label correction.
+Result: PASS
+29 passed, 2 warnings in 2.54s
+
+MOUNTED FULL INTEGRATION RUN
+Command:
+python -m pytest tests/backend -q -p no:cacheprovider --tb=short
+Result: PASS
+119 passed, 2 warnings in 6.60s
+
+FINAL IMAGE BUILD
+Command:
+docker build --pull=false -f backend/Dockerfile.test -t qa-backend-upload-rework:local .
+Result: PASS
+Project wheel SHA-256 reported by build: 7c027e5882d7d0bbc78c02763014654d9355e410c0adebc54f59fb3aea8740c3
+pip check: No broken requirements found
+Final image digest: sha256:516b9eebabc14f7aba0387966c9e9dd64fc95f462010297c0c9741c7fc3d233d
+
+FINAL UNMOUNTED IMAGE RUN
+Command:
+python -m pytest tests/backend -q -p no:cacheprovider --tb=short
+Output:
+........................................................................ [ 60%]
+...............................................                          [100%]
+119 passed, 2 warnings in 5.64s
+
+Warnings: existing third-party Starlette/httpx and anyio deprecation warnings.
+AST: 65 Python files parsed successfully.
+git diff --check: PASS; line-ending notices only.

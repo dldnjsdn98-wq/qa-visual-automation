@@ -1,0 +1,63 @@
+{
+  "argv": [
+    ".\\.pytest_cache\\agent-clean-win\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "tests/backend/test_ocr_containment.py::test_native_effective_boundary_is_verified_before_workload_and_after",
+    "-q",
+    "--tb=short",
+    "-p",
+    "no:cacheprovider",
+    "-o",
+    "junit_family=xunit1",
+    "--basetemp",
+    ".pytest_cache/backend-conformance-native-02",
+    "--junitxml",
+    ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-native-boundary-02.xml"
+  ],
+  "cwd": "C:\\Dev\\qa-visual-automation",
+  "started_utc": "2026-09-25T13:49:25.085977+00:00",
+  "capture_host_os": "Windows-11-10.0.26200-SP0",
+  "capture_python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "source_before": {
+    "backend/app/workers/ocr.py": "fe887ff2e812d7e05c56e9ad45779390d565d0b7849e7e5d007560cf1992887a",
+    "backend/app/workers/ocr_source.py": "3d3bf0559579a03ac58cff438cafe5965c46256dd5eefb1e38d3d457b87b39cc",
+    "tests/backend/test_ocr_runner.py": "2b1f83804ab0ae06bbe0737b25859088bc480dca60c487e20b2c3ff7970470bc",
+    "tests/backend/test_ocr_source_read.py": "a267eaee13cd7dc9e5bf4192e476753a158ce080caee7a0b1bea8b69d7bef5ad",
+    "tests/backend/test_ocr_runtime_integration.py": "516405d3d95df76b4fdcdc535a0fbf0e0e25ecd750662238c2f5e19724a33d10",
+    "backend/app/workers/ocr_runtime.py": "65507b56d9e4670537879823c4c541b157fb01eaa4e708883e8f10e403a195dc",
+    "backend/app/workers/ocr_containment.py": "84c61ee8aed675e5865828f30c006789b22c5191af44eb0a7ff957b3a34ead06",
+    "backend/app/services/verification_jobs.py": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+    "tests/backend/test_ocr_runtime_db.py": "462012505b36c80299f59ab0b020a2d5d04ea2c9d4d48ff3c81cf381320c34ed",
+    "tests/backend/test_ocr_containment.py": "c9560fead64ad7fc7d6a1ed395f194b97101c346b7689dd2fa0b5c3d8bb6d0ae"
+  },
+  "context_sha256": {
+    ".env": "eccb0361531dfd7491051e2acd67aa3a125b987b95b38993d82f4743228596d1",
+    "pyproject.toml": "55aff766409ac914d161f7c42ddfda7e8a8f8d80213791af6b23fe595423ce57",
+    "backend/Dockerfile": "6f871aca46a4894aab2dbedffe35ffa26664ccee4a36cfee3cf0e3bf4bb35d8b",
+    "backend/Dockerfile.test": "5f93a520ceee7612def4fae20ed2d9d6ef06ff5d83efebdba54592c828ab8418",
+    "backend/requirements.lock": "30c023d97b69a0d4e82a449bb88bc0fb542e95bf5c07674215821bd769661352",
+    "tests/backend/conftest.py": "5561e5cd0d490b9385075b9d8a34b725752223ffda695c8bf51c6c610e2da79b",
+    "docs/architecture/phase-3-ocr-contract.md": "478fafdcf7d3876f9437137e382d41872f100dad40206a280da7551283e8dd44"
+  },
+  "runtime_environment": {
+    "QA_OCR_NATIVE_CONTAINMENT_TEST": "1",
+    "QA_OCR_NATIVE_LIMIT_BYTES": "268435456"
+  },
+  "ended_utc": "2026-09-25T13:49:26.711897+00:00",
+  "exit_code": 1,
+  "log_path": ".orchestration\\reports\\BACKEND-OCR-001-runtime-conformance-evidence-03\\windows-native-boundary-02.log",
+  "log_sha256": "2acde35a24ff3ba2bc50a6a59832dc2eec86336d94a174804db92934d3c07a70",
+  "source_after": {
+    "backend/app/workers/ocr.py": "fe887ff2e812d7e05c56e9ad45779390d565d0b7849e7e5d007560cf1992887a",
+    "backend/app/workers/ocr_source.py": "3d3bf0559579a03ac58cff438cafe5965c46256dd5eefb1e38d3d457b87b39cc",
+    "tests/backend/test_ocr_runner.py": "2b1f83804ab0ae06bbe0737b25859088bc480dca60c487e20b2c3ff7970470bc",
+    "tests/backend/test_ocr_source_read.py": "a267eaee13cd7dc9e5bf4192e476753a158ce080caee7a0b1bea8b69d7bef5ad",
+    "tests/backend/test_ocr_runtime_integration.py": "516405d3d95df76b4fdcdc535a0fbf0e0e25ecd750662238c2f5e19724a33d10",
+    "backend/app/workers/ocr_runtime.py": "65507b56d9e4670537879823c4c541b157fb01eaa4e708883e8f10e403a195dc",
+    "backend/app/workers/ocr_containment.py": "84c61ee8aed675e5865828f30c006789b22c5191af44eb0a7ff957b3a34ead06",
+    "backend/app/services/verification_jobs.py": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+    "tests/backend/test_ocr_runtime_db.py": "462012505b36c80299f59ab0b020a2d5d04ea2c9d4d48ff3c81cf381320c34ed",
+    "tests/backend/test_ocr_containment.py": "c9560fead64ad7fc7d6a1ed395f194b97101c346b7689dd2fa0b5c3d8bb6d0ae"
+  }
+}

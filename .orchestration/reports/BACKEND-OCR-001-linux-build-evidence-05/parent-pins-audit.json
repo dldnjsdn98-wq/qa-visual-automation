@@ -1,0 +1,12 @@
+{
+  "pins_sha256": "d92e20493eb42a3d4d2702b17c3d5559c17cad78e31b364387039e649146f2bc",
+  "count": 113,
+  "current_host_raw_lf_match": 113,
+  "frozen_context_match": 113,
+  "required_paths": "PASS",
+  "unchanged_predicates": "PASS parent static reading and independent equivalent JSON checks, capture not imported/executed",
+  "w1_l1_hardpins": "PASS",
+  "credential_env_model_files": "excluded",
+  "native": "NOT_RUN",
+  "build": "NOT_RUN"
+}

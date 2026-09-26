@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:qa-visual-automation:ocr:expected-snapshot:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["snapshot_version", "sha256", "items"],
+  "properties": {
+    "snapshot_version": {"const": 1},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "captured_at": {"type": "string"},
+    "source_mode": {"const": "run_creation"},
+    "locale_code": {"type": "string"},
+    "ocr_language": {"type": "string"},
+    "screenshot": {"type": "object"},
+    "item_count": {"type": "integer", "minimum": 0, "maximum": 1000},
+    "missing_count": {"type": "integer", "minimum": 0, "maximum": 1000},
+    "items": {"type": "array", "maxItems": 1000, "items": {"$ref": "#/$defs/item"}}
+  },
+  "$defs": {
+    "item": {"type": "object", "additionalProperties": false, "required": ["position", "string_key_id", "string_id", "entry_id", "expected_text", "translation_status"], "properties": {"position": {"type": "integer", "minimum": 0, "maximum": 999}, "string_key_id": {"type": "string", "minLength": 1}, "string_id": {"type": "string", "minLength": 1}, "entry_id": {"type": ["string", "null"]}, "expected_text": {"type": ["string", "null"], "maxLength": 10000}, "translation_status": {"type": "string", "enum": ["present", "missing"]}}}
+  }
+}

@@ -1,0 +1,50 @@
+diff --git a/backend/app/workers/ocr.py b/backend/app/workers/ocr.py
+--- a/backend/app/workers/ocr.py
++++ b/backend/app/workers/ocr.py
+@@ -17,6 +17,7 @@
+ from backend.app.services.verification_jobs import VerificationJobService
+ from backend.app.services.verification_results import write_adapter_results
+ from backend.app.storage.local import LocalStorage, ROOT as STORAGE_BASE
++from backend.app.workers.ocr_child_environment import child_environment
+ from backend.app.workers.ocr_runtime import DeadlinePolicy, OneOperation, load_metadata
+ from backend.app.workers.ocr_source import MAX_INPUT_BYTES, MAX_MESSAGE_BYTES, SAFE_CODES, Wire
+ 
+@@ -28,19 +29,6 @@
+ CONTAINMENT_TAIL_SECONDS = 2.0
+ DB_SETTLEMENT_SECONDS = 15.0
+ SAFE_ADAPTER_CODES = SAFE_CODES
+-
+-
+-def child_environment(scratch):
+-    # Allowlist, never a copy of os.environ. Neither DB credentials, HOME,
+-    # PYTHONPATH nor .env discovery context is inherited by the child.
+-    result = {key: os.environ[key] for key in ("SystemRoot", "WINDIR") if key in os.environ}
+-    result.update(TEMP=scratch, TMP=scratch, HOME=scratch, USERPROFILE=scratch,
+-                  OMP_NUM_THREADS="1", MKL_NUM_THREADS="1", OPENBLAS_NUM_THREADS="1",
+-                  PYTHONDONTWRITEBYTECODE="1", PADDLE_PDX_DISABLE_MODEL_SOURCE_CHECK="True")
+-    for key in ("QA_OCR_MODEL_ROOT", "PADDLE_HOME", "PADDLE_PDX_CACHE_HOME"):
+-        if key in os.environ:
+-            result[key] = os.path.abspath(os.environ[key])
+-    return result
+ 
+ 
+ class OCRRunner:
+diff --git a/backend/app/workers/ocr_child_environment.py b/backend/app/workers/ocr_child_environment.py
+new file mode 100644
+--- /dev/null
++++ b/backend/app/workers/ocr_child_environment.py
+@@ -0,0 +1,14 @@
++import os
++
++
++def child_environment(scratch):
++    # Allowlist, never a copy of os.environ. Neither DB credentials, HOME,
++    # PYTHONPATH nor .env discovery context is inherited by the child.
++    result = {key: os.environ[key] for key in ("SystemRoot", "WINDIR") if key in os.environ}
++    result.update(TEMP=scratch, TMP=scratch, HOME=scratch, USERPROFILE=scratch,
++                  OMP_NUM_THREADS="1", MKL_NUM_THREADS="1", OPENBLAS_NUM_THREADS="1",
++                  PYTHONDONTWRITEBYTECODE="1", PADDLE_PDX_DISABLE_MODEL_SOURCE_CHECK="True")
++    for key in ("QA_OCR_MODEL_ROOT", "PADDLE_HOME", "PADDLE_PDX_CACHE_HOME"):
++        if key in os.environ:
++            result[key] = os.path.abspath(os.environ[key])
++    return result

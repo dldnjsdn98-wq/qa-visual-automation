@@ -1,0 +1,59 @@
+{
+  "argv": [
+    ".\\.pytest_cache\\agent-clean-win\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "tests/backend/test_ocr_runtime_db.py",
+    "-q",
+    "--tb=short",
+    "-p",
+    "no:cacheprovider",
+    "-o",
+    "junit_family=xunit1",
+    "--basetemp",
+    ".pytest_cache/backend-conformance-db-01",
+    "--junitxml",
+    ".orchestration/reports/BACKEND-OCR-001-runtime-conformance-evidence-03/windows-db-boundary-01.xml"
+  ],
+  "cwd": "C:\\Dev\\qa-visual-automation",
+  "started_utc": "2026-09-25T13:39:23.786093+00:00",
+  "capture_host_os": "Windows-11-10.0.26200-SP0",
+  "capture_python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "source_before": {
+    "backend/app/workers/ocr.py": "d4a322ba085fbbcdf25125495528ff234990492d41252a55b9f8b9c171fcd4cb",
+    "backend/app/workers/ocr_source.py": "39b79d40c8b8c83791297767423ae4eecb289a4a4528a5806db3845ad4880f18",
+    "tests/backend/test_ocr_runner.py": "25c8b9822a6671120209922ec93e12796d62f76590b588d7dfac8b700bc7b2c2",
+    "tests/backend/test_ocr_source_read.py": "5c29a41abd175358459db44089987a8f59bbe13c640c932be3545df9b89da83c",
+    "tests/backend/test_ocr_runtime_integration.py": "5a06cbb3b1c368031e32e7208af130962a6a44b5b3a9faca7ff0d807b9585465",
+    "backend/app/workers/ocr_runtime.py": "5c318a3deca32315717275999eac6c6a306444488f28305b927eb8896a7291e5",
+    "backend/app/workers/ocr_containment.py": "94e615a80c6bb2d991aed19650212ce2b63534d8201742074b3fdcae95161676",
+    "backend/app/services/verification_jobs.py": "060fab9f69e60500d92b1f5b4e295bd26a1fdde33b48f50f50fee90f2e0518c3",
+    "tests/backend/test_ocr_runtime_db.py": "67b9894bde088b36c712cfb4aaf24061a0f22039b17074949edfbad1b9a5f1e4",
+    "tests/backend/test_ocr_containment.py": "f633a6cf8677ae3cbccf8265c218c261bdbf6dbc1a7ecea87860c1a791abd73e"
+  },
+  "context_sha256": {
+    ".env": "eccb0361531dfd7491051e2acd67aa3a125b987b95b38993d82f4743228596d1",
+    "pyproject.toml": "55aff766409ac914d161f7c42ddfda7e8a8f8d80213791af6b23fe595423ce57",
+    "backend/Dockerfile": "6f871aca46a4894aab2dbedffe35ffa26664ccee4a36cfee3cf0e3bf4bb35d8b",
+    "backend/Dockerfile.test": "5f93a520ceee7612def4fae20ed2d9d6ef06ff5d83efebdba54592c828ab8418",
+    "backend/requirements.lock": "30c023d97b69a0d4e82a449bb88bc0fb542e95bf5c07674215821bd769661352",
+    "tests/backend/conftest.py": "5561e5cd0d490b9385075b9d8a34b725752223ffda695c8bf51c6c610e2da79b",
+    "docs/architecture/phase-3-ocr-contract.md": "478fafdcf7d3876f9437137e382d41872f100dad40206a280da7551283e8dd44"
+  },
+  "ended_utc": "2026-09-25T13:39:26.354897+00:00",
+  "exit_code": 0,
+  "log_path": ".orchestration\\reports\\BACKEND-OCR-001-runtime-conformance-evidence-03\\windows-db-boundary-01.log",
+  "log_sha256": "5c02de9b4ecd09fbaf0a9448e56bd798c908fff2b49144b2ecd2caaaefb5ee66",
+  "source_after": {
+    "backend/app/workers/ocr.py": "d4a322ba085fbbcdf25125495528ff234990492d41252a55b9f8b9c171fcd4cb",
+    "backend/app/workers/ocr_source.py": "39b79d40c8b8c83791297767423ae4eecb289a4a4528a5806db3845ad4880f18",
+    "tests/backend/test_ocr_runner.py": "25c8b9822a6671120209922ec93e12796d62f76590b588d7dfac8b700bc7b2c2",
+    "tests/backend/test_ocr_source_read.py": "5c29a41abd175358459db44089987a8f59bbe13c640c932be3545df9b89da83c",
+    "tests/backend/test_ocr_runtime_integration.py": "5a06cbb3b1c368031e32e7208af130962a6a44b5b3a9faca7ff0d807b9585465",
+    "backend/app/workers/ocr_runtime.py": "5c318a3deca32315717275999eac6c6a306444488f28305b927eb8896a7291e5",
+    "backend/app/workers/ocr_containment.py": "94e615a80c6bb2d991aed19650212ce2b63534d8201742074b3fdcae95161676",
+    "backend/app/services/verification_jobs.py": "060fab9f69e60500d92b1f5b4e295bd26a1fdde33b48f50f50fee90f2e0518c3",
+    "tests/backend/test_ocr_runtime_db.py": "67b9894bde088b36c712cfb4aaf24061a0f22039b17074949edfbad1b9a5f1e4",
+    "tests/backend/test_ocr_containment.py": "f633a6cf8677ae3cbccf8265c218c261bdbf6dbc1a7ecea87860c1a791abd73e"
+  }
+}

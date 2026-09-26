@@ -16,7 +16,12 @@ dependencies = [
   "psycopg[binary]>=3.2,<4",
   "Pillow>=12.3,<13",
   "python-multipart>=0.0.32,<1",
-  "rfc8785>=0.1.4,<0.2",
+  "paddleocr==3.7.0",
+  "paddlepaddle==3.3.1",
+  "paddlex[ocr-core]==3.7.2",
+  "opencv-contrib-python==4.10.0.84",
+  "RapidFuzz==3.14.6",
+  "rfc8785==0.1.4",
 ]
 
 [project.optional-dependencies]
@@ -24,7 +29,11 @@ dev = ["pytest>=8,<10", "httpx>=0.28,<1", "pyyaml>=6,<7"]
 agent = ["httpx>=0.28,<1"]
 
 [tool.setuptools.packages.find]
-include = ["backend*", "agent*"]
+include = ["backend*", "agent*", "worker*"]
+
+[tool.setuptools.package-data]
+"worker.ocr.schemas" = ["v1/*.json"]
+"worker.ocr.profiles" = ["registered/*.json", "fixtures/*.json"]
 
 [tool.pytest.ini_options]
-testpaths = ["tests/backend", "tests/integration"]
+testpaths = ["tests/backend", "tests/integration", "tests/ocr"]

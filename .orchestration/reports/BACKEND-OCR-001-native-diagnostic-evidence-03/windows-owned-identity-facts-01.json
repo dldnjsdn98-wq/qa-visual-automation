@@ -1,0 +1,572 @@
+{
+  "schema_version": 1,
+  "status": "FAIL_SAME_CAUSE_PAUSE",
+  "qualification": "UNAVAILABLE",
+  "native_same_cause_prior_failures": 2,
+  "prior_cleanup_failures": 2,
+  "helper_sha256": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+  "observations": [
+    {
+      "operation": "class1_live",
+      "begin": 49465.937,
+      "state": "started"
+    },
+    {
+      "operation": "class1_live",
+      "begin": 49465.937,
+      "end": 49465.937,
+      "state": "returned",
+      "value": {
+        "returned_bytes": 48,
+        "raw_hex": "0000000000000000b4c40400000000000000000000000000b4c4040000000000bf170000020000000200000000000000",
+        "values": {
+          "TotalUserTime": 0,
+          "TotalKernelTime": 312500,
+          "ThisPeriodTotalUserTime": 0,
+          "ThisPeriodTotalKernelTime": 312500,
+          "TotalPageFaultCount": 6079,
+          "TotalProcesses": 2,
+          "ActiveProcesses": 2,
+          "TotalTerminatedProcesses": 0
+        }
+      }
+    },
+    {
+      "operation": "class3_live",
+      "begin": 49465.937,
+      "state": "started"
+    },
+    {
+      "operation": "class3_live",
+      "begin": 49465.937,
+      "end": 49465.937,
+      "state": "returned",
+      "value": {
+        "assigned": 2,
+        "listed": 2,
+        "returned_bytes": 24,
+        "capacity": 4,
+        "pids": [
+          111908,
+          106636
+        ]
+      }
+    },
+    {
+      "operation": "direct_identity",
+      "begin": 49465.937,
+      "state": "started"
+    },
+    {
+      "operation": "pid111908.membership_before",
+      "begin": 49465.937,
+      "state": "started"
+    },
+    {
+      "operation": "pid111908.membership_before",
+      "begin": 49465.937,
+      "end": 49465.937,
+      "state": "returned",
+      "value": true
+    },
+    {
+      "operation": "pid111908.handle_pid",
+      "begin": 49465.937,
+      "state": "started"
+    },
+    {
+      "operation": "pid111908.handle_pid",
+      "begin": 49465.937,
+      "end": 49465.937,
+      "state": "returned",
+      "value": 111908
+    },
+    {
+      "operation": "pid111908.times_before",
+      "begin": 49465.937,
+      "state": "started"
+    },
+    {
+      "operation": "pid111908.times_before",
+      "begin": 49465.937,
+      "end": 49465.937,
+      "state": "returned",
+      "value": {
+        "created": 134348205619885284,
+        "exited": 0,
+        "kernel": 156250,
+        "user": 0
+      }
+    },
+    {
+      "operation": "pid111908.image",
+      "begin": 49465.937,
+      "state": "started"
+    },
+    {
+      "operation": "pid111908.image",
+      "begin": 49465.937,
+      "end": 49465.937,
+      "state": "returned",
+      "value": {
+        "basename": "python.exe",
+        "path_sha256": "ef2ac6bcb94c42e7bee43f1059ed57bf705c7d1d26ac7794247a69c0747089fd"
+      }
+    },
+    {
+      "operation": "pid111908.image_file",
+      "begin": 49465.937,
+      "state": "started"
+    },
+    {
+      "operation": "pid111908.image_file",
+      "begin": 49465.937,
+      "end": 49465.953,
+      "state": "returned",
+      "value": {
+        "basename": "python.exe",
+        "path_sha256": "ef2ac6bcb94c42e7bee43f1059ed57bf705c7d1d26ac7794247a69c0747089fd",
+        "size": 107312,
+        "sha256": "dcc090a13a5efa06e2b5ad659d18831d6a72cb3d4c2bd83201df7aa69cad856d",
+        "stable_file_identity": true,
+        "hash_subject": "on-disk image, not loaded memory"
+      }
+    },
+    {
+      "operation": "pid111908.parent",
+      "begin": 49465.953,
+      "state": "started"
+    },
+    {
+      "operation": "pid111908.parent",
+      "begin": 49465.953,
+      "end": 49465.953,
+      "state": "returned",
+      "value": {
+        "ntstatus": 0,
+        "returned_bytes": 48,
+        "pbi_bytes": 48,
+        "parent_offset": 40,
+        "parent_pid": 97232,
+        "status": "numeric ancestry only; correlate retained Job handles"
+      }
+    },
+    {
+      "operation": "pid111908.times_after",
+      "begin": 49465.953,
+      "state": "started"
+    },
+    {
+      "operation": "pid111908.times_after",
+      "begin": 49465.953,
+      "end": 49465.953,
+      "state": "returned",
+      "value": {
+        "created": 134348205619885284,
+        "exited": 0,
+        "kernel": 156250,
+        "user": 0
+      }
+    },
+    {
+      "operation": "pid111908.membership_after",
+      "begin": 49465.953,
+      "state": "started"
+    },
+    {
+      "operation": "pid111908.membership_after",
+      "begin": 49465.953,
+      "end": 49465.953,
+      "state": "returned",
+      "value": true
+    },
+    {
+      "operation": "direct_identity",
+      "begin": 49465.937,
+      "end": 49465.953,
+      "state": "returned",
+      "value": {
+        "pid": 111908,
+        "creation_time": 134348205619885284,
+        "membership_revalidated": true
+      }
+    },
+    {
+      "operation": "child_self_report",
+      "state": "returned",
+      "value": {
+        "nonce": "379b53b77fba4175868209c05105c41a",
+        "pid": 111908,
+        "ppid": 97232,
+        "executable": {
+          "basename": "python.exe",
+          "path_sha256": "ef2ac6bcb94c42e7bee43f1059ed57bf705c7d1d26ac7794247a69c0747089fd"
+        },
+        "base_executable": {
+          "basename": "python.exe",
+          "path_sha256": "ef2ac6bcb94c42e7bee43f1059ed57bf705c7d1d26ac7794247a69c0747089fd"
+        },
+        "isolated": 1,
+        "pid_in_job_snapshot": true,
+        "pid_matches_retained_verified_identity": true
+      }
+    },
+    {
+      "operation": "pid106636.open",
+      "begin": 49465.953,
+      "state": "started"
+    },
+    {
+      "operation": "pid106636.open",
+      "begin": 49465.953,
+      "end": 49465.953,
+      "state": "returned",
+      "value": 440
+    },
+    {
+      "operation": "pid106636.identity",
+      "begin": 49465.953,
+      "state": "started"
+    },
+    {
+      "operation": "pid106636.membership_before",
+      "begin": 49465.953,
+      "state": "started"
+    },
+    {
+      "operation": "pid106636.membership_before",
+      "begin": 49465.953,
+      "end": 49465.953,
+      "state": "returned",
+      "value": true
+    },
+    {
+      "operation": "pid106636.handle_pid",
+      "begin": 49465.953,
+      "state": "started"
+    },
+    {
+      "operation": "pid106636.handle_pid",
+      "begin": 49465.953,
+      "end": 49465.953,
+      "state": "returned",
+      "value": 106636
+    },
+    {
+      "operation": "pid106636.times_before",
+      "begin": 49465.953,
+      "state": "started"
+    },
+    {
+      "operation": "pid106636.times_before",
+      "begin": 49465.953,
+      "end": 49465.953,
+      "state": "returned",
+      "value": {
+        "created": 134348205619940175,
+        "exited": 0,
+        "kernel": 156250,
+        "user": 0
+      }
+    },
+    {
+      "operation": "pid106636.image",
+      "begin": 49465.953,
+      "state": "started"
+    },
+    {
+      "operation": "pid106636.image",
+      "begin": 49465.953,
+      "end": 49465.953,
+      "state": "returned",
+      "value": {
+        "basename": "conhost.exe",
+        "path_sha256": "aa03be48d56288b3c3e98ea99e43843cdf93e54c1a37ba31c1ce8583eeef5222"
+      }
+    },
+    {
+      "operation": "pid106636.image_file",
+      "begin": 49465.953,
+      "state": "started"
+    },
+    {
+      "operation": "pid106636.image_file",
+      "begin": 49465.953,
+      "end": 49465.953,
+      "state": "returned",
+      "value": {
+        "basename": "conhost.exe",
+        "path_sha256": "aa03be48d56288b3c3e98ea99e43843cdf93e54c1a37ba31c1ce8583eeef5222",
+        "size": 1003520,
+        "sha256": "e449bce01f275cd08f3d4e64bb73b3b43ae845a0dbdb3e6131426e66537705e5",
+        "stable_file_identity": true,
+        "hash_subject": "on-disk image, not loaded memory"
+      }
+    },
+    {
+      "operation": "pid106636.parent",
+      "begin": 49465.953,
+      "state": "started"
+    },
+    {
+      "operation": "pid106636.parent",
+      "begin": 49465.953,
+      "end": 49465.953,
+      "state": "returned",
+      "value": {
+        "ntstatus": 0,
+        "returned_bytes": 48,
+        "pbi_bytes": 48,
+        "parent_offset": 40,
+        "parent_pid": 111908,
+        "status": "numeric ancestry only; correlate retained Job handles"
+      }
+    },
+    {
+      "operation": "pid106636.times_after",
+      "begin": 49465.953,
+      "state": "started"
+    },
+    {
+      "operation": "pid106636.times_after",
+      "begin": 49465.953,
+      "end": 49465.953,
+      "state": "returned",
+      "value": {
+        "created": 134348205619940175,
+        "exited": 0,
+        "kernel": 156250,
+        "user": 0
+      }
+    },
+    {
+      "operation": "pid106636.membership_after",
+      "begin": 49465.953,
+      "state": "started"
+    },
+    {
+      "operation": "pid106636.membership_after",
+      "begin": 49465.953,
+      "end": 49465.953,
+      "state": "returned",
+      "value": true
+    },
+    {
+      "operation": "pid106636.identity",
+      "begin": 49465.953,
+      "end": 49465.953,
+      "state": "returned",
+      "value": {
+        "pid": 106636,
+        "creation_time": 134348205619940175,
+        "membership_revalidated": true
+      }
+    },
+    {
+      "operation": "class1_after_stop",
+      "begin": 49465.953,
+      "state": "started"
+    },
+    {
+      "operation": "class1_after_stop",
+      "begin": 49465.953,
+      "end": 49465.953,
+      "state": "returned",
+      "value": {
+        "returned_bytes": 48,
+        "raw_hex": "0000000000000000b4c40400000000000000000000000000b4c4040000000000bf170000020000000000000000000000",
+        "values": {
+          "TotalUserTime": 0,
+          "TotalKernelTime": 312500,
+          "ThisPeriodTotalUserTime": 0,
+          "ThisPeriodTotalKernelTime": 312500,
+          "TotalPageFaultCount": 6079,
+          "TotalProcesses": 2,
+          "ActiveProcesses": 0,
+          "TotalTerminatedProcesses": 0
+        }
+      }
+    }
+  ],
+  "stop_requests": 1,
+  "scope": "startup-only one gate; no parent-job booleans or post-identity counts",
+  "pre_resume_identity": "unknown; existing accounting_initial only",
+  "snapshots_non_atomic": true,
+  "requested_image": {
+    "basename": "python.exe",
+    "path_sha256": "ef2ac6bcb94c42e7bee43f1059ed57bf705c7d1d26ac7794247a69c0747089fd",
+    "size": 107312,
+    "sha256": "dcc090a13a5efa06e2b5ad659d18831d6a72cb3d4c2bd83201df7aa69cad856d",
+    "stable_file_identity": true,
+    "hash_subject": "on-disk image, not loaded memory"
+  },
+  "argv": [
+    {
+      "basename": "python.exe",
+      "path_sha256": "ef2ac6bcb94c42e7bee43f1059ed57bf705c7d1d26ac7794247a69c0747089fd"
+    },
+    "-I",
+    "-S",
+    "-c",
+    "<fixed identity marker workload>",
+    "<scratch marker>",
+    "379b53b77fba4175868209c05105c41a"
+  ],
+  "environment_keys": [
+    "HOME",
+    "SystemRoot",
+    "TEMP",
+    "TMP",
+    "USERPROFILE",
+    "WINDIR"
+  ],
+  "scratch_basename": "windows-identity-03-mokoyye2",
+  "memory_limit": 268435456,
+  "observation_seconds": 5.0,
+  "containment_tail_seconds": 2.0,
+  "owned_pid": 111908,
+  "accounting_initial": {
+    "observed_monotonic": 49465.89,
+    "query_class": 1,
+    "buffer_bytes": 48,
+    "returned_bytes": 48,
+    "query_succeeded": true,
+    "winerror": 0,
+    "pointer_bytes": 8,
+    "dword_bytes": 4,
+    "field_offsets": {
+      "TotalUserTime": 0,
+      "TotalKernelTime": 8,
+      "ThisPeriodTotalUserTime": 16,
+      "ThisPeriodTotalKernelTime": 24,
+      "TotalPageFaultCount": 32,
+      "TotalProcesses": 36,
+      "ActiveProcesses": 40,
+      "TotalTerminatedProcesses": 44
+    },
+    "values": {
+      "TotalUserTime": 0,
+      "TotalKernelTime": 0,
+      "ThisPeriodTotalUserTime": 0,
+      "ThisPeriodTotalKernelTime": 0,
+      "TotalPageFaultCount": 521,
+      "TotalProcesses": 1,
+      "ActiveProcesses": 1,
+      "TotalTerminatedProcesses": 0
+    },
+    "raw_hex": "000000000000000000000000000000000000000000000000000000000000000009020000010000000100000000000000",
+    "owned_pid": 111908
+  },
+  "effective_limits": {
+    "kind": "windows-job-hard-working-set",
+    "scope": "one-process-no-descendants",
+    "requested_limit": 268435456,
+    "page_size": 4096,
+    "allocation_notifications": "best-effort; absence is not denial-proof",
+    "qualification": "candidate; native continuity and failure-path evidence required",
+    "os_facts": {
+      "major": 10,
+      "minor": 0,
+      "build": 26200,
+      "platform": 2,
+      "platform_version": [
+        10,
+        0,
+        26100
+      ]
+    },
+    "python_version": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "ctypes_layouts": {
+      "basic_accounting_bytes": 48,
+      "basic_limits_bytes": 64,
+      "extended_limits_bytes": 144,
+      "startup_info_bytes": 104,
+      "startup_info_ex_bytes": 112,
+      "process_info_bytes": 24,
+      "pointer_bytes": 8,
+      "dword_bytes": 4
+    },
+    "accounting_last": {
+      "observed_monotonic": 49465.89,
+      "query_class": 1,
+      "buffer_bytes": 48,
+      "returned_bytes": 48,
+      "query_succeeded": true,
+      "winerror": 0,
+      "pointer_bytes": 8,
+      "dword_bytes": 4,
+      "field_offsets": {
+        "TotalUserTime": 0,
+        "TotalKernelTime": 8,
+        "ThisPeriodTotalUserTime": 16,
+        "ThisPeriodTotalKernelTime": 24,
+        "TotalPageFaultCount": 32,
+        "TotalProcesses": 36,
+        "ActiveProcesses": 40,
+        "TotalTerminatedProcesses": 44
+      },
+      "values": {
+        "TotalUserTime": 0,
+        "TotalKernelTime": 0,
+        "ThisPeriodTotalUserTime": 0,
+        "ThisPeriodTotalKernelTime": 0,
+        "TotalPageFaultCount": 521,
+        "TotalProcesses": 1,
+        "ActiveProcesses": 1,
+        "TotalTerminatedProcesses": 0
+      },
+      "raw_hex": "000000000000000000000000000000000000000000000000000000000000000009020000010000000100000000000000",
+      "owned_pid": 111908
+    },
+    "accounting_initial": {
+      "observed_monotonic": 49465.89,
+      "query_class": 1,
+      "buffer_bytes": 48,
+      "returned_bytes": 48,
+      "query_succeeded": true,
+      "winerror": 0,
+      "pointer_bytes": 8,
+      "dword_bytes": 4,
+      "field_offsets": {
+        "TotalUserTime": 0,
+        "TotalKernelTime": 8,
+        "ThisPeriodTotalUserTime": 16,
+        "ThisPeriodTotalKernelTime": 24,
+        "TotalPageFaultCount": 32,
+        "TotalProcesses": 36,
+        "ActiveProcesses": 40,
+        "TotalTerminatedProcesses": 44
+      },
+      "values": {
+        "TotalUserTime": 0,
+        "TotalKernelTime": 0,
+        "ThisPeriodTotalUserTime": 0,
+        "ThisPeriodTotalKernelTime": 0,
+        "TotalPageFaultCount": 521,
+        "TotalProcesses": 1,
+        "ActiveProcesses": 1,
+        "TotalTerminatedProcesses": 0
+      },
+      "raw_hex": "000000000000000000000000000000000000000000000000000000000000000009020000010000000100000000000000",
+      "owned_pid": 111908
+    },
+    "effective_working_set_max": 268435456,
+    "effective_working_set_min": 81920,
+    "effective_working_set_flags": 6,
+    "job_memory_max": 268435456,
+    "job_limit_flags": 8712,
+    "active_process_limit": 1,
+    "live_revalidation_available": true,
+    "live_validation_count": 1
+  },
+  "termination_issued": true,
+  "direct_process_stopped": true,
+  "direct_wait_result": 0,
+  "cleanup_confirmed": true,
+  "query_alive": false,
+  "containment_elapsed": 0.0,
+  "errors": [],
+  "identity_complete": false,
+  "native_same_cause_failures": 3,
+  "next_action": "pause/review; no automatic retry"
+}

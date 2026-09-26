@@ -1,0 +1,19 @@
+{
+  "tool_exit_code": 0,
+  "tool_chunk": "586c09",
+  "result_status": "EXACT_RESIDUAL_REMOVED_ABSENCE_CONFIRMED",
+  "three_commands_exit_codes": [
+    0,
+    0,
+    1
+  ],
+  "absence_error": "Error response from daemon: No such container: affc94c2fe2468fd867c1e80be5878836a9b70868e68f2bff4f54d9c84988e8a\n",
+  "original_manifest_sha256": "cd519e114459fe5ee07967b9a536fd8ae4660a6514762f183df61e4008381eb5",
+  "original_manifest_unchanged_independently_rehashed": true,
+  "requested_Config_Image": "sha256:a1337c5556ab00f01dac45075f6bbf71ba9198c1b179a83d0210e5879a426d0a",
+  "observed_Image": "sha256:a1337c5556ab00f01dac45075f6bbf71ba9198c1b179a83d0210e5879a426d0a",
+  "fields_equal_in_this_observation": true,
+  "image_content_not_verified": true,
+  "capture06_outcome": "UNPROVED_OWNERSHIP_OR_CLEANUP remains historical",
+  "no_native_start_stop_kill": true
+}

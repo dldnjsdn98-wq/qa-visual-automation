@@ -1,0 +1,17 @@
+{
+  "label": "inspect-after",
+  "argv": [
+    "docker",
+    "container",
+    "inspect",
+    "--format",
+    "{{.Id}}",
+    "affc94c2fe2468fd867c1e80be5878836a9b70868e68f2bff4f54d9c84988e8a"
+  ],
+  "timeout_seconds": 10,
+  "started_ns": 56698546000000,
+  "exit_code": 1,
+  "stdout": "\n",
+  "stderr": "Error response from daemon: No such container: affc94c2fe2468fd867c1e80be5878836a9b70868e68f2bff4f54d9c84988e8a\n",
+  "ended_ns": 56698703000000
+}

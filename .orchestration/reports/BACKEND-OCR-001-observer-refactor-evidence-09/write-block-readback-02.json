@@ -1,0 +1,19 @@
+{
+  "event": "later readback after asynchronous Descartes write notification",
+  "actual_new_test": {
+    "path": "tests\\backend\\test_ocr_child_environment.py",
+    "bytes": 3907,
+    "sha256": "66ee202f0843064138f87456d54002062ad6fa752d4e9e755c1d603a00dcc85b",
+    "lf_sha256": "66ee202f0843064138f87456d54002062ad6fa752d4e9e755c1d603a00dcc85b"
+  },
+  "author_attribution": "one successful write before hold received; no subsequent edit/rollback",
+  "earlier_inventory": "write-block-readback-01.json remains accurate point-in-time prior to this write",
+  "other_sources": {
+    "backend/app/workers/ocr.py": "115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82",
+    "backend/app/workers/ocr_containment.py": "9a47c3348980b4f5d25afafce5407ed067cd974caff2b60b87d2dc5f8228dbd9",
+    "tests/backend/test_ocr_containment.py": "e72c2fb79a9bc3b0c0e08f155b5c78f16173d8e02ecc9f8349f2ecab3674af45"
+  },
+  "new_helper_exists": false,
+  "tests": "NOT_RUN missing actual shared helper",
+  "no_rollback": true
+}

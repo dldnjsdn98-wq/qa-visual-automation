@@ -1,0 +1,18 @@
+# Observer09 prospective freeze — UNAPPLIED / NOT EXECUTION READY
+
+Supersedes the design report's earlier statement that no candidate was created. Actual containment test write attempts/successes/failures: 0/0/0. Actual helper and runner write attempts by this lane: 0/0/0. Fermat's helper denial is separate; Descartes's successful new test write before HOLD is separate and preserved. This lane made four successful evidence-only write operations before this freeze note (design creation, prospective test creation, candidate creation, candidate correction), zero denied writes. This note is the fifth successful evidence write if creation completes.
+
+Files frozen (SHA256 raw):
+- BACKEND-OCR-001-observer-diagnostic-design-09.md: e45b649a278b704dbddf23d4c603845e2ceffdd87741d8c9c7bfab1b95ce87c5
+- BACKEND-OCR-001-observer-test-prospective-09.py: 73cb1432d9e23f2381474c9059b68e0149be35d9544b62b478e830134705b5ac
+- BACKEND-OCR-001-linux-headroom-candidate-03.py: 8ce72f4e3202d3f01ee3438615cedfcd7b8ce7323c4c69ec9bcc457e32728ed9
+
+Prospective test LF: 2c7a9c03b8b282b6e38ecad95be33deb0ec3d913c979ae43d701c789c0a9c9cb. Prospective runner/environment LF pins supplied by Fermat: 3eecadf757f4ad945f67ff02c7f4347efda342e491ed85250780010d7d55d9f1 / 06f2ca8428fca1740d77b3b9dd7515eeecbf28d9760cc87b3688f6501fd23c0d. Candidate fixes all three prospective LF identities, keeps containment LF6129ff42c0789df51c105068cbda48d0b299885f53c491e7d3a777315661467c, adds required package initializer/environment sources and --noconftest. All prior gates retained. No actual-source manifest or image exists for this proposal; hashes are not claims of applied source.
+
+Readback actual raw hashes: test e72c2fb79a9bc3b0c0e08f155b5c78f16173d8e02ecc9f8349f2ecab3674af45; containment 9a47c3348980b4f5d25afafce5407ed067cd974caff2b60b87d2dc5f8228dbd9; runner 115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82; historical candidate07 e669d74fc1f683ad57cf3792860910f65198cbed3f6d0dee91232c36e36d082c. Shared helper absent on readback.
+
+Performed source-text-only checks with nonempty regex matches and exact equality for _finish, _L1_CHILD, _l1_oracle, t0 through after-event-read boundary, and finally cleanup nesting. Five checks passed; these are selected text checks, not full AST validation or runtime evidence. Python command discovery found no python command; no interpreter/module was invoked. Full independent exact-diff/AST review pending.
+
+Failure-path review: prelaunch snapshot/persistence cannot leak a child because launch follows it. Every added baseline-ready diagnostic operation is inside existing try/finally. Snapshot ordinary read/parse failures retain explicit null/type-only error; unexpected exceptions propagate to same finally. Persistence serialization/oversize/open/write/flush/fsync/replace failures propagate; existing nested finally calls unchanged _finish even if JUnit serialization also fails. Final current/headroom are retained before assertion, after persistence; failed final read cannot fabricate scalars. Optional RSS/identity observations are non-atomic and cannot replace original authority checks. Fixed byte caps do not establish hard I/O latency. A leftover temporary diagnostic file is not child cleanup evidence. No new stop path or timing instrumentation.
+
+Interfaces and exact prospective source sent directly to Descartes for synthetic proposals. No tests/imports/collection/native/API probes/build/container/model/DB execution. Focused fake failure-path tests and independent exact review pending; source disposition remains PM-owned. Windows3/historicalcleanup2, capture08 FAIL and admission gates unchanged.

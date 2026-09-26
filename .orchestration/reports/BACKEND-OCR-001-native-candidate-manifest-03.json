@@ -1,0 +1,77 @@
+{
+  "kind": "unapplied-candidate-evidence-not-qualification",
+  "generated_utc": "2026-09-25T15:20:11.293474+00:00",
+  "status": "PROPOSED_PATCHES_STATIC_REVIEW_COMPLETE_PM_DECISION_PENDING",
+  "count": 11,
+  "artifacts": [
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-candidate-03.md",
+      "bytes": 9788,
+      "sha256": "c2224c8477cc775808c4a92de23b70d57beaa5c77cbf7f2763440aa2e0011b9b"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-candidate-linux-03.md",
+      "bytes": 10012,
+      "sha256": "ea706e2f02ede9c9b6aed446127d85bddbb665cc73380e02a7738cad61ecf0f9"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-candidate-linux-03.patch",
+      "bytes": 11280,
+      "sha256": "d15ebab5fc1a5c3b4bb6fdd8c5d06907216decbff087f9f7722b34f9669a6639"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-candidate-linux-review-03.md",
+      "bytes": 5280,
+      "sha256": "502349baf5895278deafc6b93d3498caf5ea3e68fbf01b1654b6effde5cefd5d"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-candidate-linux-static-01.json",
+      "bytes": 557,
+      "sha256": "5e5980193eb3d34d95d57fc314a906d9b12332efb7dc55fe2fbcdb967c83853c"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-candidate-static-03.py",
+      "bytes": 3726,
+      "sha256": "1c8ae38df3c53adb40368cf740f0533fad22bd9db81ec3a3f29df2fe791e9c08"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-candidate-windows-03.md",
+      "bytes": 19971,
+      "sha256": "9053925f9d8436556ce0bf69f2daa26aa78887521481d31d8ef660b147c1698d"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-candidate-windows-03.patch",
+      "bytes": 1059,
+      "sha256": "84a8fb80f36b7718ac580c31f3fec8fc44cb8c6be28dc50539a30e1126ea1f9f"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-candidate-windows-review-03.md",
+      "bytes": 6866,
+      "sha256": "f426d2009556a6126592de7a86b7965781882714ce19f0f6fd24bed438cb0957"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-candidate-windows-static-01.json",
+      "bytes": 560,
+      "sha256": "fcf3b24dbae32b5b68e90b708355aee7583212ef0f6829290b7f035cf912a1ac"
+    },
+    {
+      "path": ".orchestration/handoffs/BACKEND-OCR-001-native-candidate-03.md",
+      "bytes": 2432,
+      "sha256": "b50a539c81b6d1108a4b259e2dd019b061e007704b37c1e2fad006ed95a5743e"
+    }
+  ],
+  "unchanged_baseline_sha256": {
+    "backend/app/workers/ocr_containment.py": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+    "tests/backend/test_ocr_containment.py": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+    "docs/architecture/phase-3-ocr-contract.md": "478fafdcf7d3876f9437137e382d41872f100dad40206a280da7551283e8dd44"
+  },
+  "patch_applied": false,
+  "runtime_tests": "NOT_RUN",
+  "static_checks": {
+    "exact_in_memory_diff": "PASS",
+    "prospective_outer_python_ast": "PASS",
+    "git_apply_check": "PASS",
+    "independent_windows_review": "PASS",
+    "independent_linux_review": "PASS"
+  }
+}

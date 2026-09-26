@@ -1,0 +1,129 @@
+{
+  "status": "HEADROOM_PRECONDITION_FAILED_L1_UNPROVED_CLEANUP_CONFIRMED",
+  "raw_capture_status": "UNPROVED_OBSERVER_EXIT",
+  "artifacts": [
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-08.md",
+      "bytes": 7245,
+      "sha256": "2d6898c92ec843ee2eab5f688e4ed0cc73372903d3c01f96a6acc8ecb0fb8537"
+    },
+    {
+      "path": ".orchestration/handoffs/BACKEND-OCR-001-linux-capture-08.md",
+      "bytes": 2731,
+      "sha256": "29fdd78fbaa4e055260278326ce10486b128a54c0e95148ad9cb8223c0569536"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-parent-audit-08.json",
+      "bytes": 1076,
+      "sha256": "5012d15abbc34a9aeff5040860a583680c9fffe5d5cc19545ed2d5362365de20"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-outer-08.py",
+      "bytes": 2355,
+      "sha256": "3290c447649ab313854c2a1779d6579d5171fb0b936b7cb096e91c6d634fb502"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-review-08.md",
+      "bytes": 7829,
+      "sha256": "8c1571bd9359dc550df3fa3b5d11fbd9b9b6a9130415ab960b705a157bd21fba"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-headroom-assessment-08.md",
+      "bytes": 5640,
+      "sha256": "8893cff8bd6473bf3d5f75119ad265afb5088cec7270938cee402067a0a720b2"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-artifacts-08.json",
+      "bytes": 5347,
+      "sha256": "ddb71bde473b427aff882c45fdcbd8dec1e5d7c4f2851db0aa9c9635be484a22"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-artifact-audit-08.md",
+      "bytes": 2337,
+      "sha256": "23418c83e0ee0331fa369e90026612d72fe712a6a2648418cfa14132610bbce2"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-outer-08/command.json",
+      "bytes": 950,
+      "sha256": "b2838a3727bb453f0f195103bf51843bb146278f027433b2ba4d50b4863bff0b"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-outer-08/preflight.json",
+      "bytes": 450,
+      "sha256": "ea9c8bbdf5890606f69850ccdb8b10ae5947ac0eb75eb4ba91f31d24d88c927c"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-outer-08/result.json",
+      "bytes": 1308,
+      "sha256": "1e1a80931fef3c5dee02254815f89045233f29cc6441d125ce1248bcd428e50f"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-outer-08/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-outer-08/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-linux-evidence-03-08/capture.py",
+      "bytes": 16819,
+      "sha256": "e669d74fc1f683ad57cf3792860910f65198cbed3f6d0dee91232c36e36d082c"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-linux-evidence-03-08/container.log",
+      "bytes": 1405,
+      "sha256": "48e8de4be84e793ba17108fd172cd291e1a5fbf8a7b6bae0dce0af0da44a5166"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-linux-evidence-03-08/inner-inputs.json",
+      "bytes": 25614,
+      "sha256": "86ca0ce4e60b92a6582a6053e9aa428cff56283764e0136a3e87b889f265a755"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-linux-evidence-03-08/manifest.json",
+      "bytes": 64833,
+      "sha256": "f0181c98ceb794d25d76bf6fb38692cffac9309ffb3f5f1bd183e4f13469e0dd"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-linux-evidence-03-08/result.xml",
+      "bytes": 3599,
+      "sha256": "2dd0078d5f4dc71542f0835f13f9aea796115c77e20ed1a9e2744dbe10d084cb"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-linux-evidence-03-08/source-pins.json",
+      "bytes": 25270,
+      "sha256": "d92e20493eb42a3d4d2702b17c3d5559c17cad78e31b364387039e649146f2bc"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-linux-evidence-03-08/terminal.json",
+      "bytes": 555,
+      "sha256": "2441c977ae2de6a476ca1bc66f371e448d9ddfdda9a819f6c035417a9886f545"
+    }
+  ],
+  "capture_invocations": 1,
+  "capture_process_exit": 2,
+  "tool_shell_exit": 1,
+  "natural_container_exit": 1,
+  "OOMKilled": false,
+  "test_results": {
+    "tests": 1,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0,
+    "warnings": 1
+  },
+  "image_internal_raw_lf_matches": 113,
+  "headroom_bytes": 20561920,
+  "increment_timing_oracle": "NOT_REACHED",
+  "owned_child_cleanup": true,
+  "owned_container_removal": true,
+  "source113_unchanged": true,
+  "original06_07_preserved": true,
+  "actual_models": "unverified",
+  "windows_same_cause": 3,
+  "historical_cleanup": 2,
+  "next": "PM/Architect02 read-only reassessment; no automatic native action"
+}

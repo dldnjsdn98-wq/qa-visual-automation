@@ -1,0 +1,95 @@
+{
+  "cleanup": {
+    "cleanup_container": {
+      "container": "qa-ocr-parent-oom-cleanup-e4e8e72dbfe6",
+      "id": "d61c87f27fd90d12db97633c575d3d2afcfdd6ea437af7cc517ca5a1dac11a87",
+      "remove_exit_code": 0,
+      "removed": true,
+      "stopped": false
+    },
+    "database_exit_code": 0,
+    "database_removed": true,
+    "oom_container": {
+      "container": "qa-ocr-parent-oom-e4e8e72dbfe6",
+      "id": "e8a4c4f3aae15b12c65246a39d6f33edc417295eafd194e627e557282a1ac4af",
+      "remove_exit_code": 0,
+      "removed": true,
+      "stopped": false
+    },
+    "recovery_container": {
+      "container": "qa-ocr-parent-oom-recovery-e4e8e72dbfe6",
+      "id": "8634e662029dfa4b275bb49077bd4ed948b37ee57009a4e30450e9ffc24219f3",
+      "remove_exit_code": 0,
+      "removed": true,
+      "stopped": false
+    },
+    "setup_container": {
+      "container": "qa-ocr-parent-oom-setup-e4e8e72dbfe6",
+      "id": "29671145308d7fffb1bb704e9fc6c46155577ba8ab2058d55debc23cc1f13d5f",
+      "remove_exit_code": 0,
+      "removed": true,
+      "stopped": false
+    }
+  },
+  "database": "qa_backend_parent_oom_e4e8e72dbfe64ae29609ac2f3ce76a63",
+  "ended_utc": "2026-09-25T14:57:20.106289+00:00",
+  "env_file": "provided to containers; path and values omitted",
+  "evidence_persistence": {
+    "directory_fsync": "POSIX inner modes only",
+    "file_fsync_before_replace": true,
+    "host_limitation": "Windows host does not provide this harness a directory-fsync proof"
+  },
+  "executions": [
+    {
+      "container_id": "29671145308d7fffb1bb704e9fc6c46155577ba8ab2058d55debc23cc1f13d5f",
+      "exit_code": 0,
+      "phase": "setup"
+    },
+    {
+      "container_id": "e8a4c4f3aae15b12c65246a39d6f33edc417295eafd194e627e557282a1ac4af",
+      "exit_code": 137,
+      "oom_killed": true,
+      "phase": "parent_oom"
+    },
+    {
+      "container_id": "8634e662029dfa4b275bb49077bd4ed948b37ee57009a4e30450e9ffc24219f3",
+      "exit_code": 0,
+      "phase": "lease_recovery"
+    }
+  ],
+  "expected_image_id": "sha256:56c45fb0dac074888d84484e414107c95342ab325e148c916fe55e454f1df662",
+  "extra_swap_bytes": 0,
+  "image_tag": "qa-backend-ocr-native-diagnostic:20260925b",
+  "memory_bytes": 536870912,
+  "memory_swap_bytes": 536870912,
+  "network_mode": "container:<validated-existing-postgres-id>",
+  "nonce": "e4e8e72dbfe64ae29609ac2f3ce76a63",
+  "oom_container_name": "qa-ocr-parent-oom-e4e8e72dbfe6",
+  "postgres_container_id": "6ebd78cb5629b910fc37eba42561d9fec86b24e7cb614d7e86d4932e11a0c3f3",
+  "resolved_image_id": "sha256:56c45fb0dac074888d84484e414107c95342ab325e148c916fe55e454f1df662",
+  "schema_version": 1,
+  "script_sha256": "767c47ddfd641e5f5b0ea67a1a6c04eff50244a9209910128b49fc0de921ba04",
+  "source_after": {
+    "backend/Dockerfile.test": "5f93a520ceee7612def4fae20ed2d9d6ef06ff5d83efebdba54592c828ab8418",
+    "backend/app/repositories/verification_runs.py": "40baa349c9ca23ed4feac7734b837907c9d9abbbb0f83f5fe9a7588e16a0ca06",
+    "backend/app/services/verification_jobs.py": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+    "backend/app/workers/ocr_containment.py": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+    "backend/migrations/versions/0004_phase3_ocr_verification.py": "8132cd7b43aba5a543d3acbdc3be218ceab7f3e303729a4ac9e7f7d0ccb0d024",
+    "tests/backend/test_ocr_containment.py": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+    "tests/backend/test_ocr_jobs.py": "13eea9e356f528b432e8ca9fade6257a8f4fd6bef37fa033665d7e527ab5197c",
+    "tests/backend/test_ocr_runtime_db.py": "88bf8639bff1b1c0fb6d9b89491d454b5c06b98d2684f27c02e597e63d89692f"
+  },
+  "source_before": {
+    "backend/Dockerfile.test": "5f93a520ceee7612def4fae20ed2d9d6ef06ff5d83efebdba54592c828ab8418",
+    "backend/app/repositories/verification_runs.py": "40baa349c9ca23ed4feac7734b837907c9d9abbbb0f83f5fe9a7588e16a0ca06",
+    "backend/app/services/verification_jobs.py": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+    "backend/app/workers/ocr_containment.py": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+    "backend/migrations/versions/0004_phase3_ocr_verification.py": "8132cd7b43aba5a543d3acbdc3be218ceab7f3e303729a4ac9e7f7d0ccb0d024",
+    "tests/backend/test_ocr_containment.py": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+    "tests/backend/test_ocr_jobs.py": "13eea9e356f528b432e8ca9fade6257a8f4fd6bef37fa033665d7e527ab5197c",
+    "tests/backend/test_ocr_runtime_db.py": "88bf8639bff1b1c0fb6d9b89491d454b5c06b98d2684f27c02e597e63d89692f"
+  },
+  "source_unchanged": true,
+  "started_utc": "2026-09-25T14:56:07.302558+00:00",
+  "status": "PASS"
+}

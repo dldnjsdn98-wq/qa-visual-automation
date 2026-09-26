@@ -1,0 +1,11 @@
+# PM01 Linux headroom reassessment / Architect02
+
+Root C:/Dev/qa-visual-automation; preserve docs/prompts/02_architect.md role. Existing ARCH-OCR-001 follow-up to P3-RUNTIME-001, read-only design review only. Requested highest gpt-6-astra/medium: test validity, cgroup-wide accounting and evidence equivalence uncertainty; actual model must be separately reported.
+
+Capture08 executed once: image-internal113 raw/LF match, JUnit1FAIL0error0skip. At baseline-ready/touched320MiB, fixed512MiB container headroom20561920 bytes fails required64..160MiB. Source line328 precedes gate/t0/224MiB increment. Natural observer exit1, OOMfalse, cleanup confirmed; generic UNPROVED_OBSERVER_EXIT is not proof of observer death/OOM. No native enforcement/timing result. Original06 template failure separately preserved; no residual08.
+
+Read current frozen candidate07, fixed L1 test/conftest/import closure, accepted runtime clarification, prior reassessment and capture08 raw inner/JUnit/manifest/terminal records; final03/Mill packet may arrive later. Do not duplicate03 packaging or native execution.
+
+Determine what current evidence proves versus cannot attribute about baseline memory. Static inspection may identify import overhead hypotheses but no invented measurement or assignment of cgroup charge. Review whether isolated lightweight observer/test loading can preserve SAME production containment code and fixed pressure/oracle while excluding unrelated application fixture imports, versus what requires a justified contract/test design change. Explain scope/equivalence, risks, missing instrumentation and a minimal proposed future validation with stop conditions. Do not tune cap/baseline/increment/headroom/250ms, waive criteria, silently substitute L2 or declare readiness. Changing numeric oracle needs an explicit later PM decision, not this task.
+
+No product/test/harness edits, Docker/build/probe/model/DB/dependency operation or permission workarounds. Only own new report/handoff ARCH-OCR-linux-headroom-reassessment-02.md. Reuse disjoint read-only subagents if useful; no duplicate runs. Distinguish user/runtime contract from empirical test precondition. Deliver concrete reviewed recommendation with exact files and verification requirements; execution remains HOLD. Windows3/historicalcleanup2 and allAC/04/08/admission unchanged. No commit/push.

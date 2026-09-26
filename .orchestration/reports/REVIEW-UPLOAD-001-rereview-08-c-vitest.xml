@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="26" failures="0" errors="0" time="0.5289784">
+    <testsuite name="tests/api.test.ts" timestamp="2026-09-25T01:32:50.307Z" hostname="wonwoo" tests="14" failures="0" errors="0" skipped="0" time="0.0277927">
+        <testcase classname="tests/api.test.ts" name="approved contract client &gt; preserves multilingual scalars, combining marks and exact whitespace" time="0.0179555">
+        </testcase>
+        <testcase classname="tests/api.test.ts" name="approved contract client &gt; rejects forbidden Unicode before fetching: &quot;a\u0000b&quot;" time="0.0015352">
+        </testcase>
+        <testcase classname="tests/api.test.ts" name="approved contract client &gt; rejects forbidden Unicode before fetching: &quot;\ud800&quot;" time="0.0004859">
+        </testcase>
+        <testcase classname="tests/api.test.ts" name="approved contract client &gt; rejects forbidden Unicode before fetching: &quot;\udfff&quot;" time="0.0004516">
+        </testcase>
+        <testcase classname="tests/api.test.ts" name="approved contract client &gt; rejects forbidden Unicode before fetching: &quot;\ude00\ud83d&quot;" time="0.0004495">
+        </testcase>
+        <testcase classname="tests/api.test.ts" name="approved contract client &gt; rejects nested metadata keys using safe containing paths" time="0.0003515">
+        </testcase>
+        <testcase classname="tests/api.test.ts" name="approved contract client &gt; distinguishes omission, empty string and null PATCH; accepts 204" time="0.0004584">
+        </testcase>
+        <testcase classname="tests/api.test.ts" name="approved contract client &gt; sends exactly file + metadata multipart parts, without a manual boundary" time="0.0017681">
+        </testcase>
+        <testcase classname="tests/api.test.ts" name="approved contract client &gt; keeps manual upload on 201 while expanded screenshot responses remain read-only" time="0.000617">
+        </testcase>
+        <testcase classname="tests/api.test.ts" name="approved contract client &gt; preserves structured field errors and request IDs" time="0.0004758">
+        </testcase>
+        <testcase classname="tests/api.test.ts" name="approved contract client &gt; uses project path, AND filters and Backend-origin content URLs" time="0.0010334">
+        </testcase>
+        <testcase classname="tests/api.test.ts" name="approved contract client &gt; does not retry ambiguous writes or accept a wrong success status" time="0.0004934">
+        </testcase>
+        <testcase classname="tests/api.test.ts" name="approved contract client &gt; resets scoped selection and retains deep links" time="0.0003675">
+        </testcase>
+        <testcase classname="tests/api.test.ts" name="approved contract client &gt; rejects invalid query Unicode without silently replacing it" time="0.0001238">
+        </testcase>
+    </testsuite>
+    <testsuite name="tests/components.test.tsx" timestamp="2026-09-25T01:32:50.311Z" hostname="wonwoo" tests="12" failures="0" errors="0" skipped="0" time="0.5011857">
+        <testcase classname="tests/components.test.tsx" name="QA workflows &gt; shows field errors, request ID and preserves entered values" time="0.0969795">
+        </testcase>
+        <testcase classname="tests/components.test.tsx" name="QA workflows &gt; PATCH only sends changed fields and explicitly clears description" time="0.018186">
+        </testcase>
+        <testcase classname="tests/components.test.tsx" name="QA workflows &gt; accepts empty translation and 10000 supplementary scalars" time="0.0239934">
+        </testcase>
+        <testcase classname="tests/components.test.tsx" name="QA workflows &gt; distinguishes missing, empty and multilingual expectations" time="0.0174669">
+        </testcase>
+        <testcase classname="tests/components.test.tsx" name="QA workflows &gt; shows loading then empty state and explains restrictive deletes" time="0.0812313">
+        </testcase>
+        <testcase classname="tests/components.test.tsx" name="QA workflows &gt; ignores late responses after scope changes" time="0.00228">
+        </testcase>
+        <testcase classname="tests/components.test.tsx" name="QA workflows &gt; clears dependent filters when changing Project" time="0.0360995">
+        </testcase>
+        <testcase classname="tests/components.test.tsx" name="QA workflows &gt; retains upload input and requires list inspection after ambiguous failure" time="0.091146">
+        </testcase>
+        <testcase classname="tests/components.test.tsx" name="QA workflows &gt; navigates to detail only after successful upload" time="0.0695004">
+        </testcase>
+        <testcase classname="tests/components.test.tsx" name="QA workflows &gt; loads detail and expectations independently of storage failure" time="0.0209704">
+        </testcase>
+        <testcase classname="tests/components.test.tsx" name="QA workflows &gt; shows complete agent metadata and client identity as safe deterministic text" time="0.0139854">
+        </testcase>
+        <testcase classname="tests/components.test.tsx" name="QA workflows &gt; keeps manual null identity absent and renders automation source through the same detail path" time="0.0282296">
+        </testcase>
+    </testsuite>
+</testsuites>

@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { changeSelection, initialNavigation, navigationUrl, parseNavigation, type Navigation, type View } from "../lib/navigation";
+import { changeSelection, initialNavigation, navigationTransition, navigationUrl, parseNavigation, type Navigation, type View } from "../lib/navigation";
 import { Catalog, type Options } from "./catalog";
 import { Empty, ErrorBox, Loading, Select, useLookup } from "./common";
 import { Strings } from "./strings";
@@ -10,7 +10,7 @@ const titles: Record<View, string> = { dashboard: "Dashboard", projects: "Projec
 export default function Workspace() {
   const [state, setState] = useState<Navigation>(initialNavigation); const [revision, setRevision] = useState(0);
   useEffect(() => { const read = () => { if (window.location.hash !== "#main-content") setState(parseNavigation(window.location.hash)); }; read(); window.addEventListener("hashchange", read); return () => window.removeEventListener("hashchange", read); }, []);
-  function go(next: Navigation) { setState(next); window.location.hash = navigationUrl(next); }
+  function go(next: Navigation) { const transitioned = navigationTransition(state, next); setState(transitioned); window.location.hash = navigationUrl(transitioned); }
   const changed = () => setRevision(value => value + 1);
   const projects = useLookup("projects", "", revision); const builds = useLookup("builds", state.project, revision);
   const locales = useLookup("locales", state.project, revision); const categories = useLookup("categories", state.project, revision); const situations = useLookup("situations", state.project, revision);
@@ -24,7 +24,12 @@ export default function Workspace() {
   const scoped = !["dashboard", "projects"].includes(state.view);
   const needsFilters = ["strings", "screenshots", "upload"].includes(state.view);
   const selection = (key: "project" | "build" | "locale" | "category" | "situation", value: string) => go(changeSelection(state, key, value));
-  const pageKey = `${state.view}/${state.project}/${state.build}/${state.locale}/${state.category}/${state.situation}/${state.id}`;
+  const pageKey = `${state.view}/${state.project}/${state.build}/${state.locale}/${state.category}/${state.situation}/${state.id}/${state.run}`;
+  const screenshotDetailProps = {
+    state,
+    options: { ...options, situation_id: situations.data?.map(item => ({ id: item.id, label: `${item.name} · ${item.slug}` })) || [] },
+    selectedRunId: state.run,
+  };
   const lookups = [builds, locales, categories, situations];
   return <div className="workspace"><a className="skip" href="#main-content">본문 바로가기</a><aside><div className="brand">GAME QA<span>Multilingual workspace</span></div><nav aria-label="주 메뉴">{(Object.keys(titles) as View[]).filter(view => view !== "detail").map(view => <a key={view} href={navigationUrl({ ...state, view, id: "" })} aria-current={state.view === view ? "page" : undefined}>{titles[view]}</a>)}</nav><p className="sidebar-note">PHASE 1 · 수동 검수</p></aside>
     <div className="content"><header><div><span className="eyebrow">GAME MULTILINGUAL QA</span><h1>{titles[state.view]}</h1></div><Select label="Project" value={state.project} onChange={value => selection("project", value)} items={options.project_id} disabled={projects.loading} /></header>
@@ -39,7 +44,7 @@ export default function Workspace() {
           {state.view === "strings" && <Strings state={state} options={options} revision={revision} changed={changed} />}
           {state.view === "screenshots" && <ScreenshotList state={state} options={options} revision={revision} />}
           {state.view === "upload" && <Upload state={state} go={go} changed={changed} />}
-          {state.view === "detail" && <ScreenshotDetail state={state} options={{ ...options, situation_id: situations.data?.map(item => ({ id: item.id, label: `${item.name} · ${item.slug}` })) || [] }} />}
+          {state.view === "detail" && <ScreenshotDetail {...screenshotDetailProps} />}
         </div>}
       </main>
     </div></div>;

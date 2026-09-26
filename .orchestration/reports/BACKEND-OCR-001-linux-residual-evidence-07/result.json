@@ -1,0 +1,61 @@
+{
+  "status": "EXACT_RESIDUAL_REMOVED_ABSENCE_CONFIRMED",
+  "target": "affc94c2fe2468fd867c1e80be5878836a9b70868e68f2bff4f54d9c84988e8a",
+  "commands": [
+    {
+      "label": "inspect-before",
+      "argv": [
+        "docker",
+        "container",
+        "inspect",
+        "--format",
+        "{\"id\":{{json .Id}},\"name\":{{json .Name}},\"owner\":{{json (index .Config.Labels \"qa.visual.owner\")}},\"nonce\":{{json (index .Config.Labels \"qa.visual.nonce\")}},\"requested_image\":{{json .Config.Image}},\"image_config\":{{json .Image}},\"running\":{{json .State.Running}},\"status\":{{json .State.Status}},\"started\":{{json .State.StartedAt}},\"finished\":{{json .State.FinishedAt}},\"exit\":{{json .State.ExitCode}},\"oom\":{{json .State.OOMKilled}},\"memory\":{{json .HostConfig.Memory}},\"swap\":{{json .HostConfig.MemorySwap}},\"network\":{{json .HostConfig.NetworkMode}},\"read_only\":{{json .HostConfig.ReadonlyRootfs}}}",
+        "affc94c2fe2468fd867c1e80be5878836a9b70868e68f2bff4f54d9c84988e8a"
+      ],
+      "timeout_seconds": 10,
+      "started_ns": 56698218000000,
+      "exit_code": 0,
+      "stdout": "{\"id\":\"affc94c2fe2468fd867c1e80be5878836a9b70868e68f2bff4f54d9c84988e8a\",\"name\":\"/qa-l1-3e363b492d1347efbbae6d4de1541353\",\"owner\":\"BACKEND-OCR-001-L1-capture-03\",\"nonce\":\"3e363b492d1347efbbae6d4de1541353\",\"requested_image\":\"sha256:a1337c5556ab00f01dac45075f6bbf71ba9198c1b179a83d0210e5879a426d0a\",\"image_config\":\"sha256:a1337c5556ab00f01dac45075f6bbf71ba9198c1b179a83d0210e5879a426d0a\",\"running\":false,\"status\":\"created\",\"started\":\"0001-01-01T00:00:00Z\",\"finished\":\"0001-01-01T00:00:00Z\",\"exit\":0,\"oom\":false,\"memory\":536870912,\"swap\":536870912,\"network\":\"none\",\"read_only\":true}\n",
+      "stderr": "",
+      "ended_ns": 56698375000000
+    },
+    {
+      "label": "remove",
+      "argv": [
+        "docker",
+        "rm",
+        "affc94c2fe2468fd867c1e80be5878836a9b70868e68f2bff4f54d9c84988e8a"
+      ],
+      "timeout_seconds": 10,
+      "started_ns": 56698375000000,
+      "exit_code": 0,
+      "stdout": "affc94c2fe2468fd867c1e80be5878836a9b70868e68f2bff4f54d9c84988e8a\n",
+      "stderr": "",
+      "ended_ns": 56698546000000
+    },
+    {
+      "label": "inspect-after",
+      "argv": [
+        "docker",
+        "container",
+        "inspect",
+        "--format",
+        "{{.Id}}",
+        "affc94c2fe2468fd867c1e80be5878836a9b70868e68f2bff4f54d9c84988e8a"
+      ],
+      "timeout_seconds": 10,
+      "started_ns": 56698546000000,
+      "exit_code": 1,
+      "stdout": "\n",
+      "stderr": "Error response from daemon: No such container: affc94c2fe2468fd867c1e80be5878836a9b70868e68f2bff4f54d9c84988e8a\n",
+      "ended_ns": 56698703000000
+    }
+  ],
+  "removed": true,
+  "absence_confirmed": true,
+  "review_sha256": "9d3ef2cf501c8d505d3f1abc8cd27df4026c12c7bf91b1951740c604da1c2b17",
+  "started_utc": "2026-09-25T16:36:34.320513+00:00",
+  "validated_ownership_never_started": true,
+  "ended_utc": "2026-09-25T16:36:34.810849+00:00",
+  "original_manifest_unchanged": true
+}

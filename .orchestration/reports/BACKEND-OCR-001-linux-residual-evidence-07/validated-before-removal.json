@@ -1,0 +1,18 @@
+{
+  "id": "affc94c2fe2468fd867c1e80be5878836a9b70868e68f2bff4f54d9c84988e8a",
+  "name": "/qa-l1-3e363b492d1347efbbae6d4de1541353",
+  "owner": "BACKEND-OCR-001-L1-capture-03",
+  "nonce": "3e363b492d1347efbbae6d4de1541353",
+  "requested_image": "sha256:a1337c5556ab00f01dac45075f6bbf71ba9198c1b179a83d0210e5879a426d0a",
+  "image_config": "sha256:a1337c5556ab00f01dac45075f6bbf71ba9198c1b179a83d0210e5879a426d0a",
+  "running": false,
+  "status": "created",
+  "started": "0001-01-01T00:00:00Z",
+  "finished": "0001-01-01T00:00:00Z",
+  "exit": 0,
+  "oom": false,
+  "memory": 536870912,
+  "swap": 536870912,
+  "network": "none",
+  "read_only": true
+}

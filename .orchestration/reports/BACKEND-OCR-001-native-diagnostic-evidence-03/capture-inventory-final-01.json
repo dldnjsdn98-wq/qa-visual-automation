@@ -1,0 +1,2383 @@
+{
+  "capture_count": 13,
+  "captures": [
+    {
+      "argv": [
+        "docker",
+        "run",
+        "--rm",
+        "--network",
+        "none",
+        "--memory",
+        "512m",
+        "--memory-swap",
+        "512m",
+        "-e",
+        "QA_OCR_NATIVE_CONTAINMENT_TEST=1",
+        "-e",
+        "QA_OCR_NATIVE_LIMIT_BYTES=536870912",
+        "-e",
+        "QA_OCR_NATIVE_PRESSURE_TEST=1",
+        "--mount",
+        "type=bind,src=C:\\Dev\\qa-visual-automation\\.orchestration\\reports\\BACKEND-OCR-001-native-diagnostic-evidence-03,dst=/evidence",
+        "qa-backend-ocr-native-diagnostic:20260925b",
+        "python",
+        "-m",
+        "pytest",
+        "tests/backend/test_ocr_containment.py::test_native_pressure_and_owned_tree_cleanup[descendant]",
+        "-q",
+        "--tb=short",
+        "-p",
+        "no:cacheprovider",
+        "-o",
+        "junit_family=legacy",
+        "--junitxml=/evidence/linux-descendant-pressure-02.xml"
+      ],
+      "command_outcome": "RECORDED_EXIT_CODE_ONLY",
+      "command_outcome_note": "The recorded exit code is inventory data; this helper does not infer product-test status.",
+      "current_source_comparison": [
+        {
+          "capture_after": "f5841f23eb7025f6ecd5c16c216826f321059d76c54b5bcf0d90226d40649ffd",
+          "current": "f5841f23eb7025f6ecd5c16c216826f321059d76c54b5bcf0d90226d40649ffd",
+          "matches_capture_after": true,
+          "path": "backend/README.md"
+        },
+        {
+          "capture_after": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+          "current": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+          "matches_capture_after": true,
+          "path": "backend/app/services/verification_jobs.py"
+        },
+        {
+          "capture_after": "4bf251a176b582c7031f4c572b9903259b2a06acde6e4810fa7184242dfc8c61",
+          "current": "4bf251a176b582c7031f4c572b9903259b2a06acde6e4810fa7184242dfc8c61",
+          "matches_capture_after": true,
+          "path": "backend/app/services/verification_runs.py"
+        },
+        {
+          "capture_after": "115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82",
+          "current": "115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr.py"
+        },
+        {
+          "capture_after": "d430b63155b29f7069098ee41ce6780f8cdb83f6dbc3c3e3536db2e0dbd219d6",
+          "current": "d430b63155b29f7069098ee41ce6780f8cdb83f6dbc3c3e3536db2e0dbd219d6",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_admission.py"
+        },
+        {
+          "capture_after": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+          "current": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_containment.py"
+        },
+        {
+          "capture_after": "65507b56d9e4670537879823c4c541b157fb01eaa4e708883e8f10e403a195dc",
+          "current": "65507b56d9e4670537879823c4c541b157fb01eaa4e708883e8f10e403a195dc",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_runtime.py"
+        },
+        {
+          "capture_after": "ac8a6e1c2b18542fed4e099c0a754ab8e8f1b584461f444f84fb3ab891b83f8a",
+          "current": "ac8a6e1c2b18542fed4e099c0a754ab8e8f1b584461f444f84fb3ab891b83f8a",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_source.py"
+        },
+        {
+          "capture_after": "04aa49476caf2dc6e69e3e7b1e10c8d2030a1eadb0375ad2ff798d2ce62c94d7",
+          "current": "04aa49476caf2dc6e69e3e7b1e10c8d2030a1eadb0375ad2ff798d2ce62c94d7",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_admission.py"
+        },
+        {
+          "capture_after": "d9c46d4cd14f32cdabadf1b3865a4c0a00cb3f6cec4dee68e4307d618819c72c",
+          "current": "d9c46d4cd14f32cdabadf1b3865a4c0a00cb3f6cec4dee68e4307d618819c72c",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_api.py"
+        },
+        {
+          "capture_after": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+          "current": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_containment.py"
+        },
+        {
+          "capture_after": "8c563ee317d6576f6dd7cbac88e634e089f4dbfe6bc71d90e2df96010133bd00",
+          "current": "8c563ee317d6576f6dd7cbac88e634e089f4dbfe6bc71d90e2df96010133bd00",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runner.py"
+        },
+        {
+          "capture_after": "88bf8639bff1b1c0fb6d9b89491d454b5c06b98d2684f27c02e597e63d89692f",
+          "current": "88bf8639bff1b1c0fb6d9b89491d454b5c06b98d2684f27c02e597e63d89692f",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runtime_db.py"
+        },
+        {
+          "capture_after": "98f7737d2db4c8e624b6d6abac0658c4c5295801238412eabd9a2ae68f2a5fbf",
+          "current": "98f7737d2db4c8e624b6d6abac0658c4c5295801238412eabd9a2ae68f2a5fbf",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runtime_integration.py"
+        },
+        {
+          "capture_after": "a267eaee13cd7dc9e5bf4192e476753a158ce080caee7a0b1bea8b69d7bef5ad",
+          "current": "a267eaee13cd7dc9e5bf4192e476753a158ce080caee7a0b1bea8b69d7bef5ad",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_source_read.py"
+        }
+      ],
+      "current_source_test_pass_inference": "NOT_INFERRED",
+      "current_source_test_pass_note": "A hash match to a capture does not establish that any test passed on current source.",
+      "ended_utc": "2026-09-25T14:33:07.135496+00:00",
+      "exit_code": 0,
+      "issues": [],
+      "junit": {
+        "actual_case_counts": {
+          "errors": 0,
+          "failures": 0,
+          "passed": 1,
+          "skipped": 0,
+          "tests": 1
+        },
+        "bytes": 5265,
+        "declared_leaf_suite_counts": {
+          "errors": 0,
+          "failures": 0,
+          "skipped": 0,
+          "tests": 1
+        },
+        "declared_matches_actual": true,
+        "elapsed_seconds": 0.547,
+        "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-descendant-pressure-02.xml",
+        "sha256": "7d0ff3789fba0b51f250b7128ac11f9075d48eda858ae870b378b003e669b75c",
+        "valid": true
+      },
+      "label": "linux-descendant-pressure-02",
+      "log": {
+        "actual_sha256": "b27fc1db20a89434fbbc17d988d25f1a08a3fad42bb3ecb58fdd85304a16ef25",
+        "bytes": 606,
+        "expected_sha256": "b27fc1db20a89434fbbc17d988d25f1a08a3fad42bb3ecb58fdd85304a16ef25",
+        "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-descendant-pressure-02.log",
+        "valid": true
+      },
+      "record_bytes": 5492,
+      "record_path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-descendant-pressure-02.json",
+      "record_sha256": "0112cfbcbf381a898f4f4cd6b234e9a3280f51c57c126979c710fc0d18234408",
+      "source_before_after_changes": [],
+      "started_utc": "2026-09-25T14:33:03.894639+00:00",
+      "valid": true
+    },
+    {
+      "argv": [
+        "docker",
+        "build",
+        "--pull=false",
+        "--file",
+        "backend/Dockerfile.test",
+        "--tag",
+        "qa-backend-ocr-native-diagnostic:20260925a",
+        "."
+      ],
+      "command_outcome": "RECORDED_EXIT_CODE_ONLY",
+      "command_outcome_note": "The recorded exit code is inventory data; this helper does not infer product-test status.",
+      "current_source_comparison": [
+        {
+          "capture_after": "f5841f23eb7025f6ecd5c16c216826f321059d76c54b5bcf0d90226d40649ffd",
+          "current": "f5841f23eb7025f6ecd5c16c216826f321059d76c54b5bcf0d90226d40649ffd",
+          "matches_capture_after": true,
+          "path": "backend/README.md"
+        },
+        {
+          "capture_after": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+          "current": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+          "matches_capture_after": true,
+          "path": "backend/app/services/verification_jobs.py"
+        },
+        {
+          "capture_after": "4bf251a176b582c7031f4c572b9903259b2a06acde6e4810fa7184242dfc8c61",
+          "current": "4bf251a176b582c7031f4c572b9903259b2a06acde6e4810fa7184242dfc8c61",
+          "matches_capture_after": true,
+          "path": "backend/app/services/verification_runs.py"
+        },
+        {
+          "capture_after": "115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82",
+          "current": "115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr.py"
+        },
+        {
+          "capture_after": "d430b63155b29f7069098ee41ce6780f8cdb83f6dbc3c3e3536db2e0dbd219d6",
+          "current": "d430b63155b29f7069098ee41ce6780f8cdb83f6dbc3c3e3536db2e0dbd219d6",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_admission.py"
+        },
+        {
+          "capture_after": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+          "current": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_containment.py"
+        },
+        {
+          "capture_after": "65507b56d9e4670537879823c4c541b157fb01eaa4e708883e8f10e403a195dc",
+          "current": "65507b56d9e4670537879823c4c541b157fb01eaa4e708883e8f10e403a195dc",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_runtime.py"
+        },
+        {
+          "capture_after": "ac8a6e1c2b18542fed4e099c0a754ab8e8f1b584461f444f84fb3ab891b83f8a",
+          "current": "ac8a6e1c2b18542fed4e099c0a754ab8e8f1b584461f444f84fb3ab891b83f8a",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_source.py"
+        },
+        {
+          "capture_after": "04aa49476caf2dc6e69e3e7b1e10c8d2030a1eadb0375ad2ff798d2ce62c94d7",
+          "current": "04aa49476caf2dc6e69e3e7b1e10c8d2030a1eadb0375ad2ff798d2ce62c94d7",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_admission.py"
+        },
+        {
+          "capture_after": "d9c46d4cd14f32cdabadf1b3865a4c0a00cb3f6cec4dee68e4307d618819c72c",
+          "current": "d9c46d4cd14f32cdabadf1b3865a4c0a00cb3f6cec4dee68e4307d618819c72c",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_api.py"
+        },
+        {
+          "capture_after": "9b1ac57bd2b02518d00524dd1e93a1f1ee9e60eaf5dcabb6f63285a997101c3e",
+          "current": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+          "matches_capture_after": false,
+          "path": "tests/backend/test_ocr_containment.py"
+        },
+        {
+          "capture_after": "8c563ee317d6576f6dd7cbac88e634e089f4dbfe6bc71d90e2df96010133bd00",
+          "current": "8c563ee317d6576f6dd7cbac88e634e089f4dbfe6bc71d90e2df96010133bd00",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runner.py"
+        },
+        {
+          "capture_after": "88bf8639bff1b1c0fb6d9b89491d454b5c06b98d2684f27c02e597e63d89692f",
+          "current": "88bf8639bff1b1c0fb6d9b89491d454b5c06b98d2684f27c02e597e63d89692f",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runtime_db.py"
+        },
+        {
+          "capture_after": "98f7737d2db4c8e624b6d6abac0658c4c5295801238412eabd9a2ae68f2a5fbf",
+          "current": "98f7737d2db4c8e624b6d6abac0658c4c5295801238412eabd9a2ae68f2a5fbf",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runtime_integration.py"
+        },
+        {
+          "capture_after": "a267eaee13cd7dc9e5bf4192e476753a158ce080caee7a0b1bea8b69d7bef5ad",
+          "current": "a267eaee13cd7dc9e5bf4192e476753a158ce080caee7a0b1bea8b69d7bef5ad",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_source_read.py"
+        }
+      ],
+      "current_source_test_pass_inference": "NOT_INFERRED",
+      "current_source_test_pass_note": "A hash match to a capture does not establish that any test passed on current source.",
+      "ended_utc": "2026-09-25T14:23:56.049638+00:00",
+      "exit_code": 0,
+      "issues": [],
+      "junit": {
+        "present": false
+      },
+      "label": "linux-diagnostic-build-01",
+      "log": {
+        "actual_sha256": "fb16af23e62d694821263b101ee6b53b9c803672ba0db9abc6df930901426ea9",
+        "bytes": 4065,
+        "expected_sha256": "fb16af23e62d694821263b101ee6b53b9c803672ba0db9abc6df930901426ea9",
+        "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-diagnostic-build-01.log",
+        "valid": true
+      },
+      "record_bytes": 4853,
+      "record_path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-diagnostic-build-01.json",
+      "record_sha256": "ac85151547a59f3f38fc9bf8c9fddb641061bffe5ad803bcba4f873e6ce73b43",
+      "source_before_after_changes": [],
+      "started_utc": "2026-09-25T14:23:50.866025+00:00",
+      "valid": true
+    },
+    {
+      "argv": [
+        "docker",
+        "build",
+        "--pull=false",
+        "--file",
+        "backend/Dockerfile.test",
+        "--tag",
+        "qa-backend-ocr-native-diagnostic:20260925b",
+        "."
+      ],
+      "command_outcome": "RECORDED_EXIT_CODE_ONLY",
+      "command_outcome_note": "The recorded exit code is inventory data; this helper does not infer product-test status.",
+      "current_source_comparison": [
+        {
+          "capture_after": "f5841f23eb7025f6ecd5c16c216826f321059d76c54b5bcf0d90226d40649ffd",
+          "current": "f5841f23eb7025f6ecd5c16c216826f321059d76c54b5bcf0d90226d40649ffd",
+          "matches_capture_after": true,
+          "path": "backend/README.md"
+        },
+        {
+          "capture_after": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+          "current": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+          "matches_capture_after": true,
+          "path": "backend/app/services/verification_jobs.py"
+        },
+        {
+          "capture_after": "4bf251a176b582c7031f4c572b9903259b2a06acde6e4810fa7184242dfc8c61",
+          "current": "4bf251a176b582c7031f4c572b9903259b2a06acde6e4810fa7184242dfc8c61",
+          "matches_capture_after": true,
+          "path": "backend/app/services/verification_runs.py"
+        },
+        {
+          "capture_after": "115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82",
+          "current": "115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr.py"
+        },
+        {
+          "capture_after": "d430b63155b29f7069098ee41ce6780f8cdb83f6dbc3c3e3536db2e0dbd219d6",
+          "current": "d430b63155b29f7069098ee41ce6780f8cdb83f6dbc3c3e3536db2e0dbd219d6",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_admission.py"
+        },
+        {
+          "capture_after": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+          "current": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_containment.py"
+        },
+        {
+          "capture_after": "65507b56d9e4670537879823c4c541b157fb01eaa4e708883e8f10e403a195dc",
+          "current": "65507b56d9e4670537879823c4c541b157fb01eaa4e708883e8f10e403a195dc",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_runtime.py"
+        },
+        {
+          "capture_after": "ac8a6e1c2b18542fed4e099c0a754ab8e8f1b584461f444f84fb3ab891b83f8a",
+          "current": "ac8a6e1c2b18542fed4e099c0a754ab8e8f1b584461f444f84fb3ab891b83f8a",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_source.py"
+        },
+        {
+          "capture_after": "04aa49476caf2dc6e69e3e7b1e10c8d2030a1eadb0375ad2ff798d2ce62c94d7",
+          "current": "04aa49476caf2dc6e69e3e7b1e10c8d2030a1eadb0375ad2ff798d2ce62c94d7",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_admission.py"
+        },
+        {
+          "capture_after": "d9c46d4cd14f32cdabadf1b3865a4c0a00cb3f6cec4dee68e4307d618819c72c",
+          "current": "d9c46d4cd14f32cdabadf1b3865a4c0a00cb3f6cec4dee68e4307d618819c72c",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_api.py"
+        },
+        {
+          "capture_after": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+          "current": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_containment.py"
+        },
+        {
+          "capture_after": "8c563ee317d6576f6dd7cbac88e634e089f4dbfe6bc71d90e2df96010133bd00",
+          "current": "8c563ee317d6576f6dd7cbac88e634e089f4dbfe6bc71d90e2df96010133bd00",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runner.py"
+        },
+        {
+          "capture_after": "88bf8639bff1b1c0fb6d9b89491d454b5c06b98d2684f27c02e597e63d89692f",
+          "current": "88bf8639bff1b1c0fb6d9b89491d454b5c06b98d2684f27c02e597e63d89692f",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runtime_db.py"
+        },
+        {
+          "capture_after": "98f7737d2db4c8e624b6d6abac0658c4c5295801238412eabd9a2ae68f2a5fbf",
+          "current": "98f7737d2db4c8e624b6d6abac0658c4c5295801238412eabd9a2ae68f2a5fbf",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runtime_integration.py"
+        },
+        {
+          "capture_after": "a267eaee13cd7dc9e5bf4192e476753a158ce080caee7a0b1bea8b69d7bef5ad",
+          "current": "a267eaee13cd7dc9e5bf4192e476753a158ce080caee7a0b1bea8b69d7bef5ad",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_source_read.py"
+        }
+      ],
+      "current_source_test_pass_inference": "NOT_INFERRED",
+      "current_source_test_pass_note": "A hash match to a capture does not establish that any test passed on current source.",
+      "ended_utc": "2026-09-25T14:32:04.222756+00:00",
+      "exit_code": 0,
+      "issues": [],
+      "junit": {
+        "present": false
+      },
+      "label": "linux-diagnostic-build-02",
+      "log": {
+        "actual_sha256": "98f11089837791c8560f40c8ad28f64a4fb4f32904c6dbd9c8a2f1ab53b544c9",
+        "bytes": 3973,
+        "expected_sha256": "98f11089837791c8560f40c8ad28f64a4fb4f32904c6dbd9c8a2f1ab53b544c9",
+        "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-diagnostic-build-02.log",
+        "valid": true
+      },
+      "record_bytes": 4853,
+      "record_path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-diagnostic-build-02.json",
+      "record_sha256": "d863df36c44503ecd5619a3e8d9b1358ba4ced852d575c17155f49dcad02540d",
+      "source_before_after_changes": [],
+      "started_utc": "2026-09-25T14:31:59.804526+00:00",
+      "valid": true
+    },
+    {
+      "argv": [
+        "docker",
+        "image",
+        "inspect",
+        "qa-backend-ocr-native-diagnostic:20260925a",
+        "--format",
+        "{{.Id}} {{.Os}} {{.Architecture}}"
+      ],
+      "command_outcome": "RECORDED_EXIT_CODE_ONLY",
+      "command_outcome_note": "The recorded exit code is inventory data; this helper does not infer product-test status.",
+      "current_source_comparison": [
+        {
+          "capture_after": "f5841f23eb7025f6ecd5c16c216826f321059d76c54b5bcf0d90226d40649ffd",
+          "current": "f5841f23eb7025f6ecd5c16c216826f321059d76c54b5bcf0d90226d40649ffd",
+          "matches_capture_after": true,
+          "path": "backend/README.md"
+        },
+        {
+          "capture_after": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+          "current": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+          "matches_capture_after": true,
+          "path": "backend/app/services/verification_jobs.py"
+        },
+        {
+          "capture_after": "4bf251a176b582c7031f4c572b9903259b2a06acde6e4810fa7184242dfc8c61",
+          "current": "4bf251a176b582c7031f4c572b9903259b2a06acde6e4810fa7184242dfc8c61",
+          "matches_capture_after": true,
+          "path": "backend/app/services/verification_runs.py"
+        },
+        {
+          "capture_after": "115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82",
+          "current": "115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr.py"
+        },
+        {
+          "capture_after": "d430b63155b29f7069098ee41ce6780f8cdb83f6dbc3c3e3536db2e0dbd219d6",
+          "current": "d430b63155b29f7069098ee41ce6780f8cdb83f6dbc3c3e3536db2e0dbd219d6",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_admission.py"
+        },
+        {
+          "capture_after": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+          "current": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_containment.py"
+        },
+        {
+          "capture_after": "65507b56d9e4670537879823c4c541b157fb01eaa4e708883e8f10e403a195dc",
+          "current": "65507b56d9e4670537879823c4c541b157fb01eaa4e708883e8f10e403a195dc",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_runtime.py"
+        },
+        {
+          "capture_after": "ac8a6e1c2b18542fed4e099c0a754ab8e8f1b584461f444f84fb3ab891b83f8a",
+          "current": "ac8a6e1c2b18542fed4e099c0a754ab8e8f1b584461f444f84fb3ab891b83f8a",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_source.py"
+        },
+        {
+          "capture_after": "04aa49476caf2dc6e69e3e7b1e10c8d2030a1eadb0375ad2ff798d2ce62c94d7",
+          "current": "04aa49476caf2dc6e69e3e7b1e10c8d2030a1eadb0375ad2ff798d2ce62c94d7",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_admission.py"
+        },
+        {
+          "capture_after": "d9c46d4cd14f32cdabadf1b3865a4c0a00cb3f6cec4dee68e4307d618819c72c",
+          "current": "d9c46d4cd14f32cdabadf1b3865a4c0a00cb3f6cec4dee68e4307d618819c72c",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_api.py"
+        },
+        {
+          "capture_after": "9b1ac57bd2b02518d00524dd1e93a1f1ee9e60eaf5dcabb6f63285a997101c3e",
+          "current": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+          "matches_capture_after": false,
+          "path": "tests/backend/test_ocr_containment.py"
+        },
+        {
+          "capture_after": "8c563ee317d6576f6dd7cbac88e634e089f4dbfe6bc71d90e2df96010133bd00",
+          "current": "8c563ee317d6576f6dd7cbac88e634e089f4dbfe6bc71d90e2df96010133bd00",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runner.py"
+        },
+        {
+          "capture_after": "88bf8639bff1b1c0fb6d9b89491d454b5c06b98d2684f27c02e597e63d89692f",
+          "current": "88bf8639bff1b1c0fb6d9b89491d454b5c06b98d2684f27c02e597e63d89692f",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runtime_db.py"
+        },
+        {
+          "capture_after": "98f7737d2db4c8e624b6d6abac0658c4c5295801238412eabd9a2ae68f2a5fbf",
+          "current": "98f7737d2db4c8e624b6d6abac0658c4c5295801238412eabd9a2ae68f2a5fbf",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runtime_integration.py"
+        },
+        {
+          "capture_after": "a267eaee13cd7dc9e5bf4192e476753a158ce080caee7a0b1bea8b69d7bef5ad",
+          "current": "a267eaee13cd7dc9e5bf4192e476753a158ce080caee7a0b1bea8b69d7bef5ad",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_source_read.py"
+        }
+      ],
+      "current_source_test_pass_inference": "NOT_INFERRED",
+      "current_source_test_pass_note": "A hash match to a capture does not establish that any test passed on current source.",
+      "ended_utc": "2026-09-25T14:24:54.039677+00:00",
+      "exit_code": 0,
+      "issues": [],
+      "junit": {
+        "present": false
+      },
+      "label": "linux-image-identity-01",
+      "log": {
+        "actual_sha256": "77344a44586a00e5c44b0575f67201ad8b8da33e252d74cc819fdd4540b64e26",
+        "bytes": 84,
+        "expected_sha256": "77344a44586a00e5c44b0575f67201ad8b8da33e252d74cc819fdd4540b64e26",
+        "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-image-identity-01.log",
+        "valid": true
+      },
+      "record_bytes": 4834,
+      "record_path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-image-identity-01.json",
+      "record_sha256": "6953f780fd16c8c582db0f06307759912f27a2a6686cf4115fa5cf63acb16b93",
+      "source_before_after_changes": [],
+      "started_utc": "2026-09-25T14:24:53.759086+00:00",
+      "valid": true
+    },
+    {
+      "argv": [
+        "docker",
+        "image",
+        "inspect",
+        "qa-backend-ocr-native-diagnostic:20260925b",
+        "--format",
+        "{{.Id}} {{.Os}} {{.Architecture}}"
+      ],
+      "command_outcome": "RECORDED_EXIT_CODE_ONLY",
+      "command_outcome_note": "The recorded exit code is inventory data; this helper does not infer product-test status.",
+      "current_source_comparison": [
+        {
+          "capture_after": "f5841f23eb7025f6ecd5c16c216826f321059d76c54b5bcf0d90226d40649ffd",
+          "current": "f5841f23eb7025f6ecd5c16c216826f321059d76c54b5bcf0d90226d40649ffd",
+          "matches_capture_after": true,
+          "path": "backend/README.md"
+        },
+        {
+          "capture_after": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+          "current": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+          "matches_capture_after": true,
+          "path": "backend/app/services/verification_jobs.py"
+        },
+        {
+          "capture_after": "4bf251a176b582c7031f4c572b9903259b2a06acde6e4810fa7184242dfc8c61",
+          "current": "4bf251a176b582c7031f4c572b9903259b2a06acde6e4810fa7184242dfc8c61",
+          "matches_capture_after": true,
+          "path": "backend/app/services/verification_runs.py"
+        },
+        {
+          "capture_after": "115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82",
+          "current": "115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr.py"
+        },
+        {
+          "capture_after": "d430b63155b29f7069098ee41ce6780f8cdb83f6dbc3c3e3536db2e0dbd219d6",
+          "current": "d430b63155b29f7069098ee41ce6780f8cdb83f6dbc3c3e3536db2e0dbd219d6",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_admission.py"
+        },
+        {
+          "capture_after": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+          "current": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_containment.py"
+        },
+        {
+          "capture_after": "65507b56d9e4670537879823c4c541b157fb01eaa4e708883e8f10e403a195dc",
+          "current": "65507b56d9e4670537879823c4c541b157fb01eaa4e708883e8f10e403a195dc",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_runtime.py"
+        },
+        {
+          "capture_after": "ac8a6e1c2b18542fed4e099c0a754ab8e8f1b584461f444f84fb3ab891b83f8a",
+          "current": "ac8a6e1c2b18542fed4e099c0a754ab8e8f1b584461f444f84fb3ab891b83f8a",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_source.py"
+        },
+        {
+          "capture_after": "04aa49476caf2dc6e69e3e7b1e10c8d2030a1eadb0375ad2ff798d2ce62c94d7",
+          "current": "04aa49476caf2dc6e69e3e7b1e10c8d2030a1eadb0375ad2ff798d2ce62c94d7",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_admission.py"
+        },
+        {
+          "capture_after": "d9c46d4cd14f32cdabadf1b3865a4c0a00cb3f6cec4dee68e4307d618819c72c",
+          "current": "d9c46d4cd14f32cdabadf1b3865a4c0a00cb3f6cec4dee68e4307d618819c72c",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_api.py"
+        },
+        {
+          "capture_after": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+          "current": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_containment.py"
+        },
+        {
+          "capture_after": "8c563ee317d6576f6dd7cbac88e634e089f4dbfe6bc71d90e2df96010133bd00",
+          "current": "8c563ee317d6576f6dd7cbac88e634e089f4dbfe6bc71d90e2df96010133bd00",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runner.py"
+        },
+        {
+          "capture_after": "88bf8639bff1b1c0fb6d9b89491d454b5c06b98d2684f27c02e597e63d89692f",
+          "current": "88bf8639bff1b1c0fb6d9b89491d454b5c06b98d2684f27c02e597e63d89692f",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runtime_db.py"
+        },
+        {
+          "capture_after": "98f7737d2db4c8e624b6d6abac0658c4c5295801238412eabd9a2ae68f2a5fbf",
+          "current": "98f7737d2db4c8e624b6d6abac0658c4c5295801238412eabd9a2ae68f2a5fbf",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runtime_integration.py"
+        },
+        {
+          "capture_after": "a267eaee13cd7dc9e5bf4192e476753a158ce080caee7a0b1bea8b69d7bef5ad",
+          "current": "a267eaee13cd7dc9e5bf4192e476753a158ce080caee7a0b1bea8b69d7bef5ad",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_source_read.py"
+        }
+      ],
+      "current_source_test_pass_inference": "NOT_INFERRED",
+      "current_source_test_pass_note": "A hash match to a capture does not establish that any test passed on current source.",
+      "ended_utc": "2026-09-25T14:32:19.955909+00:00",
+      "exit_code": 0,
+      "issues": [],
+      "junit": {
+        "present": false
+      },
+      "label": "linux-image-identity-02",
+      "log": {
+        "actual_sha256": "2ea25e2206408bc8106ea7b8ac67906c1007eaee11b9bc484205b7a56ecc8c00",
+        "bytes": 84,
+        "expected_sha256": "2ea25e2206408bc8106ea7b8ac67906c1007eaee11b9bc484205b7a56ecc8c00",
+        "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-image-identity-02.log",
+        "valid": true
+      },
+      "record_bytes": 4834,
+      "record_path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-image-identity-02.json",
+      "record_sha256": "271ca2c69e592545f462e6106cd70749cc9416cbfbcc68593438009d5ff1f51a",
+      "source_before_after_changes": [],
+      "started_utc": "2026-09-25T14:32:19.681279+00:00",
+      "valid": true
+    },
+    {
+      "argv": [
+        "docker",
+        "run",
+        "--rm",
+        "--network",
+        "none",
+        "--memory",
+        "512m",
+        "--memory-swap",
+        "512m",
+        "-e",
+        "QA_OCR_NATIVE_CONTAINMENT_TEST=1",
+        "-e",
+        "QA_OCR_NATIVE_LIMIT_BYTES=536870912",
+        "-e",
+        "QA_OCR_NATIVE_PRESSURE_TEST=1",
+        "--mount",
+        "type=bind,src=C:\\Dev\\qa-visual-automation\\.orchestration\\reports\\BACKEND-OCR-001-native-diagnostic-evidence-03,dst=/evidence",
+        "qa-backend-ocr-native-diagnostic:20260925b",
+        "python",
+        "-m",
+        "pytest",
+        "tests/backend/test_ocr_containment.py::test_native_pressure_and_owned_tree_cleanup[mapped_threads]",
+        "-q",
+        "--tb=short",
+        "-p",
+        "no:cacheprovider",
+        "-o",
+        "junit_family=legacy",
+        "--junitxml=/evidence/linux-mapped-pressure-02.xml"
+      ],
+      "command_outcome": "RECORDED_EXIT_CODE_ONLY",
+      "command_outcome_note": "The recorded exit code is inventory data; this helper does not infer product-test status.",
+      "current_source_comparison": [
+        {
+          "capture_after": "f5841f23eb7025f6ecd5c16c216826f321059d76c54b5bcf0d90226d40649ffd",
+          "current": "f5841f23eb7025f6ecd5c16c216826f321059d76c54b5bcf0d90226d40649ffd",
+          "matches_capture_after": true,
+          "path": "backend/README.md"
+        },
+        {
+          "capture_after": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+          "current": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+          "matches_capture_after": true,
+          "path": "backend/app/services/verification_jobs.py"
+        },
+        {
+          "capture_after": "4bf251a176b582c7031f4c572b9903259b2a06acde6e4810fa7184242dfc8c61",
+          "current": "4bf251a176b582c7031f4c572b9903259b2a06acde6e4810fa7184242dfc8c61",
+          "matches_capture_after": true,
+          "path": "backend/app/services/verification_runs.py"
+        },
+        {
+          "capture_after": "115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82",
+          "current": "115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr.py"
+        },
+        {
+          "capture_after": "d430b63155b29f7069098ee41ce6780f8cdb83f6dbc3c3e3536db2e0dbd219d6",
+          "current": "d430b63155b29f7069098ee41ce6780f8cdb83f6dbc3c3e3536db2e0dbd219d6",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_admission.py"
+        },
+        {
+          "capture_after": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+          "current": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_containment.py"
+        },
+        {
+          "capture_after": "65507b56d9e4670537879823c4c541b157fb01eaa4e708883e8f10e403a195dc",
+          "current": "65507b56d9e4670537879823c4c541b157fb01eaa4e708883e8f10e403a195dc",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_runtime.py"
+        },
+        {
+          "capture_after": "ac8a6e1c2b18542fed4e099c0a754ab8e8f1b584461f444f84fb3ab891b83f8a",
+          "current": "ac8a6e1c2b18542fed4e099c0a754ab8e8f1b584461f444f84fb3ab891b83f8a",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_source.py"
+        },
+        {
+          "capture_after": "04aa49476caf2dc6e69e3e7b1e10c8d2030a1eadb0375ad2ff798d2ce62c94d7",
+          "current": "04aa49476caf2dc6e69e3e7b1e10c8d2030a1eadb0375ad2ff798d2ce62c94d7",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_admission.py"
+        },
+        {
+          "capture_after": "d9c46d4cd14f32cdabadf1b3865a4c0a00cb3f6cec4dee68e4307d618819c72c",
+          "current": "d9c46d4cd14f32cdabadf1b3865a4c0a00cb3f6cec4dee68e4307d618819c72c",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_api.py"
+        },
+        {
+          "capture_after": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+          "current": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_containment.py"
+        },
+        {
+          "capture_after": "8c563ee317d6576f6dd7cbac88e634e089f4dbfe6bc71d90e2df96010133bd00",
+          "current": "8c563ee317d6576f6dd7cbac88e634e089f4dbfe6bc71d90e2df96010133bd00",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runner.py"
+        },
+        {
+          "capture_after": "88bf8639bff1b1c0fb6d9b89491d454b5c06b98d2684f27c02e597e63d89692f",
+          "current": "88bf8639bff1b1c0fb6d9b89491d454b5c06b98d2684f27c02e597e63d89692f",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runtime_db.py"
+        },
+        {
+          "capture_after": "98f7737d2db4c8e624b6d6abac0658c4c5295801238412eabd9a2ae68f2a5fbf",
+          "current": "98f7737d2db4c8e624b6d6abac0658c4c5295801238412eabd9a2ae68f2a5fbf",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runtime_integration.py"
+        },
+        {
+          "capture_after": "a267eaee13cd7dc9e5bf4192e476753a158ce080caee7a0b1bea8b69d7bef5ad",
+          "current": "a267eaee13cd7dc9e5bf4192e476753a158ce080caee7a0b1bea8b69d7bef5ad",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_source_read.py"
+        }
+      ],
+      "current_source_test_pass_inference": "NOT_INFERRED",
+      "current_source_test_pass_note": "A hash match to a capture does not establish that any test passed on current source.",
+      "ended_utc": "2026-09-25T14:33:56.916639+00:00",
+      "exit_code": 0,
+      "issues": [],
+      "junit": {
+        "actual_case_counts": {
+          "errors": 0,
+          "failures": 0,
+          "passed": 1,
+          "skipped": 0,
+          "tests": 1
+        },
+        "bytes": 5010,
+        "declared_leaf_suite_counts": {
+          "errors": 0,
+          "failures": 0,
+          "skipped": 0,
+          "tests": 1
+        },
+        "declared_matches_actual": true,
+        "elapsed_seconds": 5.146,
+        "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-mapped-pressure-02.xml",
+        "sha256": "4ab2d0d31f6e4139791591b87b8c4276b252fd60ca85f428781755e8b1e288f6",
+        "valid": true
+      },
+      "label": "linux-mapped-pressure-02",
+      "log": {
+        "actual_sha256": "51d24562c79f3e87caa5454a4201e9b32af703b11bbf15063811ed93018642dd",
+        "bytes": 606,
+        "expected_sha256": "51d24562c79f3e87caa5454a4201e9b32af703b11bbf15063811ed93018642dd",
+        "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-mapped-pressure-02.log",
+        "valid": true
+      },
+      "record_bytes": 5488,
+      "record_path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-mapped-pressure-02.json",
+      "record_sha256": "1466cb339d5fa01f675cb8bf918e18ed9668146cde7420d3fe90925e546a991f",
+      "source_before_after_changes": [],
+      "started_utc": "2026-09-25T14:33:49.393767+00:00",
+      "valid": true
+    },
+    {
+      "argv": [
+        "docker",
+        "run",
+        "--rm",
+        "--network",
+        "none",
+        "--memory",
+        "512m",
+        "--memory-swap",
+        "512m",
+        "-e",
+        "QA_OCR_NATIVE_CONTAINMENT_TEST=1",
+        "-e",
+        "QA_OCR_NATIVE_LIMIT_BYTES=536870912",
+        "--mount",
+        "type=bind,src=C:\\Dev\\qa-visual-automation\\.orchestration\\reports\\BACKEND-OCR-001-native-diagnostic-evidence-03,dst=/evidence",
+        "qa-backend-ocr-native-diagnostic:20260925a",
+        "python",
+        "-m",
+        "pytest",
+        "tests/backend/test_ocr_containment.py::test_native_effective_boundary_is_verified_before_workload_and_after",
+        "-q",
+        "--tb=short",
+        "-p",
+        "no:cacheprovider",
+        "-o",
+        "junit_family=legacy",
+        "--junitxml=/evidence/linux-native-boundary-01.xml"
+      ],
+      "command_outcome": "RECORDED_EXIT_CODE_ONLY",
+      "command_outcome_note": "The recorded exit code is inventory data; this helper does not infer product-test status.",
+      "current_source_comparison": [
+        {
+          "capture_after": "f5841f23eb7025f6ecd5c16c216826f321059d76c54b5bcf0d90226d40649ffd",
+          "current": "f5841f23eb7025f6ecd5c16c216826f321059d76c54b5bcf0d90226d40649ffd",
+          "matches_capture_after": true,
+          "path": "backend/README.md"
+        },
+        {
+          "capture_after": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+          "current": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+          "matches_capture_after": true,
+          "path": "backend/app/services/verification_jobs.py"
+        },
+        {
+          "capture_after": "4bf251a176b582c7031f4c572b9903259b2a06acde6e4810fa7184242dfc8c61",
+          "current": "4bf251a176b582c7031f4c572b9903259b2a06acde6e4810fa7184242dfc8c61",
+          "matches_capture_after": true,
+          "path": "backend/app/services/verification_runs.py"
+        },
+        {
+          "capture_after": "115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82",
+          "current": "115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr.py"
+        },
+        {
+          "capture_after": "d430b63155b29f7069098ee41ce6780f8cdb83f6dbc3c3e3536db2e0dbd219d6",
+          "current": "d430b63155b29f7069098ee41ce6780f8cdb83f6dbc3c3e3536db2e0dbd219d6",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_admission.py"
+        },
+        {
+          "capture_after": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+          "current": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_containment.py"
+        },
+        {
+          "capture_after": "65507b56d9e4670537879823c4c541b157fb01eaa4e708883e8f10e403a195dc",
+          "current": "65507b56d9e4670537879823c4c541b157fb01eaa4e708883e8f10e403a195dc",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_runtime.py"
+        },
+        {
+          "capture_after": "ac8a6e1c2b18542fed4e099c0a754ab8e8f1b584461f444f84fb3ab891b83f8a",
+          "current": "ac8a6e1c2b18542fed4e099c0a754ab8e8f1b584461f444f84fb3ab891b83f8a",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_source.py"
+        },
+        {
+          "capture_after": "04aa49476caf2dc6e69e3e7b1e10c8d2030a1eadb0375ad2ff798d2ce62c94d7",
+          "current": "04aa49476caf2dc6e69e3e7b1e10c8d2030a1eadb0375ad2ff798d2ce62c94d7",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_admission.py"
+        },
+        {
+          "capture_after": "d9c46d4cd14f32cdabadf1b3865a4c0a00cb3f6cec4dee68e4307d618819c72c",
+          "current": "d9c46d4cd14f32cdabadf1b3865a4c0a00cb3f6cec4dee68e4307d618819c72c",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_api.py"
+        },
+        {
+          "capture_after": "9b1ac57bd2b02518d00524dd1e93a1f1ee9e60eaf5dcabb6f63285a997101c3e",
+          "current": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+          "matches_capture_after": false,
+          "path": "tests/backend/test_ocr_containment.py"
+        },
+        {
+          "capture_after": "8c563ee317d6576f6dd7cbac88e634e089f4dbfe6bc71d90e2df96010133bd00",
+          "current": "8c563ee317d6576f6dd7cbac88e634e089f4dbfe6bc71d90e2df96010133bd00",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runner.py"
+        },
+        {
+          "capture_after": "88bf8639bff1b1c0fb6d9b89491d454b5c06b98d2684f27c02e597e63d89692f",
+          "current": "88bf8639bff1b1c0fb6d9b89491d454b5c06b98d2684f27c02e597e63d89692f",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runtime_db.py"
+        },
+        {
+          "capture_after": "98f7737d2db4c8e624b6d6abac0658c4c5295801238412eabd9a2ae68f2a5fbf",
+          "current": "98f7737d2db4c8e624b6d6abac0658c4c5295801238412eabd9a2ae68f2a5fbf",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runtime_integration.py"
+        },
+        {
+          "capture_after": "a267eaee13cd7dc9e5bf4192e476753a158ce080caee7a0b1bea8b69d7bef5ad",
+          "current": "a267eaee13cd7dc9e5bf4192e476753a158ce080caee7a0b1bea8b69d7bef5ad",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_source_read.py"
+        }
+      ],
+      "current_source_test_pass_inference": "NOT_INFERRED",
+      "current_source_test_pass_note": "A hash match to a capture does not establish that any test passed on current source.",
+      "ended_utc": "2026-09-25T14:25:04.796591+00:00",
+      "exit_code": 0,
+      "issues": [],
+      "junit": {
+        "actual_case_counts": {
+          "errors": 0,
+          "failures": 0,
+          "passed": 1,
+          "skipped": 0,
+          "tests": 1
+        },
+        "bytes": 3706,
+        "declared_leaf_suite_counts": {
+          "errors": 0,
+          "failures": 0,
+          "skipped": 0,
+          "tests": 1
+        },
+        "declared_matches_actual": true,
+        "elapsed_seconds": 0.049,
+        "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-native-boundary-01.xml",
+        "sha256": "69d471735ef0b44f0edfed4dfa5fabcb831e0d369715ee37788d55709b5801c5",
+        "valid": true
+      },
+      "label": "linux-native-boundary-01",
+      "log": {
+        "actual_sha256": "bee560ea8d8012e233b7fd364063c8992849be857bf3962a7f51e2759a647bee",
+        "bytes": 606,
+        "expected_sha256": "bee560ea8d8012e233b7fd364063c8992849be857bf3962a7f51e2759a647bee",
+        "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-native-boundary-01.log",
+        "valid": true
+      },
+      "record_bytes": 5448,
+      "record_path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-native-boundary-01.json",
+      "record_sha256": "adfc76d5b53f745fdae2794ba9fd3a7b9501597f89f82a733573970e14855352",
+      "source_before_after_changes": [],
+      "started_utc": "2026-09-25T14:25:01.848144+00:00",
+      "valid": true
+    },
+    {
+      "argv": [
+        "docker",
+        "run",
+        "--rm",
+        "--network",
+        "none",
+        "--memory",
+        "512m",
+        "--memory-swap",
+        "512m",
+        "-e",
+        "QA_OCR_NATIVE_CONTAINMENT_TEST=1",
+        "-e",
+        "QA_OCR_NATIVE_LIMIT_BYTES=536870912",
+        "-e",
+        "QA_OCR_NATIVE_PRESSURE_TEST=1",
+        "--mount",
+        "type=bind,src=C:\\Dev\\qa-visual-automation\\.orchestration\\reports\\BACKEND-OCR-001-native-diagnostic-evidence-03,dst=/evidence",
+        "qa-backend-ocr-native-diagnostic:20260925a",
+        "python",
+        "-m",
+        "pytest",
+        "tests/backend/test_ocr_containment.py::test_native_pressure_and_owned_tree_cleanup",
+        "-q",
+        "-rs",
+        "--tb=short",
+        "--maxfail=1",
+        "-p",
+        "no:cacheprovider",
+        "-o",
+        "junit_family=legacy",
+        "--junitxml=/evidence/linux-native-pressure-01.xml"
+      ],
+      "command_outcome": "RECORDED_EXIT_CODE_ONLY",
+      "command_outcome_note": "The recorded exit code is inventory data; this helper does not infer product-test status.",
+      "current_source_comparison": [
+        {
+          "capture_after": "f5841f23eb7025f6ecd5c16c216826f321059d76c54b5bcf0d90226d40649ffd",
+          "current": "f5841f23eb7025f6ecd5c16c216826f321059d76c54b5bcf0d90226d40649ffd",
+          "matches_capture_after": true,
+          "path": "backend/README.md"
+        },
+        {
+          "capture_after": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+          "current": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+          "matches_capture_after": true,
+          "path": "backend/app/services/verification_jobs.py"
+        },
+        {
+          "capture_after": "4bf251a176b582c7031f4c572b9903259b2a06acde6e4810fa7184242dfc8c61",
+          "current": "4bf251a176b582c7031f4c572b9903259b2a06acde6e4810fa7184242dfc8c61",
+          "matches_capture_after": true,
+          "path": "backend/app/services/verification_runs.py"
+        },
+        {
+          "capture_after": "115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82",
+          "current": "115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr.py"
+        },
+        {
+          "capture_after": "d430b63155b29f7069098ee41ce6780f8cdb83f6dbc3c3e3536db2e0dbd219d6",
+          "current": "d430b63155b29f7069098ee41ce6780f8cdb83f6dbc3c3e3536db2e0dbd219d6",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_admission.py"
+        },
+        {
+          "capture_after": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+          "current": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_containment.py"
+        },
+        {
+          "capture_after": "65507b56d9e4670537879823c4c541b157fb01eaa4e708883e8f10e403a195dc",
+          "current": "65507b56d9e4670537879823c4c541b157fb01eaa4e708883e8f10e403a195dc",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_runtime.py"
+        },
+        {
+          "capture_after": "ac8a6e1c2b18542fed4e099c0a754ab8e8f1b584461f444f84fb3ab891b83f8a",
+          "current": "ac8a6e1c2b18542fed4e099c0a754ab8e8f1b584461f444f84fb3ab891b83f8a",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_source.py"
+        },
+        {
+          "capture_after": "04aa49476caf2dc6e69e3e7b1e10c8d2030a1eadb0375ad2ff798d2ce62c94d7",
+          "current": "04aa49476caf2dc6e69e3e7b1e10c8d2030a1eadb0375ad2ff798d2ce62c94d7",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_admission.py"
+        },
+        {
+          "capture_after": "d9c46d4cd14f32cdabadf1b3865a4c0a00cb3f6cec4dee68e4307d618819c72c",
+          "current": "d9c46d4cd14f32cdabadf1b3865a4c0a00cb3f6cec4dee68e4307d618819c72c",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_api.py"
+        },
+        {
+          "capture_after": "9b1ac57bd2b02518d00524dd1e93a1f1ee9e60eaf5dcabb6f63285a997101c3e",
+          "current": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+          "matches_capture_after": false,
+          "path": "tests/backend/test_ocr_containment.py"
+        },
+        {
+          "capture_after": "8c563ee317d6576f6dd7cbac88e634e089f4dbfe6bc71d90e2df96010133bd00",
+          "current": "8c563ee317d6576f6dd7cbac88e634e089f4dbfe6bc71d90e2df96010133bd00",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runner.py"
+        },
+        {
+          "capture_after": "88bf8639bff1b1c0fb6d9b89491d454b5c06b98d2684f27c02e597e63d89692f",
+          "current": "88bf8639bff1b1c0fb6d9b89491d454b5c06b98d2684f27c02e597e63d89692f",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runtime_db.py"
+        },
+        {
+          "capture_after": "98f7737d2db4c8e624b6d6abac0658c4c5295801238412eabd9a2ae68f2a5fbf",
+          "current": "98f7737d2db4c8e624b6d6abac0658c4c5295801238412eabd9a2ae68f2a5fbf",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runtime_integration.py"
+        },
+        {
+          "capture_after": "a267eaee13cd7dc9e5bf4192e476753a158ce080caee7a0b1bea8b69d7bef5ad",
+          "current": "a267eaee13cd7dc9e5bf4192e476753a158ce080caee7a0b1bea8b69d7bef5ad",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_source_read.py"
+        }
+      ],
+      "current_source_test_pass_inference": "NOT_INFERRED",
+      "current_source_test_pass_note": "A hash match to a capture does not establish that any test passed on current source.",
+      "ended_utc": "2026-09-25T14:26:43.472735+00:00",
+      "exit_code": 1,
+      "issues": [],
+      "junit": {
+        "actual_case_counts": {
+          "errors": 0,
+          "failures": 1,
+          "passed": 1,
+          "skipped": 1,
+          "tests": 3
+        },
+        "bytes": 12494,
+        "declared_leaf_suite_counts": {
+          "errors": 0,
+          "failures": 1,
+          "skipped": 1,
+          "tests": 3
+        },
+        "declared_matches_actual": true,
+        "elapsed_seconds": 3.775,
+        "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-native-pressure-01.xml",
+        "sha256": "5ed77ba2f7b7db64d646a4268b72aac85f06644b0bdd3bb5702fb890145ae070",
+        "valid": true
+      },
+      "label": "linux-native-pressure-01",
+      "log": {
+        "actual_sha256": "2fd1067ce8033399d2459f5ccf559238ee2888a069ec92244eef352194b977a0",
+        "bytes": 1521,
+        "expected_sha256": "2fd1067ce8033399d2459f5ccf559238ee2888a069ec92244eef352194b977a0",
+        "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-native-pressure-01.log",
+        "valid": true
+      },
+      "record_bytes": 5504,
+      "record_path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-native-pressure-01.json",
+      "record_sha256": "d8a59868316d993e06bb704181e152f09811cb753b5d8d28c0cb5e60f644d457",
+      "source_before_after_changes": [],
+      "started_utc": "2026-09-25T14:26:37.645824+00:00",
+      "valid": true
+    },
+    {
+      "argv": [
+        "docker",
+        "run",
+        "--rm",
+        "--network",
+        "none",
+        "--memory",
+        "512m",
+        "--memory-swap",
+        "512m",
+        "-e",
+        "QA_OCR_NATIVE_CONTAINMENT_TEST=1",
+        "-e",
+        "QA_OCR_NATIVE_LIMIT_BYTES=536870912",
+        "--mount",
+        "type=bind,src=C:\\Dev\\qa-visual-automation\\.orchestration\\reports\\BACKEND-OCR-001-native-diagnostic-evidence-03,dst=/evidence",
+        "qa-backend-ocr-native-diagnostic:20260925a",
+        "python",
+        "-m",
+        "pytest",
+        "tests/backend/test_ocr_containment.py::test_native_stop_of_actual_blocking_source_reader",
+        "tests/backend/test_ocr_containment.py::test_native_explicit_environment_has_no_inherited_db_credentials",
+        "tests/backend/test_ocr_runner.py::test_native_real_runner_deadline_and_transport_cleanup",
+        "-q",
+        "--tb=short",
+        "-p",
+        "no:cacheprovider",
+        "-o",
+        "junit_family=legacy",
+        "--junitxml=/evidence/linux-native-supervision-01.xml"
+      ],
+      "command_outcome": "RECORDED_EXIT_CODE_ONLY",
+      "command_outcome_note": "The recorded exit code is inventory data; this helper does not infer product-test status.",
+      "current_source_comparison": [
+        {
+          "capture_after": "f5841f23eb7025f6ecd5c16c216826f321059d76c54b5bcf0d90226d40649ffd",
+          "current": "f5841f23eb7025f6ecd5c16c216826f321059d76c54b5bcf0d90226d40649ffd",
+          "matches_capture_after": true,
+          "path": "backend/README.md"
+        },
+        {
+          "capture_after": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+          "current": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+          "matches_capture_after": true,
+          "path": "backend/app/services/verification_jobs.py"
+        },
+        {
+          "capture_after": "4bf251a176b582c7031f4c572b9903259b2a06acde6e4810fa7184242dfc8c61",
+          "current": "4bf251a176b582c7031f4c572b9903259b2a06acde6e4810fa7184242dfc8c61",
+          "matches_capture_after": true,
+          "path": "backend/app/services/verification_runs.py"
+        },
+        {
+          "capture_after": "115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82",
+          "current": "115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr.py"
+        },
+        {
+          "capture_after": "d430b63155b29f7069098ee41ce6780f8cdb83f6dbc3c3e3536db2e0dbd219d6",
+          "current": "d430b63155b29f7069098ee41ce6780f8cdb83f6dbc3c3e3536db2e0dbd219d6",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_admission.py"
+        },
+        {
+          "capture_after": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+          "current": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_containment.py"
+        },
+        {
+          "capture_after": "65507b56d9e4670537879823c4c541b157fb01eaa4e708883e8f10e403a195dc",
+          "current": "65507b56d9e4670537879823c4c541b157fb01eaa4e708883e8f10e403a195dc",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_runtime.py"
+        },
+        {
+          "capture_after": "ac8a6e1c2b18542fed4e099c0a754ab8e8f1b584461f444f84fb3ab891b83f8a",
+          "current": "ac8a6e1c2b18542fed4e099c0a754ab8e8f1b584461f444f84fb3ab891b83f8a",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_source.py"
+        },
+        {
+          "capture_after": "04aa49476caf2dc6e69e3e7b1e10c8d2030a1eadb0375ad2ff798d2ce62c94d7",
+          "current": "04aa49476caf2dc6e69e3e7b1e10c8d2030a1eadb0375ad2ff798d2ce62c94d7",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_admission.py"
+        },
+        {
+          "capture_after": "d9c46d4cd14f32cdabadf1b3865a4c0a00cb3f6cec4dee68e4307d618819c72c",
+          "current": "d9c46d4cd14f32cdabadf1b3865a4c0a00cb3f6cec4dee68e4307d618819c72c",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_api.py"
+        },
+        {
+          "capture_after": "9b1ac57bd2b02518d00524dd1e93a1f1ee9e60eaf5dcabb6f63285a997101c3e",
+          "current": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+          "matches_capture_after": false,
+          "path": "tests/backend/test_ocr_containment.py"
+        },
+        {
+          "capture_after": "8c563ee317d6576f6dd7cbac88e634e089f4dbfe6bc71d90e2df96010133bd00",
+          "current": "8c563ee317d6576f6dd7cbac88e634e089f4dbfe6bc71d90e2df96010133bd00",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runner.py"
+        },
+        {
+          "capture_after": "88bf8639bff1b1c0fb6d9b89491d454b5c06b98d2684f27c02e597e63d89692f",
+          "current": "88bf8639bff1b1c0fb6d9b89491d454b5c06b98d2684f27c02e597e63d89692f",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runtime_db.py"
+        },
+        {
+          "capture_after": "98f7737d2db4c8e624b6d6abac0658c4c5295801238412eabd9a2ae68f2a5fbf",
+          "current": "98f7737d2db4c8e624b6d6abac0658c4c5295801238412eabd9a2ae68f2a5fbf",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runtime_integration.py"
+        },
+        {
+          "capture_after": "a267eaee13cd7dc9e5bf4192e476753a158ce080caee7a0b1bea8b69d7bef5ad",
+          "current": "a267eaee13cd7dc9e5bf4192e476753a158ce080caee7a0b1bea8b69d7bef5ad",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_source_read.py"
+        }
+      ],
+      "current_source_test_pass_inference": "NOT_INFERRED",
+      "current_source_test_pass_note": "A hash match to a capture does not establish that any test passed on current source.",
+      "ended_utc": "2026-09-25T14:25:53.543033+00:00",
+      "exit_code": 0,
+      "issues": [],
+      "junit": {
+        "actual_case_counts": {
+          "errors": 0,
+          "failures": 0,
+          "passed": 9,
+          "skipped": 0,
+          "tests": 9
+        },
+        "bytes": 19915,
+        "declared_leaf_suite_counts": {
+          "errors": 0,
+          "failures": 0,
+          "skipped": 0,
+          "tests": 9
+        },
+        "declared_matches_actual": true,
+        "elapsed_seconds": 12.266,
+        "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-native-supervision-01.xml",
+        "sha256": "7c4aa96c56a8b4391eacf8d1e574482310abb5cbbbf2eafccc433f138d5cdc1c",
+        "valid": true
+      },
+      "label": "linux-native-supervision-01",
+      "log": {
+        "actual_sha256": "58ad86c24d84124a6e23f0a32d4ce533fa9c5b59d5b7df1ff6056bdca6883b1b",
+        "bytes": 607,
+        "expected_sha256": "58ad86c24d84124a6e23f0a32d4ce533fa9c5b59d5b7df1ff6056bdca6883b1b",
+        "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-native-supervision-01.log",
+        "valid": true
+      },
+      "record_bytes": 5644,
+      "record_path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-native-supervision-01.json",
+      "record_sha256": "596fb0a651e370e5c188db7a0035ff80af6da0a5222776cb5ecd58190218e887",
+      "source_before_after_changes": [],
+      "started_utc": "2026-09-25T14:25:39.129932+00:00",
+      "valid": true
+    },
+    {
+      "argv": [
+        ".pytest_cache\\agent-clean-win\\Scripts\\python.exe",
+        ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-parent-oom-03.py",
+        "host",
+        "--image",
+        "qa-backend-ocr-native-diagnostic:20260925b",
+        "--image-id",
+        "sha256:56c45fb0dac074888d84484e414107c95342ab325e148c916fe55e454f1df662",
+        "--postgres-container",
+        "qa-visual-automation-postgres-1",
+        "--env-file",
+        ".env",
+        "--evidence-dir",
+        ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-parent-oom-evidence-03-01"
+      ],
+      "command_outcome": "RECORDED_EXIT_CODE_ONLY",
+      "command_outcome_note": "The recorded exit code is inventory data; this helper does not infer product-test status.",
+      "current_source_comparison": [
+        {
+          "capture_after": "f5841f23eb7025f6ecd5c16c216826f321059d76c54b5bcf0d90226d40649ffd",
+          "current": "f5841f23eb7025f6ecd5c16c216826f321059d76c54b5bcf0d90226d40649ffd",
+          "matches_capture_after": true,
+          "path": "backend/README.md"
+        },
+        {
+          "capture_after": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+          "current": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+          "matches_capture_after": true,
+          "path": "backend/app/services/verification_jobs.py"
+        },
+        {
+          "capture_after": "4bf251a176b582c7031f4c572b9903259b2a06acde6e4810fa7184242dfc8c61",
+          "current": "4bf251a176b582c7031f4c572b9903259b2a06acde6e4810fa7184242dfc8c61",
+          "matches_capture_after": true,
+          "path": "backend/app/services/verification_runs.py"
+        },
+        {
+          "capture_after": "115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82",
+          "current": "115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr.py"
+        },
+        {
+          "capture_after": "d430b63155b29f7069098ee41ce6780f8cdb83f6dbc3c3e3536db2e0dbd219d6",
+          "current": "d430b63155b29f7069098ee41ce6780f8cdb83f6dbc3c3e3536db2e0dbd219d6",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_admission.py"
+        },
+        {
+          "capture_after": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+          "current": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_containment.py"
+        },
+        {
+          "capture_after": "65507b56d9e4670537879823c4c541b157fb01eaa4e708883e8f10e403a195dc",
+          "current": "65507b56d9e4670537879823c4c541b157fb01eaa4e708883e8f10e403a195dc",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_runtime.py"
+        },
+        {
+          "capture_after": "ac8a6e1c2b18542fed4e099c0a754ab8e8f1b584461f444f84fb3ab891b83f8a",
+          "current": "ac8a6e1c2b18542fed4e099c0a754ab8e8f1b584461f444f84fb3ab891b83f8a",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_source.py"
+        },
+        {
+          "capture_after": "04aa49476caf2dc6e69e3e7b1e10c8d2030a1eadb0375ad2ff798d2ce62c94d7",
+          "current": "04aa49476caf2dc6e69e3e7b1e10c8d2030a1eadb0375ad2ff798d2ce62c94d7",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_admission.py"
+        },
+        {
+          "capture_after": "d9c46d4cd14f32cdabadf1b3865a4c0a00cb3f6cec4dee68e4307d618819c72c",
+          "current": "d9c46d4cd14f32cdabadf1b3865a4c0a00cb3f6cec4dee68e4307d618819c72c",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_api.py"
+        },
+        {
+          "capture_after": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+          "current": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_containment.py"
+        },
+        {
+          "capture_after": "8c563ee317d6576f6dd7cbac88e634e089f4dbfe6bc71d90e2df96010133bd00",
+          "current": "8c563ee317d6576f6dd7cbac88e634e089f4dbfe6bc71d90e2df96010133bd00",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runner.py"
+        },
+        {
+          "capture_after": "88bf8639bff1b1c0fb6d9b89491d454b5c06b98d2684f27c02e597e63d89692f",
+          "current": "88bf8639bff1b1c0fb6d9b89491d454b5c06b98d2684f27c02e597e63d89692f",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runtime_db.py"
+        },
+        {
+          "capture_after": "98f7737d2db4c8e624b6d6abac0658c4c5295801238412eabd9a2ae68f2a5fbf",
+          "current": "98f7737d2db4c8e624b6d6abac0658c4c5295801238412eabd9a2ae68f2a5fbf",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runtime_integration.py"
+        },
+        {
+          "capture_after": "a267eaee13cd7dc9e5bf4192e476753a158ce080caee7a0b1bea8b69d7bef5ad",
+          "current": "a267eaee13cd7dc9e5bf4192e476753a158ce080caee7a0b1bea8b69d7bef5ad",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_source_read.py"
+        }
+      ],
+      "current_source_test_pass_inference": "NOT_INFERRED",
+      "current_source_test_pass_note": "A hash match to a capture does not establish that any test passed on current source.",
+      "ended_utc": "2026-09-25T14:57:20.123341+00:00",
+      "exit_code": 0,
+      "issues": [],
+      "junit": {
+        "present": false
+      },
+      "label": "linux-parent-oom-01",
+      "log": {
+        "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-parent-oom-01.log",
+        "valid": true
+      },
+      "record_bytes": 5508,
+      "record_path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-parent-oom-01.json",
+      "record_sha256": "d84751d9843f2c5932735b827bc0a63d000b576288b87cc968ff8e03365fe20d",
+      "source_before_after_changes": [],
+      "started_utc": "2026-09-25T14:56:07.107665+00:00",
+      "valid": true
+    },
+    {
+      "argv": [
+        "docker",
+        "run",
+        "--rm",
+        "--memory",
+        "2g",
+        "--memory-swap",
+        "2g",
+        "--network",
+        "container:qa-visual-automation-postgres-1",
+        "--env-file",
+        ".env",
+        "-e",
+        "DATABASE_HOST=127.0.0.1",
+        "-e",
+        "DATABASE_PORT=5432",
+        "-e",
+        "STORAGE_ROOT=/tmp/qa-storage",
+        "-e",
+        "QA_OCR_REAL_RUNTIME_TEST=1",
+        "-e",
+        "QA_OCR_MODEL_ROOT=/models/ocr",
+        "-e",
+        "PADDLE_PDX_DISABLE_MODEL_SOURCE_CHECK=True",
+        "-e",
+        "OMP_NUM_THREADS=1",
+        "-e",
+        "MKL_NUM_THREADS=1",
+        "-e",
+        "OPENBLAS_NUM_THREADS=1",
+        "--mount",
+        "type=bind,src=C:\\Dev\\qa-visual-automation\\.pytest_cache\\phase3-ocr-05\\model-cache\\official_models,dst=/models/ocr,readonly",
+        "--mount",
+        "type=bind,src=C:\\Dev\\qa-visual-automation\\.orchestration\\reports\\BACKEND-OCR-001-native-diagnostic-evidence-03,dst=/evidence",
+        "qa-backend-ocr-native-diagnostic:20260925b",
+        "python",
+        "-m",
+        "pytest",
+        "tests/backend/test_ocr_runtime_integration.py::test_real_runner_atomically_commits_ocr_and_verification_results",
+        "-q",
+        "--tb=short",
+        "-p",
+        "no:cacheprovider",
+        "-o",
+        "junit_family=legacy",
+        "--junitxml=/evidence/linux-real-runner-01.xml"
+      ],
+      "command_outcome": "RECORDED_EXIT_CODE_ONLY",
+      "command_outcome_note": "The recorded exit code is inventory data; this helper does not infer product-test status.",
+      "current_source_comparison": [
+        {
+          "capture_after": "f5841f23eb7025f6ecd5c16c216826f321059d76c54b5bcf0d90226d40649ffd",
+          "current": "f5841f23eb7025f6ecd5c16c216826f321059d76c54b5bcf0d90226d40649ffd",
+          "matches_capture_after": true,
+          "path": "backend/README.md"
+        },
+        {
+          "capture_after": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+          "current": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+          "matches_capture_after": true,
+          "path": "backend/app/services/verification_jobs.py"
+        },
+        {
+          "capture_after": "4bf251a176b582c7031f4c572b9903259b2a06acde6e4810fa7184242dfc8c61",
+          "current": "4bf251a176b582c7031f4c572b9903259b2a06acde6e4810fa7184242dfc8c61",
+          "matches_capture_after": true,
+          "path": "backend/app/services/verification_runs.py"
+        },
+        {
+          "capture_after": "115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82",
+          "current": "115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr.py"
+        },
+        {
+          "capture_after": "d430b63155b29f7069098ee41ce6780f8cdb83f6dbc3c3e3536db2e0dbd219d6",
+          "current": "d430b63155b29f7069098ee41ce6780f8cdb83f6dbc3c3e3536db2e0dbd219d6",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_admission.py"
+        },
+        {
+          "capture_after": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+          "current": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_containment.py"
+        },
+        {
+          "capture_after": "65507b56d9e4670537879823c4c541b157fb01eaa4e708883e8f10e403a195dc",
+          "current": "65507b56d9e4670537879823c4c541b157fb01eaa4e708883e8f10e403a195dc",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_runtime.py"
+        },
+        {
+          "capture_after": "ac8a6e1c2b18542fed4e099c0a754ab8e8f1b584461f444f84fb3ab891b83f8a",
+          "current": "ac8a6e1c2b18542fed4e099c0a754ab8e8f1b584461f444f84fb3ab891b83f8a",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_source.py"
+        },
+        {
+          "capture_after": "04aa49476caf2dc6e69e3e7b1e10c8d2030a1eadb0375ad2ff798d2ce62c94d7",
+          "current": "04aa49476caf2dc6e69e3e7b1e10c8d2030a1eadb0375ad2ff798d2ce62c94d7",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_admission.py"
+        },
+        {
+          "capture_after": "d9c46d4cd14f32cdabadf1b3865a4c0a00cb3f6cec4dee68e4307d618819c72c",
+          "current": "d9c46d4cd14f32cdabadf1b3865a4c0a00cb3f6cec4dee68e4307d618819c72c",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_api.py"
+        },
+        {
+          "capture_after": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+          "current": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_containment.py"
+        },
+        {
+          "capture_after": "8c563ee317d6576f6dd7cbac88e634e089f4dbfe6bc71d90e2df96010133bd00",
+          "current": "8c563ee317d6576f6dd7cbac88e634e089f4dbfe6bc71d90e2df96010133bd00",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runner.py"
+        },
+        {
+          "capture_after": "88bf8639bff1b1c0fb6d9b89491d454b5c06b98d2684f27c02e597e63d89692f",
+          "current": "88bf8639bff1b1c0fb6d9b89491d454b5c06b98d2684f27c02e597e63d89692f",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runtime_db.py"
+        },
+        {
+          "capture_after": "98f7737d2db4c8e624b6d6abac0658c4c5295801238412eabd9a2ae68f2a5fbf",
+          "current": "98f7737d2db4c8e624b6d6abac0658c4c5295801238412eabd9a2ae68f2a5fbf",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runtime_integration.py"
+        },
+        {
+          "capture_after": "a267eaee13cd7dc9e5bf4192e476753a158ce080caee7a0b1bea8b69d7bef5ad",
+          "current": "a267eaee13cd7dc9e5bf4192e476753a158ce080caee7a0b1bea8b69d7bef5ad",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_source_read.py"
+        }
+      ],
+      "current_source_test_pass_inference": "NOT_INFERRED",
+      "current_source_test_pass_note": "A hash match to a capture does not establish that any test passed on current source.",
+      "ended_utc": "2026-09-25T14:35:37.474944+00:00",
+      "exit_code": 0,
+      "issues": [],
+      "junit": {
+        "actual_case_counts": {
+          "errors": 0,
+          "failures": 0,
+          "passed": 1,
+          "skipped": 0,
+          "tests": 1
+        },
+        "bytes": 1989,
+        "declared_leaf_suite_counts": {
+          "errors": 0,
+          "failures": 0,
+          "skipped": 0,
+          "tests": 1
+        },
+        "declared_matches_actual": true,
+        "elapsed_seconds": 8.97,
+        "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-real-runner-01.xml",
+        "sha256": "b14c949957f62f6ded30f9e75a5abb5ae287bcc3b0663beb53cefeb63f1a8d85",
+        "valid": true
+      },
+      "label": "linux-real-runner-01",
+      "log": {
+        "actual_sha256": "16d175d864c36e0e997b97caf3e02a34852142ca15582ccfd8a8d011a1b91d58",
+        "bytes": 606,
+        "expected_sha256": "16d175d864c36e0e997b97caf3e02a34852142ca15582ccfd8a8d011a1b91d58",
+        "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-real-runner-01.log",
+        "valid": true
+      },
+      "record_bytes": 5957,
+      "record_path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-real-runner-01.json",
+      "record_sha256": "65a74d6a2840aa374e2eefe8c2c5db296aa557867b5a30f799a04e360b9f0651",
+      "source_before_after_changes": [],
+      "started_utc": "2026-09-25T14:35:26.082273+00:00",
+      "valid": true
+    },
+    {
+      "argv": [
+        "docker",
+        "run",
+        "--rm",
+        "--network",
+        "none",
+        "--memory",
+        "512m",
+        "--memory-swap",
+        "512m",
+        "-e",
+        "QA_OCR_NATIVE_CONTAINMENT_TEST=1",
+        "-e",
+        "QA_OCR_NATIVE_LIMIT_BYTES=536870912",
+        "-e",
+        "QA_OCR_NATIVE_PRESSURE_TEST=1",
+        "--mount",
+        "type=bind,src=C:\\Dev\\qa-visual-automation\\.orchestration\\reports\\BACKEND-OCR-001-native-diagnostic-evidence-03,dst=/evidence",
+        "qa-backend-ocr-native-diagnostic:20260925b",
+        "python",
+        "-m",
+        "pytest",
+        "tests/backend/test_ocr_containment.py::test_native_pressure_and_owned_tree_cleanup[shortpeak]",
+        "-q",
+        "-rs",
+        "--tb=short",
+        "-p",
+        "no:cacheprovider",
+        "-o",
+        "junit_family=legacy",
+        "--junitxml=/evidence/linux-shortpeak-pressure-02.xml"
+      ],
+      "command_outcome": "RECORDED_EXIT_CODE_ONLY",
+      "command_outcome_note": "The recorded exit code is inventory data; this helper does not infer product-test status.",
+      "current_source_comparison": [
+        {
+          "capture_after": "f5841f23eb7025f6ecd5c16c216826f321059d76c54b5bcf0d90226d40649ffd",
+          "current": "f5841f23eb7025f6ecd5c16c216826f321059d76c54b5bcf0d90226d40649ffd",
+          "matches_capture_after": true,
+          "path": "backend/README.md"
+        },
+        {
+          "capture_after": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+          "current": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+          "matches_capture_after": true,
+          "path": "backend/app/services/verification_jobs.py"
+        },
+        {
+          "capture_after": "4bf251a176b582c7031f4c572b9903259b2a06acde6e4810fa7184242dfc8c61",
+          "current": "4bf251a176b582c7031f4c572b9903259b2a06acde6e4810fa7184242dfc8c61",
+          "matches_capture_after": true,
+          "path": "backend/app/services/verification_runs.py"
+        },
+        {
+          "capture_after": "115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82",
+          "current": "115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr.py"
+        },
+        {
+          "capture_after": "d430b63155b29f7069098ee41ce6780f8cdb83f6dbc3c3e3536db2e0dbd219d6",
+          "current": "d430b63155b29f7069098ee41ce6780f8cdb83f6dbc3c3e3536db2e0dbd219d6",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_admission.py"
+        },
+        {
+          "capture_after": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+          "current": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_containment.py"
+        },
+        {
+          "capture_after": "65507b56d9e4670537879823c4c541b157fb01eaa4e708883e8f10e403a195dc",
+          "current": "65507b56d9e4670537879823c4c541b157fb01eaa4e708883e8f10e403a195dc",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_runtime.py"
+        },
+        {
+          "capture_after": "ac8a6e1c2b18542fed4e099c0a754ab8e8f1b584461f444f84fb3ab891b83f8a",
+          "current": "ac8a6e1c2b18542fed4e099c0a754ab8e8f1b584461f444f84fb3ab891b83f8a",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_source.py"
+        },
+        {
+          "capture_after": "04aa49476caf2dc6e69e3e7b1e10c8d2030a1eadb0375ad2ff798d2ce62c94d7",
+          "current": "04aa49476caf2dc6e69e3e7b1e10c8d2030a1eadb0375ad2ff798d2ce62c94d7",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_admission.py"
+        },
+        {
+          "capture_after": "d9c46d4cd14f32cdabadf1b3865a4c0a00cb3f6cec4dee68e4307d618819c72c",
+          "current": "d9c46d4cd14f32cdabadf1b3865a4c0a00cb3f6cec4dee68e4307d618819c72c",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_api.py"
+        },
+        {
+          "capture_after": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+          "current": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_containment.py"
+        },
+        {
+          "capture_after": "8c563ee317d6576f6dd7cbac88e634e089f4dbfe6bc71d90e2df96010133bd00",
+          "current": "8c563ee317d6576f6dd7cbac88e634e089f4dbfe6bc71d90e2df96010133bd00",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runner.py"
+        },
+        {
+          "capture_after": "88bf8639bff1b1c0fb6d9b89491d454b5c06b98d2684f27c02e597e63d89692f",
+          "current": "88bf8639bff1b1c0fb6d9b89491d454b5c06b98d2684f27c02e597e63d89692f",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runtime_db.py"
+        },
+        {
+          "capture_after": "98f7737d2db4c8e624b6d6abac0658c4c5295801238412eabd9a2ae68f2a5fbf",
+          "current": "98f7737d2db4c8e624b6d6abac0658c4c5295801238412eabd9a2ae68f2a5fbf",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runtime_integration.py"
+        },
+        {
+          "capture_after": "a267eaee13cd7dc9e5bf4192e476753a158ce080caee7a0b1bea8b69d7bef5ad",
+          "current": "a267eaee13cd7dc9e5bf4192e476753a158ce080caee7a0b1bea8b69d7bef5ad",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_source_read.py"
+        }
+      ],
+      "current_source_test_pass_inference": "NOT_INFERRED",
+      "current_source_test_pass_note": "A hash match to a capture does not establish that any test passed on current source.",
+      "ended_utc": "2026-09-25T14:34:08.647655+00:00",
+      "exit_code": 0,
+      "issues": [],
+      "junit": {
+        "actual_case_counts": {
+          "errors": 0,
+          "failures": 0,
+          "passed": 0,
+          "skipped": 1,
+          "tests": 1
+        },
+        "bytes": 5010,
+        "declared_leaf_suite_counts": {
+          "errors": 0,
+          "failures": 0,
+          "skipped": 1,
+          "tests": 1
+        },
+        "declared_matches_actual": true,
+        "elapsed_seconds": 0.438,
+        "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-shortpeak-pressure-02.xml",
+        "sha256": "d1089079e670e238735bad9c47b26f6e0d4bcbc862d99fb3a05e0b922f5b0df8",
+        "valid": true
+      },
+      "label": "linux-shortpeak-pressure-02",
+      "log": {
+        "actual_sha256": "3c125f698c61a5bfbb7c567c591f94e23bbd6a9249ad2230714310b194dfb4c1",
+        "bytes": 840,
+        "expected_sha256": "3c125f698c61a5bfbb7c567c591f94e23bbd6a9249ad2230714310b194dfb4c1",
+        "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-shortpeak-pressure-02.log",
+        "valid": true
+      },
+      "record_bytes": 5501,
+      "record_path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-shortpeak-pressure-02.json",
+      "record_sha256": "e2e9394e86f253cf7f8da0f00c9480118cdbbecfa2966df2aa5fe4d60c87f3fc",
+      "source_before_after_changes": [],
+      "started_utc": "2026-09-25T14:34:05.928483+00:00",
+      "valid": true
+    },
+    {
+      "argv": [
+        ".\\.pytest_cache\\agent-clean-win\\Scripts\\python.exe",
+        "-I",
+        "-S",
+        ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-windows-03.py",
+        "--output",
+        "C:\\Dev\\qa-visual-automation\\.orchestration\\reports\\BACKEND-OCR-001-native-diagnostic-evidence-03\\windows-owned-identity-facts-01.json"
+      ],
+      "command_outcome": "RECORDED_EXIT_CODE_ONLY",
+      "command_outcome_note": "The recorded exit code is inventory data; this helper does not infer product-test status.",
+      "current_source_comparison": [
+        {
+          "capture_after": "f5841f23eb7025f6ecd5c16c216826f321059d76c54b5bcf0d90226d40649ffd",
+          "current": "f5841f23eb7025f6ecd5c16c216826f321059d76c54b5bcf0d90226d40649ffd",
+          "matches_capture_after": true,
+          "path": "backend/README.md"
+        },
+        {
+          "capture_after": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+          "current": "6c1689d1d197e298c689c66554ae93990ecc210157c6b1efb67cc57a293d488a",
+          "matches_capture_after": true,
+          "path": "backend/app/services/verification_jobs.py"
+        },
+        {
+          "capture_after": "4bf251a176b582c7031f4c572b9903259b2a06acde6e4810fa7184242dfc8c61",
+          "current": "4bf251a176b582c7031f4c572b9903259b2a06acde6e4810fa7184242dfc8c61",
+          "matches_capture_after": true,
+          "path": "backend/app/services/verification_runs.py"
+        },
+        {
+          "capture_after": "115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82",
+          "current": "115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr.py"
+        },
+        {
+          "capture_after": "d430b63155b29f7069098ee41ce6780f8cdb83f6dbc3c3e3536db2e0dbd219d6",
+          "current": "d430b63155b29f7069098ee41ce6780f8cdb83f6dbc3c3e3536db2e0dbd219d6",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_admission.py"
+        },
+        {
+          "capture_after": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+          "current": "ef7d7ffe6dbc0b8f620ae9416818614cf9aa9dc5ceb822fdee11d4feca76bec5",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_containment.py"
+        },
+        {
+          "capture_after": "65507b56d9e4670537879823c4c541b157fb01eaa4e708883e8f10e403a195dc",
+          "current": "65507b56d9e4670537879823c4c541b157fb01eaa4e708883e8f10e403a195dc",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_runtime.py"
+        },
+        {
+          "capture_after": "ac8a6e1c2b18542fed4e099c0a754ab8e8f1b584461f444f84fb3ab891b83f8a",
+          "current": "ac8a6e1c2b18542fed4e099c0a754ab8e8f1b584461f444f84fb3ab891b83f8a",
+          "matches_capture_after": true,
+          "path": "backend/app/workers/ocr_source.py"
+        },
+        {
+          "capture_after": "04aa49476caf2dc6e69e3e7b1e10c8d2030a1eadb0375ad2ff798d2ce62c94d7",
+          "current": "04aa49476caf2dc6e69e3e7b1e10c8d2030a1eadb0375ad2ff798d2ce62c94d7",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_admission.py"
+        },
+        {
+          "capture_after": "d9c46d4cd14f32cdabadf1b3865a4c0a00cb3f6cec4dee68e4307d618819c72c",
+          "current": "d9c46d4cd14f32cdabadf1b3865a4c0a00cb3f6cec4dee68e4307d618819c72c",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_api.py"
+        },
+        {
+          "capture_after": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+          "current": "382257cfb9747b2fe9d7aa87fedd5d50d5f853745c483be5b1764c3c958ade1b",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_containment.py"
+        },
+        {
+          "capture_after": "8c563ee317d6576f6dd7cbac88e634e089f4dbfe6bc71d90e2df96010133bd00",
+          "current": "8c563ee317d6576f6dd7cbac88e634e089f4dbfe6bc71d90e2df96010133bd00",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runner.py"
+        },
+        {
+          "capture_after": "88bf8639bff1b1c0fb6d9b89491d454b5c06b98d2684f27c02e597e63d89692f",
+          "current": "88bf8639bff1b1c0fb6d9b89491d454b5c06b98d2684f27c02e597e63d89692f",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runtime_db.py"
+        },
+        {
+          "capture_after": "98f7737d2db4c8e624b6d6abac0658c4c5295801238412eabd9a2ae68f2a5fbf",
+          "current": "98f7737d2db4c8e624b6d6abac0658c4c5295801238412eabd9a2ae68f2a5fbf",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_runtime_integration.py"
+        },
+        {
+          "capture_after": "a267eaee13cd7dc9e5bf4192e476753a158ce080caee7a0b1bea8b69d7bef5ad",
+          "current": "a267eaee13cd7dc9e5bf4192e476753a158ce080caee7a0b1bea8b69d7bef5ad",
+          "matches_capture_after": true,
+          "path": "tests/backend/test_ocr_source_read.py"
+        }
+      ],
+      "current_source_test_pass_inference": "NOT_INFERRED",
+      "current_source_test_pass_note": "A hash match to a capture does not establish that any test passed on current source.",
+      "ended_utc": "2026-09-25T14:36:02.069293+00:00",
+      "exit_code": 1,
+      "issues": [],
+      "junit": {
+        "present": false
+      },
+      "label": "windows-owned-identity-01",
+      "log": {
+        "actual_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/windows-owned-identity-01.log",
+        "valid": true
+      },
+      "record_bytes": 5157,
+      "record_path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/windows-owned-identity-01.json",
+      "record_sha256": "9274c527e3f3f77d434558b03f0db3707d5bf58ac3a3cfc89d442e308650b309",
+      "source_before_after_changes": [],
+      "started_utc": "2026-09-25T14:36:01.773189+00:00",
+      "valid": true
+    }
+  ],
+  "current_source_test_pass_inference": "NOT_INFERRED",
+  "current_source_test_pass_note": "This is an evidence inventory. It never runs tests and does not promote owner evidence or AC status.",
+  "evidence_dir": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03",
+  "kind": "BACKEND-OCR-001-runtime-conformance-inventory",
+  "non_capture_json": [
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/capture-inventory-pre-oom-01.json",
+      "reason": "not a capture record",
+      "sha256": "cdfd5797b8d6f70c2c9ca59aec4f162308adbf4649f564e5f7d06b277d0d51aa",
+      "valid_json": true
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/parent-oom-host-static-01.json",
+      "reason": "not a capture record",
+      "sha256": "157c570fb4c348fe1619544a0237655a5b555674407d4731555a9715da76b42c",
+      "valid_json": true
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/windows-owned-identity-facts-01.json",
+      "reason": "not a capture record",
+      "sha256": "61d2f1955a3ee7531533cf92758ce0425a8ea1d017a1824ce127130203de1ad0",
+      "valid_json": true
+    }
+  ],
+  "schema_version": 1,
+  "unpaired_junit": [],
+  "valid": true,
+  "worker42": {
+    "aggregate_candidates": {
+      "full_tab_rows_lf": "058a445d90b7c50897f77f503a31e7dd425ea71f845a70a40666816e3c7a7b94",
+      "path_sha256_lf": "609aa85f7fad793152a12285a710a316f8af5981bb9a216668a8423a55f56e12"
+    },
+    "aggregate_format": "full_tab_rows_lf",
+    "headers": {
+      "aggregate_sha256": "058a445d90b7c50897f77f503a31e7dd425ea71f845a70a40666816e3c7a7b94",
+      "count": "42",
+      "schema_version": "1"
+    },
+    "issues": [],
+    "manifest_bytes": 5065,
+    "manifest_path": ".orchestration/reports/OCR-001-05-source-manifest.txt",
+    "manifest_sha256": "98ea7e81109668dd073ef4f011b4d4c14eff3eea2a96340a00062f6850050b0a",
+    "parsed_rows": 42,
+    "rows": [
+      {
+        "actual_bytes": 1,
+        "actual_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "expected_bytes": 1,
+        "expected_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "matches": true,
+        "ordinal": "0001",
+        "path": "tests/ocr/.gitkeep"
+      },
+      {
+        "actual_bytes": 8370,
+        "actual_sha256": "fd30fc82feffa01c628979e0bc73564ecf011aec11e009205e32391f3dd2f2ad",
+        "expected_bytes": 8370,
+        "expected_sha256": "fd30fc82feffa01c628979e0bc73564ecf011aec11e009205e32391f3dd2f2ad",
+        "matches": true,
+        "ordinal": "0002",
+        "path": "tests/ocr/benchmark_matching.py"
+      },
+      {
+        "actual_bytes": 10599,
+        "actual_sha256": "5cebaf7105405219a5eeb73cd74c06d643e491ef232776afc82289a772ab2a00",
+        "expected_bytes": 10599,
+        "expected_sha256": "5cebaf7105405219a5eeb73cd74c06d643e491ef232776afc82289a772ab2a00",
+        "matches": true,
+        "ordinal": "0003",
+        "path": "tests/ocr/fixtures/runtime/en.png"
+      },
+      {
+        "actual_bytes": 2914,
+        "actual_sha256": "c1c4d9cf668145eadbe69e70140ca06e9a76f34ad2eb13aca93ee383e315b175",
+        "expected_bytes": 2914,
+        "expected_sha256": "c1c4d9cf668145eadbe69e70140ca06e9a76f34ad2eb13aca93ee383e315b175",
+        "matches": true,
+        "ordinal": "0004",
+        "path": "tests/ocr/fixtures/runtime/fixture-manifest.json"
+      },
+      {
+        "actual_bytes": 15441,
+        "actual_sha256": "cdda8d4ffc49236518fe64d4e51361b1694a4e32c0c0b0e7f791eb1b826ede5b",
+        "expected_bytes": 15441,
+        "expected_sha256": "cdda8d4ffc49236518fe64d4e51361b1694a4e32c0c0b0e7f791eb1b826ede5b",
+        "matches": true,
+        "ordinal": "0005",
+        "path": "tests/ocr/fixtures/runtime/ja.png"
+      },
+      {
+        "actual_bytes": 14416,
+        "actual_sha256": "d34992612ae1b01629475fdc7ed1bcc3359cfcb798c7bb22959f6cd709aa2702",
+        "expected_bytes": 14416,
+        "expected_sha256": "d34992612ae1b01629475fdc7ed1bcc3359cfcb798c7bb22959f6cd709aa2702",
+        "matches": true,
+        "ordinal": "0006",
+        "path": "tests/ocr/fixtures/runtime/ko.png"
+      },
+      {
+        "actual_bytes": 12416,
+        "actual_sha256": "6200748b27252a02fba5ed76fffe61799dfca05e0cebb4aab4e1d68cc4ba094c",
+        "expected_bytes": 12416,
+        "expected_sha256": "6200748b27252a02fba5ed76fffe61799dfca05e0cebb4aab4e1d68cc4ba094c",
+        "matches": true,
+        "ordinal": "0007",
+        "path": "tests/ocr/fixtures/runtime/zh_Hans.png"
+      },
+      {
+        "actual_bytes": 12692,
+        "actual_sha256": "2dc5a94d734b9a036ef6c9fdb2ab64177a58ab7d3429ef899eb44224c9fc3492",
+        "expected_bytes": 12692,
+        "expected_sha256": "2dc5a94d734b9a036ef6c9fdb2ab64177a58ab7d3429ef899eb44224c9fc3492",
+        "matches": true,
+        "ordinal": "0008",
+        "path": "tests/ocr/fixtures/runtime/zh_Hant.png"
+      },
+      {
+        "actual_bytes": 3446,
+        "actual_sha256": "58f1024579357014b2276b3638e1c03d3329ae4b0e906f09c8abf8f22d1ebc5f",
+        "expected_bytes": 3446,
+        "expected_sha256": "58f1024579357014b2276b3638e1c03d3329ae4b0e906f09c8abf8f22d1ebc5f",
+        "matches": true,
+        "ordinal": "0009",
+        "path": "tests/ocr/test_bounds_errors.py"
+      },
+      {
+        "actual_bytes": 8460,
+        "actual_sha256": "48d4a662f5fd7bc42d73cc5a0be2836d6bca15b50b580afcc4d1c5f5c0dc91b4",
+        "expected_bytes": 8460,
+        "expected_sha256": "48d4a662f5fd7bc42d73cc5a0be2836d6bca15b50b580afcc4d1c5f5c0dc91b4",
+        "matches": true,
+        "ordinal": "0010",
+        "path": "tests/ocr/test_geometry_profiles.py"
+      },
+      {
+        "actual_bytes": 9431,
+        "actual_sha256": "cf3c9b01789e181df1ec4aa0e426563ac1a34eb6a388775592013ef586a93f19",
+        "expected_bytes": 9431,
+        "expected_sha256": "cf3c9b01789e181df1ec4aa0e426563ac1a34eb6a388775592013ef586a93f19",
+        "matches": true,
+        "ordinal": "0011",
+        "path": "tests/ocr/test_normalization_matching.py"
+      },
+      {
+        "actual_bytes": 1,
+        "actual_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "expected_bytes": 1,
+        "expected_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "matches": true,
+        "ordinal": "0012",
+        "path": "worker/ocr/.gitkeep"
+      },
+      {
+        "actual_bytes": 697,
+        "actual_sha256": "4c407a0ab19db1821c7327aed0b206c3d6e36adca896d4fa3af2b844f008ce91",
+        "expected_bytes": 697,
+        "expected_sha256": "4c407a0ab19db1821c7327aed0b206c3d6e36adca896d4fa3af2b844f008ce91",
+        "matches": true,
+        "ordinal": "0013",
+        "path": "worker/ocr/__init__.py"
+      },
+      {
+        "actual_bytes": 3529,
+        "actual_sha256": "aa052072b25d6c650dfdd732a56f70e826efba94a09852e4d45d80751caac045",
+        "expected_bytes": 3529,
+        "expected_sha256": "aa052072b25d6c650dfdd732a56f70e826efba94a09852e4d45d80751caac045",
+        "matches": true,
+        "ordinal": "0014",
+        "path": "worker/ocr/adapter.py"
+      },
+      {
+        "actual_bytes": 1401,
+        "actual_sha256": "51d24ecd1644a3dd1da86eee74592749099a6722f2ffb77ee1a4de5d2984fa40",
+        "expected_bytes": 1401,
+        "expected_sha256": "51d24ecd1644a3dd1da86eee74592749099a6722f2ffb77ee1a4de5d2984fa40",
+        "matches": true,
+        "ordinal": "0015",
+        "path": "worker/ocr/errors.py"
+      },
+      {
+        "actual_bytes": 13821,
+        "actual_sha256": "2c6ca2d0977069ece5a9844d75179bda29b8977dd0b2c545b0a55b8c6d672684",
+        "expected_bytes": 13821,
+        "expected_sha256": "2c6ca2d0977069ece5a9844d75179bda29b8977dd0b2c545b0a55b8c6d672684",
+        "matches": true,
+        "ordinal": "0016",
+        "path": "worker/ocr/geometry.py"
+      },
+      {
+        "actual_bytes": 18500,
+        "actual_sha256": "8715c57f9dc8a4b5352ecf1878a19cb3cbbff42fe18635209d23777b27228196",
+        "expected_bytes": 18500,
+        "expected_sha256": "8715c57f9dc8a4b5352ecf1878a19cb3cbbff42fe18635209d23777b27228196",
+        "matches": true,
+        "ordinal": "0017",
+        "path": "worker/ocr/paddle_engine.py"
+      },
+      {
+        "actual_bytes": 345,
+        "actual_sha256": "70ec82982be73069ab5fb8d973246a7973035a8672f491e6fb83e4a6626f0be1",
+        "expected_bytes": 345,
+        "expected_sha256": "70ec82982be73069ab5fb8d973246a7973035a8672f491e6fb83e4a6626f0be1",
+        "matches": true,
+        "ordinal": "0018",
+        "path": "worker/ocr/profiles/__init__.py"
+      },
+      {
+        "actual_bytes": 1079,
+        "actual_sha256": "c666be589389afeff9391246cbaa61741c68c909c9a8c504b868abcaef390fae",
+        "expected_bytes": 1079,
+        "expected_sha256": "c666be589389afeff9391246cbaa61741c68c909c9a8c504b868abcaef390fae",
+        "matches": true,
+        "ordinal": "0019",
+        "path": "worker/ocr/profiles/fixtures/fixture-contract-v1.profile.json"
+      },
+      {
+        "actual_bytes": 1,
+        "actual_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "expected_bytes": 1,
+        "expected_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "matches": true,
+        "ordinal": "0020",
+        "path": "worker/ocr/profiles/registered/.gitkeep"
+      },
+      {
+        "actual_bytes": 26755,
+        "actual_sha256": "17b621ad3fbc5b6aba2c8da1b14ffc68b87efb992da15b7377fa3defcb24736a",
+        "expected_bytes": 26755,
+        "expected_sha256": "17b621ad3fbc5b6aba2c8da1b14ffc68b87efb992da15b7377fa3defcb24736a",
+        "matches": true,
+        "ordinal": "0021",
+        "path": "worker/ocr/profiles/registered/paddleocr-korean-medium-linux-x86_64-debian13-glibc2.41-cpython312-v1.profile.json"
+      },
+      {
+        "actual_bytes": 25392,
+        "actual_sha256": "cce0193c3a7737ba05ca34c481cd9b8caa6515d75bd53fc1b87ba2189d9b32ad",
+        "expected_bytes": 25392,
+        "expected_sha256": "cce0193c3a7737ba05ca34c481cd9b8caa6515d75bd53fc1b87ba2189d9b32ad",
+        "matches": true,
+        "ordinal": "0022",
+        "path": "worker/ocr/profiles/registered/paddleocr-korean-medium-windows-amd64-cpython312-v1.profile.json"
+      },
+      {
+        "actual_bytes": 27212,
+        "actual_sha256": "0fd9b7c1f70af19fcc46d83403594910acd8eb03e60f43ae4215dc321b69cb3d",
+        "expected_bytes": 27212,
+        "expected_sha256": "0fd9b7c1f70af19fcc46d83403594910acd8eb03e60f43ae4215dc321b69cb3d",
+        "matches": true,
+        "ordinal": "0023",
+        "path": "worker/ocr/profiles/registered/paddleocr-unified-medium-linux-x86_64-debian13-glibc2.41-cpython312-v1.profile.json"
+      },
+      {
+        "actual_bytes": 25849,
+        "actual_sha256": "f73d83fa82d15cc27aff79c8f9e7b25f34782ae6db12d68f2c64490c9fee467e",
+        "expected_bytes": 25849,
+        "expected_sha256": "f73d83fa82d15cc27aff79c8f9e7b25f34782ae6db12d68f2c64490c9fee467e",
+        "matches": true,
+        "ordinal": "0024",
+        "path": "worker/ocr/profiles/registered/paddleocr-unified-medium-windows-amd64-cpython312-v1.profile.json"
+      },
+      {
+        "actual_bytes": 3792,
+        "actual_sha256": "61b802ce52ee0cca7d6cb7d18d5867f6afb9af15d69a58ad634ded5d4aad8f31",
+        "expected_bytes": 3792,
+        "expected_sha256": "61b802ce52ee0cca7d6cb7d18d5867f6afb9af15d69a58ad634ded5d4aad8f31",
+        "matches": true,
+        "ordinal": "0025",
+        "path": "worker/ocr/profiles/registry.py"
+      },
+      {
+        "actual_bytes": 7134,
+        "actual_sha256": "8136db6b61b6d4c25e9d433a701ff8397d620cda89b3f18516ab08839fb1b9d3",
+        "expected_bytes": 7134,
+        "expected_sha256": "8136db6b61b6d4c25e9d433a701ff8397d620cda89b3f18516ab08839fb1b9d3",
+        "matches": true,
+        "ordinal": "0026",
+        "path": "worker/ocr/requirements-linux.lock"
+      },
+      {
+        "actual_bytes": 7299,
+        "actual_sha256": "b51a4c325caf2bcfb6be89efa20168b77ae60d36ec9db11a2bee383ca67d4da6",
+        "expected_bytes": 7299,
+        "expected_sha256": "b51a4c325caf2bcfb6be89efa20168b77ae60d36ec9db11a2bee383ca67d4da6",
+        "matches": true,
+        "ordinal": "0027",
+        "path": "worker/ocr/requirements-windows.lock"
+      },
+      {
+        "actual_bytes": 9205,
+        "actual_sha256": "3e9a7da0bb73e75f96e4bb71e05c00cd44ef924344aca48482afd7cceb22b902",
+        "expected_bytes": 9205,
+        "expected_sha256": "3e9a7da0bb73e75f96e4bb71e05c00cd44ef924344aca48482afd7cceb22b902",
+        "matches": true,
+        "ordinal": "0028",
+        "path": "worker/ocr/schemas/__init__.py"
+      },
+      {
+        "actual_bytes": 1552,
+        "actual_sha256": "d8c7465376717a1f9ce109bb81b48465e76007d1154f300f18dda6e357cbc9db",
+        "expected_bytes": 1552,
+        "expected_sha256": "d8c7465376717a1f9ce109bb81b48465e76007d1154f300f18dda6e357cbc9db",
+        "matches": true,
+        "ordinal": "0029",
+        "path": "worker/ocr/schemas/v1/canonical-regions.schema.json"
+      },
+      {
+        "actual_bytes": 1338,
+        "actual_sha256": "477d745b2003448ea4d67651b171e8de54891725d24f9fc095c094b0770adefa",
+        "expected_bytes": 1338,
+        "expected_sha256": "477d745b2003448ea4d67651b171e8de54891725d24f9fc095c094b0770adefa",
+        "matches": true,
+        "ordinal": "0030",
+        "path": "worker/ocr/schemas/v1/expected-snapshot.schema.json"
+      },
+      {
+        "actual_bytes": 7604,
+        "actual_sha256": "daea515f1b47c9157c52fa874c0c34d0973b1336a4dce273e625103f3b3dc177",
+        "expected_bytes": 7604,
+        "expected_sha256": "daea515f1b47c9157c52fa874c0c34d0973b1336a4dce273e625103f3b3dc177",
+        "matches": true,
+        "ordinal": "0031",
+        "path": "worker/ocr/schemas/v1/ocr-adapter-output.schema.json"
+      },
+      {
+        "actual_bytes": 5332,
+        "actual_sha256": "9bbf0f3c99889d47cbc902828552fda8ca3ec8bc047395f0de8cc3407a4b8e35",
+        "expected_bytes": 5332,
+        "expected_sha256": "9bbf0f3c99889d47cbc902828552fda8ca3ec8bc047395f0de8cc3407a4b8e35",
+        "matches": true,
+        "ordinal": "0032",
+        "path": "worker/ocr/schemas/v1/profile-manifest.schema.json"
+      },
+      {
+        "actual_bytes": 828,
+        "actual_sha256": "6881da67906ffd0e333bca51cda1955df2d9835652325bbcb3229fb86f73dcee",
+        "expected_bytes": 828,
+        "expected_sha256": "6881da67906ffd0e333bca51cda1955df2d9835652325bbcb3229fb86f73dcee",
+        "matches": true,
+        "ordinal": "0033",
+        "path": "worker/ocr/schemas/v1/source-facts.schema.json"
+      },
+      {
+        "actual_bytes": 3321,
+        "actual_sha256": "785b5dcbda5b548363463d1caf0811cdabb6ebc3cf996ad04b569861abf26b99",
+        "expected_bytes": 3321,
+        "expected_sha256": "785b5dcbda5b548363463d1caf0811cdabb6ebc3cf996ad04b569861abf26b99",
+        "matches": true,
+        "ordinal": "0034",
+        "path": "worker/ocr/schemas/v1/verification-adapter-output.schema.json"
+      },
+      {
+        "actual_bytes": 704,
+        "actual_sha256": "5e093e4bb6fcc28945b0e5b4d7fa7ab8bb503f0f866b3e17b11a65218e2511e4",
+        "expected_bytes": 704,
+        "expected_sha256": "5e093e4bb6fcc28945b0e5b4d7fa7ab8bb503f0f866b3e17b11a65218e2511e4",
+        "matches": true,
+        "ordinal": "0035",
+        "path": "worker/ocr/schemas/v1/verification-config.schema.json"
+      },
+      {
+        "actual_bytes": 3050,
+        "actual_sha256": "acd4204472d3fbc2f07c441a6831e863f5ef54545741a6fa72ee77b81ddcfe1e",
+        "expected_bytes": 3050,
+        "expected_sha256": "acd4204472d3fbc2f07c441a6831e863f5ef54545741a6fa72ee77b81ddcfe1e",
+        "matches": true,
+        "ordinal": "0036",
+        "path": "worker/ocr/validation.py"
+      },
+      {
+        "actual_bytes": 1,
+        "actual_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "expected_bytes": 1,
+        "expected_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "matches": true,
+        "ordinal": "0037",
+        "path": "worker/verification/.gitkeep"
+      },
+      {
+        "actual_bytes": 284,
+        "actual_sha256": "bc838af9e800568cb3c8387f2ab0f41f9344a42c0ef4e240cd29a761f315fdbd",
+        "expected_bytes": 284,
+        "expected_sha256": "bc838af9e800568cb3c8387f2ab0f41f9344a42c0ef4e240cd29a761f315fdbd",
+        "matches": true,
+        "ordinal": "0038",
+        "path": "worker/verification/__init__.py"
+      },
+      {
+        "actual_bytes": 19296,
+        "actual_sha256": "0590d70344f3207c3c6fcd95e68d0f2b6011eaea274107579f305fc66ff39178",
+        "expected_bytes": 19296,
+        "expected_sha256": "0590d70344f3207c3c6fcd95e68d0f2b6011eaea274107579f305fc66ff39178",
+        "matches": true,
+        "ordinal": "0039",
+        "path": "worker/verification/adapter.py"
+      },
+      {
+        "actual_bytes": 7614,
+        "actual_sha256": "2818805068e5067ca69e619d65cc612b572c0ddcb150063b8274e1bc4b5c16ef",
+        "expected_bytes": 7614,
+        "expected_sha256": "2818805068e5067ca69e619d65cc612b572c0ddcb150063b8274e1bc4b5c16ef",
+        "matches": true,
+        "ordinal": "0040",
+        "path": "worker/verification/assignment.py"
+      },
+      {
+        "actual_bytes": 1337,
+        "actual_sha256": "6774d70c162e5944074760034d954d9496a547cfe6a13529b4600de4f43d0f70",
+        "expected_bytes": 1337,
+        "expected_sha256": "6774d70c162e5944074760034d954d9496a547cfe6a13529b4600de4f43d0f70",
+        "matches": true,
+        "ordinal": "0041",
+        "path": "worker/verification/levenshtein.py"
+      },
+      {
+        "actual_bytes": 1300,
+        "actual_sha256": "79ba9cd724e257418f987f84012db8bb37c42d4838ad45766431b5f6bcc95161",
+        "expected_bytes": 1300,
+        "expected_sha256": "79ba9cd724e257418f987f84012db8bb37c42d4838ad45766431b5f6bcc95161",
+        "matches": true,
+        "ordinal": "0042",
+        "path": "worker/verification/normalization.py"
+      }
+    ],
+    "valid": true
+  }
+}

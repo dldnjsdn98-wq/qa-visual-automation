@@ -1,0 +1,189 @@
+{
+  "generated_at": "2026-09-24T17:03:17Z",
+  "api_origin": "http://127.0.0.1:58716",
+  "source_snapshot": {
+    "backend/app/api/v1/screenshots.py": "6b03cdc57794edb034c3cf3ce7986f51ecb0e99b8669b30f03df7301e92d67fc",
+    "backend/app/services/screenshots.py": "3c5e36450160f57f732071f8c9bf4eed5684c978e887f499264eee1f50dc7a2b",
+    "backend/app/services/upload_receipts.py": "287a5f2eecd6269e79b2a5440e9a2381cb9625036fc711192b7b1d9f2298c0c4",
+    "backend/app/storage/local.py": "ca93d0dce1418ee0db6b2868fdda5c1328e2cf1958411cb0df2214219f370afc",
+    "agent/screenshot_upload/producer.py": "a10789d1cf040fc4c9369638d0acf6855b64d9208e59acffbec26320e1d8fda1",
+    "agent/screenshot_upload/client.py": "9f9355a33f85d4b4af23fbc22be8302842cdf1c544cb4163aefe1b40e5334160",
+    "frontend/components/screenshots.tsx": "f0bb3b21081269ae7fa4c7132a766505ac634738e47dc356bad9bdd7a8ed8c9d",
+    "frontend/lib/api.ts": "d878049044a2a2f51f774e9101a9fb7337df1193d376094627d1662db0f5b04c",
+    "tests/frontend/run_integration.py": "d74a05c9d897fbefe4b85a08626e78c20169f7c91072eae4346d912750970efd"
+  },
+  "backend_source_manifest": {
+    "file_count": 75,
+    "aggregate_sha256": "d1799260941c7396c4e3931f21eb07e4857e90f7075d84fba962a1f5b672a0fe"
+  },
+  "backend_reference_image": "sha256:516b9eebabc14f7aba0387966c9e9dd64fc95f462010297c0c9741c7fc3d233d",
+  "backend_runtime": "host source snapshot recorded above",
+  "postgres_image": "sha256:18cfe3ef5e6815560c98237d6216d1e5119702fb0f3894c8785dd58b8bbe5d73",
+  "project": {
+    "id": "997ff0fd-b60c-417e-908c-413665bd92f9",
+    "created_at": "2026-09-24T17:03:16.661597Z",
+    "updated_at": "2026-09-24T17:03:16.661597Z",
+    "slug": "web-upload-3843e5bbecd842739085947397414e98",
+    "name": "실제 Web 업로드 검증 😀",
+    "description": null
+  },
+  "build": {
+    "id": "15f07a0a-b807-4d72-9116-e030c14d6fb9",
+    "created_at": "2026-09-24T17:03:16.675504Z",
+    "updated_at": "2026-09-24T17:03:16.675504Z",
+    "label": "verify-2026.09",
+    "description": null,
+    "project_id": "997ff0fd-b60c-417e-908c-413665bd92f9"
+  },
+  "locale": {
+    "id": "5e19135c-74ab-48a3-abc9-4bd469837f4f",
+    "created_at": "2026-09-24T17:03:16.690044Z",
+    "updated_at": "2026-09-24T17:03:16.690044Z",
+    "code": "ko-KR",
+    "name": "한국어 / 日本語",
+    "project_id": "997ff0fd-b60c-417e-908c-413665bd92f9"
+  },
+  "category": {
+    "id": "f35a5dca-165e-4e14-91e8-ed650f5e807e",
+    "created_at": "2026-09-24T17:03:16.704555Z",
+    "updated_at": "2026-09-24T17:03:16.704555Z",
+    "slug": "onboarding",
+    "name": "가입 흐름",
+    "project_id": "997ff0fd-b60c-417e-908c-413665bd92f9"
+  },
+  "situation": {
+    "id": "bffd7c50-edc6-49ce-a6c8-057f0914e8cf",
+    "created_at": "2026-09-24T17:03:16.722003Z",
+    "updated_at": "2026-09-24T17:03:16.722003Z",
+    "slug": "welcome",
+    "name": "환영 / ようこそ",
+    "category_id": "f35a5dca-165e-4e14-91e8-ed650f5e807e",
+    "description": null,
+    "project_id": "997ff0fd-b60c-417e-908c-413665bd92f9"
+  },
+  "agent": {
+    "producer_client_upload_id": "6889f7f4-5abb-4969-9003-319dbc49b457",
+    "producer_file_hash": "c0ba7e61c9eb8033da72341ae2306c7838bb48a938eb60827d9ccdee6b9ebabe",
+    "producer_manifest_sha256": "74bf06acc247069c812eaebb66999ee3063f4f8849b28f6203c12b1a12ef272e",
+    "uploader_cli_returncode": 0,
+    "list_total_after_agent": 1,
+    "detail": {
+      "id": "fdccd5a6-90b0-43a8-9573-5e09f69c1293",
+      "project_id": "997ff0fd-b60c-417e-908c-413665bd92f9",
+      "build_id": "15f07a0a-b807-4d72-9116-e030c14d6fb9",
+      "locale_id": "5e19135c-74ab-48a3-abc9-4bd469837f4f",
+      "category_id": "f35a5dca-165e-4e14-91e8-ed650f5e807e",
+      "situation_id": "bffd7c50-edc6-49ce-a6c8-057f0914e8cf",
+      "source": "agent",
+      "original_filename": "합성-agent-ようこそ-😀.png",
+      "uploaded_at": "2026-09-24T17:03:17.065413Z",
+      "file_hash": "c0ba7e61c9eb8033da72341ae2306c7838bb48a938eb60827d9ccdee6b9ebabe",
+      "media_type": "image/png",
+      "size_bytes": 2032,
+      "width": 320,
+      "height": 180,
+      "metadata_version": 1,
+      "metadata": {
+        "device": "Windows 합성 장치 😀",
+        "nested": {
+          "emoji": [
+            "😀",
+            "🧪",
+            {
+              "보존": "완료"
+            }
+          ],
+          "日本語": {
+            "文言": "ようこそ",
+            "段階": 2
+          },
+          "한국어": {
+            "문구": "안녕하세요",
+            "상태": [
+              "표시",
+              true,
+              null
+            ]
+          },
+          "العربية": {
+            "النص": "مرحبا",
+            "اتجاه": "rtl"
+          }
+        },
+        "run_id": "deeec580-efa6-4752-a794-8f7aae23dff3",
+        "scenario": "가입 / 初回起動 / démarrage",
+        "checkpoint": "환영 화면 · ようこそ · bienvenue",
+        "resolution": {
+          "width": 320,
+          "height": 180
+        },
+        "screen_state": "준비됨 é"
+      },
+      "client_upload_id": "6889f7f4-5abb-4969-9003-319dbc49b457",
+      "content_url": "/api/v1/projects/997ff0fd-b60c-417e-908c-413665bd92f9/screenshots/fdccd5a6-90b0-43a8-9573-5e09f69c1293/content"
+    },
+    "content_sha256": "c0ba7e61c9eb8033da72341ae2306c7838bb48a938eb60827d9ccdee6b9ebabe",
+    "content_exact": true
+  },
+  "manual": {
+    "status": 201,
+    "location": "/api/v1/projects/997ff0fd-b60c-417e-908c-413665bd92f9/screenshots/994bbec8-ca7d-401e-b29e-3d89fd2bae99",
+    "detail": {
+      "id": "994bbec8-ca7d-401e-b29e-3d89fd2bae99",
+      "project_id": "997ff0fd-b60c-417e-908c-413665bd92f9",
+      "build_id": "15f07a0a-b807-4d72-9116-e030c14d6fb9",
+      "locale_id": "5e19135c-74ab-48a3-abc9-4bd469837f4f",
+      "category_id": "f35a5dca-165e-4e14-91e8-ed650f5e807e",
+      "situation_id": "bffd7c50-edc6-49ce-a6c8-057f0914e8cf",
+      "source": "manual",
+      "original_filename": "수동-원본-保持-😀.png",
+      "uploaded_at": "2026-09-24T17:03:17.191430Z",
+      "file_hash": "b6e1c2593df26b8098d4bc20ea903c14f8626c481557217f69b9d08be16e1748",
+      "media_type": "image/png",
+      "size_bytes": 2073,
+      "width": 320,
+      "height": 180,
+      "metadata_version": 1,
+      "metadata": {
+        "note": "수동 원본 보존 · 手動 · é",
+        "nested": {
+          "kept": [
+            true,
+            null,
+            "😀"
+          ]
+        }
+      },
+      "client_upload_id": null,
+      "content_url": "/api/v1/projects/997ff0fd-b60c-417e-908c-413665bd92f9/screenshots/994bbec8-ca7d-401e-b29e-3d89fd2bae99/content"
+    },
+    "content_sha256": "b6e1c2593df26b8098d4bc20ea903c14f8626c481557217f69b9d08be16e1748",
+    "content_exact": true
+  },
+  "storage_file_count": 2,
+  "storage_hashes": [
+    "b6e1c2593df26b8098d4bc20ea903c14f8626c481557217f69b9d08be16e1748",
+    "c0ba7e61c9eb8033da72341ae2306c7838bb48a938eb60827d9ccdee6b9ebabe"
+  ],
+  "database": {
+    "screenshot_count": 2,
+    "receipt_state": "COMPLETED",
+    "receipt_upload_protocol_version": 1,
+    "receipt_screenshot_id": "fdccd5a6-90b0-43a8-9573-5e09f69c1293",
+    "receipt_lease_expires_at": null,
+    "receipt_last_error_code": null
+  },
+  "cleanup": {
+    "web": "exit_1",
+    "api": "stopped",
+    "database": "dropped",
+    "postgres_container": "removed"
+  },
+  "web": {
+    "origin": "http://127.0.0.1:3001",
+    "list_url": "http://127.0.0.1:3001/#/screenshots?project=997ff0fd-b60c-417e-908c-413665bd92f9",
+    "detail_url": "http://127.0.0.1:3001/#/detail?project=997ff0fd-b60c-417e-908c-413665bd92f9&id=fdccd5a6-90b0-43a8-9573-5e09f69c1293",
+    "production_build_returncode": 0,
+    "log": ".orchestration\\reports\\FRONTEND-UPLOAD-VERIFY-001-04-web.log"
+  }
+}

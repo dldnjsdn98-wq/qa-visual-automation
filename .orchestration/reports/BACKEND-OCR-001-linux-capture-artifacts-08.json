@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "kind": "BACKEND-OCR-001-linux-capture-artifacts-08",
+  "actual_model": "UNVERIFIED",
+  "artifact_count": 12,
+  "outer_file_count": 5,
+  "inner_file_count": 7,
+  "artifacts": [
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-outer-08/command.json",
+      "bytes": 950,
+      "sha256": "b2838a3727bb453f0f195103bf51843bb146278f027433b2ba4d50b4863bff0b"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-outer-08/preflight.json",
+      "bytes": 450,
+      "sha256": "ea9c8bbdf5890606f69850ccdb8b10ae5947ac0eb75eb4ba91f31d24d88c927c"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-outer-08/result.json",
+      "bytes": 1308,
+      "sha256": "1e1a80931fef3c5dee02254815f89045233f29cc6441d125ce1248bcd428e50f"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-outer-08/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-outer-08/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-linux-evidence-03-08/capture.py",
+      "bytes": 16819,
+      "sha256": "e669d74fc1f683ad57cf3792860910f65198cbed3f6d0dee91232c36e36d082c"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-linux-evidence-03-08/container.log",
+      "bytes": 1405,
+      "sha256": "48e8de4be84e793ba17108fd172cd291e1a5fbf8a7b6bae0dce0af0da44a5166"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-linux-evidence-03-08/inner-inputs.json",
+      "bytes": 25614,
+      "sha256": "86ca0ce4e60b92a6582a6053e9aa428cff56283764e0136a3e87b889f265a755"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-linux-evidence-03-08/manifest.json",
+      "bytes": 64833,
+      "sha256": "f0181c98ceb794d25d76bf6fb38692cffac9309ffb3f5f1bd183e4f13469e0dd"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-linux-evidence-03-08/result.xml",
+      "bytes": 3599,
+      "sha256": "2dd0078d5f4dc71542f0835f13f9aea796115c77e20ed1a9e2744dbe10d084cb"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-linux-evidence-03-08/source-pins.json",
+      "bytes": 25270,
+      "sha256": "d92e20493eb42a3d4d2702b17c3d5559c17cad78e31b364387039e649146f2bc"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-linux-evidence-03-08/terminal.json",
+      "bytes": 555,
+      "sha256": "2441c977ae2de6a476ca1bc66f371e448d9ddfdda9a819f6c035417a9886f545"
+    }
+  ],
+  "missing_expected": [],
+  "checks": {
+    "manifest_artifact_hashes_match": true,
+    "outer_log_hashes_match": true,
+    "script_snapshot_hash_matches": true,
+    "pin_snapshot_hash_matches": true,
+    "terminal_matches_manifest": true
+  },
+  "outcome": {
+    "status": "UNPROVED_OBSERVER_EXIT",
+    "capture_child_exit_code": 2,
+    "recorded_attempts": 1,
+    "natural_terminal": {
+      "exit": 1,
+      "finished": "2026-09-25T16:44:17.058705515Z",
+      "id": "e09a6dde9cdf0ea91be9c3b2ea00abe646f96c77ba2aaec3deeca9f328f296a6",
+      "image": "sha256:a1337c5556ab00f01dac45075f6bbf71ba9198c1b179a83d0210e5879a426d0a",
+      "memory": 536870912,
+      "name": "/qa-l1-9174a321142f4951852a2fe026e02a32",
+      "network": "none",
+      "nonce": "9174a321142f4951852a2fe026e02a32",
+      "oom": false,
+      "owner": "BACKEND-OCR-001-L1-capture-03",
+      "running": false,
+      "started": "2026-09-25T16:44:14.90386089Z",
+      "status": "exited",
+      "swap": 536870912
+    },
+    "junit": {
+      "cases": 1,
+      "failed": 1,
+      "errors": 0,
+      "skipped": 0,
+      "passed": 0,
+      "case_name": "test_native_pressure_and_owned_tree_cleanup[shortpeak]",
+      "failure_message": "AssertionError: fixed headroom precondition\nassert ((64 * 1024) * 1024) <= 20561920",
+      "owned_tree_stop_confirmed": "True",
+      "observed_cleanup_seconds": "0.03088249099528184"
+    },
+    "cleanup_confirmed": true,
+    "launch_uncertain": false,
+    "stop_requested": false,
+    "remove_commands": [
+      {
+        "argv": [
+          "docker",
+          "rm",
+          "e09a6dde9cdf0ea91be9c3b2ea00abe646f96c77ba2aaec3deeca9f328f296a6"
+        ],
+        "ended_ns": 57161703000000,
+        "exit_code": 0,
+        "started_ns": 57161546000000,
+        "stderr": "",
+        "stdout": "e09a6dde9cdf0ea91be9c3b2ea00abe646f96c77ba2aaec3deeca9f328f296a6\n",
+        "timeout_seconds": 10
+      }
+    ],
+    "oom_death_inferred": false,
+    "qualification": "NOT_INFERRED",
+    "source_rehash_performed": false
+  },
+  "inner_inputs": {
+    "observer_pid": 1,
+    "node": "tests/backend/test_ocr_containment.py::test_native_pressure_and_owned_tree_cleanup[shortpeak]",
+    "recorded_source_count": 113,
+    "script_sha256": "e669d74fc1f683ad57cf3792860910f65198cbed3f6d0dee91232c36e36d082c",
+    "pins_sha256": "d92e20493eb42a3d4d2702b17c3d5559c17cad78e31b364387039e649146f2bc"
+  },
+  "limits": "Packaging existing08 bytes only; no source rehash or execution. Generic UNPROVED_OBSERVER_EXIT does not establish OOM death. Original06/07 preserved."
+}

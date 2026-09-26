@@ -144,3 +144,139 @@ JCS spike report hash verified; select rfc8785==0.1.4 and reviewed universal whe
 ## 2026-09-25 revision2 accepted / implementation activated
 
 Independent review ACCEPTED, R08-P2-ARCH-001 RESOLVED. Backend03/uploader06/Frontend04 READY with exact exclusive claims in .orchestration/handoffs/PHASE-2-implementation-20260925-01.md. Review history preserved; four product AC NOT_RUN. Web verification/implementation review wait for matching submissions.
+
+
+Frontend implementation submission recorded READY_FOR_REVIEW on 2026-09-25; owner tests distinguished from PM diff-check; all Phase2 AC NOT_RUN. See handoffs/PHASE-2-frontend-submission-20260925-01.md.
+
+
+Backend owner submission recorded READY_FOR_REVIEW. Evidence command/environment addendum requested without claiming product failure or independent acceptance. All Phase2 AC NOT_RUN; uploader integration pending. See .orchestration/handoffs/PHASE-2-backend-submission-20260925-01.md.
+
+
+All Phase2 implementations submitted; uploader hashes matched. Activate FRONTEND-UPLOAD-VERIFY-001 with two exact verification-file claims. Independent implementation review waits for actual Web submission; AC remain NOT_RUN. See .orchestration/handoffs/PHASE-2-web-verification-20260925-01.md.
+
+
+Reviewer preflight three MAJOR findings verified and routed to03; Backend CHANGES_REQUESTED. Web continues with final-source matching,06 finalLinux evidence requested. AC remain NOT_RUN; no final review judgment inferred. See .orchestration/handoffs/PHASE-2-preflight-rework-20260925-01.md.
+
+
+Backend canonical manifest 1464c7678cf044f0da996c19cc0174dc31581306e7c011ba98ff1e5d1dc754e5 verified against all75 current files; zero mismatches. Previous aggregate difference was culture-sensitive sorting only. Backend rework READY_FOR_REVIEW;04 final impacted Web checks may use verified snapshot. Three findings still OPEN until independent closure, allAC NOT_RUN.
+
+
+Final actualWeb report/handoff/source evidence matched. Four submissions satisfy full REVIEW-UPLOAD-001 entry; activate independent runtime review. Three findings remainOPEN, allAC NOT_RUN. See .orchestration/handoffs/REVIEW-UPLOAD-001-activation-01.md.
+
+
+Recovered formal review exact artifacts; AC01/03 FAIL,02/04 NOT_RUN.03/06 correction and04 evidence rework,08 re-review gated; userAGENTS adopted. See .orchestration/handoffs/PHASE-2-review-recovery-rework-01.md.
+
+
+Backend005/009 owner correction submitted READY_FOR_REVIEW;77-file canonical a8b5225bceb106cc3e09883eb3e68c2a28d659f8c0ee9ec65eb6974ffa7696a0 and logs PM matched. Owner126 host/126Linux PASS, prior shared-lock regression preserved. Independent closures and AC unchanged:01/03FAIL,02/04NOT_RUN. No duplicate environment check.
+
+
+Owner06 corrections 006/007 submitted READY_FOR_REVIEW. PM matched the report/handoff hashes and all 35 ordinal manifest entries (eefafa7ce16a82b8f30613612968b6acb74b3ba09f3f2f2788547a7937b9c934). Owner Windows/Linux and matching response-loss results remain owner evidence; no PM product rerun, independent closure, finding resolution, or AC promotion is inferred. Web04 may now create current-harness evidence from matching 03/06 submissions; Reviewer08 remains gated on that evidence.
+
+
+006/007 corrected uploader35-file manifest matched: eefafa7ce16a82b8f30613612968b6acb74b3ba09f3f2f2788547a7937b9c934. OwnerWindows/Linux133PASS2SKIP each and live1PASS remain owner evidence. UPLOAD READY_FOR_REVIEW; Backend77 already matched, so04 current-harness live rework READY now. Reviewer environment checkpoint not repeated; full review blocked until evidence and authorized environment. AC unchanged.
+
+
+PM continuation checkpoint:04 current-harness live correction delivery succeeded and active turn observed;08 input-only evidence update delivered (not full rereview/environment retry). Backend/uploader matching correction submissions preserved READY_FOR_REVIEW. PM read-only consistency sidecar requested Terra/high; actual model unverified. Current blockers are finalWeb submission and authorized independent runtime/closure. AC01/03 FAIL,02/04 NOT_RUN unchanged. PM performed file/state checks only, no product test rerun or Commit/Push.
+
+
+Reviewer08 subsequent changed-permission checkpoint: independent runtime prerequisites AVAILABLE (Docker29.7.2/API1.55 Linux; Python3.12.10 and validation dependencies). This supersedes prior environment blocker, not test evidence. Full rereview still awaits04 final current-harness report/handoff and PM hash match. AC01/03 FAIL,02/04 NOT_RUN unchanged. PM Terra/high sidecar completed consistency audit; requested model only, actual unverified.
+
+
+FinalWeb correction submitted: report7bdb230738299c8c8fbdd1d6f54799b6c38bf55d423385fc2315f3c78ad37f6c, evidence20381330b485f0617b2933eeb2e16068e59ce66035e81fa64ab4c8f1d15563dd. PM matched4 artifacts, executed/current harness3d4952eb..., snapshots, Backend77 and uploader35 files.04 READY_FOR_REVIEW;08 rereview READY with runtime availability confirmed. Request Sol/high independent server+queue lanes and Sol/medium Web lane, recover prior agents first, disjoint synthetic resources/evidence. Prior CHANGES_REQUESTED and AC01/03FAIL,02/04NOT_RUN persist until independent new disposition.
+
+
+2026-09-25 PM: Phase2 ACCEPTED after hash-verified independent rereview; all4AC PASS, all9findings RESOLVED, five implementation/verification/review tasks DONE. Prior CHANGES_REQUESTED retained. Actual standby NOT_RUN/nonblocking retained, later phases not activated. Evidence: .orchestration/handoffs/PHASE-2-acceptance-01.md. Initial state writes succeeded; phase document required escalated filesystem access; no security settings changed.
+
+
+Phase3 contract/preparation activated by explicit next-stage request. Phase2 acceptance unchanged; OCR-001 reused and implementation gated on independent contract acceptance and PM claims. See .orchestration/handoffs/PHASE-3-activation-01.md. No Phase4 activation.
+
+PM intake:03 Backend,04 Frontend,08 Reviewer preparation DONE after report/handoff SHA256/read verification. Inputs are proposals/checklists only; implementation and contract review gates unchanged; AC-P3-01..04 NOT_RUN. No product tests rerun by PM.
+
+
+P3-OCR-v1 revision1 exact3hash PM verified; ARCH-OCR-001 READY_FOR_REVIEW, REVIEW-ARCH-OCR-001 READY. Product implementation BLOCKED and AC NOT_RUN unchanged. See handoffs/REVIEW-ARCH-OCR-001-01.md.
+
+Correction: Parent inspected raw Reviewer rollout and found actual final answers interpreting OCR directions as prior approval-diagnostic evidence. Previous no-output attribution was inaccurate; app query omitted text. One explicit task-switch instruction delivered, ending diagnosis and requesting actual independent OCR contract review. No model/permission change or new app task. Contract approval remains pending.
+
+
+Exact Phase3 revision1 contract independently ACCEPTED, PM3hash matched. ARCH/REVIEW-ARCH DONE;03/05/04 READY with exclusive claims and explicit isolated qualification authorization. Model candidates remain unqualified, product AC NOT_RUN, final independent review BLOCKED. See .orchestration/handoffs/PHASE-3-implementation-01.md.
+
+Owner04 FRONTEND-OCR-001 submitted; PM report/handoff/10source hashes matched. READY_FOR_REVIEW implementation only. Existing04 will own FRONTEND-OCR-VERIFY-001 BLOCKED until matching Backend/OCR qualified readiness; final review now explicitly depends on this live verification. Owner37 tests/typecheck/isolatedbuild/compile are owner evidence. All productAC NOT_RUN;08 not activated. No new app task.
+
+P3-OCR-DEP-001: PM read/hash confirmed clean Windows resolver conflict: PaddleX3.7.2 ocr-core requires nonheadless opencv-contrib-python4.10.0.84 vs rev1 headless-only. Runtime install/model acquisition/AVAILABLE paused, independent matching/geometry/Backend/UI work continues.02 bounded rev2 amendment requested Sol/high; prior acceptedrev1 preserved. No no-deps/pip-check exception authorized.08 focused review only after exact amendment submission; AC unchanged.
+
+Exact revision2 focused review accepted/hash verified. PM runtime qualification resume authorized to existing03/05 under original isolated claims; contract conflict resolved, runtime evidence still pending. Latest Backend owner report333c358c...61fd3 received, not independent approval. No productAC promotion. See handoffs/PHASE-3-runtime-resume-01.md.
+
+OCR05 latest report00bd6bad...6d27/handoffec603e0c...8c83b/manifest98ea7e81...50b0a received. PM42current size/hash and7major evidence hashes matched; owner full5locale matrix and finalexact en/ko smoke distinguished. OCR-001 READY_FOR_REVIEW,03 integration READY with new matched input; no repeated05 qualification. Exact pins/platform/native_packages/profile/runner integration and updated Backend source evidence required before04live/08final. AllAC NOT_RUN.
+
+Backend95+Worker42 PM current-hash matched runtime submission received. BACKEND-OCR-001 READY_FOR_REVIEW; FRONTEND-OCR-VERIFY-001 READY under new handoff.08final stillBLOCKED. Realrunner ownercaseUNVERIFIED/noexpectations, soWebscored/history coverage required; source-read deadline/RSSlimits preserved for independent disposition. AllAC NOT_RUN.
+
+PM accepts04 live artifacts as pre-fix owner evidence only. P3-RUNTIME-001 opened from03 confirmedwholedeadline gap; bounded03 runner correction authorized after04snapshotrelease; affectedWeb rerun then08final. RSS semantics to02 focused clarification, no automatic hardcap scope/waiver. AllACNOT_RUN. See handoffs/PHASE-3-runtime-rework-01.md.
+
+
+PM runtime continuation: accepted contract line58 forbids child DB write authority; work-in-progress child stage/renew/finalize conflicts. Existing02/03 notified, dependent design edits paused while focused tests and compliant alternative analysis continue. Architect waitingOnApproval, no final clarification adopted.04 affected rerun/08 independent review remain BLOCKED, Phase1/2 ACCEPTED and allP3AC NOT_RUN preserved. No product test rerun or Commit/Push by PM.
+
+
+PM matched02 final runtime clarification8eed0822...5375/handoffeba017cc...cfee; contractrev2 unchanged.03 parent-owned DB/continuous containment correction READY under PHASE-3-runtime-conformance-resume-01.md with narrow added helper/service/test claims. Prior draft and failure evidence retained; no implementation acceptance. AllP3AC NOT_RUN,04/08 gated. No host security/privilege changes authorized.
+
+
+PM adopts02 deployment availability interpretation and explicitly expands03 scope to minimal shared immutable release-admission input/provider+tests/docs. Default false; exact profile/digest+worker target/release; preserve replay precedence. Real qualification precedes real admission assertion. No contract/profile/schema/fleet expansion, no AC promotion. See runtime conformance handoff.
+
+
+PM final local runtime checkpoint:103source/50artifact hashes matched; owner279PASS15SKIP0FAIL, all15skips native/actualruntime and notPASS. BACKEND-OCR-001 BLOCKED_NATIVE_QUALIFICATION; Windows accounting2failures and Linux Docker AccessDenied unresolved. No repeated denied build or unchanged third native probe. No production admission/04/08 activation/allP3AC NOT_RUN. Closed implementation subagents are owner-reported;03 retains responsibility.
+
+
+Explicit user continuation relayed: PM reactivates existing03 bounded Windows native diagnosis/materially changed verification and Linux read-only permission-context/ordinary approval preparation. No identical denied retry or host/config/security changes. Final279PASS15SKIP preserved. Production admission/04/08 stay gated. See PHASE-3-native-diagnostic-resume-01.md.
+
+
+Windows third same-cause native failure triggers mandatory lane pause. New owned identity evidence identifies conhost parented to direct python; limit1 stillobserved2. Cleanup confirmed; identity_completefalse retained. No Windows further execution/correction/count exemption;03 continues independent Linux parentOOM/evidenceclosure. No contract waiver/limit relaxation or04/08/admission promotion.
+
+
+2026-09-26 PM: Latest native documentation revision hashes matched,103current source matched; recursive56artifact verification stopped at denied identity.json, no bypass. Owner56/56 is not PM verification.03BLOCKED;02 read-only highest Astra/medium reassessment dispatched, Windowspause3 remains. Handoff initial save interruption corrected; latest PHASE-3-native-reassessment-01.md exists and reflects exact current evidence/limits. No native execution/product edits/AC promotion.
+
+
+PM read/hash accepted02 reassessment as planning input: W1/L1 exact candidate preparation selected, no L2 substitution or250ms relabeling.03 may author own evidence patch/plans only; product application and native execution require later exact review gates. Windows3/cleanup2 counts unchanged. See PHASE-3-native-correction-plan-01.md.
+
+
+PM candidate11artifact/3baseline matched and independent reviews read. Exact W1/L1 patch application plus12pure oracle validation authorized to03; no native execution. Concrete Windows observer/ownership hooks and Linux outside-container capture must be authored/reviewed separately. Windows3/cleanup2 and allAC gates unchanged. See PHASE-3-native-candidate-apply-01.md.
+
+
+PM native-apply final13artifact/2baseline integrity matched. Backend BLOCKED_SOURCE_WRITE, all authorized preparation complete. Chosen sequence preserves Linux W1-only+L1 pins before any separately approved Windows hook; no repin/alternate writer/access bypass. No new execution/qualification/AC promotion.
+
+
+User-approved ordinary elevated exactW1/L1 application succeeded. PMactualraw/LFhash matched bothcanonicalcandidates,JUnit12PASS0skip verified. Earlierwritefailure preserved/resolved; nohostpermissionchanges. Independentfinalevidencereviewpending; native/build/model/additionalhook/04/08/admission/ACremainheld.
+
+
+2026-09-26 PM continuation: Backend03 active turn01a0d958 confirmed for PHASE-3-linux-pins-build-01. Current readiness/TASKS corrected READY to IN_PROGRESS. Final application manifest6bf12e9669f4c46a4c3488e223c927794fc18f6977b947fcf4f88a1ebf3bfcbf supersedes earlier pending application-review checkpoint; historical snapshots retained. Boole pin evidence and Mill independent review remain owner03 delegated; PM reuses Sartre for read-only status consistency. Conditional build authorization unchanged; no native/container/model/DB execution or production admission. Phase1/2 ACCEPTED, Phase3 IN_PROGRESS and all four AC NOT_RUN unchanged. PM ran YAML parsing/status assertions only, no product test rerun. Git status reported denied historical temporary directories; no retries or access workaround.
+
+
+PM source-pin05 checkpoint: four delivered artifact hashes matched (pins d92e2049, Boole audit1edd8bfd, context manifest a42bb46f, tar36230ae5). Parent113 source/raw-LF and139 frozen context closure findings remain owner-attributed. Mill final independent review pending; no build/native completion inferred. Existing conditional one-build authorization unchanged. No AC/status promotion or product test rerun.
+
+
+PM Linux build05 checkpoint: exact Mill review d009d91c PASS read/hash matched; recorded one build exit0, image a1337c55 Linux/amd64, buildlog209762ed and139 before/after raw-LF pairs matched. This verifies saved build evidence, not image-internal sources or native qualification. Final owner manifest/crosscheck pending; no further Docker/native execution authorized, all Phase3 AC remain NOT_RUN.
+
+
+PM build05 final20 artifacts and manifest ae89f4e4 matched. Exact unchanged capture d0a8e756/static review43a67a75 plus applied W1/L1, reviewed pinsd92e2049 and immutable new imagea1337c55 satisfy single Linux capture prerequisites. Activate PHASE-3-linux-capture-01 only, no repeat/tuning/Windows invocation/downstream acceptance. Inner image source equality remains a mandatory pre-test gate, never inferred from build success.
+
+
+PM capture06 failure read: owned create0 then invalid Go json/index formatting, no start/pressure. Original UNPROVED_OWNERSHIP_OR_CLEANUP preserved; native NOT_RUN. Separately activate exact ID residual inspection and only verified never-started owned-container ordinary removal under PHASE-3-linux-residual-cleanup-01. This is corrective cleanup, not native retry or access-denial bypass. Separate candidate/static review permitted after disposition; frozen script unchanged, no further native authorization.
+
+
+PM capture06 final manifest4264b066 and15 artifacts matched. Independent review HOLD retained. Recovery07 script ae059f5d matched, new Mill prereview PASS read. Existing exact residual recovery authorization remains sufficient; final acceptance requires original_manifest_unchanged=true plus saved exact ownership/never-started/removal/absence evidence. No native retry authorized.
+
+
+PM recovery07 recorded evidence matched: exact never-started owned target, one ordinary rm0, one postinspect No such container (stdout newline-only), original06 manifest stillcd519e11. Residual removal proven by saved evidence; final Mill review/Boole packet pending. No repeated Docker by PM, no conversion of06 failure to PASS, no native retry. Candidate/static regression preparation only continues.
+
+
+PM final07 manifest and23 artifacts matched; independent residual PASS and minimal two-expression candidate PASS_STATIC_CANDIDATE read. Explicitly activate candidatee669d74f directly for one new Linux capture08 with unchanged image/pins/oracle under PHASE-3-linux-capture-02; no patch to original, no automatic repetition. Separate recovery resolved residual, original06 failure preserved. No AC/downstream promotion.
+
+
+PM capture08 partial evidence: inner113 pairs and4 artifact hashes matched; actual1FAIL headroom20561920 before increment/t0, naturalexit1/OOMfalse and cleanup confirmed. Generic observer-exit status not relabeled OOM/death. Architect02 read-only highest reassessment activated separately from03/Mill final evidence packaging; no repeated native/tuning/contract waiver.
+
+
+PM capture08 final manifestc3ea85bc and20 artifacts matched, independent HOLD read. Authorized03 execution/evidence scope complete; BACKEND-OCR-001 BLOCKED on headroom design reassessment, not DONE.02 actual inProgress observed. Exact-owned removal supported by rm0 receipt, not an unperformed absence query. No product test rerun, native activation, numeric tuning or AC promotion.
+
+
+PM matched Architect headroom reportd1bcae11/handoff7b9f2333 and adopts prospective shared-env extraction plus conftest-free same-node observer, unchanged production containment/oracle. Explicit03 file claims, disjoint agent slices, focused non-native checks and independent review activated under PHASE-3-linux-observer-refactor-01. This does not establish overhead attribution or future headroom PASS. Build/native and all downstream gates remain held.
+
+
+PM refactor09 denial checkpoint: read Fermat evidence; independently confirmed missing newhelper and unchanged runner/containment/test raw hashes. First CreateNew access denied, sequential runner edit not reached; not automatic approval-review rejection. Implementation/dependent imports/tests held; no retry/escalation/alternate writer or rollback. Continue concrete unapplied proposal/static review and record each independent lane outcome before any further source-write decision.

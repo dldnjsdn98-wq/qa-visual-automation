@@ -1,0 +1,34 @@
+{
+  "manifest_status": "UNPROVED_OBSERVER_EXIT",
+  "actual_test": "1 FAILED,0 errors,0 skipped",
+  "failure": "fixed headroom precondition before increment grant",
+  "headroom_bytes_from_pytest_assertion": 20561920,
+  "headroom_mib": 19.609375,
+  "required_headroom_mib": [
+    64,
+    160
+  ],
+  "derived_memory_current_bytes": 516308992,
+  "derived_not_separately_saved_memory_current": true,
+  "inner_host_pin_raw_lf_equality": 113,
+  "outer_capture_exit": 2,
+  "exec_tool_shell_exit": 1,
+  "tool_chunk": "ec8cb6",
+  "natural_container_exit": 1,
+  "OOMKilled": false,
+  "counts": {
+    "create": 1,
+    "start": 1,
+    "wait": 1,
+    "stop": 0,
+    "rm": 1
+  },
+  "child_cleanup_confirmed": true,
+  "child_cleanup_seconds": 0.03088249099528184,
+  "container_cleanup_confirmed": true,
+  "cleanup_basis": "validated exact ownership, nonrunning terminal, successful ordinary rm fullID; no extra absence probe",
+  "t0_t1_increment_causal_oracle": "NOT_REACHED",
+  "original_capture_unchanged": true,
+  "source113_recorded_before_after_equal": true,
+  "no_rerun_tuning": true
+}

@@ -1,0 +1,21 @@
+{
+  "junit_cases": 12,
+  "all_selected_node": true,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "line_endings": [
+    {
+      "path": "backend/app/workers/ocr_containment.py",
+      "crlf_count": 829,
+      "lf_count": 829,
+      "source_matches_application_capture": true
+    },
+    {
+      "path": "tests/backend/test_ocr_containment.py",
+      "crlf_count": 592,
+      "lf_count": 592,
+      "source_matches_application_capture": true
+    }
+  ]
+}

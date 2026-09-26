@@ -1,0 +1,15 @@
+# Unified Python 3.12 runtime and test inputs for the upload agent.
+# Keep root Backend base dependencies aligned with pyproject.toml; this is not a packaging split.
+setuptools>=75
+fastapi>=0.115,<1
+uvicorn[standard]>=0.34,<1
+sqlalchemy>=2.0,<2.1
+alembic>=1.14,<2
+pydantic-settings>=2.7,<3
+psycopg[binary]>=3.2,<4
+Pillow>=12.3,<13
+python-multipart>=0.0.32,<1
+rfc8785==0.1.4
+httpx>=0.28,<1
+pytest>=8,<10
+pyyaml>=6,<7

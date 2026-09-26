@@ -1,0 +1,9 @@
+{
+  "exact_sources": "PASS",
+  "host_directory_fsync": "NOT_SUPPORTED_NOT_CLAIMED",
+  "host_file_fsync_replace": "PASS",
+  "native_execution": "NOT_RUN",
+  "script_sha256": "767c47ddfd641e5f5b0ea67a1a6c04eff50244a9209910128b49fc0de921ba04",
+  "source_hash_count": 8,
+  "syntax": "PASS"
+}

@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "generator": "Pillow 12.3.0 deterministic RGB PNG",
+  "font": {
+    "name": "Noto Sans CJK Regular",
+    "revision": "Sans2.004",
+    "source_url": "https://raw.githubusercontent.com/notofonts/noto-cjk/refs/tags/Sans2.004/Sans/OTC/NotoSansCJK-Regular.ttc",
+    "relative_cache_path": ".pytest_cache/phase3-ocr-05/fonts/NotoSansCJK-Regular.ttc",
+    "byte_size": 19484784,
+    "sha256": "b76b0433203017ca80401b2ee0dd69350349871c4b19d504c34dbdd80541690a",
+    "license_identifier": "OFL-1.1",
+    "license_evidence": "https://raw.githubusercontent.com/notofonts/noto-cjk/refs/tags/Sans2.004/LICENSE",
+    "license_relative_cache_path": ".pytest_cache/phase3-ocr-05/fonts/Noto-CJK-Sans2.004.LICENSE.txt",
+    "license_sha256": "6a73f9541c2de74158c0e7cf6b0a58ef774f5a780bf191f2d7ec9cc53efe2bf2"
+  },
+  "fixtures": [
+    {
+      "locale": "en",
+      "expected_text": "HELLO SETTINGS 123",
+      "font_index": 0,
+      "font_name": [
+        "Noto Sans CJK JP",
+        "Regular"
+      ],
+      "relative_path": "tests/ocr/fixtures/runtime/en.png",
+      "byte_size": 10599,
+      "sha256": "5cebaf7105405219a5eeb73cd74c06d643e491ef232776afc82289a772ab2a00",
+      "width": 1280,
+      "height": 320
+    },
+    {
+      "locale": "ko",
+      "expected_text": "안녕하세요 설정 123",
+      "font_index": 1,
+      "font_name": [
+        "Noto Sans CJK KR",
+        "Regular"
+      ],
+      "relative_path": "tests/ocr/fixtures/runtime/ko.png",
+      "byte_size": 14416,
+      "sha256": "d34992612ae1b01629475fdc7ed1bcc3359cfcb798c7bb22959f6cd709aa2702",
+      "width": 1280,
+      "height": 320
+    },
+    {
+      "locale": "ja",
+      "expected_text": "こんにちは設定123",
+      "font_index": 0,
+      "font_name": [
+        "Noto Sans CJK JP",
+        "Regular"
+      ],
+      "relative_path": "tests/ocr/fixtures/runtime/ja.png",
+      "byte_size": 15441,
+      "sha256": "cdda8d4ffc49236518fe64d4e51361b1694a4e32c0c0b0e7f791eb1b826ede5b",
+      "width": 1280,
+      "height": 320
+    },
+    {
+      "locale": "zh-Hans",
+      "expected_text": "你好 设置 123",
+      "font_index": 2,
+      "font_name": [
+        "Noto Sans CJK SC",
+        "Regular"
+      ],
+      "relative_path": "tests/ocr/fixtures/runtime/zh_Hans.png",
+      "byte_size": 12416,
+      "sha256": "6200748b27252a02fba5ed76fffe61799dfca05e0cebb4aab4e1d68cc4ba094c",
+      "width": 1280,
+      "height": 320
+    },
+    {
+      "locale": "zh-Hant",
+      "expected_text": "你好 設定 123",
+      "font_index": 3,
+      "font_name": [
+        "Noto Sans CJK TC",
+        "Regular"
+      ],
+      "relative_path": "tests/ocr/fixtures/runtime/zh_Hant.png",
+      "byte_size": 12692,
+      "sha256": "2dc5a94d734b9a036ef6c9fdb2ab64177a58ab7d3429ef899eb44224c9fc3492",
+      "width": 1280,
+      "height": 320
+    }
+  ]
+}

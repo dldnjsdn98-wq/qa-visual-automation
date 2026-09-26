@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "kind": "BACKEND-OCR-001-linux-capture-artifacts-06",
+  "scope": "Top-level files only in the two parent-specified stable evidence directories; raw bytes preserved.",
+  "actual_model": "UNVERIFIED",
+  "artifact_count": 8,
+  "artifacts": [
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-outer-06/command.json",
+      "bytes": 952,
+      "sha256": "87378e7169e9db4426429bfbf83eacf8e5602e6a0edc19364c7d2a83726525df"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-outer-06/preflight.json",
+      "bytes": 363,
+      "sha256": "c7f42e8ef0564c1f6c915fa6caa6a145c11e16248f337d5e453fea1050d8fdf8"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-outer-06/result.json",
+      "bytes": 1310,
+      "sha256": "7e431dd0f31897e2dafab0a33a774b836cb3068e0df1a6b550e4d08822c14b68"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-outer-06/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-capture-outer-06/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-linux-evidence-03-06/capture.py",
+      "bytes": 16815,
+      "sha256": "d0a8e756cdd4cafc394d12a68e527632365aeaf43f6d9ca8cc063763db21d7fd"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-linux-evidence-03-06/manifest.json",
+      "bytes": 57056,
+      "sha256": "cd519e114459fe5ee07967b9a536fd8ae4660a6514762f183df61e4008381eb5"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-linux-evidence-03-06/source-pins.json",
+      "bytes": 25270,
+      "sha256": "d92e20493eb42a3d4d2702b17c3d5559c17cad78e31b364387039e649146f2bc"
+    }
+  ],
+  "missing_expected": [
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-linux-evidence-03-06/inner-inputs.json",
+      "status": "ABSENT"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-linux-evidence-03-06/result.xml",
+      "status": "ABSENT"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-linux-evidence-03-06/terminal.json",
+      "status": "ABSENT"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-apply-linux-evidence-03-06/container.log",
+      "status": "ABSENT"
+    }
+  ],
+  "outcome": {
+    "status": "UNPROVED_OWNERSHIP_OR_CLEANUP",
+    "capture_child_exit_code": 2,
+    "capture_child_exit_source": "outer-06/result.json",
+    "outer_tool_shell_exit_code": 1,
+    "outer_tool_shell_exit_source": "Parent completion notice; not independently present in the packaged result.json",
+    "recorded_attempts": 1,
+    "recorded_create_count": 1,
+    "recorded_start_count": 0,
+    "recorded_stop_count": 0,
+    "recorded_rm_count": 0,
+    "container_id": "affc94c2fe2468fd867c1e80be5878836a9b70868e68f2bff4f54d9c84988e8a",
+    "container_name": "qa-l1-3e363b492d1347efbbae6d4de1541353",
+    "cleanup_confirmed": false,
+    "launch_uncertain": true,
+    "stop_requested": false,
+    "recorded_source_unchanged": true,
+    "source_rehash_performed": false,
+    "image_internal_verification": "NOT_EVIDENCED",
+    "native_test_result": "NOT_RUN_NO_START_RECORDED",
+    "qualification": "NOT_INFERRED",
+    "residual": "Parent reports residual exists/unresolved; no cleanup inference or live state query"
+  },
+  "checks": {
+    "outer_log_hashes_match": true,
+    "capture_snapshot_hash_matches": true,
+    "pin_snapshot_hash_matches": true
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "original_raw_sha256": "d0a8e756cdd4cafc394d12a68e527632365aeaf43f6d9ca8cc063763db21d7fd",
+  "original_lf_sha256": "d0a8e756cdd4cafc394d12a68e527632365aeaf43f6d9ca8cc063763db21d7fd",
+  "candidate_sha256": "e669d74fc1f683ad57cf3792860910f65198cbed3f6d0dee91232c36e36d082c",
+  "patch_sha256": "91b45f31aaad4efb8fbb9032d76623ad8cae422f0d57701055e7678986ce9802",
+  "exact_change": "only2 label expression strings grouped; reverse replacement reproduces exact original LF source",
+  "candidate_ast": "PASS",
+  "label_regressions": [
+    {
+      "label": "owner",
+      "old_action": "json index .Config.Labels \"qa.visual.owner\"",
+      "old_json_arguments": 3,
+      "candidate_action": "json (index .Config.Labels \"qa.visual.owner\")",
+      "candidate_json_arguments": 1,
+      "regression": "PASS"
+    },
+    {
+      "label": "nonce",
+      "old_action": "json index .Config.Labels \"qa.visual.nonce\"",
+      "old_json_arguments": 3,
+      "candidate_action": "json (index .Config.Labels \"qa.visual.nonce\")",
+      "candidate_json_arguments": 1,
+      "regression": "PASS"
+    }
+  ],
+  "all_formatted_fields_single_json_argument": 14,
+  "method": "AST-extracted fixed field expressions; limited static token grouping checker, not a full Go-template interpreter",
+  "candidate_import_or_Docker_execution": "NOT_RUN",
+  "image_pins_resource_cleanup_predicates": "UNCHANGED",
+  "actual_prior_recovery": "separate reviewed grouped-label template used successfully; candidate not run",
+  "original_unchanged": true
+}

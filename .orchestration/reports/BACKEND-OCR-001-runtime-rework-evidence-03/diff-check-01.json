@@ -1,0 +1,29 @@
+{
+  "argv": [
+    "git",
+    "diff",
+    "--check"
+  ],
+  "cwd": "C:\\Dev\\qa-visual-automation",
+  "started_utc": "2026-09-25T11:41:34.658450+00:00",
+  "capture_host_os": "Windows-11-10.0.26200-SP0",
+  "capture_python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "source_before": {
+    "backend/app/workers/ocr.py": "638f29322859a68add9530337f3135364938a34be2543161c67d1d5674cd70c4",
+    "backend/app/workers/ocr_source.py": "b685fc61cedbe4d10e81cc88e93341987c5af39f6f5bac6a3a97d5a59cc26a6f",
+    "tests/backend/test_ocr_runner.py": "46304fee50c73b41f0b664ec5e3b838d6d707914131fbac59f36139b81ce6939",
+    "tests/backend/test_ocr_source_read.py": "0c2cff31f19330f7fa9fa175e788b55cfcc183c551952b03ec8fd9f30cae8b08",
+    "tests/backend/test_ocr_runtime_integration.py": "5a06cbb3b1c368031e32e7208af130962a6a44b5b3a9faca7ff0d807b9585465"
+  },
+  "ended_utc": "2026-09-25T11:41:34.788800+00:00",
+  "exit_code": 0,
+  "log_path": ".orchestration\\reports\\BACKEND-OCR-001-runtime-rework-evidence-03\\diff-check-01.log",
+  "log_sha256": "5df26c96d847b4cd369b4b6085213e744fb14dfd79897cf9d6a40fdeba930638",
+  "source_after": {
+    "backend/app/workers/ocr.py": "638f29322859a68add9530337f3135364938a34be2543161c67d1d5674cd70c4",
+    "backend/app/workers/ocr_source.py": "b685fc61cedbe4d10e81cc88e93341987c5af39f6f5bac6a3a97d5a59cc26a6f",
+    "tests/backend/test_ocr_runner.py": "46304fee50c73b41f0b664ec5e3b838d6d707914131fbac59f36139b81ce6939",
+    "tests/backend/test_ocr_source_read.py": "0c2cff31f19330f7fa9fa175e788b55cfcc183c551952b03ec8fd9f30cae8b08",
+    "tests/backend/test_ocr_runtime_integration.py": "5a06cbb3b1c368031e32e7208af130962a6a44b5b3a9faca7ff0d807b9585465"
+  }
+}

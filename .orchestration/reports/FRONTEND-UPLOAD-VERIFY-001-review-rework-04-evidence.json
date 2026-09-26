@@ -1,0 +1,273 @@
+{
+  "generated_at": "2026-09-25T01:21:25Z",
+  "api_origin": "http://127.0.0.1:64348",
+  "harness_source_sha256": "3d4952eb33bf6c4c928563a128d7b6fa7d19305ce4005096fdce61fbbe69ee1c",
+  "contract_test_sha256": "a30e873a2ee7f6b3163a048efa5407cbb183ab695cfb1164c990fbb93ca2373c",
+  "source_snapshot": {
+    "backend/app/api/v1/screenshots.py": "6b03cdc57794edb034c3cf3ce7986f51ecb0e99b8669b30f03df7301e92d67fc",
+    "backend/app/services/screenshots.py": "3c5e36450160f57f732071f8c9bf4eed5684c978e887f499264eee1f50dc7a2b",
+    "backend/app/services/upload_receipts.py": "6b6e630be692230f7c3d0b9a7cd4a24638b26a930707f19473318daa7540ff66",
+    "backend/app/storage/local.py": "ca93d0dce1418ee0db6b2868fdda5c1328e2cf1958411cb0df2214219f370afc",
+    "agent/screenshot_upload/producer.py": "a10789d1cf040fc4c9369638d0acf6855b64d9208e59acffbec26320e1d8fda1",
+    "agent/screenshot_upload/client.py": "9f9355a33f85d4b4af23fbc22be8302842cdf1c544cb4163aefe1b40e5334160",
+    "frontend/components/screenshots.tsx": "f0bb3b21081269ae7fa4c7132a766505ac634738e47dc356bad9bdd7a8ed8c9d",
+    "frontend/lib/api.ts": "d878049044a2a2f51f774e9101a9fb7337df1193d376094627d1662db0f5b04c",
+    "tests/frontend/run_integration.py": "3d4952eb33bf6c4c928563a128d7b6fa7d19305ce4005096fdce61fbbe69ee1c"
+  },
+  "backend_source_manifest": {
+    "file_count": 77,
+    "aggregate_sha256": "a8b5225bceb106cc3e09883eb3e68c2a28d659f8c0ee9ec65eb6974ffa7696a0"
+  },
+  "uploader_source_manifest": {
+    "file_count": 35,
+    "aggregate_sha256": "eefafa7ce16a82b8f30613612968b6acb74b3ba09f3f2f2788547a7937b9c934"
+  },
+  "backend_reference_image": "sha256:516b9eebabc14f7aba0387966c9e9dd64fc95f462010297c0c9741c7fc3d233d",
+  "backend_runtime": "host source snapshot recorded above",
+  "postgres_image": "sha256:18cfe3ef5e6815560c98237d6216d1e5119702fb0f3894c8785dd58b8bbe5d73",
+  "project": {
+    "id": "296ea9a2-9b52-429c-8d7e-bcbdd131590b",
+    "created_at": "2026-09-25T01:21:24.642120Z",
+    "updated_at": "2026-09-25T01:21:24.642120Z",
+    "slug": "web-upload-875e8a73ec08455f8b1e2ff85b4e26e3",
+    "name": "실제 Web 업로드 검증 😀",
+    "description": null
+  },
+  "build": {
+    "id": "bb2ade02-e3c0-4acf-9c01-89a526020aff",
+    "created_at": "2026-09-25T01:21:24.661592Z",
+    "updated_at": "2026-09-25T01:21:24.661592Z",
+    "label": "verify-2026.09",
+    "description": null,
+    "project_id": "296ea9a2-9b52-429c-8d7e-bcbdd131590b"
+  },
+  "locale": {
+    "id": "6701594c-0db7-4074-9572-8cc3f003bc6c",
+    "created_at": "2026-09-25T01:21:24.679466Z",
+    "updated_at": "2026-09-25T01:21:24.679466Z",
+    "code": "ko-KR",
+    "name": "한국어 / 日本語",
+    "project_id": "296ea9a2-9b52-429c-8d7e-bcbdd131590b"
+  },
+  "category": {
+    "id": "d28859c8-63a7-432d-be96-ed8d82dd9e0f",
+    "created_at": "2026-09-25T01:21:24.699474Z",
+    "updated_at": "2026-09-25T01:21:24.699474Z",
+    "slug": "onboarding",
+    "name": "가입 흐름",
+    "project_id": "296ea9a2-9b52-429c-8d7e-bcbdd131590b"
+  },
+  "situation": {
+    "id": "d6f09218-8a33-4556-875a-75476b1a8f87",
+    "created_at": "2026-09-25T01:21:24.723543Z",
+    "updated_at": "2026-09-25T01:21:24.723543Z",
+    "slug": "welcome",
+    "name": "환영 / ようこそ",
+    "category_id": "d28859c8-63a7-432d-be96-ed8d82dd9e0f",
+    "description": null,
+    "project_id": "296ea9a2-9b52-429c-8d7e-bcbdd131590b"
+  },
+  "uploader_cli_returncode": 0,
+  "list_total_after_queued_uploads": 2,
+  "list_total_after_manual_upload": 3,
+  "agent": {
+    "producer_client_upload_id": "b1009ef1-0f1e-478c-8204-101c763fc1dd",
+    "producer_file_hash": "c0ba7e61c9eb8033da72341ae2306c7838bb48a938eb60827d9ccdee6b9ebabe",
+    "producer_manifest_sha256": "f8425ca9342cbc0ea75b1b15e583b4d3c3dba757bf2c95e999237fdb6a52a494",
+    "detail": {
+      "id": "3cc36013-d6f7-4f38-815e-608d45dd3727",
+      "project_id": "296ea9a2-9b52-429c-8d7e-bcbdd131590b",
+      "build_id": "bb2ade02-e3c0-4acf-9c01-89a526020aff",
+      "locale_id": "6701594c-0db7-4074-9572-8cc3f003bc6c",
+      "category_id": "d28859c8-63a7-432d-be96-ed8d82dd9e0f",
+      "situation_id": "d6f09218-8a33-4556-875a-75476b1a8f87",
+      "source": "agent",
+      "original_filename": "합성-agent-ようこそ-😀.png",
+      "uploaded_at": "2026-09-25T01:21:25.245577Z",
+      "file_hash": "c0ba7e61c9eb8033da72341ae2306c7838bb48a938eb60827d9ccdee6b9ebabe",
+      "media_type": "image/png",
+      "size_bytes": 2032,
+      "width": 320,
+      "height": 180,
+      "metadata_version": 1,
+      "metadata": {
+        "device": "Windows 합성 장치 😀",
+        "nested": {
+          "emoji": [
+            "😀",
+            "🧪",
+            {
+              "보존": "완료"
+            }
+          ],
+          "日本語": {
+            "文言": "ようこそ",
+            "段階": 2
+          },
+          "한국어": {
+            "문구": "안녕하세요",
+            "상태": [
+              "표시",
+              true,
+              null
+            ]
+          },
+          "العربية": {
+            "النص": "مرحبا",
+            "اتجاه": "rtl"
+          }
+        },
+        "run_id": "79574796-c8ca-4795-b43c-1542b2af427e",
+        "scenario": "가입 / 初回起動 / démarrage",
+        "checkpoint": "환영 화면 · ようこそ · bienvenue",
+        "resolution": {
+          "width": 320,
+          "height": 180
+        },
+        "empty_string": "",
+        "screen_state": "준비됨 é"
+      },
+      "client_upload_id": "b1009ef1-0f1e-478c-8204-101c763fc1dd",
+      "content_url": "/api/v1/projects/296ea9a2-9b52-429c-8d7e-bcbdd131590b/screenshots/3cc36013-d6f7-4f38-815e-608d45dd3727/content"
+    },
+    "content_sha256": "c0ba7e61c9eb8033da72341ae2306c7838bb48a938eb60827d9ccdee6b9ebabe",
+    "content_exact": true
+  },
+  "automation": {
+    "producer_client_upload_id": "8788f205-c4d1-4c72-9aa6-d547d21c72dc",
+    "producer_file_hash": "05d10110228783975c227600872595410b4e27c4891b7467b6dd02fc819e320e",
+    "producer_manifest_sha256": "1e07e445b980d5c03cdeed904ab1e75916ac2c0898ae25a9b3f1a9d8a25864bb",
+    "detail": {
+      "id": "c965f6ab-e7af-404c-b550-4da59b362ebb",
+      "project_id": "296ea9a2-9b52-429c-8d7e-bcbdd131590b",
+      "build_id": "bb2ade02-e3c0-4acf-9c01-89a526020aff",
+      "locale_id": "6701594c-0db7-4074-9572-8cc3f003bc6c",
+      "category_id": "d28859c8-63a7-432d-be96-ed8d82dd9e0f",
+      "situation_id": "d6f09218-8a33-4556-875a-75476b1a8f87",
+      "source": "automation",
+      "original_filename": "합성-automation-自動化-🤖.png",
+      "uploaded_at": "2026-09-25T01:21:25.146142Z",
+      "file_hash": "05d10110228783975c227600872595410b4e27c4891b7467b6dd02fc819e320e",
+      "media_type": "image/png",
+      "size_bytes": 2181,
+      "width": 320,
+      "height": 180,
+      "metadata_version": 1,
+      "metadata": {
+        "device": "Linux 자동화 장치 🧪",
+        "nested": {
+          "emoji": [
+            "🤖",
+            {
+              "empty": ""
+            }
+          ],
+          "日本語": {
+            "値": "自動",
+            "空文字列": ""
+          },
+          "한국어": {
+            "값": "자동화",
+            "빈문자열": ""
+          }
+        },
+        "run_id": "075f178e-be0f-485e-be16-cbd4765f3369",
+        "scenario": "자동화 / 自動化 / أتمتة",
+        "checkpoint": "빈 문자열 보존 / 空文字列",
+        "resolution": {
+          "width": 320,
+          "height": 180
+        },
+        "empty_string": "",
+        "screen_state": ""
+      },
+      "client_upload_id": "8788f205-c4d1-4c72-9aa6-d547d21c72dc",
+      "content_url": "/api/v1/projects/296ea9a2-9b52-429c-8d7e-bcbdd131590b/screenshots/c965f6ab-e7af-404c-b550-4da59b362ebb/content"
+    },
+    "content_sha256": "05d10110228783975c227600872595410b4e27c4891b7467b6dd02fc819e320e",
+    "content_exact": true
+  },
+  "manual": {
+    "status": 201,
+    "location": "/api/v1/projects/296ea9a2-9b52-429c-8d7e-bcbdd131590b/screenshots/1d17554f-ed83-41a3-92cc-a1f0ffabd172",
+    "detail": {
+      "id": "1d17554f-ed83-41a3-92cc-a1f0ffabd172",
+      "project_id": "296ea9a2-9b52-429c-8d7e-bcbdd131590b",
+      "build_id": "bb2ade02-e3c0-4acf-9c01-89a526020aff",
+      "locale_id": "6701594c-0db7-4074-9572-8cc3f003bc6c",
+      "category_id": "d28859c8-63a7-432d-be96-ed8d82dd9e0f",
+      "situation_id": "d6f09218-8a33-4556-875a-75476b1a8f87",
+      "source": "manual",
+      "original_filename": "수동-원본-保持-😀.png",
+      "uploaded_at": "2026-09-25T01:21:25.380187Z",
+      "file_hash": "b6e1c2593df26b8098d4bc20ea903c14f8626c481557217f69b9d08be16e1748",
+      "media_type": "image/png",
+      "size_bytes": 2073,
+      "width": 320,
+      "height": 180,
+      "metadata_version": 1,
+      "metadata": {
+        "note": "수동 원본 보존 · 手動 · é",
+        "nested": {
+          "kept": [
+            true,
+            null,
+            "😀",
+            ""
+          ]
+        },
+        "empty_string": ""
+      },
+      "client_upload_id": null,
+      "content_url": "/api/v1/projects/296ea9a2-9b52-429c-8d7e-bcbdd131590b/screenshots/1d17554f-ed83-41a3-92cc-a1f0ffabd172/content"
+    },
+    "content_sha256": "b6e1c2593df26b8098d4bc20ea903c14f8626c481557217f69b9d08be16e1748",
+    "content_exact": true
+  },
+  "storage_file_count": 3,
+  "storage_hashes": [
+    "05d10110228783975c227600872595410b4e27c4891b7467b6dd02fc819e320e",
+    "b6e1c2593df26b8098d4bc20ea903c14f8626c481557217f69b9d08be16e1748",
+    "c0ba7e61c9eb8033da72341ae2306c7838bb48a938eb60827d9ccdee6b9ebabe"
+  ],
+  "database": {
+    "screenshot_count": 3,
+    "receipt_count": 2,
+    "receipts": [
+      {
+        "client_upload_id": "8788f205-c4d1-4c72-9aa6-d547d21c72dc",
+        "state": "COMPLETED",
+        "upload_protocol_version": 1,
+        "screenshot_id": "c965f6ab-e7af-404c-b550-4da59b362ebb",
+        "lease_expires_at": null,
+        "last_error_code": null
+      },
+      {
+        "client_upload_id": "b1009ef1-0f1e-478c-8204-101c763fc1dd",
+        "state": "COMPLETED",
+        "upload_protocol_version": 1,
+        "screenshot_id": "3cc36013-d6f7-4f38-815e-608d45dd3727",
+        "lease_expires_at": null,
+        "last_error_code": null
+      }
+    ]
+  },
+  "cleanup": {
+    "web": "terminated_exit_1",
+    "api": "stopped",
+    "database": "dropped",
+    "postgres_container": "removed"
+  },
+  "web": {
+    "origin": "http://127.0.0.1:3001",
+    "list_url": "http://127.0.0.1:3001/#/screenshots?project=296ea9a2-9b52-429c-8d7e-bcbdd131590b",
+    "detail_url": "http://127.0.0.1:3001/#/detail?project=296ea9a2-9b52-429c-8d7e-bcbdd131590b&id=3cc36013-d6f7-4f38-815e-608d45dd3727",
+    "detail_urls": {
+      "agent": "http://127.0.0.1:3001/#/detail?project=296ea9a2-9b52-429c-8d7e-bcbdd131590b&id=3cc36013-d6f7-4f38-815e-608d45dd3727",
+      "automation": "http://127.0.0.1:3001/#/detail?project=296ea9a2-9b52-429c-8d7e-bcbdd131590b&id=c965f6ab-e7af-404c-b550-4da59b362ebb",
+      "manual": "http://127.0.0.1:3001/#/detail?project=296ea9a2-9b52-429c-8d7e-bcbdd131590b&id=1d17554f-ed83-41a3-92cc-a1f0ffabd172"
+    },
+    "production_build_returncode": 0,
+    "log": ".orchestration\\reports\\FRONTEND-UPLOAD-VERIFY-001-review-rework-04-evidence.web.log"
+  }
+}

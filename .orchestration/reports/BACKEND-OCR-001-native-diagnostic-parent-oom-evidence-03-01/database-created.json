@@ -1,0 +1,9 @@
+{
+  "created_utc": "2026-09-25T14:56:10.747277+00:00",
+  "database": "qa_backend_parent_oom_e4e8e72dbfe64ae29609ac2f3ce76a63",
+  "database_oid": 145836,
+  "nonce": "e4e8e72dbfe64ae29609ac2f3ce76a63",
+  "owner": "BACKEND-OCR-001-native-diagnostic-parent-oom-03",
+  "schema_version": 1,
+  "scope": "unique disposable diagnostic database"
+}

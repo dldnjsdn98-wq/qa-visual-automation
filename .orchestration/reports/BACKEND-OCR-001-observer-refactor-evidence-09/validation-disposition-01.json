@@ -1,0 +1,24 @@
+{
+  "status": "NOT_RUN_SOURCE_WRITE_BLOCKED",
+  "fixture_inspection": {
+    "backend_fixture_modules": "tests/backend/conftest.py defines database/client/catalog non-autouse; importing module loads main/db/services",
+    "proposed_qualifying_selection": "same shortpeak node requires builtin tmp_path/record_property plus parametrized mode; --noconftest avoids unrelated fixture import",
+    "root_conftest": "none in exact root/tests direct lookup",
+    "pytest_config": "testpaths only, no addopts in pyproject pytest section",
+    "runner_import": "constructs lazy SQLAlchemy engine/session factory; dynamic compatibility separate from qualifying observer; no DB connect/query permitted"
+  },
+  "planned_checks": [
+    "static exact function text/AST move and runner reexport",
+    "focused environment authority tests using only synthetic ambient values",
+    "existing12 pure oracle cases after actual changed test available",
+    "synthetic bounded diagnostic missing/oversized/serialization/persistence failure and cleanup tests",
+    "separate reexport compatibility with DB connection rejection guard",
+    "collection-only exact shortpeak node --noconftest external plugin autoload disabled, module-name-only import inventory"
+  ],
+  "why_not_run": "Required actual new helper absent, runner/test refactor not applied. Executing copied/prospective code would substitute proposal for actual integration. No unchanged baseline test rerun needed.",
+  "product_import": "NOT_RUN",
+  "pytest": "NOT_RUN",
+  "collection": "NOT_RUN",
+  "native_Docker_build_DB_model": "NOT_RUN",
+  "static_ast_and_text_checks": "allowed on own proposed source strings only, no module execution"
+}

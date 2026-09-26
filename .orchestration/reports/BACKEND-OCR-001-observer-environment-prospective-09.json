@@ -1,0 +1,26 @@
+{
+  "status": "UNAPPLIED_PROSPECTIVE_ONLY",
+  "baseline_sha256": "115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82",
+  "patch_sha256": "db3e8a330827c8ca8661677d74ccfe33c1febd39f70d0600c156e74fe49f3b31",
+  "prospective_runner": {
+    "bytes": 17542,
+    "sha256": "b2fed1ebec25069821e3ddcd3f7c7368375dbf810575c232dad005b55a4fd314",
+    "lf_sha256": "3eecadf757f4ad945f67ff02c7f4347efda342e491ed85250780010d7d55d9f1"
+  },
+  "prospective_helper": {
+    "bytes": 741,
+    "sha256": "4329d761e0885c40635abe4eba7c1f99114b7dd5ccfc6bb2a52492cad4d757eb",
+    "lf_sha256": "06f2ca8428fca1740d77b3b9dd7515eeecbf28d9760cc87b3688f6501fd23c0d"
+  },
+  "ast_parse": "PASS_STATIC_ONLY",
+  "exact_function_text": "PASS",
+  "exact_function_ast": "PASS",
+  "runner_ast_except_move_and_reexport": "PASS",
+  "helper_imports": [
+    "os"
+  ],
+  "prospective_imports_or_execution": false,
+  "tests_run": false,
+  "helper_exists": false,
+  "runner_still_baseline": true
+}

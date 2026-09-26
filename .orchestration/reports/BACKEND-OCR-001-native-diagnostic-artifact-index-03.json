@@ -1,0 +1,287 @@
+{
+  "kind": "diagnostic-artifact-snapshot-not-qualification",
+  "generated_utc": "2026-09-25T14:59:39.903609+00:00",
+  "count": 56,
+  "artifacts": [
+    {
+      "path": ".orchestration/handoffs/BACKEND-OCR-001-native-diagnostic-03.md",
+      "bytes": 2794,
+      "sha256": "70616596564c531b4c4092ac6a753056ab387d5a5a1edba95ed42eef0f4d4127"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-03.md",
+      "bytes": 18592,
+      "sha256": "842dbdeb57622919e33e83a4c5cabfa5ad628e6651979ff541d6ac1d13242e60"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-capture-03.py",
+      "bytes": 3445,
+      "sha256": "c4a5514d8fc9808ea2c9ac931585b33094d46608645eecd2a076eb1e41607b98"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/capture-inventory-final-01.json",
+      "bytes": 107394,
+      "sha256": "cf17dc4521a6f7596195302bcbb6e2d6c371e57824b013334fc3763f56c423c8"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/capture-inventory-pre-oom-01.json",
+      "bytes": 100385,
+      "sha256": "cdfd5797b8d6f70c2c9ca59aec4f162308adbf4649f564e5f7d06b277d0d51aa"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-descendant-pressure-02.json",
+      "bytes": 5492,
+      "sha256": "0112cfbcbf381a898f4f4cd6b234e9a3280f51c57c126979c710fc0d18234408"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-descendant-pressure-02.log",
+      "bytes": 606,
+      "sha256": "b27fc1db20a89434fbbc17d988d25f1a08a3fad42bb3ecb58fdd85304a16ef25"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-descendant-pressure-02.xml",
+      "bytes": 5265,
+      "sha256": "7d0ff3789fba0b51f250b7128ac11f9075d48eda858ae870b378b003e669b75c"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-diagnostic-build-01.json",
+      "bytes": 4853,
+      "sha256": "ac85151547a59f3f38fc9bf8c9fddb641061bffe5ad803bcba4f873e6ce73b43"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-diagnostic-build-01.log",
+      "bytes": 4065,
+      "sha256": "fb16af23e62d694821263b101ee6b53b9c803672ba0db9abc6df930901426ea9"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-diagnostic-build-02.json",
+      "bytes": 4853,
+      "sha256": "d863df36c44503ecd5619a3e8d9b1358ba4ced852d575c17155f49dcad02540d"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-diagnostic-build-02.log",
+      "bytes": 3973,
+      "sha256": "98f11089837791c8560f40c8ad28f64a4fb4f32904c6dbd9c8a2f1ab53b544c9"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-image-identity-01.json",
+      "bytes": 4834,
+      "sha256": "6953f780fd16c8c582db0f06307759912f27a2a6686cf4115fa5cf63acb16b93"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-image-identity-01.log",
+      "bytes": 84,
+      "sha256": "77344a44586a00e5c44b0575f67201ad8b8da33e252d74cc819fdd4540b64e26"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-image-identity-02.json",
+      "bytes": 4834,
+      "sha256": "271ca2c69e592545f462e6106cd70749cc9416cbfbcc68593438009d5ff1f51a"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-image-identity-02.log",
+      "bytes": 84,
+      "sha256": "2ea25e2206408bc8106ea7b8ac67906c1007eaee11b9bc484205b7a56ecc8c00"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-mapped-pressure-02.json",
+      "bytes": 5488,
+      "sha256": "1466cb339d5fa01f675cb8bf918e18ed9668146cde7420d3fe90925e546a991f"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-mapped-pressure-02.log",
+      "bytes": 606,
+      "sha256": "51d24562c79f3e87caa5454a4201e9b32af703b11bbf15063811ed93018642dd"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-mapped-pressure-02.xml",
+      "bytes": 5010,
+      "sha256": "4ab2d0d31f6e4139791591b87b8c4276b252fd60ca85f428781755e8b1e288f6"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-native-boundary-01.json",
+      "bytes": 5448,
+      "sha256": "adfc76d5b53f745fdae2794ba9fd3a7b9501597f89f82a733573970e14855352"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-native-boundary-01.log",
+      "bytes": 606,
+      "sha256": "bee560ea8d8012e233b7fd364063c8992849be857bf3962a7f51e2759a647bee"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-native-boundary-01.xml",
+      "bytes": 3706,
+      "sha256": "69d471735ef0b44f0edfed4dfa5fabcb831e0d369715ee37788d55709b5801c5"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-native-pressure-01.json",
+      "bytes": 5504,
+      "sha256": "d8a59868316d993e06bb704181e152f09811cb753b5d8d28c0cb5e60f644d457"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-native-pressure-01.log",
+      "bytes": 1521,
+      "sha256": "2fd1067ce8033399d2459f5ccf559238ee2888a069ec92244eef352194b977a0"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-native-pressure-01.xml",
+      "bytes": 12494,
+      "sha256": "5ed77ba2f7b7db64d646a4268b72aac85f06644b0bdd3bb5702fb890145ae070"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-native-supervision-01.json",
+      "bytes": 5644,
+      "sha256": "596fb0a651e370e5c188db7a0035ff80af6da0a5222776cb5ecd58190218e887"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-native-supervision-01.log",
+      "bytes": 607,
+      "sha256": "58ad86c24d84124a6e23f0a32d4ce533fa9c5b59d5b7df1ff6056bdca6883b1b"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-native-supervision-01.xml",
+      "bytes": 19915,
+      "sha256": "7c4aa96c56a8b4391eacf8d1e574482310abb5cbbbf2eafccc433f138d5cdc1c"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-parent-oom-01.json",
+      "bytes": 5508,
+      "sha256": "d84751d9843f2c5932735b827bc0a63d000b576288b87cc968ff8e03365fe20d"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-parent-oom-01.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-real-runner-01.json",
+      "bytes": 5957,
+      "sha256": "65a74d6a2840aa374e2eefe8c2c5db296aa557867b5a30f799a04e360b9f0651"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-real-runner-01.log",
+      "bytes": 606,
+      "sha256": "16d175d864c36e0e997b97caf3e02a34852142ca15582ccfd8a8d011a1b91d58"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-real-runner-01.xml",
+      "bytes": 1989,
+      "sha256": "b14c949957f62f6ded30f9e75a5abb5ae287bcc3b0663beb53cefeb63f1a8d85"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-shortpeak-pressure-02.json",
+      "bytes": 5501,
+      "sha256": "e2e9394e86f253cf7f8da0f00c9480118cdbbecfa2966df2aa5fe4d60c87f3fc"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-shortpeak-pressure-02.log",
+      "bytes": 840,
+      "sha256": "3c125f698c61a5bfbb7c567c591f94e23bbd6a9249ad2230714310b194dfb4c1"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/linux-shortpeak-pressure-02.xml",
+      "bytes": 5010,
+      "sha256": "d1089079e670e238735bad9c47b26f6e0d4bcbc862d99fb3a05e0b922f5b0df8"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/parent-oom-host-static-01.json",
+      "bytes": 288,
+      "sha256": "157c570fb4c348fe1619544a0237655a5b555674407d4731555a9715da76b42c"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/windows-identity-03-mokoyye2/identity.json",
+      "bytes": 345,
+      "sha256": "4d8b7a0d9d4a185325e59a7343a1f01b0e87c29d1cf171b922f56bf2323e9be9"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/windows-owned-identity-01.json",
+      "bytes": 5157,
+      "sha256": "9274c527e3f3f77d434558b03f0db3707d5bf58ac3a3cfc89d442e308650b309"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/windows-owned-identity-01.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-evidence-03/windows-owned-identity-facts-01.json",
+      "bytes": 15864,
+      "sha256": "61d2f1955a3ee7531533cf92758ce0425a8ea1d017a1824ce127130203de1ad0"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-index-03.py",
+      "bytes": 1758,
+      "sha256": "7d7a17fd02182b9276ae72b052ec8b98bda6ac77131e2bd36927eed940ad2584"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-linux-permission-03.md",
+      "bytes": 6470,
+      "sha256": "ca085060dd92bcddb86ab82f58ae7275b47e8efcb94c53e18694da3d902c9695"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-parent-oom-03.py",
+      "bytes": 51892,
+      "sha256": "767c47ddfd641e5f5b0ea67a1a6c04eff50244a9209910128b49fc0de921ba04"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-parent-oom-evidence-03-01/cleanup.json",
+      "bytes": 303,
+      "sha256": "ef20b0f538602101ed07a7ddcb0a0b429323ccda7b0d85f3670696dbc246c866"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-parent-oom-evidence-03-01/database-created.json",
+      "bytes": 338,
+      "sha256": "d611fbe1c60f85185812092e8863f26914ce491d53293e117ac255da2b611c8e"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-parent-oom-evidence-03-01/manifest.json",
+      "bytes": 4679,
+      "sha256": "267eada18fa35a01d9e899ef875a2f505805bd26935a5c0e2aeb28f5e760efef"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-parent-oom-evidence-03-01/oom-container-inspect.json",
+      "bytes": 1022,
+      "sha256": "b6f70201bcb5609c25bf8ff7c4eccef6aabb669d7df6aa9f1757c68e4d977f1e"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-parent-oom-evidence-03-01/oom-ready.json",
+      "bytes": 3054,
+      "sha256": "55def3ba0c5f62f9269650d7d250c649516a94d41cb20f6edb78ee1d85590d4c"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-parent-oom-evidence-03-01/recovery.json",
+      "bytes": 2184,
+      "sha256": "54fe20cee9ac9f6971364ec33d9f39fc589bb381040c6a094c3b7423151bfe54"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-parent-oom-evidence-03-01/setup.json",
+      "bytes": 1646,
+      "sha256": "9d4fc1ee5d5d8eec9f844262a9a7af21d6f5283da1974ad2551eff4e5ce35f97"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-parent-oom-plan-03.md",
+      "bytes": 11061,
+      "sha256": "e6f09c6d0f6f6369dfdf73b928e4b1d54d48b6cae5d49f2076b8cd559776e42b"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-source-audit-03.json",
+      "bytes": 15255,
+      "sha256": "e67592b5658045d8cfa176da3d6aedc0f4e91394f134816b3792f63783436e86"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-source-manifest.txt",
+      "bytes": 10733,
+      "sha256": "6073190231a35b88fc40476e287a2c76bdb79d3d83492f6cb8ea378e5ec41042"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-windows-03.py",
+      "bytes": 25064,
+      "sha256": "e0650cbc135da408b589c1765bc7aaa67f2db1e2f62174c339f3549426210133"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-native-diagnostic-windows-plan-03.md",
+      "bytes": 16309,
+      "sha256": "0fccd799d04e7db37503236d65121308e91e6d72219cdce78806c50856814e87"
+    }
+  ]
+}

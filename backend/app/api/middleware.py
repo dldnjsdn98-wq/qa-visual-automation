@@ -1,3 +1,4 @@
+import asyncio
 import logging
 from urllib.parse import unquote_to_bytes, parse_qsl
 from uuid import uuid4
@@ -6,9 +7,12 @@ from starlette.exceptions import HTTPException
 from starlette.responses import JSONResponse
 from sqlalchemy.exc import SQLAlchemyError
 from backend.app.errors import DomainError, database_error
-from backend.app.validation.unicode import decode_json, validate_unicode
+from backend.app.validation.unicode import decode_json, decode_strict_json, validate_unicode
 
 log = logging.getLogger(__name__)
+
+MAX_CONCURRENT_BUFFERED_REQUESTS = 4
+OVERLOAD_RETRY_AFTER_SECONDS = 1
 
 
 def validation_error(exc, prefix=None):
@@ -25,8 +29,9 @@ def validation_error(exc, prefix=None):
 def error_response(error, request_id, headers=None):
     result_headers = dict(headers or {})
     result_headers["X-Request-ID"] = request_id
-    if error.status == 503:
-        result_headers["Retry-After"] = "5"
+    retry_after = error.retry_after if error.retry_after is not None else (5 if error.status == 503 else None)
+    if retry_after is not None:
+        result_headers["Retry-After"] = str(retry_after)
     return JSONResponse({"error": {"code": error.code, "message": error.message, "details": error.details, "request_id": request_id}}, status_code=error.status, headers=result_headers)
 
 
@@ -53,9 +58,14 @@ def install_handlers(app):
 
 
 class BoundaryMiddleware:
-    """Bound actual received bytes before parsing, even without Content-Length."""
-    def __init__(self, app):
+    """Bound received bytes and whole-body memory concurrency before parsing."""
+    def __init__(self, app, max_buffered_requests=MAX_CONCURRENT_BUFFERED_REQUESTS):
+        if not isinstance(max_buffered_requests, int) or max_buffered_requests < 1:
+            raise ValueError("max_buffered_requests must be a positive integer")
         self.app = app
+        # The slot is held until the downstream response completes because the
+        # replay closure retains the body and parsers/decoders may make copies.
+        self._body_slots = asyncio.Semaphore(max_buffered_requests)
 
     async def __call__(self, scope, receive, send):
         if scope["type"] != "http":
@@ -63,6 +73,7 @@ class BoundaryMiddleware:
         request_id = str(uuid4())
         scope.setdefault("state", {})["request_id"] = request_id
         started = False
+        body_slot = False
         async def send_with_id(message):
             nonlocal started
             if message["type"] == "http.response.start":
@@ -81,7 +92,26 @@ class BoundaryMiddleware:
                 for key, value in query:
                     validate_unicode({key: value}, "query")
                 headers = dict(scope["headers"])
+                is_upload = scope["method"] == "POST" and scope["path"].rstrip("/").endswith("/screenshots")
+                is_verification_create = (
+                    scope["method"] == "POST"
+                    and scope["path"].rstrip("/").endswith("/verification-runs")
+                )
+                if is_upload and any(key.lower() == b"idempotency-key" for key, _ in scope["headers"]):
+                    raise DomainError(field="body", reason="Idempotency-Key is not supported; use client_upload_id for agent uploads")
+                if is_verification_create and any(key.lower() == b"idempotency-key" for key, _ in scope["headers"]):
+                    raise DomainError(field="body", reason="Idempotency-Key is not supported; use client_run_id")
                 if scope["method"] in ("POST", "PUT", "PATCH"):
+                    # asyncio.Semaphore has no public non-blocking acquire. In
+                    # one ASGI event loop, locked()+acquire() is atomic here:
+                    # acquire returns without suspension while a slot exists.
+                    if self._body_slots.locked():
+                        raise DomainError(
+                            503, "REQUEST_OVERLOADED", "Request body concurrency limit reached",
+                            retry_after=OVERLOAD_RETRY_AFTER_SECONDS,
+                        )
+                    await self._body_slots.acquire()
+                    body_slot = True
                     body = bytearray()
                     while True:
                         message = await receive()
@@ -93,14 +123,13 @@ class BoundaryMiddleware:
                         if not message.get("more_body", False):
                             break
                     media = headers.get(b"content-type", b"").split(b";", 1)[0].lower()
-                    is_upload = scope["method"] == "POST" and scope["path"].rstrip("/").endswith("/screenshots")
                     if is_upload:
                         if media != b"multipart/form-data":
                             raise DomainError(415, "UNSUPPORTED_MEDIA_TYPE", "Use multipart/form-data")
                     else:
                         if media != b"application/json":
                             raise DomainError(415, "UNSUPPORTED_MEDIA_TYPE", "Use application/json")
-                        decode_json(bytes(body))
+                        (decode_strict_json if is_verification_create else decode_json)(bytes(body))
                     delivered = False
                     original_receive = receive
                     async def replay():
@@ -120,3 +149,6 @@ class BoundaryMiddleware:
                 raise
             log.error("Unhandled request failure; request_id=%s", request_id)
             await error_response(DomainError(500, "INTERNAL_ERROR", "Internal server error"), request_id)(scope, receive, send_with_id)
+        finally:
+            if body_slot:
+                self._body_slots.release()

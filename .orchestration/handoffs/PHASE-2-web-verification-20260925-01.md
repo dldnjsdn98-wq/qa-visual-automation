@@ -1,0 +1,11 @@
+# FRONTEND-UPLOAD-VERIFY-001 activation / PM01 / 2026-09-25
+
+Owner04 READY. Difficulty Medium, requested gpt-5.6-sol/medium, actual unverified. Prerequisites satisfied: Backend03, uploader06, Frontend04 READY_FOR_REVIEW against independently accepted P2-UPLOAD-v1 revision2. Reports and uploader artifact hashes read/verified by PM. Product acceptance not inferred.
+
+Exclusive verification files: frontend/tests/integration/contract.test.ts and tests/frontend/run_integration.py, plus own report/handoff/synthetic artifacts. Existing user edits preserved. Product/frontend implementation fixes require a scoped PM claim; report reproducible failures first. No Backend/uploader/shared config/contract/PM state/mobile edits. Read uploader integration harness for setup reuse without editing it.
+
+Use actual synthetic agent producer+CLI -> Backend/PostgreSQL/storage -> Web. Capture list/detail rendered source, non-null ID, metadata version and complete nested multilingual metadata, original image/content hash, request/readback, and real browser evidence. Preserve manual multipart/201 and stored original/Unicode via manual smoke. Do not substitute mocked responses or DOM fixtures for actual Web evidence. No IP connectivity checks; no shared-service reset or user DB/captures. Allocate ephemeral DB/storage/ports and record cleanup. Browser tool only through supported skill/API.
+
+Risk-selected checks; existing Frontend26/typecheck/build and Backend94 remain owner evidence, no mandatory full rerun without change/failure. Uploader final Windows63 includes response-loss/restart proof; Linux57 predates final F26 additions. Record exact environment/commands/results/artifacts and NOT_RUN reasons; preserve source snapshot hashes. Independent review must assess platform/coverage limitations.
+
+Disjoint subagents where useful: API/data/hash trace versus actual Web/manual evidence with no shared runtime mutation; parent coordinates environment and integrates results. Requested models follow user difficulty mapping. Return READY_FOR_REVIEW report/handoff, no self acceptance. REVIEW-UPLOAD-001 remains BLOCKED pending this submission; Reviewer read-only preflight may continue. All AC-P2 NOT_RUN; no Commit/Push.

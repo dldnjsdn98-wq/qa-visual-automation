@@ -133,14 +133,16 @@ phases:
   review_evidence: .orchestration/reports/R08-WEB-002-closure-08.md
   completion_evidence: .orchestration/handoffs/PHASE-1-acceptance-01.md
 - phase: 2
-  status: IN_PROGRESS
-  review_result: null
+  status: ACCEPTED
+  review_result: ACCEPTED
   criteria:
   - id: AC-P2-01
     required: true
     description: Durable offline queue preserves original screenshots
-    status: NOT_RUN
-    evidence: []
+    status: PASS
+    evidence:
+    - .orchestration/reports/REVIEW-UPLOAD-001-08.md
+    - .orchestration/reports/REVIEW-UPLOAD-001-rereview-08.md
     verification_requirements:
     - Offline/process restart retain originals and durable queue
     - Partial image/manifest/temp items never ready
@@ -149,8 +151,10 @@ phases:
   - id: AC-P2-02
     required: true
     description: Retry with backoff and logged terminal failures
-    status: NOT_RUN
-    evidence: []
+    status: PASS
+    evidence:
+    - .orchestration/reports/REVIEW-UPLOAD-001-08.md
+    - .orchestration/reports/REVIEW-UPLOAD-001-rereview-08.md
     verification_requirements:
     - Persisted backoff/Retry-After and terminal diagnostics
     - Exhausted/failed originals preserved
@@ -159,8 +163,10 @@ phases:
   - id: AC-P2-03
     required: true
     description: Idempotency and duplicate prevention survive process restart
-    status: NOT_RUN
-    evidence: []
+    status: PASS
+    evidence:
+    - .orchestration/reports/REVIEW-UPLOAD-001-08.md
+    - .orchestration/reports/REVIEW-UPLOAD-001-rereview-08.md
     verification_requirements:
     - Lost response after commit replays without duplicate
     - Same ID/same payload returns existing; different payload conflicts
@@ -171,15 +177,19 @@ phases:
   - id: AC-P2-04
     required: true
     description: Uploaded screenshots and metadata appear in Web
-    status: NOT_RUN
-    evidence: []
+    status: PASS
+    evidence:
+    - .orchestration/reports/REVIEW-UPLOAD-001-08.md
+    - .orchestration/reports/REVIEW-UPLOAD-001-rereview-08.md
     verification_requirements:
     - Actual agent-to-Backend-to-Web image/source/metadata display
     - Existing manual upload and originals preserved
     - Exact Unicode/context/bytes/hash readback
     verification_plan: .orchestration/handoffs/PHASE-2-activation-01.md
+    owner_submission_note: 'Frontend implementation submitted: .orchestration/reports/FRONTEND-UPLOAD-001-04.md; owner unit/type/build checks
+      only. Actual agent/Backend/Web and independent implementation acceptance pending.'
   activation_handoff: .orchestration/handoffs/PHASE-2-activation-01.md
-  note: Contract and preparation activated; no Phase2 product PASS claimed.
+  note: PM accepted matching independent rereview and all four required criteria; historical owner/checkpoint notes retained below.
   contract_review_checkpoint:
     date: '2026-09-25'
     revision: 1
@@ -191,8 +201,97 @@ phases:
     evidence: .orchestration/reports/REVIEW-ARCH-UPLOAD-001-revision-2-08.md
     finding: R08-P2-ARCH-001 RESOLVED
     scope: Contract only; product AC NOT_RUN
+  backend_submission_note: Owner Linux94 PASS submitted; no AC promotion. Response-loss/process restart/Web and independent review pending.
+  uploader_submission_note: Owner Windows63 includes real lost201/restart/200replay, not independent acceptance. Actual Web verification activated.
+  preflight_blockers:
+  - id: R08-P2-PREFLIGHT-001
+    severity: MAJOR
+    status: RESOLVED
+    type: PRODUCT_DEFECT
+    summary: Same-length committed-object corruption returned without hash check
+    owner: '03'
+    evidence: .orchestration/reports/REVIEW-UPLOAD-001-preflight-08.md
+    resolution_evidence: .orchestration/reports/REVIEW-UPLOAD-001-rereview-08.md
+  - id: R08-P2-PREFLIGHT-002
+    severity: MAJOR
+    status: RESOLVED
+    type: EVIDENCE_GAP
+    summary: Real receipt-aware reconcile/F14 transitions and deletion safety unexecuted
+    owner: '03'
+    evidence: .orchestration/reports/REVIEW-UPLOAD-001-preflight-08.md
+    resolution_evidence: .orchestration/reports/REVIEW-UPLOAD-001-rereview-08.md
+  - id: R08-P2-PREFLIGHT-003
+    severity: MAJOR
+    status: RESOLVED
+    type: EVIDENCE_GAP
+    summary: Populated migration/F21 complete facts Unicode and original-byte preservation unproven
+    owner: '03'
+    evidence: .orchestration/reports/REVIEW-UPLOAD-001-preflight-08.md
+    resolution_evidence: .orchestration/reports/REVIEW-UPLOAD-001-rereview-08.md
+  backend_rework_note: PM matched75 current files and corrected ordinal manifest; owner29 targeted/119 finalLinux PASS; independent finding closure
+    pending
+  independent_implementation_review_entry: .orchestration/handoffs/REVIEW-UPLOAD-001-activation-01.md
+  review_evidence: .orchestration/reports/REVIEW-UPLOAD-001-rereview-08.md
+  implementation_findings:
+  - id: R08-P2-REVIEW-004
+    severity: MAJOR
+    status: RESOLVED
+    owner: 08
+    type: EVIDENCE_GAP
+    evidence: .orchestration/reports/REVIEW-UPLOAD-001-08.md
+    resolution_evidence: .orchestration/reports/REVIEW-UPLOAD-001-rereview-08.md
+  - id: R08-P2-REVIEW-005
+    severity: MAJOR
+    status: RESOLVED
+    owner: '03'
+    type: PRODUCT_DEFECT
+    evidence: .orchestration/reports/REVIEW-UPLOAD-001-08.md
+    resolution_evidence: .orchestration/reports/REVIEW-UPLOAD-001-rereview-08.md
+  - id: R08-P2-REVIEW-006
+    severity: MAJOR
+    status: RESOLVED
+    owner: '06'
+    type: PRODUCT_DEFECT
+    evidence: .orchestration/reports/REVIEW-UPLOAD-001-08.md
+    resolution_evidence: .orchestration/reports/REVIEW-UPLOAD-001-rereview-08.md
+  - id: R08-P2-REVIEW-007
+    severity: MAJOR
+    status: RESOLVED
+    owner: '06'
+    type: PRODUCT_DEFECT
+    evidence: .orchestration/reports/REVIEW-UPLOAD-001-08.md
+    resolution_evidence: .orchestration/reports/REVIEW-UPLOAD-001-rereview-08.md
+  - id: R08-P2-REVIEW-008
+    severity: MAJOR
+    status: RESOLVED
+    owner: '04'
+    type: EVIDENCE_GAP
+    evidence: .orchestration/reports/REVIEW-UPLOAD-001-08.md
+    resolution_evidence: .orchestration/reports/REVIEW-UPLOAD-001-rereview-08.md
+  - id: R08-P2-REVIEW-009
+    severity: MEDIUM
+    status: RESOLVED
+    owner: '03'
+    type: PRODUCT_DEFECT
+    evidence: .orchestration/reports/REVIEW-UPLOAD-001-08.md
+    resolution_evidence: .orchestration/reports/REVIEW-UPLOAD-001-rereview-08.md
+  review_history:
+  - result: CHANGES_REQUESTED
+    evidence: .orchestration/reports/REVIEW-UPLOAD-001-08.md
+    criteria:
+      AC-P2-01: FAIL
+      AC-P2-02: NOT_RUN
+      AC-P2-03: FAIL
+      AC-P2-04: NOT_RUN
+  accepted_on: '2026-09-25'
+  acceptance_handoff: .orchestration/handoffs/PHASE-2-acceptance-01.md
+  execution_limits:
+  - check: Real PostgreSQL recovery/standby pg_is_in_recovery branch
+    status: NOT_RUN
+    blocking: false
+    reason: Reviewer accepted primary reconciliation matrix and static guard; no direct standby execution claimed
 - phase: 3
-  status: NOT_STARTED
+  status: IN_PROGRESS
   review_result: null
   criteria:
   - id: AC-P3-01
@@ -215,6 +314,32 @@ phases:
     description: Verification results visible in Web with repeatable evidence
     status: NOT_RUN
     evidence: []
+  activation_handoff: .orchestration/handoffs/PHASE-3-activation-01.md
+  note: Native diagnostic owner checkpoint submitted;103source and current report/handoff/index hashes PM matched; recursive artifacts partly
+    inaccessible. Windows pause3 and shortpeak unproved. All4AC NOT_RUN, no production admission/Web/final review.
+  contract_review:
+    result: ACCEPTED
+    revision: 1
+    artifact_hashes:
+      docs/architecture/phase-3-ocr-contract.md: 46940dd1dd7775422213b2ba422b63650f4e83740e034cf29dc83f23970acb82
+      .orchestration/reports/REVIEW-ARCH-OCR-001-08.md: c9b723eca12e2f4df254e910c47fbf6104647301af9728c55d287760a5a268da
+      .orchestration/handoffs/REVIEW-ARCH-OCR-001-08.md: 6a7effb32d8990d7e1a3fb6b484de89fd76a1e8795ec49f25d30b057e11f7f91
+    scope: Contract only; no product or model qualification PASS
+  contract_review_revision2:
+    result: ACCEPTED
+    scope: Header/10.3 amendment only, rev1 unaffected clauses retained
+    evidence: .orchestration/reports/REVIEW-ARCH-OCR-001-revision-2-08.md
+    verified_hashes:
+      docs/architecture/phase-3-ocr-contract.md: 478fafdcf7d3876f9437137e382d41872f100dad40206a280da7551283e8dd44
+      .orchestration/reports/REVIEW-ARCH-OCR-001-revision-2-08.md: 8b525e4599188012d47d23368ef30cf4a41fc6a8fe6891f038d9e266f29024d0
+      .orchestration/handoffs/REVIEW-ARCH-OCR-001-revision-2-08.md: 554ff00ad67ceaddbe9b940b1b567f42e777a83359c370c2e2e40cce7a670e6e
+    runtime: Owner qualification submitted; independent implementation acceptance pending; runtime rework unresolved
+  runtime_rework_gate:
+    issue: P3-RUNTIME-001
+    status: OPEN
+    handoff: .orchestration/handoffs/PHASE-3-runtime-conformance-resume-01.md
+    child_authority: 'Clarified: parent owns all DB authority; corrected implementation evidence pending'
+    next: Contract-conforming owner submission, matching affected Web rerun, independent review
 - phase: 4
   status: NOT_STARTED
   review_result: null

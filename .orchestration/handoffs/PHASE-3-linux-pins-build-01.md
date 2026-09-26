@@ -1,0 +1,14 @@
+# Linux L1 exact-source input and build / PM01
+
+Approved application checkpoint04 manifest6bf12e9669f4c46a4c3488e223c927794fc18f6977b947fcf4f88a1ebf3bfcbf and11artifacts PM matched. Independent evidence review bdf3063b...1dcd3 read; exact W1-only/L1 applied and pure12PASS. Native execution remains separate.
+
+03 scope now: create own immutable Linux source-pin JSON compatible with reviewed capture d0a8e756...21d7fd and its unchanged predicates. Include required source/lock/recipe/pyproject/fixture dependencies with actual raw AND LF hashes, max128 approved paths; no credential/env/model files. Use latest actual applied snapshot, preserve earlier manifests. Minimum required paths from native-apply-linux-plan apply. Name/report exact input SHA. Capture and plan/helper/test pins must match; extra Windowshook prohibited. No product/dependency/recipe edits or source normalization.
+
+Parent source audit and separate Sol/high read-only pin-completeness/predicate review must pass before build. Reuse prior agents; evidence hash work low Terra/high, source/boundary review high Sol/high; actual model unverified. A mismatch blocks the build; don't silently repair pins/code to fit.
+
+After exact pin review passes, one NEW diagnostic image build from unchanged backend/Dockerfile.test and frozen context is authorized through ordinary tool approval boundaries. Record exact command, rawlog/exit, host before/after sources, base/image identity/platform and dependency/recipe hashes. No permission workaround or retry on denial. Prefer one source-pinned build tag distinct from prior images. This approval covers build and image metadata inspection only: no container run/native pressure/pytest/DB/model access. Existing build recipe operations are authorized as image creation, not a host dependency change.
+
+Final report must provide complete input pin/review identities plus immutable new image ID and source-drift result. Linux capture requires raw and LF equality in both host and eventual image; CRLF conversion is not silently acceptable. Image-internal verification belongs to the later separately authorized single capture; do not claim it from host hashes alone. Native invocation still awaits PM review of this packet. No reexecution of pure12/full279. Windows extra hook/counters3+2/04/08/admission/allAC unchanged.
+
+
+PM current checkpoint 2026-09-26: owner03 active turn01a0d958-2394-7be3-bd34-e0cf374665ea observed; TASKS IN_PROGRESS. Boole source-pin evidence (requested Terra/high) and Mill independent closure/predicate review (Sol/high) remain03 responsibility. PM Sartre read-only consistency check completed; current blocker wording corrected, historical evidence preserved. Requested models are not actual-model attestation. Conditional build remains dependent on exact review PASS; no native execution authorized. Final packet must distinguish preparation, build invocation, build exit and image inspection from image-internal verification.

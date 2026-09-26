@@ -1,0 +1,29 @@
+{
+  "authorization": "PM relayed explicit user approval of one regular require_escalated request",
+  "approval_vs_execution": "require_escalated request returned actual git exit0; empty stdout/output; actual hashes verified separately",
+  "application_command": "git apply .orchestration/reports/BACKEND-OCR-001-native-candidate-windows-03.patch .orchestration/reports/BACKEND-OCR-001-native-candidate-linux-03.patch",
+  "application_result_source": "transcribed tool result chunk8b67a3",
+  "exit_code": 0,
+  "output": "",
+  "sources": [
+    {
+      "path": "backend/app/workers/ocr_containment.py",
+      "bytes": 42692,
+      "raw_sha256": "9a47c3348980b4f5d25afafce5407ed067cd974caff2b60b87d2dc5f8228dbd9",
+      "canonical_lf_sha256": "6129ff42c0789df51c105068cbda48d0b299885f53c491e7d3a777315661467c",
+      "expected_lf_sha256": "6129ff42c0789df51c105068cbda48d0b299885f53c491e7d3a777315661467c",
+      "matched": true
+    },
+    {
+      "path": "tests/backend/test_ocr_containment.py",
+      "bytes": 29181,
+      "raw_sha256": "e72c2fb79a9bc3b0c0e08f155b5c78f16173d8e02ecc9f8349f2ecab3674af45",
+      "canonical_lf_sha256": "52349c96c31b6c373d8d8c99471b21df64ea5dea4a0a77f52539a884492e0f02",
+      "expected_lf_sha256": "52349c96c31b6c373d8d8c99471b21df64ea5dea4a0a77f52539a884492e0f02",
+      "matched": true
+    }
+  ],
+  "ast": "PASS",
+  "additional_hook": "NOT_APPLIED",
+  "native": "NOT_RUN"
+}

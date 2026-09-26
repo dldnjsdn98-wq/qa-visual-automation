@@ -1,0 +1,128 @@
+--- a/tests/backend/test_ocr_containment.py
++++ b/tests/backend/test_ocr_containment.py
+@@ -8,7 +8,7 @@
+ import pytest
+ 
+ from backend.app.workers import ocr_containment as containment
+-from backend.app.workers.ocr import child_environment
++from backend.app.workers.ocr_child_environment import child_environment
+ 
+ 
+ def _native_limit():
+@@ -256,6 +256,86 @@
+     return set(map(int, Path("/sys/fs/cgroup/cgroup.procs").read_text().split()))
+ 
+ 
++def _l1_read_text(path, limit=65536):
++    with Path(path).open("rb") as stream:
++        raw = stream.read(limit + 1)
++    if len(raw) > limit:
++        raise ValueError("diagnostic input exceeds bound")
++    return raw.decode("ascii")
++
++
++def _l1_snapshot(phase, observer_pid, child_pid=None):
++    result = dict(phase=phase, started_ns=time.monotonic_ns(),
++                  atomic=False, cgroup={}, processes={}, errors={})
++
++    def sample(key, read):
++        try:
++            return read()
++        except (OSError, ValueError, IndexError, KeyError) as error:
++            result["errors"][key] = type(error).__name__
++            return None
++
++    def number(value):
++        parsed = int(value)
++        if parsed < 0:
++            raise ValueError("negative counter")
++        return parsed
++
++    def table(path, keys, prefix):
++        rows = sample(prefix, lambda: dict(
++            line.split() for line in _l1_read_text(path).splitlines()))
++        return {key: sample(prefix + "." + key, lambda key=key:
++                           number(rows[key])) if rows is not None else None
++                for key in keys}
++
++    cg = result["cgroup"]
++    for name in ("memory.current", "memory.max", "memory.swap.max"):
++        cg[name] = sample(name, lambda name=name: number(
++            _l1_read_text("/sys/fs/cgroup/" + name).strip()))
++    cg["memory.stat"] = table("/sys/fs/cgroup/memory.stat",
++        ("anon", "file", "kernel", "shmem", "pagetables", "slab", "sock", "file_mapped"),
++        "memory.stat")
++    cg["memory.events"] = table("/sys/fs/cgroup/memory.events",
++        ("low", "high", "max", "oom", "oom_kill", "oom_group_kill"), "memory.events")
++    for role, pid in (("observer", observer_pid), ("child", child_pid)):
++        if pid is None:
++            result["processes"][role] = None
++            continue
++        row = dict(pid=pid)
++        fields = sample(role + ".stat", lambda: _l1_read_text(
++            f"/proc/{pid}/stat").rsplit(")", 1)[1].split())
++        for name, index in (("ppid", 1), ("pgrp", 2), ("start_ticks", 19)):
++            row[name] = sample(role + "." + name, lambda index=index:
++                               number(fields[index])) if fields is not None else None
++        status = sample(role + ".status", lambda: dict(
++            line.split(":", 1) for line in _l1_read_text(
++                f"/proc/{pid}/status").splitlines()))
++        def rss(key):
++            value, unit = status[key].split()
++            if unit != "kB":
++                raise ValueError("unexpected RSS unit")
++            return number(value) * 1024
++        for key in ("VmRSS", "RssAnon", "RssFile", "RssShmem"):
++            row[key + "_bytes"] = sample(role + "." + key, lambda key=key:
++                rss(key)) if status is not None else None
++        result["processes"][role] = row
++    result["finished_ns"] = time.monotonic_ns()
++    return result
++
++
++def _l1_persist_snapshot(path, snapshot):
++    raw = json.dumps(snapshot, sort_keys=True).encode("ascii")
++    if len(raw) > 32768:
++        raise ValueError("diagnostic output exceeds bound")
++    path = Path(path)
++    temporary = path.with_name(path.name + ".tmp")
++    with temporary.open("xb") as stream:
++        stream.write(raw)
++        stream.flush()
++        os.fsync(stream.fileno())
++    os.replace(temporary, path)
++
++
+ def _l1_shortpeak(tmp_path, record_property):
+     import select
+     from uuid import uuid4
+@@ -267,12 +347,15 @@
+     assert all(pre[k] == 0 for k in ("max", "oom", "oom_kill", "oom_group_kill"))
+     assert Path("/sys/fs/cgroup/memory.max").read_text().strip() == str(_L1_CAP)
+     assert Path("/sys/fs/cgroup/memory.swap.max").read_text().strip() == "0"
++    observer_snapshot = _l1_snapshot("observer_only", os.getpid())
++    _l1_persist_snapshot(tmp_path / "l1-observer.json", observer_snapshot)
+     nonce = uuid4().hex
+     # One helper launch, unchanged explicit isolated environment, no DB/model.
+     handle, _ = _launch(_L1_CHILD, tmp_path, _L1_BASELINE, _L1_INCREMENT, nonce)
+     facts = dict(observer_pid=os.getpid(), child_pid=handle.pid,
+                  baseline_bytes=_L1_BASELINE, increment_bytes=_L1_INCREMENT,
+                  memory_limit_bytes=_L1_CAP, events_before_setup=pre,
++                 observer_snapshot=observer_snapshot,
+                  receiver="synchronous nonblocking pipe; no receiver thread")
+     messages = []
+     pending = bytearray()
+@@ -322,9 +405,13 @@
+         assert membership == Path("/proc/self/cgroup").read_text()
+         status = Path(f"/proc/{handle.pid}/status").read_text().splitlines()
+         anon_bytes = int(next(row.split()[1] for row in status if row.startswith("RssAnon:"))) * 1024
++        facts["baseline_rss_anon_bytes"] = anon_bytes
+         assert anon_bytes >= _L1_BASELINE, "baseline must be touched anonymous resident memory"
++        facts["baseline_ready_snapshot"] = _l1_snapshot("baseline_ready", os.getpid(), handle.pid)
++        _l1_persist_snapshot(tmp_path / "l1-baseline.json", facts["baseline_ready_snapshot"])
+         current = int(Path("/sys/fs/cgroup/memory.current").read_text())
+         headroom = _L1_CAP - current
++        facts.update(memory_current_before_gate=current, headroom_before_gate=headroom)
+         assert 64 * 1024 * 1024 <= headroom <= 160 * 1024 * 1024, "fixed headroom precondition"
+         before_gate = _l1_events()
+         assert before_gate == pre, "setup events invalidate pressure attribution"

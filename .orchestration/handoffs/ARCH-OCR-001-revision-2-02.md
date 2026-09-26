@@ -1,0 +1,14 @@
+# Handoff
+- Task / owner: ARCH-OCR-001 revision2 / Architect02 / P3-OCR-DEP-001.
+- Status / activation evidence: PM bounded amendment reactivation; READY_FOR_REVIEW requested, not accepted.
+- Changed files: canonical phase-3-ocr-contract.md, new phase-3-ocr-contract-revision-1.md archive, own ARCH-OCR-001-revision-2-02 report and this paired handoff.
+- Contract changes: header and section10.3 only; one official opencv-contrib-python==4.10.0.84 with paddlex[ocr-core]==3.7.2 candidate; no headless override/dependency suppression/pip-check exception; OS-specific display-free/native/resource/license qualification.
+- Archive SHA256: 46940dd1dd7775422213b2ba422b63650f4e83740e034cf29dc83f23970acb82 (byte-identical accepted revision1).
+- Revision2 SHA256: 478fafdcf7d3876f9437137e382d41872f100dad40206a280da7551283e8dd44.
+- Branch / commit: null / null.
+- Commands and results: resolver JSON metadata/hash read exit0; guarded archive/write exit0; exact reverse-diff/static checks PASS exit0; git diff --no-index exit1 expected difference, only header/OpenCV hunks. Full evidence/script in report.
+- Acceptance: AC-P3-01..04 NOT_RUN; installation/native import/pip check/OCR/Linux/resource qualification NOT_RUN by02.
+- Blockers / risks: revision2 focused acceptance+PM activation required before affected installation/model-acquisition resumes. Missing native/runtime proof means UNAVAILABLE; package choice alone cannot guarantee no GUI calls.
+- Requested model / actual: high Sol/high / unverified.
+- Review requested / result: PM01 to activate existing08 focused review of exact revision2 hash; pending.
+- Next owner / next action: PM verifies4artifact hashes and scope,08 independent disposition,PM authorizes baseline adoption only after acceptance.05 may continue unaffected pure matching/geometry under existing claims.

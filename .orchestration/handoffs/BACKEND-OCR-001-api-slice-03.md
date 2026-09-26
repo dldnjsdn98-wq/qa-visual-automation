@@ -1,0 +1,11 @@
+# Handoff
+- Task / owner: `BACKEND-OCR-001` / Backend Engineer 03
+- Status / activation evidence: API regression slice prepared under Phase 3 implementation activation; exact P3-OCR-v1 revision 1 is independently ACCEPTED per `.orchestration/handoffs/PHASE-3-implementation-01.md`.
+- Changed files: `tests/backend/test_ocr_api.py` only.
+- Contract changes: none. Tests target profile listing, run creation/replay/conflict, immutable expected snapshots, history/pagination, scoped 404, result-not-ready 409, missing/empty semantics, validation, headers, and Phase 2 endpoint compatibility.
+- Branch / commit: `null` / `null`; no commit, merge, push, deployment, DB reset, or data deletion.
+- Commands and PASS / FAIL / NOT_RUN: source/contract/style inspection PASS; final direct source review PASS; `.venv\\Scripts\\python.exe -m py_compile` NOT_RUN because the venv launcher targets an unavailable Python installation; pytest collection NOT_RUN for the same environment launcher reason; PostgreSQL/API/engine runtime NOT_RUN.
+- Acceptance IDs and evidence: This is supporting API regression coverage for O01/O03/O04/O15/O18 and Phase 2 O01 compatibility. AC-P3-01..04 remain NOT_RUN; no self-acceptance claimed.
+- Blockers / risks: requires a disposable `AVAILABLE` profile registry entry, completed Backend 0004/service implementation, and a deterministic nonterminal run for 409 assertions. These are reported assumptions, not silently substituted in tests.
+- Review requested / result: review requested from Backend parent/PM after implementation integrates the API and test fixture seams; no independent product acceptance result.
+- Next owner / next action: Backend implementation owner should run this file in the isolated Phase3 PostgreSQL/API environment, resolve actual failures, and include the result in the full implementation evidence. Reviewer08 must assess the complete implementation submission later.

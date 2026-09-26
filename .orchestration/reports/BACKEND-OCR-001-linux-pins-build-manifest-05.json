@@ -1,0 +1,127 @@
+{
+  "task": "BACKEND-OCR-001/P3-RUNTIME-001",
+  "status": "BUILD_AND_METADATA_PASS_NATIVE_HOLD",
+  "artifacts": [
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-pins-build-05.md",
+      "bytes": 6610,
+      "sha256": "8b104413df0ebb606e4fa457978392b8751698621a8bb16383e02c0273834988"
+    },
+    {
+      "path": ".orchestration/handoffs/BACKEND-OCR-001-linux-pins-build-05.md",
+      "bytes": 3226,
+      "sha256": "8cd4c6dbc757b818d73684d5c4d9342c8b9ae9c50370eb64832f7f17c5f72250"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-source-pins-05.json",
+      "bytes": 25270,
+      "sha256": "d92e20493eb42a3d4d2702b17c3d5559c17cad78e31b364387039e649146f2bc"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-source-pins-audit-05.md",
+      "bytes": 4812,
+      "sha256": "1edd8bfd9012e7615f230a0ead3c19cd84b73edeeaf1d3de3880617f4824dd22"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-pins-review-05.md",
+      "bytes": 5459,
+      "sha256": "d009d91ca5c33f55122825b15b86706698a4e575142f7253841583383592e566"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-build-capture-05.py",
+      "bytes": 5732,
+      "sha256": "9a49a694e90f7fd733e46c21d2831f78767cbd3f1a3b49caa6ce26b46521243d"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-build-evidence-review-05.md",
+      "bytes": 3909,
+      "sha256": "fca840cdd784985d33f1c3bd01fd6fb2c5470e06dfab88e2e27b9cf332fd4b6e"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-build-evidence-05/base-inspect-stderr.log",
+      "bytes": 70,
+      "sha256": "909c374f60eb4da23a22bc5c28dc22d0f5c74f58a7be0fdc0186a96d5de140f5"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-build-evidence-05/base-inspect-stdout.log",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-build-evidence-05/build-before.json",
+      "bytes": 31703,
+      "sha256": "aaa7b40af9e5ecbbdbf01c9739f4b9807794896bb8a031644ecdef1f90f2ee2d"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-build-evidence-05/build-result.json",
+      "bytes": 63731,
+      "sha256": "4f2f7e0792b76e24125b3cf6f76808865e5e119e9ba6a4c0bb589b7aeea53b27"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-build-evidence-05/build.log",
+      "bytes": 27922,
+      "sha256": "209762ed893e1be9627c02334f4903b8f46bbebf939b7a85e93f44f020cc540f"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-build-evidence-05/context-manifest.json",
+      "bytes": 36461,
+      "sha256": "a42bb46f1119f200cc5ee9a43363094bdc4c22db51dd8e1a2f13b1f8c96ce120"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-build-evidence-05/context.tar",
+      "bytes": 1628160,
+      "sha256": "36230ae59062c2dde4575dfb1e5230b69a383d7abf1bed08366aa39a71c3a6c9"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-build-evidence-05/image-inspect-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-build-evidence-05/image-inspect-stdout.log",
+      "bytes": 184,
+      "sha256": "b7a38a0fe03e21666d67c0c6864e1fa2c725458d88eca63d0e094867845642ab"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-build-evidence-05/outer-invocation-01.json",
+      "bytes": 938,
+      "sha256": "d4baa6b7410951b53182b5e1471dc0c85fb13fcfb9758ea228d5c4fa7ade7c1c"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-build-evidence-05/parent-context-audit.json",
+      "bytes": 1569,
+      "sha256": "023b64fc536d969880ce9e7681dbad82a29302f42e5f7441686cbd2e44c05cfb"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-build-evidence-05/parent-final-validation.json",
+      "bytes": 694,
+      "sha256": "76fd66482e1a18d27e5d0dd8094ac188c8f53a087116f72704c37bcad899c62b"
+    },
+    {
+      "path": ".orchestration/reports/BACKEND-OCR-001-linux-build-evidence-05/parent-pins-audit.json",
+      "bytes": 442,
+      "sha256": "6948ca409085cb6a5b788c5cb0803ff7c864c255d691691732d6dfff5726bd49"
+    }
+  ],
+  "pins_sha256": "d92e20493eb42a3d4d2702b17c3d5559c17cad78e31b364387039e649146f2bc",
+  "pin_count": 113,
+  "context_count": 139,
+  "review_sha256": "d009d91ca5c33f55122825b15b86706698a4e575142f7253841583383592e566",
+  "image_id": "sha256:a1337c5556ab00f01dac45075f6bbf71ba9198c1b179a83d0210e5879a426d0a",
+  "os": "linux",
+  "architecture": "amd64",
+  "build_attempts": 1,
+  "build_exit_code": 0,
+  "source_unchanged": true,
+  "image_internal_source_verification": "NOT_RUN",
+  "native_container_run": "NOT_RUN",
+  "requested_models": {
+    "evidence": "Terra/high",
+    "independent_review": "Sol/high"
+  },
+  "actual_models": "unverified",
+  "counts": {
+    "windows_same_cause": 3,
+    "separate_cleanup": 2
+  }
+}

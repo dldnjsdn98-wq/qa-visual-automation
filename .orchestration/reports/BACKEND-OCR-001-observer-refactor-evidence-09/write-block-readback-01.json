@@ -1,0 +1,35 @@
+{
+  "sources": [
+    {
+      "path": "backend/app/workers/ocr.py",
+      "exists": true,
+      "bytes": 18199,
+      "sha256": "115cbbf2d685f4d637b2f4a352cb0ba67e064058583b460b48218bf580622a82",
+      "baseline_unchanged": true
+    },
+    {
+      "path": "backend/app/workers/ocr_child_environment.py",
+      "exists": false
+    },
+    {
+      "path": "tests/backend/test_ocr_containment.py",
+      "exists": true,
+      "bytes": 29181,
+      "sha256": "e72c2fb79a9bc3b0c0e08f155b5c78f16173d8e02ecc9f8349f2ecab3674af45",
+      "baseline_unchanged": true
+    },
+    {
+      "path": "tests/backend/test_ocr_child_environment.py",
+      "exists": false
+    },
+    {
+      "path": "backend/app/workers/ocr_containment.py",
+      "exists": true,
+      "bytes": 42692,
+      "sha256": "9a47c3348980b4f5d25afafce5407ed067cd974caff2b60b87d2dc5f8228dbd9",
+      "baseline_unchanged": true
+    }
+  ],
+  "tests": "NOT_RUN",
+  "reason": "new environment module creation denied; no retry or alternate writer"
+}

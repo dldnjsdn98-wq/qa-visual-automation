@@ -1,13 +1,20 @@
 import hashlib
 import io
 import json
-from uuid import uuid4
+import threading
+from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime, timezone
+from uuid import UUID, uuid4
 import pytest
 from PIL import Image
 from sqlalchemy import select, func
 from sqlalchemy.exc import OperationalError
 from sqlalchemy.orm import Session
-from backend.app.models import Screenshot
+from backend.app.models import Screenshot, UploadReceipt
+from backend.app.services import upload_receipts
+from backend.app.services.screenshots import LeaseKeeper
+from backend.app.services.upload_types import AttemptFence, UploadOutcome
+from backend.app.errors import DomainError
 from conftest import created
 
 
@@ -19,6 +26,21 @@ def image_bytes(kind="PNG"):
 
 def metadata(catalog, **extra):
     return dict(build_id=catalog["build"]["id"], locale_id=catalog["locale"]["id"], category_id=catalog["category"]["id"], situation_id=catalog["situation"]["id"], source="manual", **extra)
+
+
+def agent_metadata(catalog, client_upload_id=None, data=None, **extra):
+    data = image_bytes() if data is None else data
+    return dict(
+        upload_protocol_version=1,
+        client_upload_id=str(client_upload_id or uuid4()),
+        build_id=catalog["build"]["id"],
+        locale_id=catalog["locale"]["id"],
+        category_id=catalog["category"]["id"],
+        situation_id=catalog["situation"]["id"],
+        source="agent",
+        expected_file_hash=hashlib.sha256(data).hexdigest(),
+        **extra,
+    )
 
 
 def upload(client, catalog, values=None, data=None, filename="tutorial.png", mime="image/png"):
@@ -129,6 +151,73 @@ def test_storage_failure_and_missing_content(client, catalog, monkeypatch):
     assert client.get(response.headers["location"]).status_code == 200
 
 
+@pytest.mark.parametrize(
+    "mutation,expected_status",
+    [
+        ("normal", 200),
+        ("missing", 503),
+        ("length-changed", 503),
+        ("same-length-changed", 503),
+    ],
+)
+def test_content_read_verifies_returned_bytes_and_preserves_state(
+    client, catalog, monkeypatch, mutation, expected_status
+):
+    data = image_bytes()
+    values = agent_metadata(catalog, data=data)
+    uploaded = upload(client, catalog, values, data)
+    assert uploaded.status_code == 201, uploaded.text
+
+    stored = client.storage.list_objects()[0]
+    object_path = client.storage.root / stored.key
+    expected_object = data
+    if mutation == "missing":
+        object_path.unlink()
+        expected_object = None
+    elif mutation == "length-changed":
+        expected_object = data + b"x"
+        object_path.write_bytes(expected_object)
+    elif mutation == "same-length-changed":
+        changed = bytearray(data)
+        changed[-1] ^= 1
+        expected_object = bytes(changed)
+        object_path.write_bytes(expected_object)
+
+    open_calls = 0
+    original_open_read = client.storage.open_read
+
+    def counted_open_read(key):
+        nonlocal open_calls
+        open_calls += 1
+        return original_open_read(key)
+
+    monkeypatch.setattr(client.storage, "open_read", counted_open_read)
+    response = client.get(uploaded.json()["content_url"])
+    assert response.status_code == expected_status, response.text
+    assert open_calls == 1
+    if expected_status == 200:
+        assert response.content == data
+    else:
+        assert response.json()["error"]["code"] == "STORAGE_UNAVAILABLE"
+
+    screenshot_id = UUID(uploaded.json()["id"])
+    project_id = UUID(catalog["project"]["id"])
+    client_upload_id = UUID(values["client_upload_id"])
+    with client.factory() as session:
+        screenshot = session.get(Screenshot, screenshot_id)
+        receipt = session.get(UploadReceipt, (project_id, client_upload_id))
+        assert screenshot is not None
+        assert screenshot.file_hash == hashlib.sha256(data).hexdigest()
+        assert receipt is not None
+        assert receipt.state == "COMPLETED"
+        assert receipt.screenshot_id == screenshot_id
+
+    if expected_object is None:
+        assert not object_path.exists()
+    else:
+        assert object_path.read_bytes() == expected_object
+
+
 def test_known_rollback_compensates(client, catalog, monkeypatch):
     def fail(*args):
         raise OperationalError("injected insert failure", {}, Exception())
@@ -149,3 +238,140 @@ def test_ambiguous_commit_never_deletes(client, catalog, monkeypatch, actually_c
     response = upload(client, catalog)
     assert response.status_code == (201 if actually_committed else 503), response.text
     assert len(client.storage.list_objects()) == 1
+
+
+def test_agent_first_replay_conflict_and_hash_non_dedup(client, catalog):
+    data = image_bytes()
+    upload_id = uuid4()
+    values = agent_metadata(
+        catalog,
+        upload_id,
+        data,
+        metadata={"device": "에이전트 😀", "note": "e\u0301"},
+    )
+
+    first = upload(client, catalog, values, data)
+    assert first.status_code == 201, first.text
+    assert first.headers["idempotency-replayed"] == "false"
+    assert first.json()["client_upload_id"] == str(upload_id)
+    assert first.json()["source"] == "agent"
+
+    replay = upload(client, catalog, values, data)
+    assert replay.status_code == 200, replay.text
+    assert replay.headers["idempotency-replayed"] == "true"
+    assert replay.headers["location"] == first.headers["location"]
+    assert replay.json() == first.json()
+
+    conflict_values = dict(values, metadata={"device": "changed"})
+    conflict = upload(client, catalog, conflict_values, data)
+    assert conflict.status_code == 409, conflict.text
+    assert conflict.json()["error"]["code"] == "IDEMPOTENCY_CONFLICT"
+    assert "retry-after" not in conflict.headers
+
+    distinct = upload(client, catalog, agent_metadata(catalog, data=data), data)
+    assert distinct.status_code == 201, distinct.text
+    assert distinct.json()["id"] != first.json()["id"]
+    assert distinct.json()["file_hash"] == first.json()["file_hash"]
+
+    with client.factory() as session:
+        project_id = catalog["project"]["id"]
+        assert session.scalar(select(func.count()).select_from(Screenshot).where(Screenshot.project_id == project_id)) == 2
+        assert session.scalar(select(func.count()).select_from(UploadReceipt).where(UploadReceipt.project_id == project_id)) == 2
+    assert len(client.storage.list_objects()) == 2
+
+
+def test_agent_hash_assertion_and_duplicate_keys_never_reserve(client, catalog):
+    values = agent_metadata(catalog)
+    values["expected_file_hash"] = "0" * 64
+    mismatch = upload(client, catalog, values)
+    assert mismatch.status_code == 422, mismatch.text
+
+    raw = json.dumps(agent_metadata(catalog), ensure_ascii=False)
+    raw = raw.replace('"metadata_version": 1,', '') if '"metadata_version": 1,' in raw else raw
+    raw = raw[:-1] + ',"metadata":{"a":1,"a":2}}'
+    duplicate = raw_upload(client, catalog, raw_metadata=raw.encode("utf-8"))
+    assert duplicate.status_code == 422, duplicate.text
+
+    with client.factory() as session:
+        project_id = catalog["project"]["id"]
+        assert session.scalar(select(func.count()).select_from(Screenshot).where(Screenshot.project_id == project_id)) == 0
+        assert session.scalar(select(func.count()).select_from(UploadReceipt).where(UploadReceipt.project_id == project_id)) == 0
+    assert client.storage.list_objects() == []
+
+
+def test_lease_keeper_resolves_fenced_owner_from_fresh_receipt(monkeypatch):
+    called = threading.Event()
+    fence = AttemptFence(
+        uuid4(), uuid4(), "a" * 64, 1, uuid4(), uuid4(),
+        f"objects/{uuid4()}/{uuid4()}.png",
+        datetime.now(timezone.utc),
+    )
+    replay = UploadOutcome({"id": str(uuid4())}, 200, True)
+
+    def lost(*args, **kwargs):
+        called.set()
+        return False
+
+    monkeypatch.setattr(upload_receipts, "RENEW_INTERVAL_SECONDS", 0.01)
+    monkeypatch.setattr(upload_receipts, "renew_attempt", lost)
+    monkeypatch.setattr(upload_receipts, "recover_finalize_commit", lambda *args: replay)
+    keeper = LeaseKeeper(object(), fence, object(), object())
+    keeper.start()
+    assert called.wait(1)
+    assert keeper.stop_and_join() is replay
+
+
+def test_lease_keeper_propagates_fresh_lease_delay(monkeypatch):
+    called = threading.Event()
+    fence = AttemptFence(
+        uuid4(), uuid4(), "a" * 64, 1, uuid4(), uuid4(),
+        f"objects/{uuid4()}/{uuid4()}.png",
+        datetime.now(timezone.utc),
+    )
+
+    def lost(*args, **kwargs):
+        called.set()
+        return False
+
+    def busy(*args):
+        raise DomainError(409, "UPLOAD_IN_PROGRESS", "Upload in progress", retry_after=7)
+
+    monkeypatch.setattr(upload_receipts, "RENEW_INTERVAL_SECONDS", 0.01)
+    monkeypatch.setattr(upload_receipts, "renew_attempt", lost)
+    monkeypatch.setattr(upload_receipts, "recover_finalize_commit", busy)
+    keeper = LeaseKeeper(object(), fence, object(), object())
+    keeper.start()
+    assert called.wait(1)
+    with pytest.raises(DomainError) as caught:
+        keeper.stop_and_join()
+    assert caught.value.code == "UPLOAD_IN_PROGRESS"
+    assert caught.value.retry_after == 7
+
+
+def test_concurrent_agent_request_has_one_owner_and_lease_delay(client, catalog, monkeypatch):
+    data = image_bytes()
+    values = agent_metadata(catalog, data=data)
+    entered = threading.Event()
+    release = threading.Event()
+    original_publish = client.storage.publish
+
+    def blocked_publish(*args, **kwargs):
+        entered.set()
+        assert release.wait(3)
+        return original_publish(*args, **kwargs)
+
+    monkeypatch.setattr(client.storage, "publish", blocked_publish)
+    with ThreadPoolExecutor(max_workers=1) as pool:
+        owner = pool.submit(upload, client, catalog, values, data)
+        assert entered.wait(3)
+        competitor = upload(client, catalog, values, data)
+        assert competitor.status_code == 409, competitor.text
+        assert competitor.json()["error"]["code"] == "UPLOAD_IN_PROGRESS"
+        assert int(competitor.headers["retry-after"]) > 0
+        release.set()
+        first = owner.result(timeout=3)
+
+    assert first.status_code == 201, first.text
+    replay = upload(client, catalog, values, data)
+    assert replay.status_code == 200, replay.text
+    assert replay.json()["id"] == first.json()["id"]

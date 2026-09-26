@@ -1,0 +1,9 @@
+{
+  "database": "qa_backend_parent_oom_e4e8e72dbfe64ae29609ac2f3ce76a63",
+  "database_oid": 145836,
+  "ended_utc": "2026-09-25T14:57:17.903050+00:00",
+  "nonce": "e4e8e72dbfe64ae29609ac2f3ce76a63",
+  "owner": "BACKEND-OCR-001-native-diagnostic-parent-oom-03",
+  "removed": true,
+  "schema_version": 1
+}

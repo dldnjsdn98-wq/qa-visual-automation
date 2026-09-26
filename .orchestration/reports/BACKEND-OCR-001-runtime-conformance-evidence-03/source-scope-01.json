@@ -1,0 +1,29 @@
+{
+  "kind": "source-scope-check",
+  "source_count": 103,
+  "manifest_sha256": "73bcf6e6e9eee2069a84ffeb2b20a6902f47187794563e0a72d3aa6259f25e12",
+  "baseline_sha256": "c545572230051f07db131403e46793d900639e55e274603af9128eb8485d8214",
+  "changed_existing": [
+    "backend/README.md",
+    "backend/app/services/verification_jobs.py",
+    "backend/app/services/verification_runs.py",
+    "backend/app/workers/ocr.py",
+    "tests/backend/test_ocr_api.py",
+    "tests/backend/test_ocr_runner.py",
+    "tests/backend/test_ocr_runtime_integration.py"
+  ],
+  "added": [
+    "backend/app/workers/ocr_admission.py",
+    "backend/app/workers/ocr_containment.py",
+    "backend/app/workers/ocr_runtime.py",
+    "backend/app/workers/ocr_source.py",
+    "tests/backend/test_ocr_admission.py",
+    "tests/backend/test_ocr_containment.py",
+    "tests/backend/test_ocr_runtime_db.py",
+    "tests/backend/test_ocr_source_read.py"
+  ],
+  "removed": [],
+  "changed_after_freeze": [],
+  "outside_claims": [],
+  "valid": true
+}

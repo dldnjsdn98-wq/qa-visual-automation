@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:qa-visual-automation:ocr:source-facts:v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["source_sha256", "size", "width", "height", "mime_type", "locale_code", "ocr_language"],
+  "properties": {
+    "source_sha256": {"$ref": "#/$defs/sha256"},
+    "size": {"type": "integer", "minimum": 1, "maximum": 20971520},
+    "width": {"type": "integer", "minimum": 1, "maximum": 16384},
+    "height": {"type": "integer", "minimum": 1, "maximum": 16384},
+    "mime_type": {"type": "string", "minLength": 1},
+    "locale_code": {"type": "string", "minLength": 1},
+    "ocr_language": {"type": "string", "enum": ["en", "ko", "ja", "zh-Hans", "zh-Hant"]}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

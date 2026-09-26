@@ -1,0 +1,9 @@
+{
+  "candidate_sha256": "e669d74fc1f683ad57cf3792860910f65198cbed3f6d0dee91232c36e36d082c",
+  "original_sha256": "d0a8e756cdd4cafc394d12a68e527632365aeaf43f6d9ca8cc063763db21d7fd",
+  "pins_sha256": "d92e20493eb42a3d4d2702b17c3d5559c17cad78e31b364387039e649146f2bc",
+  "host_raw_lf_matches": 113,
+  "fresh_output_absent": true,
+  "activation_sha256_at_read": "89792a2ac2440587a4ddc557fdf2347cd32ef9fa66396a49d897f7a7ec9e3ed8",
+  "native": "NOT_RUN"
+}
